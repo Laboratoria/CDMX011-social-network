@@ -84,14 +84,6 @@ Reflexiona y luego marca los objetivos que has llegado a entender y aplicar en t
   * [Flexbox - MDN](https://developer.mozilla.org/en-US/docs/Learn/CSS/CSS_layout/Flexbox)
 </p></details>
 
-- [ ] **Uso de CSS Grid Layout**
-
-  <details><summary>Links</summary><p>
-
-  * [A Complete Guide to Grid - CSS Tricks](https://css-tricks.com/snippets/css/complete-guide-grid/)
-  * [Grids - MDN](https://developer.mozilla.org/en-US/docs/Learn/CSS/CSS_layout/Grids)
-</p></details>
-
 ### Web APIs
 
 - [ ] **Uso de selectores del DOM**
@@ -240,26 +232,17 @@ Reflexiona y luego marca los objetivos que has llegado a entender y aplicar en t
   * [How to Write a JavaScript Promise - freecodecamp (en inglés)](https://www.freecodecamp.org/news/how-to-write-a-javascript-promise-4ed8d44292b8/)
 </p></details>
 
-### Control de Versiones (Git y GitHub)
+### Git y Github
 
-- [ ] **Git: Instalación y configuración**
-
-- [ ] **Git: Control de versiones con git (init, clone, add, commit, status, push, pull, remote)**
-
-- [ ] **Git: Integración de cambios entre ramas (branch, checkout, fetch, merge, reset, rebase, tag)**
-
-- [ ] **GitHub: Creación de cuenta y repos, configuración de llaves SSH**
-
-- [ ] **GitHub: Despliegue con GitHub Pages**
+- [ ] **Uso de comandos de git (add | commit | pull | status | push)**
+- [ ] **Manejo de repositorios de GitHub (clone | fork | gh-pages)**
+- [ ] **Colaboración en Github (branches | pull requests | |tags)**
+- [ ] **Organización en Github (projects | issues | labels | milestones)**
 
   <details><summary>Links</summary><p>
 
   * [Sitio oficial de GitHub Pages](https://pages.github.com/)
 </p></details>
-
-- [ ] **GitHub: Colaboración en Github (branches | forks | pull requests | code review | tags)**
-
-- [ ] **GitHub: Organización en Github (projects | issues | labels | milestones | releases)**
 
 ### UX (User eXperience)
 
