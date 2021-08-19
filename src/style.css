@@ -1,0 +1,69 @@
+body{
+   background-color: black;
+   overscroll-behavior-y: contain;
+   grid-template-rows: 1fr 100px;
+}
+
+@media (max-width: 540px){
+body{
+    --post-padding: 10px;
+    --post-header-vertical-padding: 10px;}
+}
+#title-header{
+    color: white;
+}
+.main-container{
+    height: calc(100vh - 44px);
+}
+
+.grid-art{
+    display: grid;
+    grid-template-columns: repeat(auto-fill,minmax(50%,1fr));
+    height: calc(100vh - 44px);
+    width: 100vw;
+    
+}
+.grid-art::after {
+    bottom: 0;
+    content: "";
+    left: 0;
+    opacity: .5;
+   
+    position: absolute;
+    right: 0;
+    top: 0;
+}
+.grid-art .im1{
+    background-size: cover;
+    opacity: 1;
+    position: relative;
+}
+
+
+.imgaside, .imgaside .imgcontainer{
+    height: 100%;
+    width: 100%;
+}
+
+.imgaside{
+    opacity: 1;
+    position: absolute;
+}
+.imgaside .imgcontainer{
+    object-fit: cover;
+}
+
+
+
+.imgaside::after {
+    background-image: radial-gradient(circle at center,rgba(0,0,0,.6) 0,transparent 1440px);
+    background-size: cover;
+    bottom: 0;
+    content: "";
+    left: 0;
+    opacity: .6;
+    right: 0;
+    top: 0;
+}
+/* :root{
+} */
