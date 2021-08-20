@@ -1,10 +1,29 @@
 // Este es el punto de entrada de tu aplicacion
 
-import { myFunction, email, password } from './lib/index.js';
+import { toViewHome } from './components/Home.js';
+import { toViewSingUp } from './components/singUp.js';
 
-myFunction();
-auth
-.createUserWithEmailAndPassword(email, password)
-.then(userCredential=>{
-  register.reset();
-})
+const rootDiv = document.getElementById('root');
+
+export const routes = {
+  '/': toViewHome,
+  '/singUp': toViewSingUp,
+};
+console.log(routes);
+
+// const component = routes[window.location.pathname];
+// rootDiv.innerHTML(component());
+
+export const onNavigate = (pathname) => {
+  
+  window.history.pushState(
+    {},
+    pathname,
+    window.location.origin + pathname
+  );
+  const component = routes[pathname]
+  component(rootDiv);
+};
+
+// aqui tu codigo
+// console.log('Hola mundo!');
