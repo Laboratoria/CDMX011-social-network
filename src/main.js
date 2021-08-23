@@ -14,12 +14,11 @@ ViewFunction(rootDiv);
 //   '/singUp': toViewSingUp,
 // };
 
-
 // //rootDiv.innerHTML = routes[window.location.pathname];
 // //rootDiv.innerHTML(component());
 
 // export const onNavigate = (pathname) => {
-  
+
 //   window.history.pushState(
 //     {},
 //     pathname,

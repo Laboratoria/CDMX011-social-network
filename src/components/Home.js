@@ -15,8 +15,8 @@ import { onNavigate } from '../routes.js';
 // toViewHome();
 
 export const toViewHome = (container) => {
-  console.log("estoy en home");
-  const html = `
+    console.log("estoy en home");
+    const html = `
     <section class="container">
         <img class="logo" src="img/PIC&ART.png" alt="logo">
         <p>Share your ideas in the largest art community. Get inspired with different styles and genres around your country.
@@ -27,11 +27,11 @@ export const toViewHome = (container) => {
         <input type="button" class="btn_log google" value="Continue with Google" />
     </section>`;
 
-  container.innerHTML = html
-  const toCreate = document.getElementById("toCreate") 
-  toCreate.addEventListener('click', (e) => {
-    
-   e.preventDefault();
-   onNavigate('/signUp');
-  });
+    container.innerHTML = html
+    const toCreate = document.getElementById("toCreate")
+    toCreate.addEventListener('click', (e) => {
+
+        e.preventDefault();
+        onNavigate('/signUp');
+    });
 };
