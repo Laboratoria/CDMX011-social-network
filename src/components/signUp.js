@@ -1,7 +1,7 @@
 import { onNavigate } from '../routes.js';
 
 export const toViewSignUp = (container) => {
-  
+  console.log("Estoy en signUp")
   const html = ` <section class="container signup-form">
     <img class="logo" src="img/PIC&ART.png" alt="logo">
     <form id="submitForm">
@@ -16,7 +16,7 @@ export const toViewSignUp = (container) => {
         <input type="button" class="btn_log google" value="Continue with Google" />
     </form>
 </section>`;
-  container.innerHtml = html;
+container.innerHTML = html
 
   // const singUpform = document.querySelector('#submitForm');
   // singUpform.addEventListener('submit', (e) => {
