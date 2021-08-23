@@ -25,5 +25,5 @@ export const onNavigate = (pathname) => {
 
 window.onpopstate = () => {
   const component = routes[window.location.pathname]
-  component(rootDiv)
+  component(rootDiv);
 }
