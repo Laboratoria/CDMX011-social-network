@@ -2,7 +2,7 @@ body {
     align-items: center;
     justify-content: center;
     background-color: #fff;
-    background: url("./img/2.jpg");
+    /*background: url("./img/2.jpg");*/
     background-size: cover;
     background-position: center;
     color: #000;
