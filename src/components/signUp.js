@@ -1,6 +1,7 @@
-import { onNavigate } from '../main.js';
+import { onNavigate } from '../routes.js';
 
-export const toViewSingUp = (container) => {
+export const toViewSignUp = (container) => {
+  console.log("Estoy en signUp")
   const html = ` <section class="container signup-form">
     <img class="logo" src="img/PIC&ART.png" alt="logo">
     <form id="submitForm">
@@ -15,18 +16,19 @@ export const toViewSingUp = (container) => {
         <input type="button" class="btn_log google" value="Continue with Google" />
     </form>
 </section>`;
-  container.innerHtml = html;
-  const singUpform = document.querySelector('#submitForm');
-  singUpform.addEventListener('submit', (e) => {
-    const email = document.querySelector('#singUpEmail').value;
-    const password = document.querySelector('#singUpPassword').value;
+container.innerHTML = html
 
-    e.preventDefault();
-    console.log('estoy evitando el reset');
-    console.log(email + password);
+  // const singUpform = document.querySelector('#submitForm');
+  // singUpform.addEventListener('submit', (e) => {
+  //   const email = document.querySelector('#singUpEmail').value;
+  //   const password = document.querySelector('#singUpPassword').value;
 
-    register(email, password);
+  //   e.preventDefault();
+  //   console.log('estoy evitando el reset');
+  //   console.log(email + password);
 
-    singUpform.reset();
-  });
+  //   register(email, password);
+
+  //   singUpform.reset();
+  // });
 };

@@ -1,28 +1,40 @@
-// Este es el punto de entrada de tu aplicacion
-
-import { toViewHome } from './components/Home.js';
-import { toViewSingUp } from './components/singUp.js';
+import { routes } from "./routes.js";
 
 const rootDiv = document.getElementById('root');
+const ViewFunction = routes[window.location.pathname];
+ViewFunction(rootDiv);
 
-export const routes = {
-    '/': toViewHome,
-    '/singUp': toViewSingUp,
-};
-//console.log(routes);
+// import { toViewHome } from './components/Home.js';
+// import { toViewSingUp } from './components/singUp.js';
 
-rootDiv.innerHTML(component()); = routes[window.location.pathname];
-// rootDiv.innerHTML(component());
+// const rootDiv = document.getElementById('root');
 
-export const onNavigate = (pathname) => {
+// export const routes = {
+//   '/': toViewHome,
+//   '/singUp': toViewSingUp,
+// };
 
-    window.history.pushState({},
-        pathname,
-        window.location.origin + pathname
-    );
-    // const component = routes[pathname]
-    // component(rootDiv);
-};
 
-// aqui tu codigo
-// console.log('Hola mundo!');
+// //rootDiv.innerHTML = routes[window.location.pathname];
+// //rootDiv.innerHTML(component());
+
+// export const onNavigate = (pathname) => {
+
+//   window.history.pushState(
+//     {},
+//     pathname,
+//     window.location.origin + pathname
+//   );
+//   const component = routes[pathname]
+//   component(rootDiv);
+// };
+
+// window.onpopstate = () => {
+//   const component = routes[window.location.pathname];
+//   component(rootDiv);
+// };
+
+// // aqui tu codigo
+// // console.log('Hola mundo!');
+// let currentPathname = window.location.pathname;
+// onNavigate(currentPathname);
