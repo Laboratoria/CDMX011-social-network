@@ -1,4 +1,4 @@
-import { toViewSignUp } from '../components/signUp.js';
+//import { toViewSignUp } from '../components/signUp.js';
 // Your web app's Firebase configuration
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
 const firebaseConfig = {
@@ -20,7 +20,7 @@ export const register = (singUpEmail, singUpPassword) => {
         .then((userCredential) => {
             console.log(userCredential);
             //register.reset();
-            singUpform.querySelector(".error").innerHTML = "";
+            //singUpform.querySelector(".error").innerHTML = "";
         })
         .catch((error) => {
             //singUpform.querySelector(".error").innerHTML = error.message;
