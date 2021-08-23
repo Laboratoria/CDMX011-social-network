@@ -24,12 +24,3 @@ export const onNavigate = (pathname) => {
     };
     rootDiv.appendChild(routes[pathname]());
 };
-
-// component(rootDiv);
-// //console.log(routes);
-
-// rootDiv.innerHTML(component()); = routes[window.location.pathname];
-// // rootDiv.innerHTML(component());
-
-// aqui tu codigo
-// console.log('Hola mundo!');
