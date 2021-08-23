@@ -14,7 +14,6 @@ ViewFunction(rootDiv);
 //   '/singUp': toViewSingUp,
 // };
 
-
 // //rootDiv.innerHTML = routes[window.location.pathname];
 // //rootDiv.innerHTML(component());
 
