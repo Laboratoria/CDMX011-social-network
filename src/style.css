@@ -55,9 +55,17 @@ input {
 }
 
 #viewPass {
+    position: static;
+    margin: -7px 2px;
     height: 20px;
     width: 20px;
+    padding: 2px 3px;
+    border-radius: 8px; 
 }
+#logInPassword, #singUpPassword {
+    width: 176px;
+}
+
 
 .logo {
     position: relative;
@@ -97,6 +105,7 @@ input {
 }
 
 .signup {
+    margin-top: 15px;
     border: 3px solid rgb(35, 153, 45);
 }
 
