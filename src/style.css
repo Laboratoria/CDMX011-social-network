@@ -45,14 +45,19 @@ p2 {
     text-align: center;
 }
 
-
-/* p2::before {
-    line-height: 20px;
+input {
+    background-color: rgb(204, 202, 202);
+    color: black;
+    border-radius: 10px;
+    height: 20px;
+    width: 210px;
+    padding-left: 10px;
 }
 
-p2::after {
-    content: " ————— ";
-} */
+#viewPass {
+    height: 20px;
+    width: 20px;
+}
 
 .logo {
     position: relative;
@@ -60,13 +65,13 @@ p2::after {
     height: 25%;
 }
 
-.container .return{
+.container .return {
     float: left;
     display: flex;
     height: 25px;
     align-items: flex-end;
-
 }
+
 
 /*BOTONES*/
 
