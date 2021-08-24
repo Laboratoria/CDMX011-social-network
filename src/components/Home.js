@@ -21,7 +21,7 @@ export const toViewHome = (container) => {
         <img class="logo" src="img/PIC&ART.png" alt="logo">
         <p>Share your ideas in the largest art community. Get inspired with different styles and genres around your country.
         </p>
-        <input type="button" class="btn_log login" value="LOG IN" />
+        <input type="button" class="btn_log login" value="LOG IN" id="toLogIn" />
         <input type="button" class="btn_log signup" value="SIGN UP" id="toCreate" />
         <p2>or</p2>
         <input type="button" class="btn_log google" value="Continue with Google" />
@@ -33,5 +33,11 @@ export const toViewHome = (container) => {
 
         e.preventDefault();
         onNavigate('/signUp');
+    });
+    const toLogIn = document.getElementById("toLogIn")
+    toLogIn.addEventListener('click', (e) => {
+
+        e.preventDefault();
+        onNavigate('/LogIn');
     });
 };
