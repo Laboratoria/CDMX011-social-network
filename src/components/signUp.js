@@ -8,10 +8,11 @@ export const toViewSignUp = (container) => {
     <form id="submitForm">
         <label value="username">User name</label><br>
         <input  type="text" placeholder="User name" /><br>
-        <label value="email">E-mail</label><br>
-        <input id="singUpEmail" type="text" placeholder="e-mail" /><br>
-        <label value="password">Password</label><br>
-        <input id="singUpPassword" type="password" placeholder="Password" />
+        <label value="email">E-mail*</label><br>
+        <input id="singUpEmail" type="text" placeholder="e-mail" required/><br>
+        <label value="password">Password*</label><br>
+        <input id="singUpPassword" type="password" placeholder="Password" required/>
+        <input id="viewPass" type="button" value="View">
         <p class="error red-text center-align"></p>
         <input type="submit" class="btn_log signup" value="SIGN UP" /><br>
         <p2>or </p2><br>
@@ -21,6 +22,12 @@ export const toViewSignUp = (container) => {
     <a href="javascript:history.back();"> <img class="return" src="img/return.png" alt="logo" ></a>
 </section>`;
     container.innerHTML = html
+
+    document.getElementById("viewPass").addEventListener("click", (e) => {
+        e.preventDefault();
+        const inputType = document.getElementById("singUpPassword");
+        inputType.type == "password" ? inputType.type = "text" : inputType.type = "password"
+    });
 
     const singUpform = document.querySelector('#submitForm');
     singUpform.addEventListener('submit', (e) => {
@@ -34,7 +41,5 @@ export const toViewSignUp = (container) => {
         register(email, password);
 
         singUpform.reset();
-
-        //singUpform.querySelector(".error").innerHTML = register.catch;
     });
 };

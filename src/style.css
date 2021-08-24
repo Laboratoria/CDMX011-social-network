@@ -54,6 +54,11 @@ input {
     padding-left: 10px;
 }
 
+#viewPass {
+    height: 20px;
+    width: 20px;
+}
+
 .logo {
     position: relative;
     align-self: center;

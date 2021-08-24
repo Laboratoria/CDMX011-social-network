@@ -20,13 +20,12 @@ export const register = (singUpEmail, singUpPassword) => {
         .then((userCredential) => {
             console.log(userCredential);
             //register.reset();
-            //singUpform.querySelector(".error").innerHTML = "";
+
         })
         .catch((error) => {
-            //singUpform.querySelector(".error").innerHTML = error.message;
-            //let errorMessage = alert(error.message);
-            //let errorCode = error.code;
-            console.log(error.message);
+            let errorMessage = alert("opps! " + error.message);
+            let errorCode = error.code;
+            //console.log(error.message);
         });
 };
 // export const register = document.querySelector("#submitForm");
