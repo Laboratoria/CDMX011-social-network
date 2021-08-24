@@ -11,9 +11,9 @@ export const toViewSignUp = (container) => {
         <label value="email">E-mail</label><br>
         <input id="singUpEmail" type="text" placeholder="e-mail" /><br>
         <label value="password">Password</label><br>
-        <input id="singUpPassword" type="password" placeholder="Password" /><br>
+        <input id="singUpPassword" type="password" placeholder="Password" />
         <p class="error red-text center-align"></p>
-        <br><input type="submit" class="btn_log signup" value="SIGN UP" /><br>
+        <input type="submit" class="btn_log signup" value="SIGN UP" /><br>
         <p2>or </p2><br>
         <input type="button" class="btn_log google" value="Continue with Google" />
        
@@ -21,7 +21,7 @@ export const toViewSignUp = (container) => {
     <a href="javascript:history.back();"> <img class="return" src="img/return.png" alt="logo" ></a>
 </section>`;
     container.innerHTML = html
-  
+
     const singUpform = document.querySelector('#submitForm');
     singUpform.addEventListener('submit', (e) => {
         const email = document.querySelector('#singUpEmail').value;
