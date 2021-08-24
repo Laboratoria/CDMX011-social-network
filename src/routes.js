@@ -1,5 +1,6 @@
 import { toViewHome } from './components/Home.js';
 import { toViewSignUp } from './components/signUp.js';
+import { toViewLogIn} from './components/LogIn.js';
 
 
 const rootDiv = document.getElementById('root');
@@ -7,6 +8,7 @@ const rootDiv = document.getElementById('root');
 export const routes = {
   '/': toViewHome,
   '/signUp': toViewSignUp,
+  '/LogIn': toViewLogIn,
 };
 
 //rootDiv.innerHTML = routes[window.location.pathname];
