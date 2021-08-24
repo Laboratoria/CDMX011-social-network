@@ -1,4 +1,3 @@
-//import { toViewSignUp } from '../components/signUp.js';
 // Your web app's Firebase configuration
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
 const firebaseConfig = {
@@ -15,6 +14,8 @@ firebase.initializeApp(firebaseConfig);
 firebase.analytics();
 const auth = firebase.auth();
 
+//Firebase register
+
 export const register = (singUpEmail, singUpPassword) => {
     auth.createUserWithEmailAndPassword(singUpEmail, singUpPassword)
         .then((userCredential) => {
@@ -24,23 +25,27 @@ export const register = (singUpEmail, singUpPassword) => {
         })
         .catch((error) => {
             //singUpform.querySelector(".error").innerHTML = error.message;
-            //let errorMessage = alert(error.message);
+            let errorMessage = alert("opps! " + error.message);
+            ;
             //let errorCode = error.code;
             console.log(error.message);
         });
 };
-// export const register = document.querySelector("#submitForm");
-// register.addEventListener('submit', (e) => {
-//     const email = document.querySelector("#singUpEmail").value;
-//     const password = document.querySelector("#singUpPassword").value;
 
-//     e.preventDefault();
-//     console.log('estoy evitando el reset');
-//     console.log(email + password);
-//     auth
-//         .createUserWithEmailAndPassword(email, password)
-//         .then(userCredential => {
-//             register.reset();
-//         });
+// Firebase login
 
-// });
+export const logIn = (logInEmail, logInPassword) => {
+  auth.signInWithEmailAndPassword(logInEmail, logInPassword)
+      .then((userCredential) => {
+          console.log(userCredential);
+          console.log("signIn");
+          //register.reset();
+          //singUpform.querySelector(".error").innerHTML = "";
+      })
+      .catch((error) => {
+          let errorMessage = alert("opps! " + error.message);;
+
+          //let errorCode = error.code;
+          console.log(`opss!!, ${error.message}`);
+      });
+};
