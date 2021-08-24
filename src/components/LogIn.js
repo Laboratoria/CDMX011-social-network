@@ -10,10 +10,10 @@ export const toViewLogIn = (container) => {
         <br><label value="email">E-mail</label><br>
         <input id="logInEmail" type="text" placeholder="e-mail" required/><br>
         <label value="password">Password</label><br>
-        <input id="logInPassword" type="password" placeholder="Password" required/>
-        <input src="../img/pngegg.png" id="viewPass" type="image"/>
+        <input id="logInPassword" type="password" placeholder="Password" required />
+        <input src="../img/pngegg.png" id="viewPass" type="image" />
         <input type="submit" class="btn_log signup" value="LOG IN" /><br>
-        <p2>or </p2><br>
+        <p2>or</p2><br>
         <input type="button" class="btn_log google" value="Continue with Google" />
         <br>
     </form>
