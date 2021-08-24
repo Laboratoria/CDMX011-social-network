@@ -1,5 +1,7 @@
+import { logIn } from '../lib/fireBase.js'
 export { onNavigate }
 from '../routes.js';
+
 
 export const toViewLogIn = (container) => {
     console.log("Estoy en LogIn");
@@ -19,6 +21,7 @@ export const toViewLogIn = (container) => {
     
     <a href="javascript:history.back();"> <img class="return" src="img/return.png" alt="logo"   ></a>
 </section>`;
+
     container.innerHTML = html
 
     document.getElementById("viewPass").addEventListener("click", (e) => {
@@ -27,5 +30,21 @@ export const toViewLogIn = (container) => {
         inputType.type == "password" ? inputType.type = "text" : inputType.type = "password"
     });
 
+
+    const logInForm = document.querySelector('#logInForm');
+    logInForm.addEventListener('submit', (e) => {
+        const email = document.querySelector('#logInEmail').value;
+        const password = document.querySelector('#logInPassword').value;
+
+        e.preventDefault();
+        console.log('estoy evitando el reset');
+        console.log(email, password);
+
+        logIn(email, password);
+
+        logInForm.reset();
+
+        //singUpform.querySelector(".error").innerHTML = register.catch;
+    });
 
 };
