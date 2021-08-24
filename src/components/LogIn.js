@@ -1,4 +1,5 @@
 import { logIn } from '../lib/fireBase.js'
+import { onNavigate } from '../routes.js';
 export {onNavigate} from '../routes.js';
 
 
@@ -24,20 +25,23 @@ export const toViewLogIn = (container) => {
     container.innerHTML = html
     const logInForm = document.querySelector('#logInForm');
     logInForm.addEventListener('submit', (e) => {
+        e.preventDefault()
         const email = document.querySelector('#logInEmail').value;
         const password = document.querySelector('#logInPassword').value;
-
-        e.preventDefault();
-        
-        console.log('estoy evitando el reset');
-        console.log(email, password);
-
         logIn(email, password);
+    })
+    document.getElementById("logInForm").addEventListener('submit', (e) =>{
+        e.preventDefault()
+        onNavigate('/')
+    })
+
+    
+        
 
         
-        //onNavigate('/Home');
+
+        //logInForm.reset();
 
         //singUpform.querySelector(".error").innerHTML = register.catch;
-    });
     
-};
+}
