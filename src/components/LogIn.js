@@ -28,12 +28,14 @@ export const toViewLogIn = (container) => {
         const password = document.querySelector('#logInPassword').value;
 
         e.preventDefault();
+        
         console.log('estoy evitando el reset');
         console.log(email, password);
 
         logIn(email, password);
 
-        logInForm.reset();
+        
+        //onNavigate('/Home');
 
         //singUpform.querySelector(".error").innerHTML = register.catch;
     });
