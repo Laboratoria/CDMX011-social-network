@@ -11,8 +11,6 @@ export const routes = {
   '/LogIn': toViewLogIn,
 };
 
-//rootDiv.innerHTML = routes[window.location.pathname];
-//rootDiv.innerHTML(component());
 
 export const onNavigate = (pathname) => {
   

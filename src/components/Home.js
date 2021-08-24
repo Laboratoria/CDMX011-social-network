@@ -1,18 +1,4 @@
 import { onNavigate } from '../routes.js';
-//import { toViewSingUp } from './singUp.js';
-
-// export const toViewHome = () => {
-//   const mainDiv = document.createElement('div');
-//   mainDiv.textContent = 'Regístrate';
-//   const buttonRegister = document.createElement('button');
-//   buttonRegister.textContent = 'Regístrate';
-
-//   mainDiv.appendChild(buttonRegister);
-
-//   return mainDiv;
-// };
-
-// toViewHome();
 
 export const toViewHome = (container) => {
     console.log("estoy en home");
