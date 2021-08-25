@@ -25,7 +25,8 @@ export const register = (singUpEmail, singUpPassword) => {
         })
         .catch((error) => {
             //singUpform.querySelector(".error").innerHTML = error.message;
-            let errorMessage = alert("opps! " + error.message);;
+            let errorMessage = alert("opps! " + error.message);
+
             //let errorCode = error.code;
             console.log(error.message);
         });
@@ -42,7 +43,7 @@ export const logIn = (logInEmail, logInPassword) => {
             //singUpform.querySelector(".error").innerHTML = "";
         })
         .catch((error) => {
-            let errorMessage = alert("opps! " + error.message);;
+            let errorMessage = alert("opps! " + error.message);
 
             //let errorCode = error.code;
             console.log(`opss!!, ${error.message}`);

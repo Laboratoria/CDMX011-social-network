@@ -35,11 +35,11 @@ export const toViewSignUp = (container) => {
         const password = document.querySelector('#singUpPassword').value;
 
         e.preventDefault();
+        e.stopPropagation();
         console.log('estoy evitando el reset');
         console.log(email, password);
 
         register(email, password);
-
-        singUpform.reset();
+        onNavigate('/TimeLine')
     });
 };
