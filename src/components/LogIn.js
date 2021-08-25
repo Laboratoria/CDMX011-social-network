@@ -7,7 +7,7 @@ export const toViewLogIn = (container) => {
     console.log("Estoy en LogIn");
     const html = ` <section class="container logIn-form">
     <img class="logo" src="img/PIC&ART.png" alt="logo">
-    <form id="submitForm">
+    <form id="logInForm">
         <br><label value="email">E-mail</label><br>
         <input id="logInEmail" type="text" placeholder="e-mail" required/><br>
         <label value="password">Password</label><br>
