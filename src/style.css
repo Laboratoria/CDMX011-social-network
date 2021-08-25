@@ -141,4 +141,47 @@ footer {
     body {
         background: url("./img/wallpaper.png");
     }
+    .container {
+        position: relative;
+        width: 600px;
+        height: 400px;
+        background: rgb(1, 1, 1, .75);
+        color: #fff;
+        mix-blend-mode: normal;
+        display: flex;
+        margin: auto;
+        padding: 10px;
+        margin-bottom: 5px;
+    }
+    p {
+        padding-left: 0px;
+        max-width: 250px;
+    }
+    .logo {
+        position: absolute;
+        align-self: flex-start;
+        justify-self: left;
+        height: 50%;
+        float: left;
+        margin-left: 20px;
+    }
+    div {
+        display: flex;
+        flex-direction: column;
+        align-self: flex-end;
+        margin-right: 35px;
+    }
+    .container>form {
+        position: relative;
+        display: block;
+        align-self: flex-end;
+        margin-right: 60px;
+        flex-direction: column;
+    }
+    .container .return {
+        align-self: flex-end;
+        display: flex;
+        flex-direction: column;
+        height: 25px;
+    }
 }
