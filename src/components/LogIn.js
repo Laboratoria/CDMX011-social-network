@@ -29,7 +29,7 @@ export const toViewLogIn = (container) => {
     document.getElementById('viewPass').addEventListener('click', (e) => {
         e.preventDefault();
         const inputType = document.getElementById('logInPassword');
-        inputType.type == 'password' ? inputType.type = 'text' : inputType.type = 'password'
+        inputType.type == 'password' ? inputType.type = 'text' : inputType.type = 'password';
     });
 
 

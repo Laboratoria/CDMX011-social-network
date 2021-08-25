@@ -25,7 +25,7 @@ export const toViewSignUp = (container) => {
     document.getElementById('viewPass').addEventListener('click', (e) => {
         e.preventDefault();
         const inputType = document.getElementById('singUpPassword');
-        inputType.type == 'password' ? inputType.type = 'text' : inputType.type = 'password'
+        inputType.type == 'password' ? inputType.type = 'text' : inputType.type = 'password';
     });
 
     const singUpform = document.querySelector('#submitForm');

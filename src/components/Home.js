@@ -16,14 +16,14 @@ export const toViewHome = (container) => {
     </section>`;
 
     container.innerHTML = html;
-    const toCreate = document.getElementById("toCreate");
-    toCreate.addEventListener("click", (e) => {
+    const toCreate = document.getElementById('toCreate');
+    toCreate.addEventListener('click', (e) => {
         e.preventDefault();
-        onNavigate("/signUp");
+        onNavigate('/signUp');
     });
-    const toLogIn = document.getElementById("toLogIn");
-    toLogIn.addEventListener("click", (e) => {
+    const toLogIn = document.getElementById('toLogIn');
+    toLogIn.addEventListener('click', (e) => {
         e.preventDefault();
-        onNavigate("/LogIn");
+        onNavigate('/LogIn');
     });
 };

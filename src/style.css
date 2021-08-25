@@ -130,3 +130,15 @@ footer {
     width: 100%;
     font-size: 80%;
 }
+
+
+/*------- CSS RESPONSIVE -------*/
+
+
+/*cuando la pantalla es mayor a 768px (desktop y tablet)*/
+
+@media screen and (min-width: 768px) {
+    body {
+        background: url("./img/wallpaper.png");
+    }
+}
