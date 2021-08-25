@@ -1,5 +1,7 @@
 // Your web app's Firebase configuration
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+/* eslint-disable */
+
 const firebaseConfig = {
     apiKey: 'AIzaSyCaBVEyo0yKvVWGvxHpTufYnUwG7qMZ2FY',
     authDomain: 'pic-art-1c2c5.firebaseapp.com',
@@ -25,8 +27,8 @@ export const register = (singUpEmail, singUpPassword) => {
         })
         .catch((error) => {
             //singUpform.querySelector(".error").innerHTML = error.message;
-            let errorMessage = alert("opps! " + error.message);
 
+            let errorMessage = alert('opps! ' + error.message);;
             //let errorCode = error.code;
             console.log(error.message);
         });
@@ -38,14 +40,15 @@ export const logIn = (logInEmail, logInPassword) => {
     auth.signInWithEmailAndPassword(logInEmail, logInPassword)
         .then((userCredential) => {
             console.log(userCredential);
-            console.log("signIn");
+            console.log('signIn');
             //register.reset();
             //singUpform.querySelector(".error").innerHTML = "";
         })
         .catch((error) => {
-            let errorMessage = alert("opps! " + error.message);
+
+            let errorMessage = alert('opps! ' + error.message);;
 
             //let errorCode = error.code;
-            console.log(`opss!!, ${error.message}`);
+            //console.log(`opss!!, ${error.message}`);
         });
 };
