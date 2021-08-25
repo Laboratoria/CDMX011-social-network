@@ -1,11 +1,12 @@
 /* eslint-disable */
 
 import { logIn } from '../lib/fireBase.js'
-export { onNavigate }
-from '../routes.js';
+import { onNavigate } from '../routes.js';
+export { onNavigate } from '../routes.js';
 
 
 export const toViewLogIn = (container) => {
+
 
     console.log('Estoy en LogIn');
     const html = ` <section class='container logIn-form'>
@@ -36,18 +37,21 @@ export const toViewLogIn = (container) => {
 
     const logInForm = document.querySelector('#logInForm');
     logInForm.addEventListener('submit', (e) => {
-        const email = document.querySelector('#logInEmail').value;
-        const password = document.querySelector('#logInPassword').value;
+        const emailUser = document.querySelector('#logInEmail').value;
+        const passwordUser = document.querySelector('#logInPassword').value;
+        logIn(emailUser, passwordUser);
+    })
+    document.querySelector("#logInForm").addEventListener('submit', (e) =>{
+        e.preventDefault()
+        console.log("estoy evitando el reset")
+        //onNavigate('/TimeLine')
+    })
 
-        e.preventDefault();
-        //console.log('estoy evitando el reset');
-        console.log(email, password);
+      
 
-        logIn(email, password);
-
-        logInForm.reset();
+        //logInForm.reset();
 
         //singUpform.querySelector(".error").innerHTML = register.catch;
-    });
+    
 
-};
+}
