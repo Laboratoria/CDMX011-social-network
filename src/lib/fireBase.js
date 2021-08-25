@@ -3,22 +3,23 @@
 /* eslint-disable */
 
 const firebaseConfig = {
-    apiKey: 'AIzaSyCaBVEyo0yKvVWGvxHpTufYnUwG7qMZ2FY',
-    authDomain: 'pic-art-1c2c5.firebaseapp.com',
-    projectId: 'pic-art-1c2c5',
-    storageBucket: 'pic-art-1c2c5.appspot.com',
-    messagingSenderId: '866895313531',
-    appId: '1:866895313531:web:c14ccfb8c6766208a540de',
-    measurementId: 'G-V85MSYGCCW',
+  apiKey: 'AIzaSyCaBVEyo0yKvVWGvxHpTufYnUwG7qMZ2FY',
+  authDomain: 'pic-art-1c2c5.firebaseapp.com',
+  projectId: 'pic-art-1c2c5',
+  storageBucket: 'pic-art-1c2c5.appspot.com',
+  messagingSenderId: '866895313531',
+  appId: '1:866895313531:web:c14ccfb8c6766208a540de',
+  measurementId: 'G-V85MSYGCCW',
 };
 // Initialize Firebase
 firebase.initializeApp(firebaseConfig);
 firebase.analytics();
 const auth = firebase.auth();
 
-//Firebase register
+// Firebase register
 
 export const register = (singUpEmail, singUpPassword) => {
+
     auth.createUserWithEmailAndPassword(singUpEmail, singUpPassword)
         .then((userCredential) => {
             console.log(userCredential);
@@ -37,18 +38,34 @@ export const register = (singUpEmail, singUpPassword) => {
 // Firebase login
 
 export const logIn = (logInEmail, logInPassword) => {
-    auth.signInWithEmailAndPassword(logInEmail, logInPassword)
-        .then((userCredential) => {
-            console.log(userCredential);
-            console.log('signIn');
-            //register.reset();
-            //singUpform.querySelector(".error").innerHTML = "";
-        })
-        .catch((error) => {
+  auth.signInWithEmailAndPassword(logInEmail, logInPassword)
+    .then((userCredential) => {
+      console.log(userCredential);
+      console.log('signIn');
+      // register.reset();
+      // singUpform.querySelector(".error").innerHTML = "";
+    })
+    .catch((error) => {
+      const errorMessage = alert(`opps! ${error.message}`);
 
-            let errorMessage = alert('opps! ' + error.message);;
+      // let errorCode = error.code;
+      console.log(`opss!!, ${error.message}`);
+    });
+};
 
-            //let errorCode = error.code;
-            //console.log(`opss!!, ${error.message}`);
-        });
+// Google autentication
+
+export const continueGoogle = () => {
+  const credential = new firebase.auth.GoogleAuthProvider();
+  firebase.auth().languageCode = 'en';
+
+  firebase.auth().signInWithPopup(credential)
+    .then((result) => {
+    
+      console.log(result);
+      console.log('google done');
+    }).catch((error) => {
+        console.log(error.message);
+    });
+
 };
