@@ -1,6 +1,8 @@
 /* eslint-disable */
 
+
 import { onNavigate } from "../routes.js";
+
 
 export const toViewHome = (container) => {
     console.log("estoy en home");
