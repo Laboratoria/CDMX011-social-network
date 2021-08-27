@@ -19,7 +19,7 @@ export const toViewLogIn = (container) => {
         <input src='../img/pngegg.png' id='viewPass' type='image' /><br>
         <br><input type='submit' class='btn_log login' value='LOG IN' /><br>
         <p2>──────  or  ──────</p2><br>
-        <h2 class="error"></h2>
+        <p class="error"></>
         <input type='button' class='btn_log google' value='Continue with Google' />
         <br>
     </form>
