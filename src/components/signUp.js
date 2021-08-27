@@ -12,7 +12,7 @@ export const toViewSignUp = (container) => {
         <input id='singUpEmail' type='text' placeholder='e-mail' required/><br>
         <br><label value='password'>Password*</label>
         <input id='singUpPassword' type='password' placeholder='Password' required/>
-        <input id='viewPass' value="👁"/>
+        <input id='viewPass' src='../img/eye.png' type='image'/>
         <br><input type='submit' class='btn_log signup' value='SIGN UP' /><br>
         <p class="error"></p>
       

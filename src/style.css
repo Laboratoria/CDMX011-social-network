@@ -56,9 +56,8 @@ body {
 p5 {
     display: flex;
     flex-direction: row;
-    
- 
 }
+
 label {
     display: flex;
     flex-direction: row;
@@ -74,18 +73,18 @@ input {
     margin-top:5px
 }
 
-#viewPass {
-    position: static;
-    margin: -7px 2px;
-    height: 20px;
-    width: 20px;
+#viewPass, #hidePass {
+    position: absolute;
+    margin: 7px -30px;
+    height: 18px;
+    width: 18px;
     padding: 2px 3px;
     border-radius: 8px;
 }
 
 #logInPassword,
 #singUpPassword {
-    width: 176px;
+    width: 210px;
 }
 
 .logo {

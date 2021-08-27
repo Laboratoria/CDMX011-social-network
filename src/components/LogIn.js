@@ -16,14 +16,15 @@ export const toViewLogIn = (container) => {
         <input id='logInEmail' type='text' placeholder='e-mail' required/><br>
         <br><label class="title" value='password'>Password</label>
         <input id='logInPassword' type='password' placeholder='Password' required />
-        <input src='../img/pngegg.png' id='viewPass' type='image' /><br>
+        <input src='../img/eye.png' id='viewPass' type='image' /><br>
+        <input src='../img/hide.png' id='hidePass' display='block' type='image' /><br>
         <br><input type='submit' class='btn_log login' value='LOG IN' /><br>
        
         <p class="error"></>
         
         <br>
     </form>
-    <a href='javascript:history.back();'> <img class='return' src='img/return-logo.png' alt='logo'   ></a>
+    <a href='javascript:history.back();'> <img class='return' src='img/return-logo.png' alt='logo'> Back </a>
     
 </section>`;
 
@@ -33,7 +34,21 @@ export const toViewLogIn = (container) => {
         e.preventDefault();
         const inputType = document.getElementById('logInPassword');
         inputType.type == 'password' ? inputType.type = 'text' : inputType.type = 'password';
-    });
+        
+        // if(inputType.type === text){
+            //     btnHide.style.display = 'visible';  
+            //     btnEye.style.display = 'hidden';
+            // } else {
+                //     btnHide.style.display = 'hidden';  
+                //     btnEye.style.display = 'visible';
+                // }
+            });
+     function mostrarBoton () {
+                const btnEye = document.getElementById('viewPass');
+                const btnHide = document.getElementById('hidePass');
+                btnEye.style.display = 'none';
+                btnHide.style.display = 'inline';
+    }
 
 
     const logInForm = document.querySelector('#logInForm');
