@@ -10,7 +10,7 @@ body {
     color: #000;
     display: flex;
     flex-wrap: wrap;
-    font-family: 'Bodoni Moda', serif;
+    font-family: 'Montserrat', sans-serif;
     margin: 0;
     min-height: 100vh;
 }
@@ -111,16 +111,20 @@ input {
 }
 
 .login {
-    border: 3px solid rgb(20, 98, 243);
+    border: 3px solid rgb(231, 49, 192);
+    box-shadow: rgba(240, 46, 170, 0.4) 5px 5px 10px;
+
 }
 
 .signup {
     margin-top: 15px;
-    border: 3px solid rgb(35, 153, 45);
+    border: 3px solid rgb(29, 179, 206);
+    box-shadow: rgba(43, 235, 235, 0.4) 5px 5px 10px;
 }
 
 .google {
-    border: 3px solid rgb(165, 137, 14);
+    border: 3px solid rgb(219, 188, 46);
+    box-shadow: rgba(235, 206, 43, 0.4) 5px 5px 10px;
 }
 
 
