@@ -1,0 +1,86 @@
+*{
+  margin: 0px;
+  padding: 0px;  
+
+}
+.homePage {
+    display:flex;
+    justify-content: center;
+    align-items:center;
+    position: relative;
+    
+
+
+}
+body{
+    background-image: url("./imagenes/clouds.jpg");
+    display: flex;
+    justify-content: center;
+    align-items:center;
+
+}
+
+#banner {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+input {
+
+    margin-top: 10%;
+    display: flex;
+    
+
+    width: 304.23px;
+    height: 40px;
+
+    font-family: Montserrat;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 20px;
+
+    color: #AAA6A6;
+
+    background: #FFF9F9;
+    border: 2px solid #1EBFD1;
+    box-sizing: border-box;
+    border-radius: 15px;
+    text-align: center;
+
+}
+
+#formContainer{
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+#signIn{
+    display: flex;
+    margin-top: 10%;
+    border:none;
+
+    background: #1EBFD1;
+    border-radius: 10px;
+    width: 136px;
+    height: 33px;
+
+    position: relative;
+    vertical-align: middle;
+    font-family: Fredoka One;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 18px;
+    line-height: 2;
+
+    text-align: center; 
+    justify-content: center;   
+   
+
+}
+
+#signInGoogle{
+
+}
