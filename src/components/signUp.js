@@ -14,6 +14,7 @@ export const toViewSignUp = (container) => {
         <input id='singUpPassword' type='password' placeholder='Password' required/>
         <input id='viewPass' src='../img/pngegg.png' type='image'>
         <br><input type='submit' class='btn_log signup' value='SIGN UP' /><br>
+        <p class="error"></p>
         <p2>──────  or  ──────</p2><br>
         <input type='button' class='btn_log google' value='Continue with Google' />
        
@@ -39,6 +40,6 @@ export const toViewSignUp = (container) => {
         console.log(email, password);
 
         register(email, password);
-        onNavigate('/TimeLine')
+      //  onNavigate('/TimeLine')
     });
 };
