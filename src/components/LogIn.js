@@ -12,18 +12,18 @@ export const toViewLogIn = (container) => {
     const html = ` <section class='container logIn-form'>
     <img class='logo' src='img/PIC&ART.png' alt='logo'>
     <form id='logInForm'>
-        <br><label value='email'>E-mail</label><br>
+        <br><label class="title" value='email'>E-mail</label>
         <input id='logInEmail' type='text' placeholder='e-mail' required/><br>
-        <label value='password'>Password</label><br>
+        <br><label class="title" value='password'>Password</label>
         <input id='logInPassword' type='password' placeholder='Password' required />
         <input src='../img/pngegg.png' id='viewPass' type='image' /><br>
         <br><input type='submit' class='btn_log login' value='LOG IN' /><br>
-        <p2>──────  or  ──────</p2><br>
+       
         <p class="error"></>
-        <input type='button' class='btn_log google' value='Continue with Google' />
+        
         <br>
     </form>
-    <a href='javascript:history.back();'> <img class='return' src='img/return.png' alt='logo'   ></a>
+    <a href='javascript:history.back();'> <img class='return' src='img/return-logo.png' alt='logo'   ></a>
     
 </section>`;
 
