@@ -1,7 +1,6 @@
 /* eslint-disable */
 //aqui exportaras las funciones que necesites
 
-
 export const email = document.querySelector('#singUpEmail').value;
 export const password = document.querySelector('#singUpPassword').value;
 export const myFunction = () => {
