@@ -2,6 +2,8 @@
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
 /* eslint-disable */
 
+import { onNavigate } from '../routes.js';
+
 const firebaseConfig = {
   apiKey: 'AIzaSyCaBVEyo0yKvVWGvxHpTufYnUwG7qMZ2FY',
   authDomain: 'pic-art-1c2c5.firebaseapp.com',
@@ -15,7 +17,7 @@ const firebaseConfig = {
 firebase.initializeApp(firebaseConfig);
 firebase.analytics();
 const auth = firebase.auth();
-
+const user = firebase.auth().currentUser;
 // Firebase register
 
 export const register = (singUpEmail, singUpPassword) => {
@@ -23,31 +25,36 @@ export const register = (singUpEmail, singUpPassword) => {
     auth.createUserWithEmailAndPassword(singUpEmail, singUpPassword)
         .then((userCredential) => {
             console.log(userCredential);
+            console.log(userCredential.user.user);
+            console.log(userCredential.user== userCredential);
             //register.reset();
-
+if(userCredential.user === true){
+  onNavigate('/TimeLine')
+}
         })
         .catch((error) => {
             //singUpform.querySelector(".error").innerHTML = error.message;
-
-            let errorMessage = alert('opps! ' + error.message);;
+            const alertaError=error.message;
+            document.querySelector('.error').innerHTML=`${alertaError}`;
             //let errorCode = error.code;
             console.log(error.message);
         });
 };
 
+
 // Firebase login
 
 export const logIn = (logInEmail, logInPassword) => {
   auth.signInWithEmailAndPassword(logInEmail, logInPassword)
-    .then((userCredential) => {
-      console.log(userCredential);
+    .then((user) => {
+      console.log(user);
       console.log('signIn');
       // register.reset();
       // singUpform.querySelector(".error").innerHTML = "";
     })
     .catch((error) => {
-      const errorMessage = alert(`opps! ${error.message}`);
-
+      const alertaError=error.message;
+      document.querySelector('.error').innerHTML=`${alertaError}`;
       // let errorCode = error.code;
       console.log(`opss!!, ${error.message}`);
     });
@@ -57,11 +64,11 @@ export const logIn = (logInEmail, logInPassword) => {
 
 export const continueGoogle = () => {
   const credential = new firebase.auth.GoogleAuthProvider();
-  firebase.auth().languageCode = 'en';
+  auth.languageCode = 'en';
 
-  firebase.auth().signInWithPopup(credential)
+  auth.signInWithPopup(credential)
     .then((result) => {
-    
+      onNavigate('/TimeLine');
       console.log(result);
       console.log('google done');
     }).catch((error) => {
@@ -69,3 +76,38 @@ export const continueGoogle = () => {
     });
 
 };
+
+
+
+export const stateUser =()=>{
+
+  auth.onAuthStateChanged((user) => {
+  if (user) {
+   //const anUsuer = logIn(logInEmail, logInPassword);
+   onNavigate('/TimeLine');
+    // const email= user.email;
+    // const emailVerified= user.emailVerified;
+    // if(emailVerified === false){
+    //   console.log('Email no verificado :C')
+    // }
+    //   console.log(user);
+    //   console.log(user.email);
+    // User is signed in, see docs for a list of available properties
+    // https://firebase.google.com/docs/reference/js/firebase.User
+    //var uid = user.uid;
+    // ...
+  } else {
+    
+    // User is signed out
+    // ...
+  }
+});
+}
+
+export const logOutUser=()=>{
+  console.log('out'+ user);
+  firebase.auth().signOut().then(()=>{
+    
+    onNavigate('/');
+  })
+}

@@ -38,7 +38,13 @@ body {
     text-indent: 20px;
 }
 
-
+/*Mensajes de error*/
+.error{
+    color:rgb(252, 140, 140);
+    font-size: 14px;
+    background-color: #000;
+    
+}
 /*p2 {
     border-bottom: 1px solid #000000;
     height: 0;
