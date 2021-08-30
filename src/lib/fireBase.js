@@ -48,10 +48,21 @@ export const continueGoogle = () => {
 
 };
 
+// //Autentification
+// export const sendVerification = () =>{
+//   const user = auth.currentUser;
+//  user.sendEmailVerification()
+//   .then(() => {
+//     console.log( "Email verification sent!");
+//     // ...
+//   });
+// }
+
 
 //creo que ya no lo necesitamos 
 export const stateUser = () => {
   auth.onAuthStateChanged((user) => {
+    
     if (user) {
       //const anUsuer = logIn(logInEmail, logInPassword);
       onNavigate('/TimeLine');

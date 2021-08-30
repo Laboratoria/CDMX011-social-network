@@ -2,11 +2,11 @@
 
 import { onNavigate } from '../routes.js';
 
-import {logOutUser} from '../lib/fireBase.js';
+import {logOutUser, stateUser} from '../lib/fireBase.js';
 
 
 export const toViewtimeline = (container) => {
-    console.log("estoy en home");
+    
     const html = `
     <header class="timelineHeader">
     <div class = "headTimeline">
@@ -24,8 +24,12 @@ export const toViewtimeline = (container) => {
   </section>
    
 `;
-
+ 
     container.innerHTML = html
+
+    const post = document.createElement('div');
+    container.appendChild(post);
+
     const toLogOut = document.getElementById('logOut');
   toLogOut.addEventListener('click', () => {
    
