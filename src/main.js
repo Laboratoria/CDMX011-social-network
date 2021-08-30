@@ -8,7 +8,8 @@ const rootDiv = document.getElementById('root');
 const routes = {
     '/' : Home,
     '/ register': Register,
-    '/login' : Login
+    '/login' : Login,
 };
 
-rootDiv.appendChild(routes[window.location.pathname]);
+const components = routes[window.location.pathname];
+rootDiv.appendChild(components());
