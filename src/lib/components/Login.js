@@ -1,4 +1,4 @@
-const Login = () => {
+export const Login = () => {
     const Homediv = document.createElement('div');
     Homediv.textContent = 'Bienvenido al Login';
     const buttonHome = document.createElement('button');
