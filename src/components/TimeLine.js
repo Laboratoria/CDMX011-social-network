@@ -26,10 +26,11 @@ export const toViewtimeline = (container) => {
 `;
 
     container.innerHTML = html
-
     const toLogOut = document.getElementById('logOut');
   toLogOut.addEventListener('click', () => {
    
-    logOutUser();
+    logOutUser().then(() => {
+      onNavigate('/');
+    });
   });
 }

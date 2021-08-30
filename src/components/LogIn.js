@@ -34,20 +34,20 @@ export const toViewLogIn = (container) => {
         e.preventDefault();
         const inputType = document.getElementById('logInPassword');
         inputType.type == 'password' ? inputType.type = 'text' : inputType.type = 'password';
-        
+
         // if(inputType.type === text){
-            //     btnHide.style.display = 'visible';  
-            //     btnEye.style.display = 'hidden';
-            // } else {
-                //     btnHide.style.display = 'hidden';  
-                //     btnEye.style.display = 'visible';
-                // }
-            });
-     function mostrarBoton () {
-                const btnEye = document.getElementById('viewPass');
-                const btnHide = document.getElementById('hidePass');
-                btnEye.style.display = 'none';
-                btnHide.style.display = 'inline';
+        //     btnHide.style.display = 'visible';  
+        //     btnEye.style.display = 'hidden';
+        // } else {
+        //     btnHide.style.display = 'hidden';  
+        //     btnEye.style.display = 'visible';
+        // }
+    });
+    function mostrarBoton() {
+        const btnEye = document.getElementById('viewPass');
+        const btnHide = document.getElementById('hidePass');
+        btnEye.style.display = 'none';
+        btnHide.style.display = 'inline';
     }
 
 
@@ -55,19 +55,27 @@ export const toViewLogIn = (container) => {
     logInForm.addEventListener('submit', (e) => {
         const emailUser = document.querySelector('#logInEmail').value;
         const passwordUser = document.querySelector('#logInPassword').value;
-        logIn(emailUser, passwordUser);
-    })
-    document.querySelector("#logInForm").addEventListener('submit', (e) =>{
+        logIn(emailUser, passwordUser)
+            .then(() => {
+            onNavigate('/TimeLine');
+            })
+            .catch((error) => {
+                const alertaError = error.message;
+                document.querySelector('.error').innerHTML = `${alertaError}`;
+            });
+    });
+
+    document.querySelector("#logInForm").addEventListener('submit', (e) => {
         e.preventDefault()
         console.log("estoy evitando el reset")
         //onNavigate('/TimeLine')
-    })
+    });
 
-      
 
-        //logInForm.reset();
 
-        //singUpform.querySelector(".error").innerHTML = register.catch;
-    
+    //logInForm.reset();
+
+    //singUpform.querySelector(".error").innerHTML = register.catch;
+
 
 }

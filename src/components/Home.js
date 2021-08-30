@@ -25,18 +25,24 @@ export const toViewHome = (container) => {
   toCreate.addEventListener('click', (e) => {
     e.preventDefault();
     onNavigate('/signUp');
-    console.log(stateUser());
+   // console.log(stateUser());
   });
   const toLogIn = document.getElementById('toLogIn');
   toLogIn.addEventListener('click', (e) => {
     e.preventDefault();
     onNavigate('/LogIn');
-
-    console.log(stateUser());
+    //stateUser();
   });
   const toContinueGoogle = document.getElementById('toGoogle');
   toContinueGoogle.addEventListener('click', () => {
-    continueGoogle();
+    continueGoogle()
+    .then((result) => {
+      onNavigate('/TimeLine');
+      console.log(result);
+      console.log('google done');
+    }).catch((error) => {
+      console.log(error.message);
+    });
     
     //e.preventDefault();
     //onNavigate('/LogIn');
