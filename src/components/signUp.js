@@ -39,7 +39,15 @@ export const toViewSignUp = (container) => {
         console.log('estoy evitando el reset');
         console.log(email, password);
 
-        register(email, password);
-      //  onNavigate('/TimeLine')
+        register(email, password)
+        .then(() => {
+          console.log('then');
+            onNavigate('/TimeLine');
+        })
+            .catch((error) => {
+                const alertaError = error.message;
+                document.querySelector('.error').innerHTML = `${alertaError}`;
+                console.log(error.message);
+            });
     });
 };
