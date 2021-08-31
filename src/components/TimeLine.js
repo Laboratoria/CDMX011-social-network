@@ -5,7 +5,6 @@ import { onNavigate } from '../routes.js';
 import {logOutUser, dataBase, stateUser } from '../lib/fireBase.js';
 //import { async } from 'regenerator-runtime';
 
-
 export const toViewtimeline = (container) => {
     
     const html = `
@@ -68,8 +67,8 @@ export const toViewtimeline = (container) => {
       <p>${userUID.email}</p>
       <h2>${doc.data().textShare}</h2>
       <div class = "buttonsDelEdit">
-        <button class  = "btn_log">Delete</button>
-        <button class  = "btn_log">Edit</button>
+        <button class  = "btn_log edit">Delete</button>
+        <button class  = "btn_log edit">Edit</button>
       </div>
       </div>
       `;

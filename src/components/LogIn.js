@@ -17,7 +17,7 @@ export const toViewLogIn = (container) => {
         <br><label class="title" value='password'>Password</label>
         <input id='logInPassword' type='password' placeholder='Password' required />
         <input src='../img/eye.png' id='viewPass' type='image' /><br>
-        <input src='../img/hide.png' id='hidePass' display='block' type='image' /><br>
+        
         <br><input type='submit' class='btn_log login' value='LOG IN' /><br>
        
         <p class="error"></>
@@ -27,6 +27,7 @@ export const toViewLogIn = (container) => {
     <a href='javascript:history.back();'> <img class='return' src='img/return-logo.png' alt='logo'> Back </a>
     
 </section>`;
+//<input src='../img/hide.png' id='hidePass' display='block' type='image' /><br></br>
 
     container.innerHTML = html
 
