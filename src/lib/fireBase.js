@@ -17,7 +17,8 @@ const firebaseConfig = {
 firebase.initializeApp(firebaseConfig);
 firebase.analytics();
 const auth = firebase.auth();
-const user = firebase.auth().currentUser;
+const user= firebase.auth().currentUser;
+//console.log(getUser());
 export const dataBase = firebase.firestore();
 
 // Firebase register
@@ -64,8 +65,11 @@ export const continueGoogle = () => {
 export const stateUser = () => {
   auth.onAuthStateChanged((user) => {
     const emailUser = user.email;
+    console.log(emailUser);
   
     if (user) {
+      
+      console.log(user.uid);
       
       //const anUsuer = logIn(logInEmail, logInPassword);
       //onNavigate('/TimeLine');

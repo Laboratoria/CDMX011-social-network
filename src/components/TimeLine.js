@@ -9,13 +9,14 @@ import {logOutUser, dataBase, stateUser } from '../lib/fireBase.js';
 export const toViewtimeline = (container) => {
     
     const html = `
+    <body class="testTL"
     <header class="timelineHeader">
-    <input type="button" class="btn_log google" value="salir" id="logOut" />
     <div class = "headTimeline">
-      <img class="iconApp" src="img/Component 1.png">
+    <img class="iconApp" src="img/Component 1.png">
+    <input type="button" class="btn_log logout" value="salir" id="logOut" />
     </div>
     </header>
-    <section id="section">
+    <section class="timeLineSection" id="section">
     <form class="TextArea" id="postForm">
       <div class= "textAreaPost" >
         <textarea text="textArea" class="textPost" id="textPost" rows="5" cols="40" maxlength="500" placeholder="Post something :)"></textarea>
@@ -24,7 +25,7 @@ export const toViewtimeline = (container) => {
     </form>
     
   </section>
-   
+   </body>
 `;
  
     container.innerHTML = html
@@ -51,15 +52,20 @@ export const toViewtimeline = (container) => {
     textShare
   });
   const getPost = () => dataBase.collection('posts').get();
+  //const user = firebase.getUser();
+//console.log(user);
+  const onGetPost = (callback) => dataBase.collection('posts').onSnapshot(callback);
 
-  window.addEventListener('load', async (e) =>{
-   const querySnapshot = await getPost();
-    querySnapshot.forEach(doc =>{
-      console.log(doc.data());
-      console.log(stateUser());
+  window.addEventListener('DOMContentLoaded', async (e) =>{
+   
+    onGetPost((querySnapshot) => {
+      postContainer.innerHTML = '';
+      querySnapshot.forEach(doc =>{
+      const userUID = firebase.auth().currentUser;
+        //console.log(stateUser());
      
      postContainer.innerHTML += `<div class= "post_container">
-      <p>${emailUser}</p>
+      <p>${userUID.email}</p>
       <h2>${doc.data().textShare}</h2>
       <div class = "buttonsDelEdit">
         <button class  = "btn_log">Delete</button>
@@ -67,9 +73,12 @@ export const toViewtimeline = (container) => {
       </div>
       </div>
       `;
-    })
+    });
    
    console.log("Estoy entrando");
+
+   });
+    
   })
 posting.addEventListener('submit', async (e)  =>{
   e.preventDefault();
