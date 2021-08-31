@@ -137,6 +137,13 @@ input {
     box-shadow: rgba(235, 206, 43, 0.4) 5px 5px 10px;
 }
 
+.post-box{
+    background-color: white;
+    margin-top: 20px;
+    margin-left: 20px;
+    margin-right: 20px;
+    width: 400px;
+}
 
 /*FOOTER*/
 

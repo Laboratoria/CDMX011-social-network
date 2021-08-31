@@ -18,6 +18,7 @@ firebase.initializeApp(firebaseConfig);
 firebase.analytics();
 const auth = firebase.auth();
 const user = firebase.auth().currentUser;
+export const dataBase = firebase.firestore();
 
 // Firebase register
 export const register = (singUpEmail, singUpPassword) => {
@@ -62,10 +63,12 @@ export const continueGoogle = () => {
 //creo que ya no lo necesitamos 
 export const stateUser = () => {
   auth.onAuthStateChanged((user) => {
-    
+    const emailUser = user.email;
+  
     if (user) {
+      
       //const anUsuer = logIn(logInEmail, logInPassword);
-      onNavigate('/TimeLine');
+      //onNavigate('/TimeLine');
     } else {
       // User is signed out
     }
