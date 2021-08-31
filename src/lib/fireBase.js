@@ -64,10 +64,7 @@ export const continueGoogle = () => {
 //creo que ya no lo necesitamos 
 export const stateUser = () => {
   auth.onAuthStateChanged((user) => {
-    const emailUser = user.email;
-    console.log(emailUser);
-  
-    if (user) {
+      if (user) {
       
       console.log(user.uid);
       

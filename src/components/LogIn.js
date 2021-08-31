@@ -9,7 +9,9 @@ export const toViewLogIn = (container) => {
 
 
     console.log('Estoy en LogIn');
-    const html = ` <section class='container logIn-form'>
+    const html = ` 
+    <div class = "homeContainer">
+    <section class='container logIn-form'>
     <img class='logo' src='img/PIC&ART.png' alt='logo'>
     <form id='logInForm'>
         <br><label class="title" value='email'>E-mail</label>
@@ -26,7 +28,8 @@ export const toViewLogIn = (container) => {
     </form>
     <a href='javascript:history.back();'> <img class='return' src='img/return-logo.png' alt='logo'> Back </a>
     
-</section>`;
+</section>
+</div>`;
 
     container.innerHTML = html
 

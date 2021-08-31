@@ -1,11 +1,12 @@
-/* eslint-disable */
-
+/* eslint-disable import/no-cycle */
 import { onNavigate } from '../routes.js';
 import { register } from '../lib/fireBase.js';
 
 export const toViewSignUp = (container) => {
     console.log('Estoy en signUp')
-    const html = ` <section class='container signup-form'>
+    const html = ` 
+    <div class = "homeContainer">
+    <section class='container signup-form'>
     <img class='logo' src='img/PIC&ART.png' alt='logo'>
     <form id='submitForm'>
         <br><label value='email'>E-mail*</label>
@@ -20,7 +21,8 @@ export const toViewSignUp = (container) => {
        
     </form>
     <a href='javascript:history.back();'> <img class='return' src='img/return-logo.png' alt='logo' ></a>
-</section>`;
+</section>
+</div>`;
     container.innerHTML = html
 
     document.getElementById('viewPass').addEventListener('click', (e) => {
