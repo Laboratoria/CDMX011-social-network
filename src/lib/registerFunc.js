@@ -4,10 +4,14 @@ export const allFunctions = {
     const isValid = expReg.test(email);
     return isValid;
   },
-  /* comparePassword : function(password, confirmPassword){
-        if (password === confirmPassword){
-            return true
-        }
+
+  // eslint-disable-next-line consistent-return
+  validPassword(password, confirmPassword) {
+    if (password.length < 5) {
+      return false;
     }
-    */
+    if (password !== confirmPassword) {
+      return false;
+    }
+  },
 };
