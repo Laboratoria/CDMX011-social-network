@@ -12,7 +12,7 @@ export const toViewtimeline = (container) => {
     <header class="timelineHeader">
     <div class = "headTimeline">
     <img class="iconApp" src="img/Component 1.png">
-    <input type="button" class="btn_log logout" value="salir" id="logOut" />
+    <input type="button" class="btn_log logout" value="Log Out" id="logOut" />
     </div>
     </header>
     <section class="timeLineSection" id="section">

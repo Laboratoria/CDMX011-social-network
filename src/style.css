@@ -42,6 +42,11 @@ body {
     background-color:#000;
 }
 
+.logIn-form a {
+    text-decoration: none;
+    color: #fff;
+}
+
 .login-form {
     line-height: 20px;
     text-indent: 20px;
@@ -117,6 +122,7 @@ input {
     display: flex;
     height: 25px;
     align-items: flex-end;
+    margin-right: 5px;
 }
 
 
