@@ -2,14 +2,14 @@
 
 import { onNavigate } from '../routes.js';
 
-import {logOutUser, dataBase, stateUser } from '../lib/fireBase.js';
+import {logOutUser, dataBase } from '../lib/fireBase.js';
 //import { async } from 'regenerator-runtime';
 
 
 export const toViewtimeline = (container) => {
     
     const html = `
-    <body class="testTL"
+    <div class = "TimeContainer">
     <header class="timelineHeader">
     <div class = "headTimeline">
     <img class="iconApp" src="img/Component 1.png">
@@ -23,16 +23,17 @@ export const toViewtimeline = (container) => {
         <input type="submit" id="buttonNewPost" value="Share" /> 
       </div>
     </form>
+    <div class = "postContainer"  id = "postContainer"></div>
     
   </section>
-   </body>
+  </div>
 `;
  
     container.innerHTML = html
-
-    const postContainer = document.createElement('div');
-    postContainer.classList.add('post-box');
-    container.appendChild(postContainer);
+const postContainer = document.getElementById('postContainer');
+    // const postContainer = document.createElement('div');
+    // postContainer.classList.add('post-box');
+    // container.appendChild(postContainer);
 
    //Log out de app
     const toLogOut = document.getElementById('logOut');
@@ -68,8 +69,8 @@ export const toViewtimeline = (container) => {
       <p>${userUID.email}</p>
       <h2>${doc.data().textShare}</h2>
       <div class = "buttonsDelEdit">
-        <button class  = "btn_log">Delete</button>
-        <button class  = "btn_log">Edit</button>
+        <button class  = "btn_log" id = "btn_del">Delete</button>
+        <button class  = "btn_log" id = "btn_edit">Edit</button>
       </div>
       </div>
       `;
