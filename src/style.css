@@ -1,6 +1,6 @@
 /* eslint-disable */
 
-body {
+.homeContainer {
     align-items: center;
     justify-content: center;
     /*background-color: #fff;*/
@@ -14,6 +14,10 @@ body {
     font-family: 'Montserrat', sans-serif;
     margin: 0;
     min-height: 100vh;
+}
+
+.TimeContainer{
+    background: black;
 }
 
 .testTL {
@@ -40,11 +44,6 @@ body {
 
 .timeLineSection {
     background-color:#000;
-}
-
-.container a {
-    text-decoration: none;
-    color: #fff;
 }
 
 .login-form {
@@ -113,7 +112,7 @@ input {
 
 .iconApp{
     position: relative;
-    float:left ;
+    align-self: flex-start;
     height: 20%;
 }
 
@@ -122,7 +121,6 @@ input {
     display: flex;
     height: 25px;
     align-items: flex-end;
-    margin-right: 5px;
 }
 
 
@@ -176,7 +174,6 @@ input {
     box-shadow: rgba(240, 93, 25, 0.4) 5px 5px 10px;
     width: 100px;
     float: left;
-    margin-left: 100px;
 }
 
 div.post-box{
@@ -184,45 +181,24 @@ div.post-box{
     flex-direction: column; 
     align-content: center;
     background-color: #000;
-    width: 500px;
+    width: 400px;
+    display: flex;
+    flex-direction: column;
+    -ms-flex-align: center;
+    justify-content: center;
 }
 .post_container {
     display: flex;
     align-self: center;
     flex-direction: column;
     background-color: #fff;
-    border-radius: 10px;
-    margin: 10px;
-    border: solid 2px rgb(0, 0, 0);
-    width: 350px;
-    padding: 10px;
+    width: 200px;    
+    border: solid 2px red;
 }
-.post_container h2 {
-    border-top: black;
-    border-bottom:black
-}
-
-.buttonsDelEdit {
+div#postContainer.postContainer{
     display: flex;
-    flex-direction: row;
-    align-content: center;
-}
-#textPost{
-    border-radius: 5px;
-    padding: 10px;
-    margin-top: 10px;
-}
-#buttonNewPost{
-    align-self: center;
-}
-.edit{
-    width: 100px;
-}
-.textAreaPost{
-    align-self: center;
-    display:flex;
     flex-direction: column;
-    justify-content: center;
+    align-items: center;
 }
 /*FOOTER*/
 
