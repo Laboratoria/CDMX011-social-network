@@ -21,7 +21,7 @@ export const Register = () => {
   buttonHome.textContent = 'Regresar al Home';
 
   buttonHome.addEventListener('click', () => onNavigate('/'));
-  buttonRegister.addEventListener('click', () => registerUser(inputEmail, inputPassword));
+  buttonRegister.addEventListener('click', () => onNavigate('/register') /* registerUser(inputEmail, inputPassword) */);
 
   registerDiv.appendChild(inputName);
   registerDiv.appendChild(inputEmail);

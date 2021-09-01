@@ -14,3 +14,5 @@ export const registerUser = (email, password) => {
       // ..
     });
 };
+
+// registerUser('geraldine@gmail.com', 'abc')
