@@ -1,16 +1,17 @@
 export const allFunctions = {
-  validEmail(email, invalidEmail) {
+  validEmail(email) {
     const expReg = /^[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?$/;
     const isValid = expReg.test(email);
-    let prueba = "";
-    // eslint-disable-next-line no-alert
-    if (isValid !== true) { prueba = invalidEmail.innerHTML = 'Favor de ingresar correo válido.'; }
-    return prueba;
+    return isValid;
   },
-  /* comparePassword : function(password, confirmPassword){
-        if (password === confirmPassword){
-            return true
-        }
+
+  // eslint-disable-next-line consistent-return
+  validPassword(password, confirmPassword) {
+    if (password.length < 5) {
+      return false;
     }
-    */
+    if (password !== confirmPassword) {
+      return false;
+    }
+  },
 };

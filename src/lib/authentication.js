@@ -1,4 +1,4 @@
-export const firebaseConfig = {
+/* export const firebaseConfig = {
   apiKey: 'AIzaSyDUPfyMH82_Ld5CqAoAbnHtlcCbecteHQg',
   authDomain: 'petfriends-8eb78.firebaseapp.com',
   projectId: 'petfriends-8eb78',
@@ -10,3 +10,5 @@ export const firebaseConfig = {
 
 const app = initializeApp(firebaseConfig);
 const analytics = getAnalytics(app);
+
+ */

@@ -1,5 +1,5 @@
 import { onNavigate } from '../main.js';
-import { allFunctions } from '../registerFunc.js';
+import { allFunctions } from '../lib/registerFunc.js';
 
 export const register = () => {
   const registerPage = document.createElement('div');
@@ -17,14 +17,29 @@ export const register = () => {
   email.setAttribute('id', 'email');
   email.setAttribute('type', 'email');
   email.setAttribute('placeholder', 'Ingresa tu correo electrónico');
+  email.setAttribute('required', 'required');
   const invalidEmail = document.createElement('h5');
   invalidEmail.setAttribute('id', 'invalidEmail');
+  const eyeContainer = document.createElement('div');
+  eyeContainer.setAttribute('class', 'eyeContainer');
   const password = document.createElement('input');
   password.setAttribute('id', 'password');
+  password.setAttribute('type', 'password');
   password.setAttribute('placeholder', 'Crea tu contraseña');
+  password.setAttribute('required', 'required');
+  const openEye = document.createElement('img');
+  openEye.setAttribute('class', 'openEye');
+  openEye.src = './imagenes/openEye 1.png';
   const confirmPassword = document.createElement('input');
   confirmPassword.setAttribute('id', 'confirmPassword');
   confirmPassword.setAttribute('placeholder', 'Confirma tu contraseña');
+  confirmPassword.setAttribute('required', 'required');
+  confirmPassword.setAttribute('type', 'password');
+  const closedEye = document.createElement('img');
+  closedEye.setAttribute('class', 'closedEye');
+  closedEye.src = './imagenes/closeEye 1.png';
+  const invalidPassword = document.createElement('h5');
+  invalidPassword.setAttribute('id', 'invalidPassword');
   const signIn = document.createElement('button');
   signIn.setAttribute('id', 'signIn');
   signIn.textContent = 'Registrar';
@@ -54,8 +69,11 @@ export const register = () => {
   registerPage.appendChild(formContainer);
   formContainer.appendChild(email);
   formContainer.appendChild(invalidEmail);
-  formContainer.appendChild(password);
+  formContainer.appendChild(eyeContainer);
+  eyeContainer.appendChild(password);
+  eyeContainer.appendChild(openEye);
   formContainer.appendChild(confirmPassword);
+  formContainer.appendChild(invalidPassword);
   formContainer.appendChild(signIn);
   formContainer.appendChild(signInGoogle);
   signInGoogle.appendChild(logoGoogle);
@@ -63,15 +81,48 @@ export const register = () => {
   loginContainer.appendChild(loginText);
   loginContainer.appendChild(loginButton);
 
+  let printEmail = '';
+  let printPassword = '';
+
   signIn.addEventListener('click', () => {
     const saveEmail = email.value;
-    console.log(saveEmail);
     const savePassword = password.value;
-    console.log(savePassword);
     const confirmSavedPassword = confirmPassword.value;
-    console.log(confirmSavedPassword);
-    allFunctions.validEmail(saveEmail, invalidEmail);
-});
+    const validEmailFunc = allFunctions.validEmail(saveEmail);
+    const validPasswordFunc = allFunctions.validPassword(savePassword, confirmSavedPassword);
 
+    if (validEmailFunc === false) {
+      invalidEmail.innerHTML = 'Favor de ingresar correo válido.';
+    } else {
+      printEmail = saveEmail;
+    }
+
+    if (validPasswordFunc === false) {
+      invalidPassword.innerHTML = 'Las contraseñas no coinciden o tienen menos de 6 caracteres';
+    } else {
+      printPassword = savePassword;
+    }
+    console.log(printEmail);
+    console.log(printPassword);
+  });
+  openEye.addEventListener('click', () => {
+    if (password.type === 'text') {
+      password.type = 'password';
+    } else {
+      password.type = 'text';
+    }
+  });
   return registerPage;
 };
+
+/* firebase.auth().signInWithEmailAndPassword(printEmail, printPassword)
+  .then((userCredential) => {
+  // Signed in
+    const user = userCredential.user;
+    console.log("hola");
+  })
+  .catch((error) => {
+    const errorCode = error.code;
+    const errorMessage = error.message;
+  });
+*/

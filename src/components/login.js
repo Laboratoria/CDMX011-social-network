@@ -54,9 +54,7 @@ export const login = () => {
 
   signIn.addEventListener('click', () => {
     const saveEmail = email.value;
-    console.log(saveEmail);
     const savePassword = password.value;
-    console.log(savePassword);
   });
   return loginPage;
 };

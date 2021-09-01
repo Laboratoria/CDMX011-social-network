@@ -136,3 +136,15 @@ margin-left: 3%;
     font-size: 18px;
 
 }
+.eyeContainer{
+    position: relative;
+
+}
+.openEye {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(50%);
+    cursor: pointer;
+}
+
