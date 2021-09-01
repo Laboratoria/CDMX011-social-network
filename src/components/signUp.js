@@ -17,9 +17,10 @@ export const toViewSignUp = (container) => {
         <p class="error"></p>
       
         
-       
+       <br>
+       <br>
     </form>
-    <a href='javascript:history.back();'> <img class='return' src='img/return-logo.png' alt='logo' ></a>
+    <a href='javascript:history.back();'> <img class='return' src='img/return-logo.png' alt='logo' > Back </a>
 </section>`;
     container.innerHTML = html
 
