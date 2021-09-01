@@ -11,7 +11,7 @@ export const Home = () => {
   const buttonLoginGoogle = document.createElement('button');
   const buttonGoToRegister = document.createElement('button');
 
-  logo.setAttribute('src', 'gs://bethelight-e8453.appspot.com/BeTheLight.png');
+  logo.setAttribute('src', '../img/BeTheLight.png');
   h1Presentation.textContent = 'Be the light te ayuda a comunicarte y compartir la luz que ha sido depositada en ti con las personas que forman parte de tu comunidad';
   inputEmail.placeholder = 'Correo';
   inputPassword.placeholder = 'Contraseña';
