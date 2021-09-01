@@ -17,6 +17,7 @@ export const login = () => {
   const password = document.createElement('input');
   password.setAttribute('id', 'password');
   password.setAttribute('placeholder', 'Contraseña');
+  password.setAttribute('type', 'password');
   const signIn = document.createElement('button');
   signIn.setAttribute('id', 'signIn');
   signIn.textContent = 'Iniciar sesión';
