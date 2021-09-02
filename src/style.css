@@ -1,0 +1,38 @@
+body {
+    background-color: white;
+}
+
+div {
+    display: flex;
+    flex-flow: column wrap;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+    
+}
+h1{
+    display: flex;
+    max-width: 360px;
+    font-size: 15px;
+    text-align: center;
+    font-family: 'Poppins', sans-serif;
+}
+button{
+    background-color : #0976B2;
+    color : white;
+    border-radius: 5px;
+    font-family: 'Poppins', sans-serif;
+    font-size: 10px;
+    width: 200px;
+    height: 50px;
+
+} 
+
+.inputs {
+    margin: 10px;
+}
+
+img {
+    width: 270px;
+    
+}
