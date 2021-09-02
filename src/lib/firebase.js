@@ -6,11 +6,12 @@ export const registerUser = (email, password) => {
     .createUserWithEmailAndPassword(email, password)
     .then((userCredential) => {
       // Signed in
-      console.log(userCredential.user);
+      let user = (userCredential.user);
       // ...
     })
     .catch((error) => {
-      console.log('error', error);
+      let errorCode = error.code;
+      let errorMessage = error.message;
       // ..
     });
 };
