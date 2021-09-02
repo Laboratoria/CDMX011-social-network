@@ -16,6 +16,13 @@ export const toViewtimeline = (container) => {
     <input type="button" class="btn_log logout" value="salir" id="logOut" />
     </div>
     </header>
+
+    <nav class="navBar" id="navElements"> 
+    <div><p>Home</p></div>
+    <div><div type="button" class="btn_post"></div></div>
+    <div><p>Log Out</p></div>
+  </nav> 
+
     <section class="timeLineSection" id="section">
     <form class="TextArea" id="postForm">
       <div class= "textAreaPost" >
@@ -26,6 +33,8 @@ export const toViewtimeline = (container) => {
     <div class = "postContainer"  id = "postContainer"></div>
     
   </section>
+
+ 
   </div>
 `;
  

@@ -1,6 +1,7 @@
 
 /* eslint-disable */
 
+
 .homeContainer {
     align-items: center;
     justify-content: center;
@@ -163,6 +164,7 @@ input {
     display: flex;
     background: #fff;
     outline: none;
+    padding:5px 5px;
 }
 
 .logout {
@@ -203,6 +205,26 @@ footer {
     width: 100%;
     font-size: 80%;
 }
+
+.navBar{
+   display:flex;
+    flex-direction:row;
+    justify-content: space-around;
+    background-color: #fff;
+    width: 100%;
+    height: 56px;
+    position:fixed;
+    bottom:1px;
+    right:0px;
+}
+.btn_post{/* Ellipse 10 */
+    width: 53px;
+     height: 53px;
+     -moz-border-radius: 50%;
+     -webkit-border-radius: 50%;
+     border-radius: 50%;
+    background: conic-gradient(from 180deg at 50% 50%, #FAFF00 -22.13deg, #F59F15 32.25deg, #EC5C9D 79.12deg, #E83888 129.75deg, #936BAC 182.25deg, #17B9ED 234.75deg, #76BC6A 289.12deg, #FAFF00 337.87deg, #F59F15 392.25deg);
+    }
 
 /*------- CSS RESPONSIVE -------*/
 

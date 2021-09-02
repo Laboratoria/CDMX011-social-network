@@ -1,97 +1,84 @@
 /* eslint-disable */
 
+import { logIn } from '../lib/fireBase.js'
 import { onNavigate } from '../routes.js';
-
-import {logOutUser, dataBase } from '../lib/fireBase.js';
-//import { async } from 'regenerator-runtime';
+export { onNavigate } from '../routes.js';
 
 
-export const toViewtimeline = (container) => {
-    
-    const html = `
-    <div class = "TimeContainer">
-    <header class="timelineHeader">
-    <div class = "headTimeline">
-    <img class="iconApp" src="img/Component 1.png">
-    <input type="button" class="btn_log logout" value="salir" id="logOut" />
-    </div>
-    </header>
-    <section class="timeLineSection" id="section">
-    <form class="TextArea" id="postForm">
-      <div class= "textAreaPost" >
-        <textarea text="textArea" class="textPost" id="textPost" rows="5" cols="40" maxlength="500" placeholder="Post something :)"></textarea>
-        <input type="submit" id="buttonNewPost" value="Share" /> 
-      </div>
+export const toViewLogIn = (container) => {
+
+
+    console.log('Estoy en LogIn');
+    const html = ` 
+    <div class = "homeContainer">
+    <section class='container logIn-form'>
+    <img class='logo' src='img/PIC&ART.png' alt='logo'>
+    <form id='logInForm'>
+        <br><label class="title" value='email'>E-mail</label>
+        <input id='logInEmail' type='text' placeholder='e-mail' required/><br>
+        <br><label class="title" value='password'>Password</label>
+        <input id='logInPassword' type='password' placeholder='Password' required />
+        <input src='../img/eye.png' id='viewPass' type='image' /><br>
+        <input src='../img/hide.png' id='hidePass' display='block' type='image' /><br>
+        <br><input type='submit' class='btn_log login' value='LOG IN' /><br>
+       
+        <p class="error"></>
+        
+        <br>
     </form>
-    <div class = "postContainer"  id = "postContainer"></div>
+    <a href='javascript:history.back();'> <img class='return' src='img/return-logo.png' alt='logo'> Back </a>
     
-  </section>
-  </div>
-`;
- 
+</section>
+</div>`;
+
     container.innerHTML = html
-const postContainer = document.getElementById('postContainer');
-    // const postContainer = document.createElement('div');
-    // postContainer.classList.add('post-box');
-    // container.appendChild(postContainer);
 
-   //Log out de app
-    const toLogOut = document.getElementById('logOut');
-  toLogOut.addEventListener('click', () => {
-   
-    logOutUser().then(() => {
-      onNavigate('/');
+    document.getElementById('viewPass').addEventListener('click', (e) => {
+        e.preventDefault();
+        const inputType = document.getElementById('logInPassword');
+        inputType.type == 'password' ? inputType.type = 'text' : inputType.type = 'password';
+
+        // if(inputType.type === text){
+        //     btnHide.style.display = 'visible';  
+        //     btnEye.style.display = 'hidden';
+        // } else {
+        //     btnHide.style.display = 'hidden';  
+        //     btnEye.style.display = 'visible';
+        // }
     });
-  });
-  //Post
- 
+    function mostrarBoton() {
+        const btnEye = document.getElementById('viewPass');
+        const btnHide = document.getElementById('hidePass');
+        btnEye.style.display = 'none';
+        btnHide.style.display = 'inline';
+    }
 
-  const posting = document.getElementById('postForm');
 
-  const savePost = (textShare) =>
-  dataBase.collection('posts').doc().set({
-    textShare
-  });
-  const getPost = () => dataBase.collection('posts').get();
-  //const user = firebase.getUser();
-//console.log(user);
-  const onGetPost = (callback) => dataBase.collection('posts').onSnapshot(callback);
-
-  window.addEventListener('DOMContentLoaded', async (e) =>{
-   
-    onGetPost((querySnapshot) => {
-      postContainer.innerHTML = '';
-      querySnapshot.forEach(doc =>{
-      const userUID = firebase.auth().currentUser;
-        //console.log(stateUser());
-     
-     postContainer.innerHTML += `<div class= "post_container">
-      <p>${userUID.email}</p>
-      <h2>${doc.data().textShare}</h2>
-      <div class = "buttonsDelEdit">
-        <button class  = "btn_log" id = "btn_del">Delete</button>
-        <button class  = "btn_log" id = "btn_edit">Edit</button>
-      </div>
-      </div>
-      `;
+    const logInForm = document.querySelector('#logInForm');
+    logInForm.addEventListener('submit', (e) => {
+        const emailUser = document.querySelector('#logInEmail').value;
+        const passwordUser = document.querySelector('#logInPassword').value;
+        logIn(emailUser, passwordUser)
+            .then(() => {
+            onNavigate('/TimeLine');
+            })
+            .catch((error) => {
+                const alertaError = error.message;
+                document.querySelector('.error').innerHTML = `${alertaError}`;
+            });
     });
-   
-   console.log("Estoy entrando");
 
-   });
-    
-  })
-posting.addEventListener('submit', async (e)  =>{
-  e.preventDefault();
-   console.log("Share");
-   const textShare= posting['textPost'];
-   console.log(textShare);
+    document.querySelector("#logInForm").addEventListener('submit', (e) => {
+        e.preventDefault()
+        console.log("estoy evitando el reset")
+        //onNavigate('/TimeLine')
+    });
 
-   await savePost(textShare.value);
 
-    posting.reset();
-    textShare.focus();
-   
-   
-} );
+
+    //logInForm.reset();
+
+    //singUpform.querySelector(".error").innerHTML = register.catch;
+
+
 }
