@@ -49,11 +49,13 @@ export const toViewtimeline = (container) => {
   const savePost = (textShare) =>
   dataBase.collection('posts').doc().set({
     textShare
+    
   });
   const getPost = () => dataBase.collection('posts').get();
   //const user = firebase.getUser();
-//console.log(user);
+
   const onGetPost = (callback) => dataBase.collection('posts').onSnapshot(callback);
+  
 
   window.addEventListener('DOMContentLoaded', async (e) =>{
    
@@ -65,6 +67,7 @@ export const toViewtimeline = (container) => {
      
      postContainer.innerHTML += `<div class= "post_container">
       <p>${userUID.email}</p>
+      <div class="line"></div>
       <h2>${doc.data().textShare}</h2>
       <div class = "buttonsDelEdit">
         <button class  = "btn_log edit">Delete</button>
@@ -75,7 +78,6 @@ export const toViewtimeline = (container) => {
     });
    
    console.log("Estoy entrando");
-
    });
     
   })
@@ -83,7 +85,7 @@ posting.addEventListener('submit', async (e)  =>{
   e.preventDefault();
    console.log("Share");
    const textShare= posting['textPost'];
-   console.log(textShare);
+   //console.log(textShare);
 
    await savePost(textShare.value);
 
@@ -91,5 +93,5 @@ posting.addEventListener('submit', async (e)  =>{
     textShare.focus();
    
    
-} );
+});
 }
