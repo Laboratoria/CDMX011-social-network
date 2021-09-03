@@ -14,12 +14,15 @@ const firebaseConfig = {
   measurementId: 'G-V85MSYGCCW',
 };
 // Initialize Firebase
+
+
 firebase.initializeApp(firebaseConfig);
-firebase.analytics();
+//firebase.analytics();
+
 const auth = firebase.auth();
 const user= firebase.auth().currentUser;
 //console.log(getUser());
-export const dataBase = firebase.firestore();
+//export const dataBase = firebase.firestore();
 
 // Firebase register
 export const register = (singUpEmail, singUpPassword) => {
