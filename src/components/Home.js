@@ -1,12 +1,13 @@
 /* eslint-disable */
 import { onNavigate } from '../routes.js';
-import {continueGoogle, logOutUser, stateUser} from '../lib/fireBase.js';
+import {continueGoogle} from '../lib/fireBase.js';
 
 
 
 export const toViewHome = (container) => {
   console.log('estoy en home');
   const html = `
+  <div class = "homeContainer">
     <section class="container">
         <img class="logo" src="img/PIC&ART.png" alt="logo">
         <div class="content">
@@ -17,7 +18,9 @@ export const toViewHome = (container) => {
         <p2>──────  or  ──────</p2><br>
         <input type="button" class="btn_log google" value="Continue with Google" id="toGoogle" />
         </div>
-    </section>`;
+    </section>
+  </div>`
+  ;
 
   container.innerHTML = html;
 
