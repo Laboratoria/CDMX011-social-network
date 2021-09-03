@@ -4,7 +4,6 @@ import { logIn } from '../lib/fireBase.js'
 import { onNavigate } from '../routes.js';
 export { onNavigate } from '../routes.js';
 
-
 export const toViewLogIn = (container) => {
 
 
@@ -20,9 +19,9 @@ export const toViewLogIn = (container) => {
         <input id='logInPassword' type='password' placeholder='Password' required />
         <input src='../img/eye.png' id='viewPass' type='image' /><br>
         <input src='../img/hide.png' id='hidePass' display='block' type='image' /><br>
-        <br><input type='submit' class='btn_log login' value='LOG IN' /><br>
+        <br><input type='submit' class='btn_log login' id="btnLogIn" value='LOG IN' /><br>
        
-        <p class="error"></>
+        <p class="error"></p>
         
         <br>
     </form>
@@ -30,8 +29,9 @@ export const toViewLogIn = (container) => {
     
 </section>
 </div>`;
-
-    container.innerHTML = html
+//container=document.getElementById("root");
+// eslint-disable-next-line no-param-reassign
+container.innerHTML = html
 
     document.getElementById('viewPass').addEventListener('click', (e) => {
         e.preventDefault();
@@ -56,10 +56,12 @@ export const toViewLogIn = (container) => {
 
     const logInForm = document.querySelector('#logInForm');
     logInForm.addEventListener('submit', (e) => {
+        console.log('debug 1')
         const emailUser = document.querySelector('#logInEmail').value;
         const passwordUser = document.querySelector('#logInPassword').value;
         logIn(emailUser, passwordUser)
             .then(() => {
+                console.log('debug 2')
             onNavigate('/TimeLine');
             })
             .catch((error) => {

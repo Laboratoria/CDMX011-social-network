@@ -1,3 +1,4 @@
+
 /* eslint-disable */
 
 .homeContainer {
@@ -66,10 +67,10 @@
     padding-bottom: 15px;
     text-align: center;
 }*/
-p5 {
+/*p5 {
     display: flex;
     flex-direction: row;
-}
+}*/
 
 label {
     display: flex;
@@ -202,7 +203,6 @@ footer {
     width: 100%;
     font-size: 80%;
 }
-
 
 /*------- CSS RESPONSIVE -------*/
 
