@@ -4,6 +4,8 @@ import { registerUser } from '../lib/firebase.js';
 
 export const Register = () => {
   const registerDiv = document.createElement('div');
+  const logo = document.createElement('img');
+  const h1Presentation = document.createElement('h1');
   const inputName = document.createElement('input');
   let inputEmail = document.createElement('input');
   let inputPassword = document.createElement('input');
@@ -11,15 +13,20 @@ export const Register = () => {
   const buttonLoginGoogle = document.createElement('button');
   const buttonHome = document.createElement('button');
 
+  logo.setAttribute('src', '../img/BeTheLight.png');
+  h1Presentation.textContent = 'Be the light te ayuda a comunicarte y compartir la luz que ha sido depositada en ti con las personas que forman parte de tu comunidad';
   inputName.placeholder = 'Nombre';
   inputEmail.placeholder = 'Correo';
   inputEmail.id = 'inputEmail';
   inputPassword.placeholder = 'Contraseña';
   inputPassword.type = 'password';
   inputPassword.id = 'inputPassword';
-  buttonRegister.textContent = 'Registrate';
+  buttonRegister.textContent = 'REGISTRATE';
+  buttonRegister.id = 'buttonRegister';
   buttonLoginGoogle.textContent = 'Registrate con tu cuenta Google';
+  buttonLoginGoogle.id = 'buttonLoginGoogle';
   buttonHome.textContent = 'Regresar al Home';
+  buttonHome.id = 'buttonHome';
 
   buttonHome.addEventListener('click', () => onNavigate('/'));
 
@@ -40,7 +47,8 @@ export const Register = () => {
         console.error(error);
       });
   });
-
+  registerDiv.appendChild(logo);
+  registerDiv.appendChild(h1Presentation);
   registerDiv.appendChild(inputName);
   registerDiv.appendChild(inputEmail);
   registerDiv.appendChild(inputPassword);
@@ -50,14 +58,3 @@ export const Register = () => {
 
   return registerDiv;
 };
-
-// //Google Register
-// //firebase.auth().signInWithRedirect(provider);
-// //firebase.auth().signInWithRedirect(googleRegister);
-
-// //Para acceder mediante el redireccionamiento a la página de acceso
-// buttonLoginGoogle.addEventListener('click', (event) => {
-//     const buttonLoginGoogle = document.createElement('button');
-//     buttonLoginGoogle.textContent = 'Registrate con tu cuenta Google';
-//     googleRegister(firebase.auth().signInWithRedirect(provider));
-// });

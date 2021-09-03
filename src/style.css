@@ -25,13 +25,40 @@ button{
     font-size: 10px;
     width: 200px;
     height: 50px;
-
+    margin-top: 20px;
 } 
 
-.inputs {
-    margin: 10px;
+input{
+    margin-top: 20px;
+    width: 295px;
+    height: 42px;
 }
 
+#buttonGotoRegister{
+    margin-top: 100px;
+    width: 100%;
+    border-radius: 0px;
+    font-size: 100%;
+}
+#buttonLogin{
+    font-weight: bold;
+    font-size: 94%;
+}
+#buttonLoginGoogle{
+    background-color:rgba(9, 118,178, 10%);
+    color: black;
+    font-weight: bold;
+    width: 268px;
+    font-size: 92%;
+}
+#buttonRegister{
+    font-weight: bold;
+    font-size: 94%;
+}
+#buttonHome{
+    font-weight: bold;
+    font-size: 94%;
+}
 img {
     width: 270px;
     
