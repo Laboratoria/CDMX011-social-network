@@ -28,8 +28,8 @@ export const toViewLogIn = (container) => {
     
 </section>`;
 //<input src='../img/hide.png' id='hidePass' display='block' type='image' /><br></br>
-
-    container.innerHTML = html
+    container = document.getElementById("root");
+    container.innerHTML = html;
 
     document.getElementById('viewPass').addEventListener('click', (e) => {
         e.preventDefault();
