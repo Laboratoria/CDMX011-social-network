@@ -55,7 +55,7 @@ const postContainer = document.getElementById('postContainer');
   const getPost = () => dataBase.collection('posts').get();
   //const user = firebase.getUser();
 //console.log(user);
-  const onGetPost = (callback) => dataBase.collection('posts').onSnapshot(callback);
+  const onGetPost = (callback) => firebase.firestore().collection('posts').onSnapshot(callback);
 
   window.addEventListener('DOMContentLoaded', async (e) =>{
    
