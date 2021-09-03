@@ -2,13 +2,13 @@
 
 import { onNavigate } from '../routes.js';
 
-import {logOutUser, dataBase, stateUser } from '../lib/fireBase.js';
+import {logOutUser, dataBase } from '../lib/fireBase.js';
 //import { async } from 'regenerator-runtime';
 
 export const toViewtimeline = (container) => {
     
     const html = `
-    <body class="testTL"
+    <div class = "TimeContainer">
     <header class="timelineHeader">
     <div class = "headTimeline">
     <img class="iconApp" src="img/Component 1.png">
@@ -22,16 +22,17 @@ export const toViewtimeline = (container) => {
         <input type="submit" id="buttonNewPost" value="Share" /> 
       </div>
     </form>
+    <div class = "postContainer"  id = "postContainer"></div>
     
   </section>
-   </body>
+  </div>
 `;
  
     container.innerHTML = html
-
-    const postContainer = document.createElement('div');
-    postContainer.classList.add('post-box');
-    container.appendChild(postContainer);
+const postContainer = document.getElementById('postContainer');
+    // const postContainer = document.createElement('div');
+    // postContainer.classList.add('post-box');
+    // container.appendChild(postContainer);
 
    //Log out de app
     const toLogOut = document.getElementById('logOut');
@@ -53,9 +54,8 @@ export const toViewtimeline = (container) => {
   });
   const getPost = () => dataBase.collection('posts').get();
   //const user = firebase.getUser();
-
-  const onGetPost = (callback) => dataBase.collection('posts').onSnapshot(callback);
-  
+//console.log(user);
+  const onGetPost = (callback) => firebase.firestore().collection('posts').onSnapshot(callback);
 
   window.addEventListener('DOMContentLoaded', async (e) =>{
    

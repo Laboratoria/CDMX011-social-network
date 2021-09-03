@@ -1,10 +1,9 @@
 /* eslint-disable */
-
 import { onNavigate } from '../routes.js';
 import { register } from '../lib/fireBase.js';
 
 export const toViewSignUp = (container) => {
-    console.log('Estoy en signUp')
+    console.log('Estoy en signUp');
     const html = ` <section class='container signup-form'>
     <img class='logo' src='img/PIC&ART.png' alt='logo'>
     <form id='submitForm'>
@@ -41,10 +40,10 @@ export const toViewSignUp = (container) => {
         console.log(email, password);
 
         register(email, password)
-        .then(() => {
-          console.log('then');
-            onNavigate('/TimeLine');
-        })
+            .then(() => {
+                console.log('then');
+                onNavigate('/TimeLine');
+            })
             .catch((error) => {
                 const alertaError = error.message;
                 document.querySelector('.error').innerHTML = `${alertaError}`;

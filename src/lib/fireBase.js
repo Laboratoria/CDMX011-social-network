@@ -2,7 +2,7 @@
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
 /* eslint-disable */
 
-import { onNavigate } from '../routes.js';
+// import { onNavigate } from '../routes.js';
 
 const firebaseConfig = {
   apiKey: 'AIzaSyCaBVEyo0yKvVWGvxHpTufYnUwG7qMZ2FY',
@@ -14,22 +14,25 @@ const firebaseConfig = {
   measurementId: 'G-V85MSYGCCW',
 };
 // Initialize Firebase
+
+
 firebase.initializeApp(firebaseConfig);
-firebase.analytics();
-const auth = firebase.auth();
-const user= firebase.auth().currentUser;
+//firebase.analytics();
+
+
+export const getUser = () => firebase.auth().currentUser;
 //console.log(getUser());
-export const dataBase = firebase.firestore();
+export const dataBase = () => firebase.firestore();
 
 // Firebase register
 export const register = (singUpEmail, singUpPassword) => {
-  return Promise.resolve(auth.createUserWithEmailAndPassword(singUpEmail, singUpPassword));
+  return firebase.auth().createUserWithEmailAndPassword(singUpEmail, singUpPassword);
 };
 
 
 // Firebase login
 export const logIn = (logInEmail, logInPassword) => {
-  return Promise.resolve(auth.signInWithEmailAndPassword(logInEmail, logInPassword));
+  return firebase.auth().signInWithEmailAndPassword(logInEmail, logInPassword);
   // .then((user) => {
   //   console.log(user);
   //   console.log('signIn');
@@ -45,8 +48,8 @@ export const logIn = (logInEmail, logInPassword) => {
 // Google autentication
 export const continueGoogle = () => {
   const credential = new firebase.auth.GoogleAuthProvider();
-  auth.languageCode = 'en';
-  return Promise.resolve( auth.signInWithPopup(credential));
+  firebase.auth().languageCode = 'en';
+  return firebase.auth().signInWithPopup(credential);
 
 };
 
@@ -63,13 +66,10 @@ export const continueGoogle = () => {
 
 //creo que ya no lo necesitamos 
 export const stateUser = () => {
-  auth.onAuthStateChanged((user) => {
-    const emailUser = user.email;
-    console.log(emailUser);
-  
-    if (user) {
+  firebase.auth().onAuthStateChanged((getUser) => {
+      if (getUser) {
       
-      console.log(user.uid);
+      console.log(getUser.uid);
       
       //const anUsuer = logIn(logInEmail, logInPassword);
       //onNavigate('/TimeLine');
@@ -80,6 +80,6 @@ export const stateUser = () => {
 }
 
 export const logOutUser = () => {
-  console.log('out' + user);
-  return Promise.resolve(firebase.auth().signOut())
+ 
+  return firebase.auth().signOut()
 }
