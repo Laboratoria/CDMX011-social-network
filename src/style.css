@@ -19,6 +19,9 @@
     min-height: 100vh;
 }
 
+.TimeContainer{
+    background: black;
+}
 
 .testTL {
     background: #000;
@@ -67,18 +70,7 @@
     background-color: #000;
     
 }
-/*p2 {
-    border-bottom: 1px solid #000000;
-    height: 0;
-    line-height: 28px;
-    margin: 0 0 15px;
-    padding-bottom: 15px;
-    text-align: center;
-}*/
-/*p5 {
-    display: flex;
-    flex-direction: row;
-}*/
+
 
 label {
     display: flex;
@@ -192,53 +184,16 @@ div.post-box{
     flex-direction: column; 
     align-content: center;
     background-color: #000;
-    width: 500px;
-    margin-top: 0px;
+    width: 400px;
+    -ms-flex-align: center;
+    justify-content: center;
 }
 .post_container {
     display: flex;
     align-self: center;
     flex-direction: column;
     background-color: #fff;
-    border-radius: 10px;
-    margin: 10px;
-    border: solid 2px rgb(0, 0, 0);
-    width: 350px;
-    padding: 10px;
-}
-.line {
-height: 1px;
-background-color: #000;
-}
-
-.buttonsDelEdit {
-    display: flex;
-    flex-direction: row;
-    align-content: center;
-}
-#textPost{
-    align-self: center;
-    border-radius: 5px;
-    padding: 10px;
-    margin-top: 10px;
-    width: 340px;
-}
-#buttonNewPost{
-    align-self: center;
-}
-#postForm {
-    align-content: center;
-}
-.edit{
-    width: 100px;
-}
-.textAreaPost{
-    align-self: center;
-    display:flex;
-    flex-direction: column;
-    justify-content: center;
-    padding: 20px;
-    width: 450px;
+    width: 200px;
 }
 div#postContainer.postContainer{
     display: flex;
