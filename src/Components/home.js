@@ -10,6 +10,7 @@ export const Home = () => {
   const buttonLogin = document.createElement('button');
   const buttonLoginGoogle = document.createElement('button');
   const buttonGoToRegister = document.createElement('button');
+  buttonGoToRegister.id = 'buttonGotoRegister';
 
   logo.setAttribute('src', '../img/BeTheLight.png');
   h1Presentation.textContent = 'Be the light te ayuda a comunicarte y compartir la luz que ha sido depositada en ti con las personas que forman parte de tu comunidad';
@@ -18,6 +19,7 @@ export const Home = () => {
   inputPassword.type = 'password';
   buttonLogin.textContent = 'INGRESAR';
   buttonLoginGoogle.textContent = 'Ingresa con tu cuenta de Google';
+  buttonLoginGoogle.id = 'buttonLoginGoogle';
   buttonGoToRegister.textContent = '¿No tienes cuenta?  Registrate';
 
   buttonGoToRegister.addEventListener('click', () => onNavigate('/register'));
@@ -25,7 +27,7 @@ export const Home = () => {
   h1Presentation.classList.add('Presentacion');
   inputEmail.classList.add('inputs');
   inputPassword.classList.add('inputs');
-  buttonLogin.classList.add('inputs');
+  buttonLogin.id = 'buttonLogin';
   buttonLoginGoogle.classList.add('inputs');
 
   buttonLoginGoogle.addEventListener('click', (event) => {
