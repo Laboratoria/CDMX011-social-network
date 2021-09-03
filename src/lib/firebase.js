@@ -16,3 +16,5 @@ export const registerUser = (email, password) => {
 };
 
 console.log(firebase);
+
+// Registro con Google

@@ -28,6 +28,16 @@ export const Home = () => {
   buttonLogin.classList.add('inputs');
   buttonLoginGoogle.classList.add('inputs');
 
+  buttonLoginGoogle.addEventListener('click', (event) => {
+    const googleProvider = new firebase.auth.GoogleAuthProvider();
+    event.preventDefault();
+    firebase.auth().signInWithRedirect(googleProvider).then(() => {
+      window.location.assign('/profile');
+    })
+      .catch((error) => {
+        console.error(error);
+      });
+  });
   HomeDiv.appendChild(logo);
   HomeDiv.appendChild(h1Presentation);
   HomeDiv.appendChild(inputEmail);
