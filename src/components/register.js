@@ -1,6 +1,6 @@
 import { onNavigate } from '../main.js';
 import { allFunctions } from '../lib/registerFunc.js';
-import { authUser } from '../firebaseAuth.js';
+import { authUser, gmailAuth } from '../firebaseAuth.js';
 
 export const register = () => {
   const registerPage = document.createElement('div');
@@ -81,7 +81,7 @@ export const register = () => {
   registerPage.appendChild(loginContainer);
   loginContainer.appendChild(loginText);
   loginContainer.appendChild(loginButton);
-
+  
   let printEmail = '';
   let printPassword = '';
 
@@ -89,7 +89,7 @@ export const register = () => {
     const saveEmail = email.value;
     const savedPassword = password.value;
     const confirmSavedPassword = confirmPassword.value;
-   const validEmailFunc = allFunctions.validEmail(saveEmail);
+    const validEmailFunc = allFunctions.validEmail(saveEmail);
     const validPasswordFunc = allFunctions.validPassword(savedPassword, confirmSavedPassword);
 
     if (validEmailFunc === false) {
@@ -103,10 +103,12 @@ export const register = () => {
     } else {
       printPassword = savedPassword;
     }
+
     console.log(printEmail);
-    console.log(printPassword); 
+    console.log(printPassword);
     authUser(printEmail, printPassword);
   });
+
   openEye.addEventListener('click', () => {
     if (password.type === 'text') {
       password.type = 'password';
@@ -114,17 +116,9 @@ export const register = () => {
       password.type = 'text';
     }
   });
-  return registerPage; 
-};
-
-/* firebase.auth().signInWithEmailAndPassword(printEmail, printPassword)
-  .then((userCredential) => {
-  // Signed in
-    const user = userCredential.user;
-    console.log("hola");
-  })
-  .catch((error) => {
-    const errorCode = error.code;
-    const errorMessage = error.message;
+  signInGoogle.addEventListener('click', () => {
+    gmailAuth();
   });
-*/
+
+  return registerPage;
+};

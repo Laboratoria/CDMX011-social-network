@@ -26,6 +26,5 @@ export const onNavigate = (pathname) => {
 const component = routes[window.location.pathname];
 
 routesDiv.appendChild(component());
-// eslint-disable-next-line no-console
-console.log(firebase);
+
 // este export es para ir de Registro a Home
