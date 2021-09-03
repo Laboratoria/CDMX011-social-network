@@ -18,6 +18,17 @@ export const Home = () => {
   buttonRegister.addEventListener('click', () => onNavigate('/register'));
   buttonLogin.addEventListener('click', () => onNavigate('/login'));
 
+  buttonGoogle.addEventListener('click', (event) => {
+    const googleProvider = new firebase.auth.GoogleAuthProvider();
+    event.preventDefault();
+    firebase.auth().signInWithRedirect(googleProvider).then(() => {
+      window.location.assign('/Register');
+    })
+      .catch((error) => {
+        console.error(error);
+      });
+  });
+
   Homediv.appendChild(logoPDP);
   Homediv.appendChild(h1Welcome);
   Homediv.appendChild(buttonRegister);
