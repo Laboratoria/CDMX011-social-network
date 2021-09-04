@@ -1,3 +1,4 @@
+// eslint-disable-next-line import/no-cycle
 import { onNavigate } from '../main.js';
 
 export const login = () => {
@@ -52,10 +53,10 @@ export const login = () => {
   registerContainer.appendChild(registerButton);
   registerButton.addEventListener('click', () => onNavigate('/register'));
   signIn.addEventListener('click', () => onNavigate('/home'));
-
+  /*
   signIn.addEventListener('click', () => {
-    const saveEmail = email.value;
+     const saveEmail = email.value;
     const savePassword = password.value;
-  });
+  }); */
   return loginPage;
 };
