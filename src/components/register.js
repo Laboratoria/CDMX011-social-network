@@ -92,6 +92,8 @@ export const register = () => {
     const validEmailFunc = allFunctions.validEmail(saveEmail);
     const validPasswordFunc = allFunctions.validPassword(savedPassword, confirmSavedPassword);
 
+    
+
     if (validEmailFunc === false) {
       invalidEmail.innerHTML = 'Favor de ingresar correo válido.';
     } else {
