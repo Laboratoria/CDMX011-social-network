@@ -1,3 +1,4 @@
+// eslint-disable-next-line import/no-cycle
 import { onNavigate } from '../main.js';
 import { allFunctions } from '../lib/registerFunc.js';
 import { authUser, gmailAuth } from '../firebaseAuth.js';
@@ -81,17 +82,18 @@ export const register = () => {
   registerPage.appendChild(loginContainer);
   loginContainer.appendChild(loginText);
   loginContainer.appendChild(loginButton);
-  
+
   let printEmail = '';
   let printPassword = '';
 
-  signIn.addEventListener('click', () => {
+  signIn.addEventListener('click', (e) => {
     const saveEmail = email.value;
     const savedPassword = password.value;
     const confirmSavedPassword = confirmPassword.value;
     const validEmailFunc = allFunctions.validEmail(saveEmail);
     const validPasswordFunc = allFunctions.validPassword(savedPassword, confirmSavedPassword);
 
+    e.preventDefault();
     if (validEmailFunc === false) {
       invalidEmail.innerHTML = 'Favor de ingresar correo válido.';
     } else {
@@ -104,8 +106,8 @@ export const register = () => {
       printPassword = savedPassword;
     }
 
-    console.log(printEmail);
-    console.log(printPassword);
+    /* console.log(printEmail);
+    console.log(printPassword); */
     authUser(printEmail, printPassword);
   });
 

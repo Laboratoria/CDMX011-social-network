@@ -1,39 +1,40 @@
 export const authUser = (email, password) => {
   firebase.auth().createUserWithEmailAndPassword(email, password)
-    .then((userCredential) => {
+    .then(() => {
     // Signed in
-      console.log(userCredential.user);
-
-    // ...
+      console.log('registrado');
     })
     .catch((error) => {
-      //const errorCode = error.code;
-      //const errorMessage = error.message;
-    // ..
+      // const errorCode = error.code;
+      alert(error.message);
     });
+  // ..
 };
 
 export const gmailAuth = () => {
-  var provider = new firebase.auth.GoogleAuthProvider();
+  const provider = new firebase.auth.GoogleAuthProvider();
   firebase.auth()
-  .signInWithPopup(provider)
-  .then((result) => {
+    .signInWithPopup(provider)
+    .then((result) => {
     /** @type {firebase.auth.OAuthCredential} */
-   var credential = result.credential;
+      const credential = result.credential;
 
-    // This gives you a Google Access Token. You can use it to access the Google API.
-    var token = credential.accessToken;
-    // The signed-in user info.
-    var user = result.user;
+      // This gives you a Google Access Token. You can use it to access the Google API.
+      const token = credential.accessToken;
+      // The signed-in user info.
+      const user = result.user;
+
+      console.log(credential, token, user);
     // ...
-  }).catch((error) => {
+    }).catch((error) => {
     // Handle Errors here.
-    var errorCode = error.code;
-    var errorMessage = error.message;
-    // The email of the user's account used.
-    var email = error.email;
-    // The firebase.auth.AuthCredential type that was used.
-    var credential = error.credential;
-    // ...
-  });
-}
+      const errorCode = error.code;
+      const errorMessage = error.message;
+      // The email of the user's account used.
+      const email = error.email;
+      // The firebase.auth.AuthCredential type that was used.
+      const credential = error.credential;
+
+      console.log(errorCode, errorMessage, email, credential);
+    });
+};
