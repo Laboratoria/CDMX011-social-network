@@ -6,7 +6,7 @@ export const authUser = (email, password) => {
     })
     .catch((error) => {
       // const errorCode = error.code;
-      alert(error.message);
+      console.log(error.message);
     });
   // ..
 };
