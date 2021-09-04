@@ -1,14 +1,33 @@
 // Este es el punto de entrada de tu aplicacion
-
-import { home } from './components/home.js';
+// eslint-disable-next-line import/no-cycle
+import { login } from './components/login.js';
+// eslint-disable-next-line import/no-cycle
 import { register } from './components/register.js';
-const routesDiv = document.getElementById("root");
+// eslint-disable-next-line import/no-cycle
+import { home } from './components/home.js';
+
+const routesDiv = document.getElementById('root');
 
 const routes = {
-    '/': home,
-    '/register': register
+  '/': login,
+  '/register': register,
+  '/home': home,
 };
 
-const component=routes[window.location.pathname];
+// este export es para ir de Home a Registro
+export const onNavigate = (pathname) => {
+  window.history.pushState(
+    {},
+    pathname,
+    window.location.origin + pathname,
+  );
+  while (routesDiv.firstChild) {
+    routesDiv.removeChild(routesDiv.firstChild);
+  }
+  routesDiv.appendChild(routes[pathname]());
+};
+const component = routes[window.location.pathname];
 
 routesDiv.appendChild(component());
+
+// este export es para ir de Registro a Home

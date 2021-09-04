@@ -1,0 +1,150 @@
+*{
+ 
+  margin: 0px;
+  padding: 0px;  
+
+}
+.homePage {
+    display:flex;
+    justify-content: center;
+    align-items:center;
+    position: relative;
+    padding-top:20% ;
+    
+
+
+}
+
+h1{
+    color:#732F3B;
+    font-family: 'Fredoka One', cursive;
+}
+body{
+    background-image: url("./imagenes/clouds.jpg");
+    display: flex;
+    justify-content: center;
+    align-items:center;
+
+}
+
+#banner {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+input {
+
+    margin-top: 10%;
+    display: flex;
+    
+
+    width: 304.23px;
+    height: 40px;
+
+    font-family:'Montserrat', sans-serif;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 20px;
+
+    color: #AAA6A6;
+
+    background: #FFF9F9;
+    border: 2px solid #1EBFD1;
+    box-sizing: border-box;
+    border-radius: 15px;
+    text-align: center;
+
+}
+
+#formContainer{
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+#signIn{
+    display: flex;
+    margin-top: 10%;
+    border:none;
+
+    background: #1EBFD1;
+    border-radius: 10px;
+    width: 125px;
+    height: 29px;
+
+    position: relative;
+    vertical-align: middle;
+    font-family: "Fredoka One",cursive;
+    font-style: normal;
+    font-weight: normal;
+    color: #FFF9F9;
+    font-size: 16px;
+    letter-spacing: 1px;
+    line-height: 2;
+
+    text-align: center; 
+    justify-content: center;   
+   
+
+}
+
+#signInGoogle{
+    display: flex;
+    margin-top: 10%;
+    margin-bottom: 10%;
+    border:none;
+    background: #f67b7c;
+    border-radius: 10px;
+    width: 230px;
+    height: 33px;
+    font-family: 'Fredoka one', sans-serif;
+    color: #FFF9F9;
+    font-size: 16px;
+    justify-content: space-evenly;
+    align-items: center;
+    flex-direction: row-reverse;
+    letter-spacing: .5px;
+}
+
+
+
+#lastContainer{
+    display: flex;
+    align-items: flex-end;
+}
+
+#registerIn{
+    color:#732F3B;
+    font-family: 'Fredoka one', sans-serif;
+    font-size: 17px;
+}
+
+#registerButton{
+    display: flex;
+    border:none;
+margin-left: 3%;
+    background:none;
+
+    position: relative;
+    vertical-align: middle;
+    font-family: 'Fredoka one', sans-serif;
+    font-style: normal;
+    font-weight: normal;
+    color: #f67b7c;
+    font-size: 18px;
+
+}
+.eyeContainer{
+    position: relative;
+
+}
+.openEye {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(50%);
+    cursor: pointer;
+}
+
