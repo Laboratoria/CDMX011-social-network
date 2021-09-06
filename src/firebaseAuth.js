@@ -1,17 +1,9 @@
-export const authUser = (email, password) => {
-  firebase.auth().createUserWithEmailAndPassword(email, password)
-    .then(() => {
-    // Signed in
-      console.log('registrado');
-    })
-    .catch((error) => {
-      // const errorCode = error.code;
-      console.log(error.message);
-    });
+// Registra usuario en firebase
+export const authUser = (email, password) => firebase.auth()
+  .createUserWithEmailAndPassword(email, password);
   // ..
-};
-
-export const gmailAuth = () => {
+// Continua el registro con google
+export const gmailAuth = (onNavigate) => {
   const provider = new firebase.auth.GoogleAuthProvider();
   firebase.auth()
     .signInWithPopup(provider)
@@ -22,7 +14,7 @@ export const gmailAuth = () => {
       const token = credential.accessToken;
       // The signed-in user info.
       const user = result.user;
-
+      onNavigate('/home');
       console.log(credential, token, user);
     // ...
     }).catch((error) => {
@@ -37,3 +29,6 @@ export const gmailAuth = () => {
       console.log(errorCode, errorMessage, email, credential);
     });
 };
+// Inicia sesión en firebase
+export const signIn = (email, password) => firebase.auth()
+  .signInWithEmailAndPassword(email, password);
