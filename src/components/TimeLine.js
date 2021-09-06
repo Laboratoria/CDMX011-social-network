@@ -128,16 +128,16 @@ const postContainer = document.getElementById('postContainer');
   });
 
   //borrar post//
-  document.addEventListener("click", (e)=>{
-    if (e.target.getAttribute('id') == "btn_del") {
-      console.log('borrar post');
-      firebase.firestore().collection('posts').doc('id').delete()
-      .then(() => {
-        console.log("Document successfully deleted!");
-      }).catch((error) => {
-        console.error("Error removing document: ", error);
-      });
-    };
-  });
+  // document.addEventListener("click", (e)=>{
+  //   if (e.target.getAttribute('id') == "btn_del") {
+  //     console.log('borrar post');
+  //     firebase.firestore().collection('posts').doc('id').delete()
+  //     .then(() => {
+  //       console.log("Document successfully deleted!");
+  //     }).catch((error) => {
+  //       console.error("Error removing document: ", error);
+  //     });
+  //   };
+  // });
   
 }
