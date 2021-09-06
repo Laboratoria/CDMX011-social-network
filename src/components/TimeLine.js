@@ -10,27 +10,28 @@ export const toViewtimeline = (container) => {
     
     const html = `
     <div class = "TimeContainer">
-    <header class="timelineHeader">
+    <header class="timelineHeader"><!--no se esta usando clase-->
     <div class = "headTimeline">
-    <img class="iconApp" src="img/Component 1.png">
-    <input type="button" class="btn_log logout" value="salir" id="logOut" />
+    <img class="iconApp" src="img/picartBlanco.png">
+   <!-- <input type="button"  value="salir" id="logOut" />-->
     </div>
+    <hr id="witheBorder">
     </header>
 
-    <nav class="navBar" id="navElements"> 
-    <div><p>Home</p></div>
-    <div><div type="button" class="btn_post"></div></div>
-    <div><p>Log Out</p></div>
-  </nav> 
+    <nav class="navBar" > 
+    <div><input src='../img/home1.png' class='btnNavBarMovil'  type='image' /></div>
+    <div><a href="#postForm"><input src='../img/post1.png' class='btn_mas'  type='image' /></a></div>
+    <div><input src='../img/logOut.png' id='logOut' class="btnNavBarMovil" type='image' /></div>
+    </nav> 
 
-    <section class="timeLineSection" id="section">
-    <form class="TextArea" id="postForm">
-      <div class= "textAreaPost" >
-        <textarea text="textArea" class="textPost" id="textPost" rows="5" cols="40" maxlength="500" placeholder="Post something :)"></textarea>
-        <input type="submit" id="buttonNewPost" value="Share" /> 
-      </div>
+    <section class="TimeContainer" id="section">
+    
+    <form  id="postForm">
+        <textarea text="textArea" class="textPost" id="textPost" rows="5" cols="40" maxlength="500" placeholder="Post something :)"></textarea><br>
+        <input type="submit" id="buttonNewPost"  value="Share" /> 
+        
     </form>
-    <div class = "postContainer"  id = "postContainer"></div>
+    <div class= "postContainer"  id = "postContainer"></div>
     
   </section>
 
@@ -55,12 +56,7 @@ const postContainer = document.getElementById('postContainer');
   //Post
  
 
-  const posting = document.getElementById('postForm');
 
-  const savePost = (textShare) =>
-  dataBase.collection('posts').doc().set({
-    textShare
-  });
   const getPost = () => dataBase.collection('posts').get();
   //const user = firebase.getUser();
 //console.log(user);
@@ -74,9 +70,26 @@ const postContainer = document.getElementById('postContainer');
       const userUID = firebase.auth().currentUser;
         //console.log(stateUser());
      
-     postContainer.innerHTML += `<div class= "post_container">
-      <p>${userUID.email}</p>
-      <h2>${doc.data().textShare}</h2>
+     postContainer.innerHTML += `
+     <div class= "post_container">
+     <div class="postHeader">
+    <div class="verMas"> 
+    <input src='../img/verMas.png' class='btn_VerMas'  type='image' />
+    </div>
+     </div>
+     <hr id="blackLine">
+     <div class="postText">
+     <h2>${doc.data().textShare}</h2>
+     </div>
+     <hr id="blackLine">
+     <div class="usuarioPost">
+     <div class="user">
+     <p>${userUID.email}</p>
+     <p>Fecha</p>
+     </div>
+     <div class="likes"><input src='../img/heart.png' class='btn_like'  type='image' /> </div>
+      </div>
+      
       <div class = "buttonsDelEdit">
         <button class  = "btn_log" id = "btn_del">Delete</button>
         <button class  = "btn_log" id = "btn_edit">Edit</button>
@@ -90,6 +103,16 @@ const postContainer = document.getElementById('postContainer');
    });
     
   })
+
+  const posting = document.getElementById('postForm');
+
+  const savePost = (textShare) =>
+  dataBase.collection('posts').doc().set({
+    textShare,
+    date: firebase.firestore.FieldValue.serverTimestamp(),
+    user:firebase.auth().currentUser.email
+  });
+
 posting.addEventListener('submit', async (e)  =>{
   e.preventDefault();
    console.log("Share");
