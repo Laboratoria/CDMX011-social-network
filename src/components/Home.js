@@ -1,6 +1,8 @@
 /* eslint-disable */
 import { onNavigate } from '../routes.js';
 import {continueGoogle} from '../lib/fireBase.js';
+import {continueGitHub} from '../lib/fireBase.js';
+
 
 
 
@@ -17,6 +19,7 @@ export const toViewHome = (container) => {
         <input type="button" class="btn_log signup" value="SIGN UP" id="toCreate" /><br>
         <p2>──────  or  ──────</p2><br>
         <input type="button" class="btn_log google" value="Continue with Google" id="toGoogle" />
+        <input type="button" class="btn_log github" value="Continue with GitHub" id="toGitHub" />
         </div>
     </section>
   </div>`
@@ -49,5 +52,18 @@ export const toViewHome = (container) => {
     
     //e.preventDefault();
     //onNavigate('/LogIn');
+  });
+  const toContinueGitHub = document.getElementById('toGitHub');
+  toContinueGitHub.addEventListener('click', (e) => {
+    e.preventDefault();
+    continueGitHub()
+    .then((result) => {
+      onNavigate('/TimeLine');
+      console.log('github login');
+     
+    }).catch((error)=>{
+      console.log(error.message);
+      console.log('algo no está bieeen');
+    })
   });
 };

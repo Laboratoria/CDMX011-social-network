@@ -53,18 +53,13 @@ export const continueGoogle = () => {
 
 };
 
-// //Autentification
-// export const sendVerification = () =>{
-//   const user = auth.currentUser;
-//  user.sendEmailVerification()
-//   .then(() => {
-//     console.log( "Email verification sent!");
-//     // ...
-//   });
-// }
+export const continueGitHub = () => {
+  const provider = new firebase.auth.GithubAuthProvider();
+  firebase.auth().languageCode = 'en';
+  return firebase.auth().signInWithPopup(provider);
+};
 
 
-//creo que ya no lo necesitamos 
 export const stateUser = () => {
   firebase.auth().onAuthStateChanged((getUser) => {
       if (getUser) {
