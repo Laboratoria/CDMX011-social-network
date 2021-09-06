@@ -7,7 +7,7 @@ import { toViewtimeline } from './components/TimeLine.js';
 
 
 
-const rootDiv = document.getElementById('root');
+const rootDiv = document.querySelector('#root');
 
 export const routes = {
   '/': toViewHome,

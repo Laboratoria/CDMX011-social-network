@@ -5,15 +5,16 @@ import { onNavigate } from '../routes.js';
 import {logOutUser, dataBase } from '../lib/fireBase.js';
 //import { async } from 'regenerator-runtime';
 
-
 export const toViewtimeline = (container) => {
     
     const html = `
     <div class = "TimeContainer">
     <header class="timelineHeader"><!--no se esta usando clase-->
     <div class = "headTimeline">
-    <img class="iconApp" src="img/picartBlanco.png">
-   <!-- <input type="button"  value="salir" id="logOut" />-->
+
+    <img class="iconApp" src="img/Component 1.png">
+    <input type="button" class="btn_log logout" value="Log Out" id="logOut" />
+
     </div>
     <hr id="witheBorder">
     </header>
@@ -57,10 +58,17 @@ const postContainer = document.getElementById('postContainer');
  
 
 
+
+  const savePost = (textShare) =>
+  dataBase.collection('posts').doc().set({
+    textShare
+    
+  });
+
   const getPost = () => dataBase.collection('posts').get();
   //const user = firebase.getUser();
 //console.log(user);
-  const onGetPost = (callback) => dataBase.collection('posts').onSnapshot(callback);
+  const onGetPost = (callback) => firebase.firestore().collection('posts').onSnapshot(callback);
 
   window.addEventListener('DOMContentLoaded', async (e) =>{
    
@@ -69,7 +77,7 @@ const postContainer = document.getElementById('postContainer');
       querySnapshot.forEach(doc =>{
       const userUID = firebase.auth().currentUser;
         //console.log(stateUser());
-     
+
      postContainer.innerHTML += `
      <div class= "post_container">
      <div class="postHeader">
@@ -91,15 +99,14 @@ const postContainer = document.getElementById('postContainer');
       </div>
       
       <div class = "buttonsDelEdit">
-        <button class  = "btn_log" id = "btn_del">Delete</button>
-        <button class  = "btn_log" id = "btn_edit">Edit</button>
+        <button class  = "btn_log edit">Delete</button>
+        <button class  = "btn_log edit">Edit</button>
       </div>
       </div>
       `;
     });
    
    console.log("Estoy entrando");
-
    });
     
   })
@@ -117,7 +124,7 @@ posting.addEventListener('submit', async (e)  =>{
   e.preventDefault();
    console.log("Share");
    const textShare= posting['textPost'];
-   console.log(textShare);
+   //console.log(textShare);
 
    await savePost(textShare.value);
 
@@ -125,5 +132,5 @@ posting.addEventListener('submit', async (e)  =>{
     textShare.focus();
    
    
-} );
+});
 }
