@@ -1,5 +1,7 @@
-// Este es el punto de entrada de tu aplicacion
+/* eslint-disable */
 
-import { myFunction } from './lib/index.js';
+import { routes } from './routes.js'
 
-myFunction();
+const rootDiv = document.getElementById('root');
+const ViewFunction = routes[window.location.pathname];
+ViewFunction(rootDiv);
