@@ -1,9 +1,11 @@
+
 /* eslint-disable */
 
-body {
+.homeContainer {
     align-items: center;
     justify-content: center;
     /*background-color: #fff;*/
+    background: #000;
     background: url("./img/2.jpg");
     background-size: cover;
     background-position: center;
@@ -13,6 +15,14 @@ body {
     font-family: 'Montserrat', sans-serif;
     margin: 0;
     min-height: 100vh;
+}
+
+.TimeContainer{
+    background: black;
+}
+
+.testTL {
+    background: #000;
 }
 
 .container {
@@ -31,6 +41,10 @@ body {
     align-items: center;
     align-content: center;
     margin-bottom: 5px;
+}
+
+.timeLineSection {
+    background-color:#000;
 }
 
 .login-form {
@@ -53,10 +67,10 @@ body {
     padding-bottom: 15px;
     text-align: center;
 }*/
-p5 {
+/*p5 {
     display: flex;
     flex-direction: row;
-}
+}*/
 
 label {
     display: flex;
@@ -91,6 +105,12 @@ input {
     position: relative;
     align-self: center;
     height: 25%;
+}
+
+.iconApp{
+    position: relative;
+    align-self: flex-start;
+    height: 20%;
 }
 
 .container .return {
@@ -137,7 +157,40 @@ input {
     box-shadow: rgba(235, 206, 43, 0.4) 5px 5px 10px;
 }
 
+/*TIMELINE CSS*/
 
+.headTimeline{
+    display: flex;
+    background: #fff;
+    outline: none;
+}
+
+.logout {
+    border: 3px solid rgb(245, 93, 22);
+    box-shadow: rgba(240, 93, 25, 0.4) 5px 5px 10px;
+    width: 100px;
+    float: left;
+}
+
+.post-box{
+    background-color: #000;
+    width: 400px;
+    display: flex;
+    flex-direction: column;
+    -ms-flex-align: center;
+    justify-content: center;
+}
+.post_container {
+    background-color: #fff;
+    width: 200px;
+    
+    border: solid 2px red;
+}
+div#postContainer.postContainer{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
 /*FOOTER*/
 
 footer {
@@ -150,7 +203,6 @@ footer {
     width: 100%;
     font-size: 80%;
 }
-
 
 /*------- CSS RESPONSIVE -------*/
 
