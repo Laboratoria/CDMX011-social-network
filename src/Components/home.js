@@ -1,5 +1,6 @@
 // eslint-disable-next-line import/no-cycle
 import { onNavigate } from '../main.js';
+import { loginWithGoogle } from '../lib/firebase.js';
 
 export const Home = () => {
   const HomeDiv = document.createElement('div');
@@ -30,16 +31,16 @@ export const Home = () => {
   buttonLogin.id = 'buttonLogin';
   buttonLoginGoogle.classList.add('inputs');
 
-  buttonLoginGoogle.addEventListener('click', (event) => {
-    const googleProvider = new firebase.auth.GoogleAuthProvider();
-    event.preventDefault();
-    firebase.auth().signInWithRedirect(googleProvider).then(() => {
-      window.location.assign('/profile');
+  buttonLoginGoogle.addEventListener('click', () => {
+    loginWithGoogle().then((result) => {
+      const credential = result.credential;
+      console.log(' Bienvenida ', credential);
     })
       .catch((error) => {
         console.error(error);
       });
   });
+
   HomeDiv.appendChild(logo);
   HomeDiv.appendChild(h1Presentation);
   HomeDiv.appendChild(inputEmail);

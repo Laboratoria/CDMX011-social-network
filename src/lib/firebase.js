@@ -15,4 +15,16 @@ export const registerUser = (email, password) => {
     });
 };
 
-console.log(firebase);
+export const loginWithGoogle = () => {
+  const provider = new firebase.auth.GoogleAuthProvider();
+  firebase.auth().signInWithRedirect(provider);
+  firebase.auth()
+    .getRedirectResult()
+    .then((result) => {
+      const credential = result.credential;
+      console.log(' Bienvenida ', credential);
+    })
+    .catch((error) => {
+      console.error(error);
+    });
+};
