@@ -1,5 +1,6 @@
 // eslint-disable-next-line import/no-cycle
 import { onNavigate } from '../../main.js';
+import { auth } from '../secret.js';
 
 export const Home = () => {
   const Homediv = document.createElement('div');
@@ -18,12 +19,13 @@ export const Home = () => {
   buttonRegister.addEventListener('click', () => onNavigate('/register'));
   buttonLogin.addEventListener('click', () => onNavigate('/login'));
 
-  buttonGoogle.addEventListener('click', (event) => {
-    const googleProvider = new firebase.auth.GoogleAuthProvider();
-    event.preventDefault();
-    firebase.auth().signInWithRedirect(googleProvider).then(() => {
-      window.location.assign('/Register');
-    })
+  buttonGoogle.addEventListener('click', (e) => {
+    e.preventDefault();
+    const provider = new firebase.auth.GoogleAuthProvider();
+    firebase.auth().signInWithPopup(provider)
+      .then(() => {
+        console.log('sign up with google');
+      })
       .catch((error) => {
         console.error(error);
       });
