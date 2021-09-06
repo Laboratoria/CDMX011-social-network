@@ -50,5 +50,7 @@ describe("Colección de test en logIn", () => {
             expect(mockLogIn).toHaveBeenCalledWith(email, password);
 
         })
-    });
+
+        
+          });
 

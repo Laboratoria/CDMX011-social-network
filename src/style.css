@@ -1,0 +1,300 @@
+
+/* eslint-disable */
+
+.homeContainer {
+    align-items: center;
+    justify-content: center;
+    /*background-color: #fff;*/
+    background: #000;
+    background: url("./img/art-wall.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+  background-attachment: fixed;
+    color: #000;
+    display: flex;
+    flex-wrap: wrap;
+    font-family: 'Montserrat', sans-serif;
+    margin: 0;
+    min-height: 100vh;
+}
+
+.TimeContainer{
+    background: black;
+}
+
+.testTL {
+    background: #000;
+}
+
+.container {
+    position: relative;
+    width: 260px;
+    height: 400px;
+    background: rgb(1, 1, 1, .9);
+    color: #fff;
+    mix-blend-mode: normal;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    margin: auto;
+    padding: 10px;
+    align-items: center;
+    align-content: center;
+    margin-bottom: 5px;
+}
+
+.timeLineSection {
+    background-color:#000;
+}
+
+.container a {
+    text-decoration: none;
+    color: #fff;
+}
+
+.login-form {
+    line-height: 20px;
+    text-indent: 20px;
+}
+.login-form > a {
+    text-decoration-line: none;
+    color: #fff;
+}
+
+/*Mensajes de error*/
+.error{
+    color:rgb(252, 140, 140);
+    font-size: 14px;
+    background-color: #000;
+    
+}
+
+
+label {
+    display: flex;
+    flex-direction: row;
+}
+
+input {
+    background-color: rgb(204, 202, 202);
+    color: black;
+    border-radius: 10px;
+    height: 20px;
+    width: 210px;
+    padding-left: 10px;
+    margin-top:5px
+}
+
+#viewPass, #hidePass {
+    position: absolute;
+    margin: 7px -30px;
+    height: 18px;
+    width: 18px;
+    padding: 2px 3px;
+    border-radius: 8px;
+}
+
+#logInPassword,
+#singUpPassword {
+    width: 210px;
+}
+
+.logo {
+    position: relative;
+    align-self: center;
+    height: 25%;
+}
+
+.iconApp{
+    position: relative;
+    float:left ;
+    height: 20%;
+}
+
+.container .return {
+    float: left;
+    display: flex;
+    height: 25px;
+    align-items: flex-end;
+    margin-right: 5px;
+}
+
+
+/*BOTONES*/
+
+.btn_log {
+    position: relative;
+    align-self: center;
+    width: 150px;
+    height: 30px;
+    background: black;
+    color: #fff;
+    border-radius: 15px;
+    margin-bottom: 10px;
+    border: 3px solid #fff;
+    transition: all .2s ease;
+}
+
+.btn_log:hover {
+    border: 3px solid #fff;
+}
+
+.login {
+    border: 3px solid rgb(231, 49, 192);
+    box-shadow: rgba(240, 46, 170, 0.4) 5px 5px 10px;
+
+}
+
+.signup {
+    margin-top: 15px;
+    border: 3px solid rgb(29, 179, 206);
+    box-shadow: rgba(43, 235, 235, 0.4) 5px 5px 10px;
+}
+
+.google {
+    border: 3px solid rgb(219, 188, 46);
+    box-shadow: rgba(235, 206, 43, 0.4) 5px 5px 10px;
+}
+
+/*TIMELINE CSS*/
+
+.headTimeline{
+    display: flex;
+    flex-wrap: nowrap;
+    background: #fff;
+    outline: none;
+}
+
+.logout {
+    border: 3px solid rgb(245, 93, 22);
+    box-shadow: rgba(240, 93, 25, 0.4) 5px 5px 10px;
+    width: 100px;
+    float: left;
+    margin-left: 100px;
+}
+div.origin{
+    width: 700px;
+    height: 670px;
+    background-color: #000;
+}
+div.post-box{
+    display: flex;
+    flex-direction: column; 
+    align-content: center;
+    background-color: #000;
+    width: 400px;
+    -ms-flex-align: center;
+    justify-content: center;
+}
+.post_container {
+    display: flex;
+    align-self: center;
+    flex-direction: column;
+    background-color: #fff;
+    width: 200px;
+}
+div#postContainer.postContainer{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+/*FOOTER*/
+
+footer {
+    align-self: flex-end;
+    background-color: black;
+    color: #fff;
+    margin-top: auto;
+    padding: 5px;
+    text-align: center;
+    width: 100%;
+    font-size: 80%;
+}
+
+/*------- CSS RESPONSIVE -------*/
+
+
+/*cuando la pantalla es mayor a 700px (desktop y tablet)*/
+
+@media screen and (min-width: 700px) {
+    /*body {
+        background: url("./img/lines.jpg");
+    }*/
+    .root {
+        width: 900px;
+        height: auto;
+        background-color: #000;
+    }
+    .container {
+        position: relative;
+        width: 600px;
+        height: 400px;
+        background: rgb(1, 1, 1, .9);
+        color: #fff;
+        mix-blend-mode: normal;
+        display: flex;
+        margin: auto;
+        padding: 10px;
+        margin-bottom: 5px;
+    }
+    p {
+        padding-left: 0px;
+        max-width: 250px;
+    }
+    .logo {
+        position: absolute;
+        align-self: flex-start;
+        justify-self: left;
+        height: 50%;
+        float: left;
+        margin-left: 20px;
+    }
+    .content {
+        display: flex;
+        flex-direction: column;
+        align-self: flex-end;
+        margin-right: 35px;
+    }
+    .container>form {
+        position: relative;
+        display: block;
+        align-self: flex-end;
+        margin-right: 60px;
+        flex-direction: column;
+    }
+    .container .return {
+        align-self: flex-end;
+        display: flex;
+        flex-direction: column;
+        height: 25px;
+    }
+    div.post-box{
+        width: 900px;
+        height: auto;
+        background-color: #000;
+    }
+    .post_container {
+        display: flex;
+        align-self: center;
+        flex-direction: column;
+        background-color: #fff;
+        border-radius: 10px;
+        margin: 10px;
+        border: solid 2px rgb(0, 0, 0);
+        width: 550px;
+        padding: 10px;
+    }
+    #textPost{
+        display: flex;
+        align-self: center;
+        border-radius: 5px;
+        padding: 10px;
+        margin-top: 10px;
+        width: 540px;
+    }
+    .TextArea {
+        align-content: center;
+    }
+}
