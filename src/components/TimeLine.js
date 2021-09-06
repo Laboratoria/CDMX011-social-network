@@ -56,11 +56,14 @@ const postContainer = document.getElementById('postContainer');
   //Post
  
 
-
-  const getPost = () => dataBase.collection('posts').get();
-  //const user = firebase.getUser();
-//console.log(user);
+  //Obtener un solo post por ID//
+  const getPost = (id) => firebase.firestore().collection('posts').doc(id).get();
+  
   const onGetPost = (callback) => firebase.firestore().collection('posts').orderBy('date', 'desc').onSnapshot(callback);
+
+  const deletePost = id => {firebase.firestore().collection('posts').doc(id).delete()
+    .then (alert('Are you sure you want to delete your post?'));
+  };
 
   window.addEventListener('DOMContentLoaded', async (e) =>{
    
@@ -68,7 +71,12 @@ const postContainer = document.getElementById('postContainer');
       postContainer.innerHTML = '';
       querySnapshot.forEach(doc =>{
       const userUID = firebase.auth().currentUser;
-        //console.log(stateUser());
+      //console.log(doc.data());
+
+      //Obtener id de cada post//
+      const postData = doc.data();
+      postData.id = doc.id;
+      //console.log(postData);
      
      postContainer.innerHTML += `
      <div class= "post_container">
@@ -91,19 +99,37 @@ const postContainer = document.getElementById('postContainer');
       </div>
       
       <div class = "buttonsDelEdit">
-        <button class  = "btn_log" id = "btn_del"
-         data-id=${doc.data().id} >Delete</button>
-        <button class  = "btn_log" id = "btn_edit">Edit</button>
+        <button class  = "btn_log delete" data-id="${postData.id}" >Delete</button>
+        <button class  = "btn_log edit" data-id="${postData.id}" >Edit</button>
       </div>
       </div>
       `;
+        
+        
+
+      //Borrar post//
+      const btnDel = postContainer.querySelectorAll('.delete');
+        btnDel.forEach(btn => {
+          btn.addEventListener('click', async (e) => {
+            //console.log(e.target.dataset.id);// es el ID del post clickeado
+            await deletePost(e.target.dataset.id);
+          });
+        });
+      
+      //Editar post//
+      const btnEdit = postContainer.querySelectorAll('.edit');
+        btnEdit.forEach(btn => {
+          btn.addEventListener('click', async (e) => {
+            const onePost = await getPost(e.target.dataset.id);
+            console.log(onePost);
+          });
+        });
+
     });
    
-   console.log("Estoy entrando");
-
    });
     
-  })
+  });
 
   const posting = document.getElementById('postForm');
 
@@ -127,17 +153,12 @@ const postContainer = document.getElementById('postContainer');
         
   });
 
-  //borrar post//
-  document.addEventListener("click", (e)=>{
-    if (e.target.getAttribute('id') == "btn_del") {
-      console.log('borrar post');
-      firebase.firestore().collection('posts').doc('id').delete()
-      .then(() => {
-        console.log("Document successfully deleted!");
-      }).catch((error) => {
-        console.error("Error removing document: ", error);
-      });
-    };
-  });
+
+  // document.addEventListener("click", async (e)=>{
+  //   if (e.target.getAttribute('id') == "btn_del") {
+  //     console.log(firebase.firestore().id);
+  //     await deletePost(dataBase.id);
+  //   };
+  // });
   
 }

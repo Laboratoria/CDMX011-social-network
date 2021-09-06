@@ -79,3 +79,10 @@ export const logOutUser = () => {
   return firebase.auth().signOut()
 }
 
+export const deletePost = id => {firebase.firestore().collection('posts').doc('id').delete()};
+      // .then(() => {
+      //   console.log("Document successfully deleted!");
+      // }).catch((error) => {
+      //   console.error("Error removing document: ", error);
+      // });
+    
