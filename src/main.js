@@ -1,9 +1,6 @@
 // Este es el punto de entrada de tu aplicacion
-// eslint-disable-next-line import/no-cycle
 import { login } from './components/login.js';
-// eslint-disable-next-line import/no-cycle
 import { register } from './components/register.js';
-// eslint-disable-next-line import/no-cycle
 import { home } from './components/home.js';
 
 const routesDiv = document.getElementById('root');
