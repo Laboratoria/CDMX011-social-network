@@ -14,17 +14,19 @@
     "eslint": "eslint --ext .js src/ test/",
     "stylelint": "stylelint --aei src/**/*.css",
     "pretest": "npm run htmlhint && npm run eslint && npm run stylelint",
-    "test": "jest --coverage",
-    "start": "serve src/"
+    "test": "jest --coverage --watch",
+    "start": "serve src/ -s"
   },
   "devDependencies": {
-    "@babel/core": "^7.11.4",
-    "@babel/preset-env": "^7.11.0",
+    "@babel/core": "^7.15.4",
+    "@babel/preset-env": "^7.15.4",
     "babel-jest": "^27.0.1",
+    "babel-loader": "^8.2.2",
     "eslint": "^7.7.0",
     "eslint-config-airbnb-base": "^14.2.0",
     "eslint-plugin-import": "^2.18.2",
     "eslint-plugin-jest": "^24.1.0",
+    "firebase-functions-test": "^0.3.2",
     "htmlhint": "^0.15.1",
     "jest": "^27.0.1",
     "regenerator-runtime": "^0.13.1",
