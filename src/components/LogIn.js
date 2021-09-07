@@ -16,7 +16,7 @@ export const toViewLogIn = (container) => {
         <br><label class="title" value='password'>Password</label>
         <input id='logInPassword' type='password' placeholder='Password' required />
         <input src='../img/eye.png' id='viewPass' type='image' />
-        <input src='../img/hide.png' id='hidePass' display='block' type='image' /><br>
+        <br>
         <br><input type='submit' class='btn_log login' id="btnLogIn" value='LOG IN' /><br>
         <p class="error"></p>
         <br>
@@ -31,17 +31,15 @@ export const toViewLogIn = (container) => {
 
 
     const btnEye = document.getElementById('viewPass');
-    const btnHide = document.getElementById('hidePass');
+    
     btnEye.addEventListener('click', (e) => {
         e.preventDefault();
         const inputType = document.getElementById('logInPassword');
         if(inputType.type == 'password'){
             inputType.type = 'text';
-            btnEye.style.display= 'none';
-            btnHide.style.display = 'block';
+            btnEye.src = "../img/hide.png";
         }else if(inputType.type = 'password') {
-            btnEye.style.display= 'block';
-            btnHide.style.display = 'none';
+            btnEye.src = "../img/eye.png"
         }
         //inputType.type == 'password' ? inputType.type = 'text' : inputType.type = 'password';
 
