@@ -6,8 +6,8 @@
     flex-wrap: wrap;
     align-items: center;
     justify-content: center;
-    background-color: rgb(180, 68, 68);
-    background: #000;
+    /*background-color: rgb(180, 68, 68);*/
+    /*background: #000;*/
     background: url("./img/art-wall.jpg");
     background-size: cover;
     background-position: center;
@@ -49,12 +49,7 @@
 /*.timeLineSection {
     background-color:#000;
 }*/
-
-.menuPost{
-    display: none;
-    
-  }
-  
+ 
   #menu:checked  ~ ul{
     display:block;
       position:absolute;
@@ -87,7 +82,7 @@
     margin-top:0;
     padding: 0;
     width: 100px;
-  
+    display: none;
     position:absolute;
   }
   
