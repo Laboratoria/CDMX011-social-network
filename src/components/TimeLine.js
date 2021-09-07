@@ -5,23 +5,22 @@ import { onNavigate } from '../routes.js';
 import {logOutUser, dataBase } from '../lib/fireBase.js';
 //import { async } from 'regenerator-runtime';
 
+
 export const toViewtimeline = (container) => {
     
     const html = `
     <div class = "TimeContainer">
     <header class="timelineHeader"><!--no se esta usando clase-->
     <div class = "headTimeline">
-
-    <img class="iconApp" src="img/Component 1.png">
-    <input type="button" class="btn_log logout" value="Log Out" id="logOut" />
-
+    <img class="iconApp" src="img/picartBlanco.png">
+   <!-- <input type="button"  value="salir" id="logOut" />-->
     </div>
     <hr id="witheBorder">
     </header>
 
     <nav class="navBar" > 
     <div><input src='../img/home1.png' class='btnNavBarMovil'  type='image' /></div>
-    <div><a href="#postForm"><input src='../img/post1.png' class='btn_mas'  type='image' /></a></div>
+    <div><input src='../img/post1.png' class='btn_mas' id='btnMAs' type='image' /></div>
     <div><input src='../img/logOut.png' id='logOut' class="btnNavBarMovil" type='image' /></div>
     </nav> 
 
@@ -58,14 +57,7 @@ const postContainer = document.getElementById('postContainer');
  
 
 
-
-  const savePost = (textShare) =>
-  dataBase.collection('posts').doc().set({
-    textShare
-    
-  });
-
-  const getPost = () => dataBase.collection('posts').get();
+  const getPost = () => firebase.firestore().collection('posts').get();
   //const user = firebase.getUser();
 //console.log(user);
   const onGetPost = (callback) => firebase.firestore().collection('posts').onSnapshot(callback);
@@ -77,12 +69,19 @@ const postContainer = document.getElementById('postContainer');
       querySnapshot.forEach(doc =>{
       const userUID = firebase.auth().currentUser;
         //console.log(stateUser());
-
+     
      postContainer.innerHTML += `
      <div class= "post_container">
      <div class="postHeader">
     <div class="verMas"> 
-    <input src='../img/verMas.png' class='btn_VerMas'  type='image' />
+    <nav>
+    <input type="checkbox" id="menu">
+    <label for="menu" class="labelPost"> ... </label>
+    <ul class='menuPost'>
+      <li>Delete</li>
+      <li>Update</li>
+    </ul>
+  </nav>
     </div>
      </div>
      <hr id="blackLine">
@@ -92,31 +91,30 @@ const postContainer = document.getElementById('postContainer');
      <hr id="blackLine">
      <div class="usuarioPost">
      <div class="user">
-     <p>${userUID.email}</p>
-     <p>Fecha</p>
+     <p>${doc.data().user}</p>
+     <p class="postDate">${new Date(doc.data().date.seconds*1000).toLocaleDateString()}</p>
      </div>
      <div class="likes"><input src='../img/heart.png' class='btn_like'  type='image' /> </div>
       </div>
       
       <div class = "buttonsDelEdit">
-        <button class  = "btn_log edit">Delete</button>
-        <button class  = "btn_log edit">Edit</button>
+        <button class= "btn_log" id = "btn_del">Delete</button>
+        <button class= "btn_log" id = "btn_edit">Edit</button>
       </div>
       </div>
       `;
     });
-   
-   console.log("Estoy entrando");
+
    });
     
-  })
+  });
 
   const posting = document.getElementById('postForm');
 
   const savePost = (textShare) =>
-  dataBase.collection('posts').doc().set({
+  firebase.firestore().collection('posts').doc().set({
     textShare,
-    date: firebase.firestore.FieldValue.serverTimestamp(),
+    date: Date.now(),//firebase.firestore.Timestamp.fromDate(new Date()),
     user:firebase.auth().currentUser.email
   });
 
@@ -124,7 +122,7 @@ posting.addEventListener('submit', async (e)  =>{
   e.preventDefault();
    console.log("Share");
    const textShare= posting['textPost'];
-   //console.log(textShare);
+   console.log(textShare);
 
    await savePost(textShare.value);
 
@@ -132,5 +130,7 @@ posting.addEventListener('submit', async (e)  =>{
     textShare.focus();
    
    
-});
+} );
+
+
 }
