@@ -1,25 +1,25 @@
 
 /* eslint-disable */
-#root{
+#rot{
     display: flex;
-    flex-direction: column;
-}
-
-.homeContainer {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
     flex-direction: column;
     justify-content: center;
-    /*background-color: #fff;*/
+    background-color: #000;
+}
+.homeContainer {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    background-color: rgb(180, 68, 68);
     background: #000;
     background: url("./img/art-wall.jpg");
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-  background-attachment: fixed;
+     background-attachment: fixed;
     color: #000;
-    
     font-family: 'Montserrat', sans-serif;
     margin: 0;
     min-height: 100vh;
@@ -34,6 +34,7 @@
 }
 
 .container {
+    
     position: relative;
     width: 260px;
     height: 400px;
@@ -44,7 +45,7 @@
     flex-direction: column;
     justify-content: center;
     text-align: center;
-    margin: auto;
+    margin: 2vh 2vw;
     padding: 10px;
     align-items: center;
     align-content: center;
@@ -55,6 +56,59 @@
     background-color:#000;
 }*/
 
+.menuPost{
+    display: none;
+    
+  }
+  
+  #menu:checked  ~ ul{
+    display:block;
+      position:absolute;
+  }
+  
+  #menu {
+    display: none;
+    
+    position:absolute;
+  }
+  
+  .labelPost {
+    box-sizing: border-box;
+    display: inline-block;
+    border: .1px solid gray;
+    border-radius: 5px;
+    width: 30px;
+    height: 30px;
+    font-weight: bold;
+    text-align: center;
+    user-select: none;
+  }
+  
+  
+  
+  /* Estilo del boton cuando el menú está expandido*/
+  
+  
+  .menuPost{
+    margin-top:0;
+    padding: 0;
+    width: 100px;
+  
+    position:absolute;
+  }
+  
+  
+  .menuPost > li {
+    display: block;
+    background: lightgrey;
+    margin: 0;
+    padding: 10px;
+    list-style: none;
+    /*border-bottom: 1px solid grey;*/
+    
+  }
+  
+  
 .container a {
     text-decoration: none;
     color: #fff;
@@ -186,14 +240,6 @@ input {
     padding:5px 5px;
     
 }
-
-/*.logout {
-    border: 3px solid rgb(245, 93, 22);
-    box-shadow: rgba(240, 93, 25, 0.4) 5px 5px 10px;
-    width: 100px;
-    float: left;
-}*/
-
 .post-box{
 
     margin-left: 100px;
@@ -236,7 +282,11 @@ div.post-box{
     font-size: 1rem;
   }
   .user{
-      line-height: 3px;
+      line-height: 5px;
+      margin-top: 0px;
+  }
+  .postDate{
+    color:gray;
   }
   .btn_VerMas{
       width: 3vh;
