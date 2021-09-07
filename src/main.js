@@ -4,6 +4,8 @@ import { Home } from './lib/components/Home.js';
 import { Register } from './lib/components/Register.js';
 // eslint-disable-next-line import/no-cycle
 import { Login } from './lib/components/Login.js';
+// eslint-disable-next-line import/no-cycle
+import { wall } from './lib/components/wall.js';
 
 const rootDiv = document.getElementById('root');
 
@@ -11,6 +13,7 @@ const routes = {
   '/': Home,
   '/register': Register,
   '/login': Login,
+  '/wall': wall,
 };
 
 export const onNavigate = (pathname) => {

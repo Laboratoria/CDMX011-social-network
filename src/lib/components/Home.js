@@ -24,6 +24,7 @@ export const Home = () => {
     const provider = new firebase.auth.GoogleAuthProvider();
     firebase.auth().signInWithPopup(provider)
       .then(() => {
+        window.location.assign('/wall');
         console.log('sign up with google');
       })
       .catch((error) => {
