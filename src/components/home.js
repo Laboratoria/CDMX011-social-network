@@ -1,11 +1,14 @@
 // eslint-disable-next-line import/no-cycle
 import { onNavigate } from '../main.js';
+import { logOut } from '../firebaseAuth.js';
 
 export const home = () => {
-  const registerPage = document.createElement('div');
-  const signOut = document.createElement('button');
-  signOut.textContent = 'Cerrar sesión';
-  registerPage.appendChild(signOut);
-  signOut.addEventListener('click', () => onNavigate('/'));
-  return registerPage;
+  const homePage = document.createElement('div');
+
+  const htmlNodes = '<button id="signOut">Cerrar sesión</button>';
+
+  homePage.innerHTML = htmlNodes;
+
+  homePage.querySelector('#signOut').addEventListener('click', () => logOut(onNavigate));
+  return homePage;
 };
