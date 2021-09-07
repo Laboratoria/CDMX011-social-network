@@ -5,6 +5,7 @@ import { onNavigate } from '../routes.js';
 import {logOutUser, dataBase  } from '../lib/fireBase.js';
 //import { async } from 'regenerator-runtime';
 
+
 export const toViewtimeline = (container) => {
     
     const html = `
@@ -19,7 +20,7 @@ export const toViewtimeline = (container) => {
 
     <nav class="navBar" > 
     <div><input src='../img/home1.png' class='btnNavBarMovil'  type='image' /></div>
-    <div><a href="#postForm"><input src='../img/post1.png' class='btn_mas'  type='image' /></a></div>
+    <div><input src='../img/post1.png' class='btn_mas' id='btnMAs' type='image' /></div>
     <div><input src='../img/logOut.png' id='logOut' class="btnNavBarMovil" type='image' /></div>
     </nav> 
 
@@ -76,18 +77,25 @@ const postContainer = document.getElementById('postContainer');
       postContainer.innerHTML = '';
       querySnapshot.forEach(doc =>{
       const userUID = firebase.auth().currentUser;
-      //console.log(doc.data());
 
       //Obtener id de cada post//
       const postData = doc.data();
       postData.id = doc.id;
       //console.log(postData);
+
      
      postContainer.innerHTML += `
      <div class= "post_container">
      <div class="postHeader">
     <div class="verMas"> 
-    <input src='../img/verMas.png' class='btn_VerMas'  type='image' />
+    <nav>
+    <input type="checkbox" id="menu">
+    <label for="menu" class="labelPost"> ... </label>
+    <ul class='menuPost'>
+      <li>Delete</li>
+      <li>Update</li>
+    </ul>
+  </nav>
     </div>
      </div>
      <hr id="blackLine">
@@ -98,12 +106,14 @@ const postContainer = document.getElementById('postContainer');
      <div class="usuarioPost">
      <div class="user">
      <p>${doc.data().user}</p>
-     <p>${doc.data().date}</p>
+     <p class="postDate">${new Date(doc.data().date.seconds*1000).toLocaleDateString()}</p>
+
      </div>
      <div class="likes"><input src='../img/heart.png' class='btn_like'  type='image' /> </div>
       </div>
       
       <div class = "buttonsDelEdit">
+
         <button class  = "btn_log delete" data-id="${postData.id}" >Delete</button>
         <button class  = "btn_log edit" data-id="${postData.id}" >Edit</button>
       </div>
@@ -137,7 +147,7 @@ const postContainer = document.getElementById('postContainer');
         });
 
     });
-   
+
    });
     
   });
@@ -147,9 +157,10 @@ const postContainer = document.getElementById('postContainer');
   const savePost = (textShare) =>
   firebase.firestore().collection('posts').doc().set({
     textShare,
-    date: firebase.firestore.FieldValue.serverTimestamp(),
+    date: Date.now(),//firebase.firestore.Timestamp.fromDate(new Date()),
     user:firebase.auth().currentUser.email
   });
+
 
   posting.addEventListener('submit', async (e)  =>{
     e.preventDefault();
@@ -169,6 +180,7 @@ const postContainer = document.getElementById('postContainer');
       posting['buttonNewPost'].value = 'Share';
 
     };
+
 
       posting.reset();
       textShare.focus();
