@@ -157,7 +157,8 @@ const postContainer = document.getElementById('postContainer');
   const savePost = (textShare) =>
   firebase.firestore().collection('posts').doc().set({
     textShare,
-    date: Date.now(),//firebase.firestore.Timestamp.fromDate(new Date()),
+    date: firebase.firestore.Timestamp.fromDate(new Date()),
+    //firebase.firestore.Timestamp.fromDate(new Date()),
     user:firebase.auth().currentUser.email
   });
 
