@@ -2,7 +2,7 @@
 
 import { onNavigate } from '../routes.js';
 
-import {logOutUser, dataBase  } from '../lib/fireBase.js';
+import {logOutUser} from '../lib/fireBase.js';
 //import { async } from 'regenerator-runtime';
 
 
