@@ -78,3 +78,4 @@ export const logOutUser = () => {
  
   return firebase.auth().signOut()
 }
+
