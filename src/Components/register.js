@@ -20,6 +20,7 @@ export const Register = () => {
 
   const iconUser = document.createElement('img');
   iconUser.setAttribute('src', '../img/user.png');
+  iconUser.classList.add('icon');
 
   let inputEmail = document.createElement('input');
   inputEmail.id = 'inputEmail';
@@ -30,17 +31,25 @@ export const Register = () => {
 
   const iconEmail = document.createElement('img');
   iconEmail.setAttribute('src', '../img/email.png');
+  iconEmail.classList.add('icon');
 
+  const passwordDiv = document.createElement('div');
+  passwordDiv.classList.add('inputsDiv');
   let inputPassword = document.createElement('input');
   inputPassword.placeholder = 'Contraseña';
   inputPassword.type = 'password';
   inputPassword.id = 'inputPassword';
+  inputPassword.classList.add = 'inputs';
 
   const iconOpenEye = document.createElement('img');
   iconOpenEye.setAttribute('src', '../img/openEye.png');
+  iconOpenEye.classList.add('icon');
+  iconOpenEye.id = 'openEye';
 
   const iconCloseEye = document.createElement('img');
   iconCloseEye.setAttribute('src', '../img/closeEye.png');
+  iconCloseEye.classList.add('icon');
+  iconCloseEye.id = 'closeEye';
 
   const buttonRegister = document.createElement('button');
   buttonRegister.textContent = 'REGISTRATE';
@@ -52,6 +61,7 @@ export const Register = () => {
 
   const iconGoogle = document.createElement('img');
   iconGoogle.setAttribute('src', '../img/google-logo.png');
+  iconGoogle.id = 'iconGoogle';
 
   const buttonHome = document.createElement('button');
   buttonHome.textContent = 'Regresar al Home';
@@ -68,6 +78,14 @@ export const Register = () => {
 
   buttonLoginGoogle.addEventListener('click', () => {
     loginWithGoogle();
+  });
+
+  iconOpenEye.addEventListener('click', () => {
+    if (inputPassword.type === 'text') {
+      inputPassword.type = 'password';
+    } else {
+      inputPassword.type = 'text';
+    }
   });
 
   registerDiv.appendChild(logo);

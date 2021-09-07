@@ -48,7 +48,8 @@ input{
     background-color:rgba(9, 118,178, 10%);
     color: black;
     font-weight: bold;
-    width: 268px;
+    width: 309px;
+    height: 43px;
     font-size: 92%;
 }
 #buttonRegister{
@@ -62,4 +63,29 @@ input{
 img {
     width: 270px;
     
+}
+
+
+
+
+.icon {
+    width: 30px;
+    border: 0px;
+    position: relative;
+    bottom: 40px;
+    left: 130px;
+    
+    
+} 
+
+#openEye, #closeEye {
+    cursor: pointer;
+}
+
+#iconGoogle {
+    width: 30px;
+    border: 0px;
+    position: relative;
+    bottom: 35px;
+    right: 132px;
 }
