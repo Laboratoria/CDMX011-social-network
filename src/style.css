@@ -1,0 +1,21 @@
+body {
+    background-color: #F2B705;
+
+}
+
+div {
+    position: relative;
+    display: flex;
+    flex-flow: column wrap;
+    align-items: center;
+    justify-content: center;
+    margin-top: 30%;
+}
+
+button {
+    background-color: #F25040;
+    border-radius: 15px;
+    height: 2rem;
+    width: 10rem;
+    margin: 18px;
+}

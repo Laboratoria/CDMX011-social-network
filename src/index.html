@@ -4,9 +4,17 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Document</title>
+  <link rel="stylesheet" href="style.css">
+  <title>Pata de perro</title>
 </head>
 <body>
-  <script type="module" src="main.js"></script>
-</body>
+  <div id="root"></div>
+    <!-- Insert these scripts at the bottom of the HTML, but before you use any Firebase services -->
+    <!-- Firebase App (the core Firebase SDK) is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/8.9.1/firebase-app.js"></script>  
+    <!-- Add Firebase products that you want to use -->
+    <script src="https://www.gstatic.com/firebasejs/8.9.1/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.9.1/firebase-firestore.js"></script>
+    <script type="module" src="main.js"></script>
+  </body>
 </html>
