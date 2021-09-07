@@ -162,8 +162,14 @@ const postContainer = document.getElementById('postContainer');
     } else {
       await updatePost(id, {
         textShare : textShare.value
-      })
+      });
+      
+      editStatus = false;
+      id = '';
+      posting['buttonNewPost'].value = 'Share';
+
     };
+
       posting.reset();
       textShare.focus();
         
