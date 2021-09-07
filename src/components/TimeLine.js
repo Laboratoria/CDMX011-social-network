@@ -2,9 +2,8 @@
 
 import { onNavigate } from '../routes.js';
 
-import {logOutUser, dataBase, deletePost } from '../lib/fireBase.js';
+import {logOutUser, dataBase  } from '../lib/fireBase.js';
 //import { async } from 'regenerator-runtime';
-
 
 export const toViewtimeline = (container) => {
     
@@ -55,6 +54,10 @@ const postContainer = document.getElementById('postContainer');
   });
   //Post
  
+  const posting = document.getElementById('postForm');
+
+  let editStatus = false;
+  let id = '';
 
   //Obtener un solo post por ID//
   const getPost = (id) => firebase.firestore().collection('posts').doc(id).get();
@@ -64,6 +67,8 @@ const postContainer = document.getElementById('postContainer');
   const deletePost = id => {firebase.firestore().collection('posts').doc(id).delete()
     .then (alert('Are you sure you want to delete your post?'));
   };
+
+  const updatePost = (id, updatedPost) => firebase.firestore().collection('posts').doc(id).update(updatedPost);
 
   window.addEventListener('DOMContentLoaded', async (e) =>{
    
@@ -120,8 +125,14 @@ const postContainer = document.getElementById('postContainer');
       const btnEdit = postContainer.querySelectorAll('.edit');
         btnEdit.forEach(btn => {
           btn.addEventListener('click', async (e) => {
-            const onePost = await getPost(e.target.dataset.id);
-            console.log(onePost);
+            const doc = await getPost(e.target.dataset.id);
+            console.log(doc.data());
+
+            editStatus = true;
+            id = doc.id;
+
+            posting["textPost"].value = doc.data().textShare;
+            posting['buttonNewPost'].value = 'Update';
           });
         });
 
@@ -131,7 +142,7 @@ const postContainer = document.getElementById('postContainer');
     
   });
 
-  const posting = document.getElementById('postForm');
+  
 
   const savePost = (textShare) =>
   firebase.firestore().collection('posts').doc().set({
@@ -146,19 +157,15 @@ const postContainer = document.getElementById('postContainer');
     const textShare= posting['textPost'];
     console.log(textShare);
 
-    await savePost(textShare.value);
-
+    if (!editStatus){
+      await savePost(textShare.value);
+    } else {
+      await updatePost(id, {
+        textShare : textShare.value
+      })
+    };
       posting.reset();
       textShare.focus();
         
   });
-
-
-  // document.addEventListener("click", async (e)=>{
-  //   if (e.target.getAttribute('id') == "btn_del") {
-  //     console.log(firebase.firestore().id);
-  //     await deletePost(dataBase.id);
-  //   };
-  // });
-  
 }
