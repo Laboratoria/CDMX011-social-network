@@ -104,30 +104,10 @@ const postContainer = document.getElementById('postContainer');
       </div>
       `;
     });
-   
-   console.log("Estoy entrando");
 
    });
     
   });
-  
-  const menu=document.querySelectorAll('#menuVerMas');
-
-//   const  viewMore= () => {
-//     menu.forEach(function (button) {
-//         button.addEventListener('click', function (event) {
-//             const id = event.target.dataset.id;
-//             // const movie = findById(data, id)
-//             // modal.style.display = "block";
-//             // createModal(movie);
-//             // closeModal();
-//             }
-            
-            
-//         )
-
-//     });
-// }
 
   const posting = document.getElementById('postForm');
 
@@ -152,6 +132,5 @@ posting.addEventListener('submit', async (e)  =>{
    
 } );
 
-const botonPost= document.getElementById('btnMAs');
 
 }
