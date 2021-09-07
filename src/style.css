@@ -93,13 +93,24 @@ input {
     margin-top:5px
 }
 
-#viewPass, #hidePass {
+#viewPass {
     position: absolute;
     margin: 7px -30px;
     height: 18px;
     width: 18px;
     padding: 2px 3px;
     border-radius: 8px;
+    
+}
+
+#hidePass{
+    position: absolute;
+    margin: 7px -30px;
+    height: 18px;
+    width: 18px;
+    padding: 2px 3px;
+    border-radius: 8px;
+    display: none;
 }
 
 #logInPassword,
