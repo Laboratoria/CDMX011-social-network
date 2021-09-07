@@ -1,11 +1,5 @@
 
 /* eslint-disable */
-#rot{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    background-color: #000;
-}
 .homeContainer {
     display: flex;
     flex-direction: column;
