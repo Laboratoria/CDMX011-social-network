@@ -2,7 +2,7 @@
 
 import { onNavigate } from '../routes.js';
 
-import {logOutUser, dataBase } from '../lib/fireBase.js';
+import {logOutUser, dataBase  } from '../lib/fireBase.js';
 //import { async } from 'regenerator-runtime';
 
 
@@ -55,12 +55,21 @@ const postContainer = document.getElementById('postContainer');
   });
   //Post
  
+  const posting = document.getElementById('postForm');
 
+  let editStatus = false;
+  let id = '';
 
-  //const getPost = () => dataBase.collection('posts').get();
-  //const user = firebase.getUser();
-//console.log(user);
+  //Obtener un solo post por ID//
+  const getPost = (id) => firebase.firestore().collection('posts').doc(id).get();
+  
   const onGetPost = (callback) => firebase.firestore().collection('posts').orderBy('date', 'desc').onSnapshot(callback);
+
+  const deletePost = id => {firebase.firestore().collection('posts').doc(id).delete()
+    .then (alert('Are you sure you want to delete your post?'));
+  };
+
+  const updatePost = (id, updatedPost) => firebase.firestore().collection('posts').doc(id).update(updatedPost);
 
   window.addEventListener('DOMContentLoaded', async (e) =>{
    
@@ -68,7 +77,12 @@ const postContainer = document.getElementById('postContainer');
       postContainer.innerHTML = '';
       querySnapshot.forEach(doc =>{
       const userUID = firebase.auth().currentUser;
-        //console.log(stateUser());
+      //console.log(doc.data());
+
+      //Obtener id de cada post//
+      const postData = doc.data();
+      postData.id = doc.id;
+      //console.log(postData);
      
      postContainer.innerHTML += `
      <div class= "post_container">
@@ -85,26 +99,51 @@ const postContainer = document.getElementById('postContainer');
      <div class="usuarioPost">
      <div class="user">
      <p>${doc.data().user}</p>
-     <p>Fecha: ${doc.data().date}</p>
+     <p>${doc.data().date}</p>
      </div>
      <div class="likes"><input src='../img/heart.png' class='btn_like'  type='image' /> </div>
       </div>
       
       <div class = "buttonsDelEdit">
-        <button class  = "btn_log" id = "btn_del">Delete</button>
-        <button class  = "btn_log" id = "btn_edit">Edit</button>
+        <button class  = "btn_log delete" data-id="${postData.id}" >Delete</button>
+        <button class  = "btn_log edit" data-id="${postData.id}" >Edit</button>
       </div>
       </div>
       `;
+        
+        
+
+      //Borrar post//
+      const btnDel = postContainer.querySelectorAll('.delete');
+        btnDel.forEach(btn => {
+          btn.addEventListener('click', async (e) => {
+            //console.log(e.target.dataset.id);// es el ID del post clickeado
+            await deletePost(e.target.dataset.id);
+          });
+        });
+      
+      //Editar post//
+      const btnEdit = postContainer.querySelectorAll('.edit');
+        btnEdit.forEach(btn => {
+          btn.addEventListener('click', async (e) => {
+            const doc = await getPost(e.target.dataset.id);
+            console.log(doc.data());
+
+            editStatus = true;
+            id = doc.id;
+
+            posting["textPost"].value = doc.data().textShare;
+            posting['buttonNewPost'].value = 'Update';
+          });
+        });
+
     });
    
-   console.log("Estoy entrando");
-
    });
     
-  })
+  });
 
-  const posting = document.getElementById('postForm');
+  
 
   const savePost = (textShare) =>
   firebase.firestore().collection('posts').doc().set({
@@ -113,17 +152,27 @@ const postContainer = document.getElementById('postContainer');
     user:firebase.auth().currentUser.email,
   });
 
-posting.addEventListener('submit', async (e)  =>{
-  e.preventDefault();
-   console.log("Share");
-   const textShare= posting['textPost'];
-   console.log(textShare);
+  posting.addEventListener('submit', async (e)  =>{
+    e.preventDefault();
+    console.log("Share");
+    const textShare= posting['textPost'];
+    console.log(textShare);
 
-   await savePost(textShare.value);
+    if (!editStatus){
+      await savePost(textShare.value);
+    } else {
+      await updatePost(id, {
+        textShare : textShare.value
+      });
+      
+      editStatus = false;
+      id = '';
+      posting['buttonNewPost'].value = 'Share';
 
-    posting.reset();
-    textShare.focus();
-   
-   
-} );
+    };
+
+      posting.reset();
+      textShare.focus();
+        
+  });
 }
