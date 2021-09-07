@@ -32,3 +32,11 @@ export const gmailAuth = (onNavigate) => {
 // Inicia sesión en firebase
 export const signIn = (email, password) => firebase.auth()
   .signInWithEmailAndPassword(email, password);
+
+export const logOut = (onNavigate) => firebase.auth().signOut()
+  .then(() => {
+    onNavigate('/');
+    console.log('sesion cerrada');
+  }).catch((error) => {
+    console.log(error);
+  });

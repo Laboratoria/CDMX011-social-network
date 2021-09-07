@@ -1,6 +1,6 @@
 import { onNavigate } from '../main.js';
 import { allFunctions } from '../lib/validFunc.js';
-import { signIn } from '../firebaseAuth.js';
+import { signIn, gmailAuth } from '../firebaseAuth.js';
 
 export const login = () => {
   const loginPage = document.createElement('div');
@@ -22,7 +22,9 @@ export const login = () => {
   <button id="routeButton">Regístrate</button>
   </div>
   </div>`;
+
   loginPage.innerHTML = htmlLogin;
+
   let printEmail = '';
   loginPage.querySelector('#signIn').addEventListener('click', (e) => {
     e.preventDefault();
@@ -35,7 +37,10 @@ export const login = () => {
       printEmail = saveEmail;
     }
     signIn(printEmail, savedPassword)
-      .then(() => onNavigate('/home'))
+      .then(() => {
+        onNavigate('/home');
+        console.log('Estas logueada');
+      })
       .catch((error) => {
         const errorCode = error.code;
         const errorMessage = error.message;
@@ -58,5 +63,10 @@ export const login = () => {
     }
   });
   loginPage.querySelector('#routeButton').addEventListener('click', () => onNavigate('/register'));
+
+  loginPage.querySelector('#signInGoogle').addEventListener('click', () => {
+    gmailAuth(onNavigate);
+  });
+
   return loginPage;
 };

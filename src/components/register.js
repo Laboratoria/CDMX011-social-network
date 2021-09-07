@@ -58,6 +58,7 @@ export const register = () => {
       .catch((error) => {
         console.log(error.message);
         registerPage.querySelector('#entryError').innerHTML = 'El usuario ya esta registrado';
+        // registerPage.querySelector('#formContainer').reset();
       });
   });
 
@@ -72,7 +73,17 @@ export const register = () => {
   registerPage.querySelector('#signInGoogle').addEventListener('click', () => {
     gmailAuth(onNavigate);
   });
+
   registerPage.querySelector('#routeButton').addEventListener('click', () => onNavigate('/'));
+
+  /* registerPage.querySelector('#formContainer').addEventListener('click', (e) => {
+    if (e.target.matches('#email') || e.target.matches('#password')
+    || e.target.matches('#confirmPassword')) {
+      registerPage.querySelector('#invalidPassword').innerHTML = '';
+      registerPage.querySelector('#entryError').innerHTML = '';
+      registerPage.querySelector('#invalidEmail').innerHTML = '';
+    }
+  }); */
 
   return registerPage;
 };
