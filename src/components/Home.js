@@ -9,6 +9,7 @@ import {continueGitHub} from '../lib/fireBase.js';
 export const toViewHome = (container) => {
   console.log('estoy en home');
   const html = `
+ 
   <div class = "homeContainer">
     <section class="container">
         <img class="logo" src="img/PIC&ART.png" alt="logo">
@@ -22,23 +23,30 @@ export const toViewHome = (container) => {
         <input type="button" class="btn_log github" value="Continue with GitHub" id="toGitHub" />
         </div>
     </section>
+  </div>
   </div>`
+  
   ;
 
   container.innerHTML = html;
 
+  //Funcion para boton de crear cuenta y mandar a signUp
   const toCreate = document.getElementById('toCreate');
   toCreate.addEventListener('click', (e) => {
     e.preventDefault();
     onNavigate('/signUp');
    // console.log(stateUser());
   });
+
+  //Función para mandar a LogIn
   const toLogIn = document.getElementById('toLogIn');
   toLogIn.addEventListener('click', (e) => {
     e.preventDefault();
     onNavigate('/LogIn');
     //stateUser();
   });
+
+  //Función para iniciar sesión con Google
   const toContinueGoogle = document.getElementById('toGoogle');
   toContinueGoogle.addEventListener('click', () => {
     continueGoogle()
@@ -53,6 +61,8 @@ export const toViewHome = (container) => {
     //e.preventDefault();
     //onNavigate('/LogIn');
   });
+
+  //Función para iniciar sesión con GitHub
   const toContinueGitHub = document.getElementById('toGitHub');
   toContinueGitHub.addEventListener('click', (e) => {
     e.preventDefault();

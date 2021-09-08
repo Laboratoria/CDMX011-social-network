@@ -2,7 +2,8 @@
 
 import { onNavigate } from '../routes.js';
 
-import {logOutUser, dataBase, deletePost } from '../lib/fireBase.js';
+
+import {logOutUser, onGetPost, getPost, updatePost,deletePost, savePost  } from '../lib/fireBase.js';
 //import { async } from 'regenerator-runtime';
 
 
@@ -14,14 +15,15 @@ export const toViewtimeline = (container) => {
     <div class = "headTimeline">
     <img class="iconApp" src="img/picartBlanco.png">
    <!-- <input type="button"  value="salir" id="logOut" />-->
+   
     </div>
     <hr id="witheBorder">
     </header>
 
     <nav class="navBar" > 
-    <div><input src='../img/home1.png' class='btnNavBarMovil'  type='image' /></div>
-    <div><a href="#postForm"><input src='../img/post1.png' class='btn_mas'  type='image' /></a></div>
-    <div><input src='../img/logOut.png' id='logOut' class="btnNavBarMovil" type='image' /></div>
+    <div><input src='../img/homeL.png' class='btnNavBarMovil'  type='image' /></div>
+    <div><input src='../img/post1.png' class='btn_mas' id='btnMAs' type='image' /></div>
+    <div><input src='../img/logOutt.png' id='logOut' class="btnNavBarMovil" type='image' /></div>
     </nav> 
 
     <section class="TimeContainer" id="section">
@@ -38,8 +40,11 @@ export const toViewtimeline = (container) => {
  
   </div>
 `;
- 
-    container.innerHTML = html
+let editStatus = false;
+let id = '';
+container.innerHTML = html
+
+
 const postContainer = document.getElementById('postContainer');
     // const postContainer = document.createElement('div');
     // postContainer.classList.add('post-box');
@@ -55,26 +60,39 @@ const postContainer = document.getElementById('postContainer');
   });
   //Post
  
+  const posting = document.getElementById('postForm');
+
+ 
+   
 
 
-  const getPost = () => dataBase.collection('posts').get();
-  //const user = firebase.getUser();
-//console.log(user);
-  const onGetPost = (callback) => firebase.firestore().collection('posts').orderBy('date', 'desc').onSnapshot(callback);
 
+  //Cargar la pagina y aparezcan los post 
   window.addEventListener('DOMContentLoaded', async (e) =>{
    
     onGetPost((querySnapshot) => {
       postContainer.innerHTML = '';
       querySnapshot.forEach(doc =>{
-      const userUID = firebase.auth().currentUser;
-        //console.log(stateUser());
-     
+      
+
+      //Obtener id de cada post//
+      const postData = doc.data();
+      postData.id = doc.id;
+      
+
+     //Template de post
      postContainer.innerHTML += `
      <div class= "post_container">
      <div class="postHeader">
     <div class="verMas"> 
-    <input src='../img/verMas.png' class='btn_VerMas'  type='image' />
+    <nav>
+    <input type="checkbox" id="${postData.id}" class="btnMenu menu" ></input>
+    <label for="${postData.id}"  class="labelPost" >...</label>
+    <ul class='menuToPost'>
+      <li><button class  = "btn_delete delete" data-id="${postData.id}" >Delete</button></li>
+      <li><button class  = "btn_edit edit" data-id="${postData.id}" >Edit</button></li>
+    </ul>
+  </nav>
     </div>
      </div>
      <hr id="blackLine">
@@ -85,34 +103,83 @@ const postContainer = document.getElementById('postContainer');
      <div class="usuarioPost">
      <div class="user">
      <p>${doc.data().user}</p>
-     <p>${doc.data().date}</p>
+     <p class="postDate">${new Date(doc.data().date.seconds*1000).toDateString()}</p>
+
      </div>
      <div class="likes"><input src='../img/heart.png' class='btn_like'  type='image' /> </div>
       </div>
       
-      <div class = "buttonsDelEdit">
-        <button class  = "btn_log" id = "btn_del"
-         data-id=${doc.data().id} >Delete</button>
-        <button class  = "btn_log" id = "btn_edit">Edit</button>
-      </div>
+     <!-- <div class = "buttonsDelEdit">
+
+        <button class  = "btn_log delete" data-id="${postData.id}" >Delete</button>
+        <button class  = "btn_log edit" data-id="${postData.id}" >Edit</button>
+      </div>-->
       </div>
       `;
+        
+      //Menu ver mas
+      const viewMore= postContainer.querySelectorAll('.menu');
+      // const elementosLi= postContainer.querySelectorAll('.labelPost');
+      // console.log(elementosLi);
+
+      // viewMore.forEach(btnViewMore =>{
+      //   btnViewMore.addEventListener('click', function (e) {
+        
+      //     const id = e.target.dataset.id;
+      //     console.log(id);
+      //   });
+      // });
+      // elementosLi.forEach(btn =>{
+      //   btn.addEventListener('',function (e) {
+      //     const id = e.target.dataset.id;
+      //     console.log(id);
+      //   });
+      // })
+        
+
+      //Borrar post//
+      const btnDel = postContainer.querySelectorAll('.delete');
+        btnDel.forEach(btn => {
+          btn.addEventListener('click', async (e) => {
+            //console.log(e.target.dataset.id);// es el ID del post clickeado
+            await deletePost(e.target.dataset.id);
+          });
+        });
+      
+      //Editar post//
+      const btnEdit = postContainer.querySelectorAll('.edit');
+        btnEdit.forEach(btn => {
+          btn.addEventListener('click', async (e) => {
+            const doc = await getPost(e.target.dataset.id);
+            console.log(doc.data());
+
+            editStatus = true;
+            id = doc.id;
+
+            posting["textPost"].value = doc.data().textShare;
+            posting['buttonNewPost'].value = 'Update';
+          });
+        });
+
     });
-   
-   console.log("Estoy entrando");
 
    });
     
-  })
+  });
 
-  const posting = document.getElementById('postForm');
+  
 
   const savePost = (textShare) =>
   firebase.firestore().collection('posts').doc().set({
     textShare,
-    date: firebase.firestore.FieldValue.serverTimestamp(),
+    date: firebase.firestore.Timestamp.fromDate(new Date()),
     user:firebase.auth().currentUser.email
   });
+
+
+
+  
+//Compartir post 
 
   posting.addEventListener('submit', async (e)  =>{
     e.preventDefault();
@@ -120,24 +187,22 @@ const postContainer = document.getElementById('postContainer');
     const textShare= posting['textPost'];
     console.log(textShare);
 
-    await savePost(textShare.value);
+    if (!editStatus){
+      await savePost(textShare.value);
+    } else {
+      await updatePost(id, {
+        textShare : textShare.value
+      });
+      
+      editStatus = false;
+      id = '';
+      posting['buttonNewPost'].value = 'Share';
+
+    };
+
 
       posting.reset();
       textShare.focus();
         
   });
-
-  //borrar post//
-  // document.addEventListener("click", (e)=>{
-  //   if (e.target.getAttribute('id') == "btn_del") {
-  //     console.log('borrar post');
-  //     firebase.firestore().collection('posts').doc('id').delete()
-  //     .then(() => {
-  //       console.log("Document successfully deleted!");
-  //     }).catch((error) => {
-  //       console.error("Error removing document: ", error);
-  //     });
-  //   };
-  // });
-  
 }
