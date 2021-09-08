@@ -9,7 +9,7 @@ exports[`Colección de test en SignUp Should render in SignUp 1`] = `
         <input id=\\"singUpEmail\\" type=\\"text\\" placeholder=\\"e-mail\\" required=\\"\\"><br>
         <br><label value=\\"password\\">Password*</label>
         <input id=\\"singUpPassword\\" type=\\"password\\" placeholder=\\"Password\\" required=\\"\\">
-        <input id=\\"viewPass\\" src=\\"../img/eye.png\\" type=\\"image\\">
+        <input src=\\"../img/eye.png\\" id=\\"viewPass\\" type=\\"image\\">
         <br><input type=\\"submit\\" class=\\"btn_log signup\\" id=\\"btnSignUp\\" value=\\"SIGN UP\\"><br>
         <p class=\\"error\\"></p> 
         <br>
