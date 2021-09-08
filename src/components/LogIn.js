@@ -15,7 +15,7 @@ export const toViewLogIn = (container) => {
         <input id='logInEmail' type='text' placeholder='e-mail' required/><br>
         <br><label class="title" value='password'>Password</label>
         <input id='logInPassword' type='password' placeholder='Password' required />
-        <input src='../img/eye.png' id='viewPass' type='image' /><br>
+        <input src='../img/eye.png' id='viewPass' type='image' />
         <input src='../img/hide.png' id='hidePass' display='block' type='image' /><br>
         <br><input type='submit' class='btn_log login' id="btnLogIn" value='LOG IN' /><br>
         <p class="error"></p>
@@ -30,26 +30,38 @@ export const toViewLogIn = (container) => {
     container.innerHTML = html
 
 
-    document.getElementById('viewPass').addEventListener('click', (e) => {
+    const btnEye = document.getElementById('viewPass');
+    const btnHide = document.getElementById('hidePass');
+    btnEye.addEventListener('click', (e) => {
         e.preventDefault();
         const inputType = document.getElementById('logInPassword');
-        inputType.type == 'password' ? inputType.type = 'text' : inputType.type = 'password';
+        if(inputType.type == 'password'){
+            inputType.type = 'text';
+            btnEye.style.display= 'none';
+            btnHide.style.display = 'block';
+        }else if(inputType.type = 'password') {
+            btnEye.style.display= 'block';
+            btnHide.style.display = 'none';
+        }
+        //inputType.type == 'password' ? inputType.type = 'text' : inputType.type = 'password';
 
-        // if(inputType.type === text){
-        //     btnHide.style.display = 'visible';  
-        //     btnEye.style.display = 'hidden';
-        // } else {
-        //     btnHide.style.display = 'hidden';  
-        //     btnEye.style.display = 'visible';
-        // }
     });
-    function mostrarBoton() {
-        const btnEye = document.getElementById('viewPass');
-        const btnHide = document.getElementById('hidePass');
-        btnEye.style.display = 'none';
-        btnHide.style.display = 'inline';
-    }
+    // function mostrarBoton() {
+    //     const btnEye = document.getElementById('viewPass');
+    //     const btnHide = document.getElementById('hidePass');
+    //     btnEye.style.display = 'none';
+    //     btnHide.style.display = 'inline';
+    // }
 
+    // const btnEye = document.getElementById('viewPass');
+    // const btnHide = document.getElementById('hidePass');
+
+    // btnEye.addEventListener("click", () =>{
+    //     btnHide.style.display = "block";
+    // });
+    // btnHide.addEventListener("click", () =>{
+    //     btnEye.style.display ="none";
+    // }) 
 
     const logInForm = document.querySelector('#logInForm');
     logInForm.addEventListener('submit', (e) => {

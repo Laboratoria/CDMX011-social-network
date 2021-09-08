@@ -6,7 +6,8 @@ import { register } from '../lib/fireBase.js';
 export const toViewSignUp = (container) => {
     console.log('Estoy en signUp')
 
-    const html = ` <section class='container signup-form'>
+    const html = ` <div class = "homeContainer">
+    <section class='container signup-form'>
     <img class='logo' src='img/PIC&ART.png' alt='logo'>
     <form id='submitForm'>
         <br><label value='email'>E-mail*</label>
@@ -14,13 +15,14 @@ export const toViewSignUp = (container) => {
         <br><label value='password'>Password*</label>
         <input id='singUpPassword' type='password' placeholder='Password' required/>
         <input id='viewPass' src='../img/eye.png' type='image'/>
-        <br><input type='submit' class='btn_log signup' value='SIGN UP' /><br>
+        <br><input type='submit' class='btn_log signup' id="btnSignUp" value='SIGN UP' /><br>
         <p class="error"></p> 
         <br>
         <br>
     </form>
     <a href='javascript:history.back();'> <img class='return' src='img/return-logo.png' alt='logo' > Back </a>
-</section>`;
+</section>
+</div>`;
     container.innerHTML = html
 
 

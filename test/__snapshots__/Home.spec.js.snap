@@ -1,0 +1,21 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Colección de test en Home Should render in Home 1`] = `
+"
+ 
+  <div class=\\"homeContainer\\">
+    <section class=\\"container\\">
+        <img class=\\"logo\\" src=\\"img/PIC&amp;ART.png\\" alt=\\"logo\\">
+        <div class=\\"content\\">
+        <p>Share your ideas in the largest art community. Get inspired with different styles and genres around your country.
+        </p>
+        <input type=\\"button\\" class=\\"btn_log login\\" value=\\"LOG IN\\" id=\\"toLogIn\\">
+        <input type=\\"button\\" class=\\"btn_log signup\\" value=\\"SIGN UP\\" id=\\"toCreate\\"><br>
+        <p2>──────  or  ──────</p2><br>
+        <input type=\\"button\\" class=\\"btn_log google\\" value=\\"Continue with Google\\" id=\\"toGoogle\\">
+        <input type=\\"button\\" class=\\"btn_log github\\" value=\\"Continue with GitHub\\" id=\\"toGitHub\\">
+        </div>
+    </section>
+  </div>
+  "
+`;
