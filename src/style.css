@@ -1,4 +1,3 @@
-
 /* eslint-disable */
 .homeContainer {
     display: flex;
@@ -6,9 +5,7 @@
     flex-wrap: wrap;
     align-items: center;
     justify-content: center;
-    /*background-color: rgb(180, 68, 68);*/
-    /*background: #000;*/
-    background: url("./img/art-wall.jpg");
+    background: url("./img/2.jpg");
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -20,7 +17,8 @@
 }
 
 .TimeContainer{
-    background: black;
+    background: #121212;
+    margin-bottom: 50px;
 }
 
 .testTL {
@@ -49,53 +47,90 @@
 /*.timeLineSection {
     background-color:#000;
 }*/
- 
-  #menu:checked  ~ ul{
-    display:block;
-      position:absolute;
+
+.menuToPost{
+    display: none;
+    position:absolute;
+    width: 65px;
   }
   
-  #menu {
-    display: none;
-    
+  .menu:checked  ~ ul{
+    display:block;
     position:absolute;
   }
   
-  .labelPost {
+  .menu{
+    display: none;
+    position:absolute;
+  } 
+.labelPost {
     box-sizing: border-box;
     display: inline-block;
-    border: .1px solid gray;
-    border-radius: 5px;
+    /* border: .1px solid rgb(255, 255, 255); */
+    color: rgb(17, 17, 17);
     width: 30px;
     height: 30px;
     font-weight: bold;
+    letter-spacing: 2px;
+    font-size: 22px;
     text-align: center;
     user-select: none;
   }
+  
+ 
+ 
   
   
   
   /* Estilo del boton cuando el menú está expandido*/
   
-  
-  .menuPost{
-    margin-top:0;
+/*   
+   .menuToPost{
     padding: 0;
-    width: 100px;
-    display: none;
+    width: 65px;
     position:absolute;
-  }
+  }  */
   
   
-  .menuPost > li {
+  .menuToPost > li {
     display: block;
     background: lightgrey;
     margin: 0;
     padding: 10px;
     list-style: none;
+    
     /*border-bottom: 1px solid grey;*/
     
   }
+  ul{
+    margin-top:0;
+    padding: 0;
+    width: 80px;
+    margin-right: 10px;
+   
+  }
+  
+  
+  li {
+    display: block;
+    background: lightgrey;
+    margin: 0;
+    list-style: none;
+    border-bottom: 1px solid grey;
+    
+  }
+  
+  /*Estilo cuando el mouse pasa encima de cada link del menu*/
+  li:hover {
+    filter: brightness(110%);
+  }
+  
+  .btn_delete, .btn_edit{
+    width: 50px;
+    height: auto;
+    background: lightgrey;
+    border: none;
+}
   
   
 .container a {
@@ -146,15 +181,6 @@ input {
     
 }
 
-#hidePass{
-    position: absolute;
-    margin: 7px -30px;
-    height: 18px;
-    width: 18px;
-    padding: 2px 3px;
-    border-radius: 8px;
-    display: none;
-}
 
 #logInPassword,
 #singUpPassword {
@@ -189,8 +215,9 @@ input {
 }
 #blackLine{
     width: 83vw;/*300px*/
-   border-color: rgb(5, 5, 5);
-
+   border-color:rgba(75, 75, 75, 0.877);
+   border-width:0px;
+margin: 0px;
 }
 
 
@@ -235,9 +262,10 @@ input {
 
 .headTimeline{
     display: flex;
-    background: rgb(0, 0, 0);
+    background:#3E3E3E;
     outline: none;
     padding:5px 5px;
+    margin: 0px 0px;
     
 }
 .post-box{
@@ -259,9 +287,9 @@ div.post-box{
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
-    background-color: #fff;
+    background-color: #979797;
     width: 83vw;/*300px*/
-    border: solid 2px rgb(212, 210, 210);
+    border: solid 2px #979797;
     border-radius: 10px;
     margin-bottom: 20px;
 }
@@ -271,7 +299,11 @@ div.post-box{
     margin-right:3vh;/*15px*/
   }
   .postText{
-   margin: 10px;/*10px*/
+   margin: 0px;/*10px*/
+   height: auto;
+   padding: 0px 15px;
+   background: lightgrey;
+  
   }
   .usuarioPost{
     display:flex;
@@ -284,18 +316,21 @@ div.post-box{
   .user{
       line-height: 5px;
       margin-top: 0px;
+      color: rgb(224, 224, 224);
+      font-weight: bold;
+      font-size: 17px;
   }
   .postDate{
-    color:gray;
+    color:rgb(255, 255, 255);
   }
   .btn_VerMas{
       width: 3vh;
-      background: white;
+      background:white;
      padding: 0px 3px;
   }
   .btn_like{
     width: 3.5vh;
-    background: white;
+    background: #979797;
     margin-top: 5px;
     padding: 0px 3px;
 
@@ -323,7 +358,7 @@ footer {
     display:flex;
     flex-direction:row;
     justify-content: space-around;
-    background-color: rgb(255, 255, 255);
+    background-color:#3E3E3E;
     width: 100%;
     height: 60px;
     position:fixed;
@@ -345,7 +380,12 @@ footer {
     border-top-right-radius:10px;
     border-top-left-radius: 10px;
     border: none;
-    width: 80.1vw;
+    width: 75.3vw;
+    background: lightgrey;
+   
+}
+textarea#textPost.textPost{
+    padding: 10px 10px;
 }
 #buttonNewPost{
     position: absolute;
@@ -376,11 +416,11 @@ footer {
         width: 100%;
         height: 7.5vh;   
         padding: 0px;
-        background-color: #fff;
+        background-color: #3E3E3E;
     }
     .btnNavBarMovil{
         padding-top: 5px;
-        background-color: #fff;
+        background-color: #3E3E3E;
         width: 100%;
         height: 6.5vh;
     }
@@ -391,9 +431,9 @@ footer {
 /*cuando la pantalla es mayor a 700px (desktop y tablet)*/
 
 @media screen and (min-width: 700px) {
-    /*body {
-        background: url("./img/lines.jpg");
-    }*/
+    /* body {
+        background: url("./img/wallpaper.png");
+    } */
     .root {
         width: 900px;
         height: auto;

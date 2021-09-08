@@ -14,7 +14,7 @@ export const toViewSignUp = (container) => {
         <input id='singUpEmail' type='text' placeholder='e-mail' required/><br>
         <br><label value='password'>Password*</label>
         <input id='singUpPassword' type='password' placeholder='Password' required/>
-        <input id='viewPass' src='../img/eye.png' type='image'/>
+        <input src='../img/eye.png' id='viewPass' type='image' />
         <br><input type='submit' class='btn_log signup' id="btnSignUp" value='SIGN UP' /><br>
         <p class="error"></p> 
         <br>
@@ -26,10 +26,18 @@ export const toViewSignUp = (container) => {
     container.innerHTML = html
 
 
-    document.getElementById('viewPass').addEventListener('click', (e) => {
+    const btnEye = document.getElementById('viewPass');
+    
+    btnEye.addEventListener('click', (e) => {
         e.preventDefault();
         const inputType = document.getElementById('singUpPassword');
-        inputType.type == 'password' ? inputType.type = 'text' : inputType.type = 'password';
+        if(inputType.type == 'password'){
+            inputType.type = 'text';
+            btnEye.src = "../img/hide.png";
+        }else if(inputType.type = 'password') {
+            btnEye.src = "../img/eye.png"
+        }
+        
     });
 
     const singUpform = document.querySelector('#submitForm');
