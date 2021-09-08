@@ -1,4 +1,5 @@
 /* eslint-disable */
+
 .homeContainer {
     display: flex;
     flex-direction: column;
@@ -79,14 +80,13 @@
   
   /* Estilo del boton cuando el menú está expandido*/
   
-  
-  .menuPost{
+  /* .menuPost{
     margin-top:0;
     padding: 0;
     width: 100px;
   
     position:absolute;
-  }
+  } */
   
   
   .menuPost > li {
@@ -136,6 +136,9 @@ input {
     width: 210px;
     padding-left: 10px;
     margin-top:5px
+}
+input#toGoogle{
+    width: 20px;
 }
 
 #viewPass {
@@ -219,10 +222,20 @@ input {
     box-shadow: rgba(43, 235, 235, 0.4) 5px 5px 10px;
 }
 
+
 .google {
     border: 3px solid rgb(219, 188, 46);
     box-shadow: rgba(235, 206, 43, 0.4) 5px 5px 10px;
 }
+/* #toGoogle img{
+    height: 20px;
+    width: 20px;
+} */
+
+/* div.btn_log.google{
+    position: static;
+    align-self: center;
+} */
 
 /*TIMELINE CSS*/
 

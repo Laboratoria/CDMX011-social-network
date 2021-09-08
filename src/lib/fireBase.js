@@ -14,12 +14,11 @@ const firebaseConfig = {
   measurementId: 'G-V85MSYGCCW',
 };
 // Initialize Firebase
-
-
 firebase.initializeApp(firebaseConfig);
+
 //firebase.analytics();
 
-
+//Acceder a los usuarios
 export const getUser = () => firebase.auth().currentUser;
 //console.log(getUser());
 //export const dataBase = () => firebase.firestore();
@@ -43,7 +42,6 @@ export const savePost = (textShare) =>
 firebase.firestore().collection('posts').doc().set({
   textShare,
   date: firebase.firestore.Timestamp.fromDate(new Date()),
-  user:firebase.auth().currentUser.email,
 });
 
 // Firebase register
@@ -75,13 +73,14 @@ export const continueGoogle = () => {
 
 };
 
+//Github autentication
 export const continueGitHub = () => {
   const provider = new firebase.auth.GithubAuthProvider();
   firebase.auth().languageCode = 'en';
   return firebase.auth().signInWithPopup(provider);
 };
 
-
+//Observador si está logeado
 export const stateUser = () => {
   firebase.auth().onAuthStateChanged((getUser) => {
       if (getUser) {
@@ -95,7 +94,7 @@ export const stateUser = () => {
     }
   });
 }
-
+ //LogOut
 export const logOutUser = () => {
  
   return firebase.auth().signOut()
