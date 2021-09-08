@@ -2,7 +2,7 @@
 
 import { onNavigate } from '../routes.js';
 
-import {logOutUser, dataBase  } from '../lib/fireBase.js';
+import {logOutUser, onGetPost, getPost, updatePost,deletePost, savePost  } from '../lib/fireBase.js';
 //import { async } from 'regenerator-runtime';
 
 
@@ -39,8 +39,11 @@ export const toViewtimeline = (container) => {
  
   </div>
 `;
- 
-    container.innerHTML = html
+let editStatus = false;
+let id = '';
+container.innerHTML = html
+
+
 const postContainer = document.getElementById('postContainer');
     // const postContainer = document.createElement('div');
     // postContainer.classList.add('post-box');
@@ -58,33 +61,25 @@ const postContainer = document.getElementById('postContainer');
  
   const posting = document.getElementById('postForm');
 
-  let editStatus = false;
-  let id = '';
+ 
+   
 
-  //Obtener un solo post por ID//
-  const getPost = (id) => firebase.firestore().collection('posts').doc(id).get();
-  
-  const onGetPost = (callback) => firebase.firestore().collection('posts').orderBy('date', 'desc').onSnapshot(callback);
 
-  const deletePost = id => {firebase.firestore().collection('posts').doc(id).delete()
-    .then (alert('Are you sure you want to delete your post?'));
-  };
 
-  const updatePost = (id, updatedPost) => firebase.firestore().collection('posts').doc(id).update(updatedPost);
-
+  //Cargar la pagina y aparezcan los post 
   window.addEventListener('DOMContentLoaded', async (e) =>{
    
     onGetPost((querySnapshot) => {
       postContainer.innerHTML = '';
       querySnapshot.forEach(doc =>{
-      const userUID = firebase.auth().currentUser;
+      
 
       //Obtener id de cada post//
       const postData = doc.data();
       postData.id = doc.id;
-      //console.log(postData);
+      
 
-     
+     //Template de post
      postContainer.innerHTML += `
      <div class= "post_container">
      <div class="postHeader">
@@ -180,6 +175,10 @@ const postContainer = document.getElementById('postContainer');
     user:firebase.auth().currentUser.email
   });
 
+
+
+  
+//Compartir post 
 
   posting.addEventListener('submit', async (e)  =>{
     e.preventDefault();

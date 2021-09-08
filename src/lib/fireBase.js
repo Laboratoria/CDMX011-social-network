@@ -22,7 +22,29 @@ firebase.initializeApp(firebaseConfig);
 
 export const getUser = () => firebase.auth().currentUser;
 //console.log(getUser());
-export const dataBase = () => firebase.firestore();
+//export const dataBase = () => firebase.firestore();
+
+//Generar colección de post publicados, ordenarlos por fecha y actualizar nuevos cambios.
+export const onGetPost = (callback) => firebase.firestore().collection('posts').orderBy('date', 'desc').onSnapshot(callback);
+
+//Obtener un solo post por ID//
+export const getPost = (id) => firebase.firestore().collection('posts').doc(id).get();
+
+//Borrar los post en interfaz y en firestore
+export const deletePost = id => {firebase.firestore().collection('posts').doc(id).delete()
+  .then (alert('Are you sure you want to delete your post?'));
+};
+
+//Editar los post
+export const updatePost = (id, updatedPost) => firebase.firestore().collection('posts').doc(id).update(updatedPost);
+
+//Funcion para guardar los datos de los post
+export const savePost = (textShare) =>
+firebase.firestore().collection('posts').doc().set({
+  textShare,
+  date: firebase.firestore.Timestamp.fromDate(new Date()),
+  user:firebase.auth().currentUser.email,
+});
 
 // Firebase register
 export const register = (singUpEmail, singUpPassword) => {
