@@ -17,24 +17,21 @@ describe("Colección de test en Home", () => {
 
     it("Should render in Home", () => {
         const rootDiv=document.getElementById('root');
-        console.log(rootDiv);
+        toViewHome(rootDiv);
         expect(rootDiv.innerHTML).toMatchSnapshot();
     });
 
-    // it("Should log when Google button is clicked", () => {
-    //     const mockLogInGoogle= jest.fn();
-    //         mockLogInGoogle.mockImplementation(()=>Promise.resolve()); 
+    it("Should log when Google button is clicked", () => {
+        const mockLogInGoogle= jest.fn();
+            mockLogInGoogle.mockImplementation(()=>Promise.resolve()); 
 
-    //         firebase.auth= jest.fn().mockImplementation(()=>({
-    //             signInWithGoogle: mockLogInGoogle,
-    //         }));
-    //         const rootDiv=document.getElementById('root');
-    //         toViewHome(rootDiv);
+            firebase.auth= jest.fn().mockImplementation(()=>({
+                signInWithGoogle: mockLogInGoogle,
+            }));
+            const rootDiv=document.getElementById('root');
+            toViewHome(rootDiv);
 
-    //         const email='testing@gmail.com';
-    //         const password='12345.';
-
-    //         document.getElementById('toGoogle').click();
-    //         expect(mockLogInGoogle).toHaveBeenCalledWith(email, password);
-    // });
+            document.getElementById('toGoogle').click();
+            expect(mockLogInGoogle).toHaveBeenCalledWith();
+    });
 })

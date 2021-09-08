@@ -1,7 +1,8 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Colección de test en SignUp Should render in SignUp 1`] = `
-" <section class=\\"container signup-form\\">
+" <div class=\\"homeContainer\\">
+    <section class=\\"container signup-form\\">
     <img class=\\"logo\\" src=\\"img/PIC&amp;ART.png\\" alt=\\"logo\\">
     <form id=\\"submitForm\\">
         <br><label value=\\"email\\">E-mail*</label>
@@ -15,5 +16,6 @@ exports[`Colección de test en SignUp Should render in SignUp 1`] = `
         <br>
     </form>
     <a href=\\"javascript:history.back();\\"> <img class=\\"return\\" src=\\"img/return-logo.png\\" alt=\\"logo\\"> Back </a>
-</section>"
+</section>
+</div>"
 `;
