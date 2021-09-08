@@ -2,6 +2,7 @@
 
 import { onNavigate } from '../routes.js';
 
+
 import {logOutUser, onGetPost, getPost, updatePost,deletePost, savePost  } from '../lib/fireBase.js';
 //import { async } from 'regenerator-runtime';
 
@@ -14,14 +15,15 @@ export const toViewtimeline = (container) => {
     <div class = "headTimeline">
     <img class="iconApp" src="img/picartBlanco.png">
    <!-- <input type="button"  value="salir" id="logOut" />-->
+   
     </div>
     <hr id="witheBorder">
     </header>
 
     <nav class="navBar" > 
-    <div><input src='../img/home1.png' class='btnNavBarMovil'  type='image' /></div>
+    <div><input src='../img/homeL.png' class='btnNavBarMovil'  type='image' /></div>
     <div><input src='../img/post1.png' class='btn_mas' id='btnMAs' type='image' /></div>
-    <div><input src='../img/logOut.png' id='logOut' class="btnNavBarMovil" type='image' /></div>
+    <div><input src='../img/logOutt.png' id='logOut' class="btnNavBarMovil" type='image' /></div>
     </nav> 
 
     <section class="TimeContainer" id="section">
@@ -84,11 +86,11 @@ const postContainer = document.getElementById('postContainer');
      <div class="postHeader">
     <div class="verMas"> 
     <nav>
-    <input type="checkbox" id="menu">
-    <label for="menu" class="labelPost"> ... </label>
-    <ul class='menuPost'>
-      <li>Delete</li>
-      <li>Update</li>
+    <input type="checkbox" id="${postData.id}" class="btnMenu menu" ></input>
+    <label for="${postData.id}"  class="labelPost" >...</label>
+    <ul class='menuToPost'>
+      <li><button class  = "btn_delete delete" data-id="${postData.id}" >Delete</button></li>
+      <li><button class  = "btn_edit edit" data-id="${postData.id}" >Edit</button></li>
     </ul>
   </nav>
     </div>
@@ -101,20 +103,38 @@ const postContainer = document.getElementById('postContainer');
      <div class="usuarioPost">
      <div class="user">
      <p>${doc.data().user}</p>
-     <p class="postDate">${new Date(doc.data().date.seconds*1000).toLocaleDateString()}</p>
+     <p class="postDate">${new Date(doc.data().date.seconds*1000).toDateString()}</p>
 
      </div>
      <div class="likes"><input src='../img/heart.png' class='btn_like'  type='image' /> </div>
       </div>
       
-      <div class = "buttonsDelEdit">
+     <!-- <div class = "buttonsDelEdit">
 
         <button class  = "btn_log delete" data-id="${postData.id}" >Delete</button>
         <button class  = "btn_log edit" data-id="${postData.id}" >Edit</button>
-      </div>
+      </div>-->
       </div>
       `;
         
+      //Menu ver mas
+      const viewMore= postContainer.querySelectorAll('.menu');
+      // const elementosLi= postContainer.querySelectorAll('.labelPost');
+      // console.log(elementosLi);
+
+      // viewMore.forEach(btnViewMore =>{
+      //   btnViewMore.addEventListener('click', function (e) {
+        
+      //     const id = e.target.dataset.id;
+      //     console.log(id);
+      //   });
+      // });
+      // elementosLi.forEach(btn =>{
+      //   btn.addEventListener('',function (e) {
+      //     const id = e.target.dataset.id;
+      //     console.log(id);
+      //   });
+      // })
         
 
       //Borrar post//
@@ -149,8 +169,18 @@ const postContainer = document.getElementById('postContainer');
 
   
 
+  const savePost = (textShare) =>
+  firebase.firestore().collection('posts').doc().set({
+    textShare,
+    date: firebase.firestore.Timestamp.fromDate(new Date()),
+    user:firebase.auth().currentUser.email
+  });
+
+
+
   
 //Compartir post 
+
   posting.addEventListener('submit', async (e)  =>{
     e.preventDefault();
     console.log("Share");
