@@ -1,4 +1,3 @@
-// Registra usuario en firebase
 export const authUser = (email, password) => firebase.auth()
   .createUserWithEmailAndPassword(email, password);
   // ..
@@ -42,3 +41,4 @@ export const logOut = (onNavigate) => firebase.auth().signOut()
   }).catch((error) => {
     console.log(error);
   });
+
