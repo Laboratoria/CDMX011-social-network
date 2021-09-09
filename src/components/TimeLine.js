@@ -3,7 +3,7 @@
 import { onNavigate } from '../routes.js';
 
 
-import {logOutUser, onGetPost, getPost, updatePost,deletePost, savePost  } from '../lib/fireBase.js';
+import {logOutUser, onGetPost, getPost, updatePost,deletePost, savePost } from '../lib/fireBase.js';
 //import { async } from 'regenerator-runtime';
 
 
@@ -62,8 +62,11 @@ const postContainer = document.getElementById('postContainer');
  
   const posting = document.getElementById('postForm');
 
-   //Cargar la pagina y aparezcan los post 
-      onGetPost((querySnapshot) => {
+  //Cargar la pagina y aparezcan los post 
+  firebase.auth().onAuthStateChanged((getUser) => {
+
+    if (getUser) {
+    onGetPost((querySnapshot) => {
       postContainer.innerHTML = '';
       querySnapshot.forEach(doc =>{
       
@@ -109,9 +112,7 @@ const postContainer = document.getElementById('postContainer');
       </div>-->
       </div>
       `;
-        
-       
-
+      
       //Borrar post//
       const btnDel = postContainer.querySelectorAll('.delete');
         btnDel.forEach(btn => {
@@ -139,10 +140,14 @@ const postContainer = document.getElementById('postContainer');
     });
 
    });
-    
-  
+    }
+    else{
+      onNavigate('/');
+    }
+  });
+  // };
 
-  
+
 
   const savePost = (textShare) =>
   firebase.firestore().collection('posts').doc().set({

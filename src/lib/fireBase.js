@@ -53,7 +53,6 @@ export const register = (singUpEmail, singUpPassword) => {
 // Firebase login
 export const logIn = (logInEmail, logInPassword) => {
   return firebase.auth().signInWithEmailAndPassword(logInEmail, logInPassword);
-  
 };
 
 // Google autentication
@@ -72,18 +71,25 @@ export const continueGitHub = () => {
 };
 
 //Observador si está logeado
-export const stateUser = () => {
-  firebase.auth().onAuthStateChanged((getUser) => {
-      if (getUser == true ) {
-      console.log(getUser.uid);
+// export const stateUser = () => {
+ 
+//   firebase.auth().onAuthStateChanged((getUser) => {
+//       if (getUser) {
       
-      //const anUsuer = logIn(logInEmail, logInPassword);
-      //onNavigate('/TimeLine');
-    } else {
-      console.log(getUser);
-    }
-  });
-}
+//       console.log(getUser.email);
+//       user=getUser.email;
+      
+   
+//       //const anUsuer = logIn(logInEmail, logInPassword);
+//       //onNavigate('/TimeLine');
+//     } else {
+//       // User is signed out
+//       console.log(getUser);
+//       user=getUser.email;
+//     }
+//   });
+//   return user;
+// }
  //LogOut
 export const logOutUser = () => {
   onNavigate('/')
