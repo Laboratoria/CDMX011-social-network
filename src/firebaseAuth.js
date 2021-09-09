@@ -2,6 +2,8 @@
 export const authUser = (email, password) => firebase.auth()
   .createUserWithEmailAndPassword(email, password);
   // ..
+export const getUser = () => firebase.auth().currentUser;
+
 // Continua el registro con google
 export const gmailAuth = (onNavigate) => {
   const provider = new firebase.auth.GoogleAuthProvider();

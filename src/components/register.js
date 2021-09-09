@@ -43,22 +43,21 @@ export const register = () => {
     const validPasswordFunc = allFunctions.validPassword(savedPassword, confirmSavedPassword);
 
     if (validEmailFunc === false) {
-      registerPage.querySelector('#invalidEmail').innerHTML = 'Favor de ingresar correo válido.';
+      registerPage.querySelector('#invalidEmail').innerHTML = 'please enter a valid email'/*  'Favor de ingresar correo válido.' */;
     } else {
       printEmail = saveEmail;
     }
 
     if (validPasswordFunc === false) {
-      registerPage.querySelector('#invalidPassword').innerHTML = 'Las contraseñas no coinciden o tienen menos de 6 caracteres';
+    // eslint-disable-next-line max-len
+    //  registerPage.querySelector('#invalidPassword').innerHTML = 'Las contraseñas no coinciden o tienen menos de 6 caracteres';
     } else {
       printPassword = savedPassword;
     }
     authUser(printEmail, printPassword)
       .then(() => onNavigate('/home'))
       .catch((error) => {
-        console.log(error.message);
-        registerPage.querySelector('#entryError').innerHTML = 'El usuario ya esta registrado';
-        // registerPage.querySelector('#formContainer').reset();
+        registerPage.querySelector('#entryError').innerHTML = error.message;
       });
   });
 
@@ -73,17 +72,7 @@ export const register = () => {
   registerPage.querySelector('#signInGoogle').addEventListener('click', () => {
     gmailAuth(onNavigate);
   });
-
   registerPage.querySelector('#routeButton').addEventListener('click', () => onNavigate('/'));
-
-  /* registerPage.querySelector('#formContainer').addEventListener('click', (e) => {
-    if (e.target.matches('#email') || e.target.matches('#password')
-    || e.target.matches('#confirmPassword')) {
-      registerPage.querySelector('#invalidPassword').innerHTML = '';
-      registerPage.querySelector('#entryError').innerHTML = '';
-      registerPage.querySelector('#invalidEmail').innerHTML = '';
-    }
-  }); */
 
   return registerPage;
 };
