@@ -29,7 +29,7 @@ export const toViewtimeline = (container) => {
     <section class="TimeContainer" id="section">
     
     <form  id="postForm">
-        <textarea text="textArea" class="textPost" id="textPost" rows="5" cols="40" maxlength="500" placeholder="Post something :)"></textarea><br>
+        <textarea text="textArea" class="textPost" id="textPost" rows="5" cols="40" maxlength="500" placeholder="Post something :)" required ></textarea><br>
         <input type="submit" id="buttonNewPost"  value="Share" /> 
         
     </form>
@@ -62,15 +62,8 @@ const postContainer = document.getElementById('postContainer');
  
   const posting = document.getElementById('postForm');
 
- 
-   
-
-
-
-  //Cargar la pagina y aparezcan los post 
-  window.addEventListener('DOMContentLoaded', async (e) =>{
-   
-    onGetPost((querySnapshot) => {
+   //Cargar la pagina y aparezcan los post 
+      onGetPost((querySnapshot) => {
       postContainer.innerHTML = '';
       querySnapshot.forEach(doc =>{
       
@@ -86,18 +79,18 @@ const postContainer = document.getElementById('postContainer');
      <div class="postHeader">
     <div class="verMas"> 
     <nav>
-    <input type="checkbox" id="${postData.id}" class="btnMenu menu" ></input>
-    <label for="${postData.id}"  class="labelPost" >...</label>
-    <ul class='menuToPost'>
-      <li><button class  = "btn_delete delete" data-id="${postData.id}" >Delete</button></li>
-      <li><button class  = "btn_edit edit" data-id="${postData.id}" >Edit</button></li>
-    </ul>
-  </nav>
+      <input type="checkbox" id="${postData.id}" class="btnMenu menu" ></input>
+      <label for="${postData.id}"  class="labelPost" >...</label>
+      <ul class='menuToPost'>
+        <li><button class  = "btn_delete delete" data-id="${postData.id}" >Delete</button></li>
+        <li><button class  = "btn_edit edit" data-id="${postData.id}" >Edit</button></li>
+      </ul>
+    </nav>
     </div>
      </div>
      <hr id="blackLine">
      <div class="postText">
-     <h2>${doc.data().textShare}</h2>
+      <h2>${doc.data().textShare}</h2>
      </div>
      <hr id="blackLine">
      <div class="usuarioPost">
@@ -117,25 +110,7 @@ const postContainer = document.getElementById('postContainer');
       </div>
       `;
         
-      //Menu ver mas
-      const viewMore= postContainer.querySelectorAll('.menu');
-      // const elementosLi= postContainer.querySelectorAll('.labelPost');
-      // console.log(elementosLi);
-
-      // viewMore.forEach(btnViewMore =>{
-      //   btnViewMore.addEventListener('click', function (e) {
-        
-      //     const id = e.target.dataset.id;
-      //     console.log(id);
-      //   });
-      // });
-      // elementosLi.forEach(btn =>{
-      //   btn.addEventListener('',function (e) {
-      //     const id = e.target.dataset.id;
-      //     console.log(id);
-      //   });
-      // })
-        
+       
 
       //Borrar post//
       const btnDel = postContainer.querySelectorAll('.delete');
@@ -165,7 +140,7 @@ const postContainer = document.getElementById('postContainer');
 
    });
     
-  });
+  
 
   
 
@@ -183,9 +158,9 @@ const postContainer = document.getElementById('postContainer');
 
   posting.addEventListener('submit', async (e)  =>{
     e.preventDefault();
-    console.log("Share");
+    //console.log("Share");
     const textShare= posting['textPost'];
-    console.log(textShare);
+    //console.log(textShare);
 
     if (!editStatus){
       await savePost(textShare.value);
