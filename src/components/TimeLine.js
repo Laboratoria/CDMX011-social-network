@@ -3,7 +3,7 @@
 import { onNavigate } from '../routes.js';
 
 
-import {logOutUser, onGetPost, getPost, updatePost,deletePost, savePost  } from '../lib/fireBase.js';
+import {logOutUser, onGetPost, getPost, updatePost,deletePost, savePost } from '../lib/fireBase.js';
 //import { async } from 'regenerator-runtime';
 
 
@@ -62,14 +62,10 @@ const postContainer = document.getElementById('postContainer');
  
   const posting = document.getElementById('postForm');
 
- 
-   
-
-
-
   //Cargar la pagina y aparezcan los post 
-  window.addEventListener('DOMContentLoaded', async (e) =>{
-   
+  firebase.auth().onAuthStateChanged((getUser) => {
+
+    if (getUser) {
     onGetPost((querySnapshot) => {
       postContainer.innerHTML = '';
       querySnapshot.forEach(doc =>{
@@ -116,27 +112,6 @@ const postContainer = document.getElementById('postContainer');
       </div>-->
       </div>
       `;
-        
-      //Menu ver mas
-      const viewMore= postContainer.querySelectorAll('.menu');
-      // const elementosLi= postContainer.querySelectorAll('.labelPost');
-      // console.log(elementosLi);
-
-      // viewMore.forEach(btnViewMore =>{
-      //   btnViewMore.addEventListener('click', function (e) {
-        
-      //     const id = e.target.dataset.id;
-      //     console.log(id);
-      //   });
-      // });
-      // elementosLi.forEach(btn =>{
-      //   btn.addEventListener('',function (e) {
-      //     const id = e.target.dataset.id;
-      //     console.log(id);
-      //   });
-      // })
-        
-
       //Borrar post//
       const btnDel = postContainer.querySelectorAll('.delete');
         btnDel.forEach(btn => {
@@ -164,10 +139,14 @@ const postContainer = document.getElementById('postContainer');
     });
 
    });
-    
+    }
+    else{
+      onNavigate('/');
+    }
   });
+  // };
 
-  
+
 
   const savePost = (textShare) =>
   firebase.firestore().collection('posts').doc().set({

@@ -54,16 +54,12 @@
     position:absolute;
     width: 65px;
   }
-  
+   .menu{
+    display: none;
+  }  
   .menu:checked  ~ ul{
     display:block;
-    position:absolute;
   }
-  
-  .menu{
-    display: none;
-    position:absolute;
-  } 
 .labelPost {
     box-sizing: border-box;
     display: inline-block;
@@ -77,22 +73,8 @@
     text-align: center;
     user-select: none;
   }
-  
  
- 
-  
-  
-  
   /* Estilo del boton cuando el menú está expandido*/
-  
-/*   
-   .menuToPost{
-
-    padding: 0;
-    width: 65px;
-    position:absolute;
-  }  */
-  
   
   .menuToPost > li {
     display: block;
@@ -100,27 +82,15 @@
     margin: 0;
     padding: 10px;
     list-style: none;
-    
-    /*border-bottom: 1px solid grey;*/
-    
+    border-bottom: 1px solid grey;
   }
   ul{
     margin-top:0;
     padding: 0;
-    width: 80px;
+    /*width: 80px;*/
     margin-right: 10px;
-   
-  }
-  
-  
-  li {
-    display: block;
-    background: lightgrey;
-    margin: 0;
-    list-style: none;
-    border-bottom: 1px solid grey;
-    
-  }
+  } 
+ 
   
   /*Estilo cuando el mouse pasa encima de cada link del menu*/
   li:hover {
