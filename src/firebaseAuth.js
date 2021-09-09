@@ -1,7 +1,8 @@
-// Registra usuario en firebase
 export const authUser = (email, password) => firebase.auth()
   .createUserWithEmailAndPassword(email, password);
   // ..
+export const getUser = () => firebase.auth().currentUser;
+
 // Continua el registro con google
 export const gmailAuth = (onNavigate) => {
   const provider = new firebase.auth.GoogleAuthProvider();
@@ -20,7 +21,7 @@ export const gmailAuth = (onNavigate) => {
     }).catch((error) => {
     // Handle Errors here.
       const errorCode = error.code;
-      const errorMessage = errohr.message;
+      const errorMessage = error.message;
       // The email of the user's account used.
       const email = error.email;
       // The firebase.auth.AuthCredential type that was used.
@@ -40,3 +41,4 @@ export const logOut = (onNavigate) => firebase.auth().signOut()
   }).catch((error) => {
     console.log(error);
   });
+
