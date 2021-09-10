@@ -2,7 +2,7 @@
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
 /* eslint-disable */
 
-// import { onNavigate } from '../routes.js';
+import { onNavigate } from '../routes.js';
 
 const firebaseConfig = {
   apiKey: 'AIzaSyCaBVEyo0yKvVWGvxHpTufYnUwG7qMZ2FY',
@@ -53,7 +53,6 @@ export const register = (singUpEmail, singUpPassword) => {
 // Firebase login
 export const logIn = (logInEmail, logInPassword) => {
   return firebase.auth().signInWithEmailAndPassword(logInEmail, logInPassword);
-
 };
 
 // Google autentication
@@ -104,7 +103,7 @@ return email
 }
 
 export const logOutUser = () => {
- 
+  onNavigate('/')
   return firebase.auth().signOut()
 }
 
