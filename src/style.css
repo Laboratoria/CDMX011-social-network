@@ -136,7 +136,7 @@ input {
 #routeButton{
     display: flex;
     border:none;
-margin-left: 3%;
+    margin-left: 3%;
     background:none;
 
     position: relative;
@@ -202,4 +202,42 @@ margin-left: 3%;
 #yellowDog{
     Width: 43px;
     Height: 43px;
+}
+
+#backModal{
+    visibility: hidden;
+    top: 0px;
+    display: flex;
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background-color: #f67b7bb4; 
+    justify-content: space-around;
+    align-items: center;
+    
+    
+}
+
+#modal{
+    border-radius: 10px;
+    display: flex;
+    background-color:white;
+    width: 85%;
+    height: 75%;
+    flex-direction: column;
+    align-items: flex-end;
+    border: 3.5px solid #1EBFD1;
+    padding: 2%; 
+}
+
+#post{
+    margin-top: 2%;
+    margin-bottom: 2%;
+    width: 100%;
+    height: 90%;
+    border: none;
+    font-family:'Montserrat', sans-serif;
+    letter-spacing: .5px;
+    font-size: 18px;
+    
 }
