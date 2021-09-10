@@ -240,6 +240,10 @@ margin: 0px;
     box-shadow: rgba(170, 170, 168, 0.4) 5px 5px 10px;
     width: 150px;
 }
+
+.full {
+    src: ('../img/emptylike.png');
+}
 /* #toGoogle img{
     height: 20px;
     width: 20px;
@@ -287,8 +291,13 @@ div.post-box{
 }
 .postHeader{
     display:flex;
-    flex-direction:row-reverse;
+    flex-direction:row;
     margin-right:3vh;/*15px*/
+    justify-content: space-between;
+    /*align-items: center;*/
+    padding-left:10px;
+    font-size: 1rem;
+    font-family:Georgia, 'Times New Roman', Times, serif;
   }
   .postText{
    margin: 0px;/*10px*/
@@ -325,6 +334,7 @@ div.post-box{
     background: #979797;
     margin-top: 5px;
     padding: 0px 3px;
+    float: right;
 
 }
   

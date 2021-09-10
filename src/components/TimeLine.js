@@ -46,10 +46,7 @@ container.innerHTML = html
 
 
 const postContainer = document.getElementById('postContainer');
-    // const postContainer = document.createElement('div');
-    // postContainer.classList.add('post-box');
-    // container.appendChild(postContainer);
-
+   
    //Log out de app
     const toLogOut = document.getElementById('logOut');
   toLogOut.addEventListener('click', () => {
@@ -64,6 +61,8 @@ const postContainer = document.getElementById('postContainer');
 
   //Cargar la pagina y aparezcan los post 
   firebase.auth().onAuthStateChanged((getUser) => {
+    const currentUserEmail = getUser.email;
+    console.log(currentUserEmail);
 
     if (getUser) {
     onGetPost((querySnapshot) => {
@@ -74,12 +73,19 @@ const postContainer = document.getElementById('postContainer');
       //Obtener id de cada post//
       const postData = doc.data();
       postData.id = doc.id;
+      //Obtener usuario de cada post//
+      const postUser= doc.data().user;
+      console.log(postUser);
       
 
      //Template de post
-     postContainer.innerHTML += `
+      postContainer.innerHTML += `
      <div class= "post_container">
      <div class="postHeader">
+     <div class="user">
+     <p class="userPost">${doc.data().user}</p>
+     <p class="postDate">${new Date(doc.data().date.seconds*1000).toDateString()}</p>
+     </div>
     <div class="verMas"> 
     <nav>
       <input type="checkbox" id="${postData.id}" class="btnMenu menu" ></input>
@@ -97,22 +103,33 @@ const postContainer = document.getElementById('postContainer');
      </div>
      <hr id="blackLine">
      <div class="usuarioPost">
-     <div class="user">
-     <p>${doc.data().user}</p>
-     <p class="postDate">${new Date(doc.data().date.seconds*1000).toDateString()}</p>
-
-     </div>
-     <div class="likes"><input src='../img/heart.png' class='btn_like'  type='image' /> </div>
+     <div class="likes"><input src='../img/like.png' class='btn_like'  type='image' /> </div>
       </div>
-      
-     <!-- <div class = "buttonsDelEdit">
-
-        <button class  = "btn_log delete" data-id="${postData.id}" >Delete</button>
-        <button class  = "btn_log edit" data-id="${postData.id}" >Edit</button>
-      </div>-->
       </div>
       `;
       
+    //   const btnMore = postContainer.querySelectorAll('.btnMenu');
+    //   btnMore.forEach(btn => {
+    //     btn.addEventListener('click', () => {
+    //       if(currentUserEmail === postUser){
+    //         btnMore.style.display= "none"; 
+    //       }else{
+    //         console.log('diferentes') 
+    //       }
+    //   })
+    // })
+
+       if(currentUserEmail == postUser){
+        
+      // document.getElementsByClassName("labelPost").style.display= "none";
+      }else{
+        console.log('diferentes')
+      const btn= document.querySelectorAll('.labelPost');
+      btn.forEach(btn2 =>{
+        btn2.style.display="none";
+      })
+      }
+    
       //Borrar post//
       const btnDel = postContainer.querySelectorAll('.delete');
         btnDel.forEach(btn => {
@@ -137,6 +154,28 @@ const postContainer = document.getElementById('postContainer');
           });
         });
 
+      
+      const btnLike = postContainer.querySelectorAll('.btn_like');
+      
+      function Toggle() {
+        if(btnLike.src == '../img/emptylike.png' ){
+          btnLike.src = '../img/like.png'
+          
+      }else {
+        btnLike.src = '../img/emptylike.png'
+      }
+      }
+      //Botón like//
+        btnLike.forEach(btn => {
+          //let countLikes = 0;
+          btn.addEventListener('click', () => {
+            // countLikes += 1;
+            // console.log(countLikes); 
+            Toggle()
+                    
+          })
+        });
+
     });
 
    });
@@ -147,6 +186,7 @@ const postContainer = document.getElementById('postContainer');
   });
   // };
 
+  
 
 
   const savePost = (textShare) =>
@@ -155,9 +195,6 @@ const postContainer = document.getElementById('postContainer');
     date: firebase.firestore.Timestamp.fromDate(new Date()),
     user:firebase.auth().currentUser.email
   });
-
-
-
   
 //Compartir post 
 
@@ -179,7 +216,6 @@ const postContainer = document.getElementById('postContainer');
       posting['buttonNewPost'].value = 'Share';
 
     };
-
 
       posting.reset();
       textShare.focus();
