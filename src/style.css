@@ -287,8 +287,13 @@ div.post-box{
 }
 .postHeader{
     display:flex;
-    flex-direction:row-reverse;
+    flex-direction:row;
     margin-right:3vh;/*15px*/
+    justify-content: space-between;
+    /*align-items: center;*/
+    padding-left:10px;
+    font-size: 1rem;
+    font-family:Georgia, 'Times New Roman', Times, serif;
   }
   .postText{
    margin: 0px;/*10px*/
@@ -299,7 +304,7 @@ div.post-box{
   }
   .usuarioPost{
     display:flex;
-    flex-direction:row;
+    flex-direction:row-reverse;
     justify-content:space-between;
     padding-right: 3vh;/*15px*/
     padding-left:10px;

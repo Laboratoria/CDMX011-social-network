@@ -3,7 +3,7 @@
 import { onNavigate } from '../routes.js';
 
 
-import {logOutUser, onGetPost, getPost, updatePost,deletePost, savePost } from '../lib/fireBase.js';
+import {logOutUser, onGetPost, getPost, updatePost,deletePost, savePost, getUser , actualUser} from '../lib/fireBase.js';
 //import { async } from 'regenerator-runtime';
 
 
@@ -40,6 +40,7 @@ export const toViewtimeline = (container) => {
  
   </div>
 `;
+
 let editStatus = false;
 let id = '';
 container.innerHTML = html
@@ -62,24 +63,33 @@ const postContainer = document.getElementById('postContainer');
  
   const posting = document.getElementById('postForm');
 
-  //Cargar la pagina y aparezcan los post 
+  
   firebase.auth().onAuthStateChanged((getUser) => {
 
     if (getUser) {
+      
+    console.log(actualUser())
+      //Cargar la pagina y aparezcan los post 
     onGetPost((querySnapshot) => {
       postContainer.innerHTML = '';
       querySnapshot.forEach(doc =>{
-      
-
       //Obtener id de cada post//
       const postData = doc.data();
       postData.id = doc.id;
-      
 
+      const postEmail = doc.data().user;
+     
+    
+      
      //Template de post
      postContainer.innerHTML += `
      <div class= "post_container">
      <div class="postHeader">
+     <div class="user">
+     <p class="userPost">${doc.data().user}</p>
+     <p class="postDate">${new Date(doc.data().date.seconds*1000).toDateString()}</p>
+
+     </div>
     <div class="verMas"> 
     <nav>
       <input type="checkbox" id="${postData.id}" class="btnMenu menu" ></input>
@@ -97,22 +107,22 @@ const postContainer = document.getElementById('postContainer');
      </div>
      <hr id="blackLine">
      <div class="usuarioPost">
-     <div class="user">
-     <p>${doc.data().user}</p>
-     <p class="postDate">${new Date(doc.data().date.seconds*1000).toDateString()}</p>
-
-     </div>
      <div class="likes"><input src='../img/heart.png' class='btn_like'  type='image' /> </div>
       </div>
-      
-     <!-- <div class = "buttonsDelEdit">
-
-        <button class  = "btn_log delete" data-id="${postData.id}" >Delete</button>
-        <button class  = "btn_log edit" data-id="${postData.id}" >Edit</button>
-      </div>-->
       </div>
-      `;
-      
+      `; 
+        
+      if( actualUser() == postEmail){
+        
+        // document.getElementsByClassName("labelPost").style.display= "none";
+        }else{
+          console.log('diferentes')
+        const btn= document.querySelectorAll('.labelPost');
+        btn.forEach(btn2 =>{
+          btn2.style.display="none";
+        })
+        }
+
       //Borrar post//
       const btnDel = postContainer.querySelectorAll('.delete');
         btnDel.forEach(btn => {
@@ -146,6 +156,7 @@ const postContainer = document.getElementById('postContainer');
     }
   });
   // };
+//mostrar ocultar btn vermas
 
 
 
