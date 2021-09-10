@@ -92,6 +92,17 @@ export const continueGitHub = () => {
 //   return user;
 // }
  //LogOut
+ let email ;
+export const actualUser=()=>{
+ const user = firebase.auth().currentUser;
+if (user !== null) {
+  // The user object has basic properties such as display name, email, etc.
+ 
+   email = user.email;
+}
+return email
+}
+
 export const logOutUser = () => {
  
   return firebase.auth().signOut()
