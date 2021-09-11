@@ -187,16 +187,26 @@ input {
 }
 #postContainer{
     display: flex;
-    flex-direction: row;
     align-items: flex-end;
     justify-content: space-around;
+    width: 95%;
+    margin-bottom: 25px;
 
 }
 #postInput{
-    display: flex;
     font-size: 18px;
-    width: 80%;
-
+    width: 86%;
+    height: 35px;
+    font-family:'Montserrat', sans-serif;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 20px;
+    color: #735858;
+    background: #FFF9F9;
+    border: 2px solid #1EBFD1;
+    box-sizing: border-box;
+    border-radius: 15px;
 
 }
 #yellowDog{
@@ -221,7 +231,7 @@ input {
 #modal{
     border-radius: 10px;
     display: flex;
-    background-color:white;
+    background-color:#D3F5FF;;
     width: 85%;
     height: 75%;
     flex-direction: column;
@@ -231,13 +241,97 @@ input {
 }
 
 #post{
+    background-color:#D3F5FF;;
     margin-top: 2%;
     margin-bottom: 2%;
+    text-align: center;
     width: 100%;
     height: 90%;
     border: none;
     font-family:'Montserrat', sans-serif;
     letter-spacing: .5px;
+    font-size: 18px;   
+   
+}
+#homePage{
+    flex-direction: column;
+    display:flex;
+    align-items: center;
+}
+#recentPostDiv{
+ padding: 1%;
+ background-color: #f67b7bb4; 
+ margin-bottom: 2%;
+ border-radius: 10px;
+ display: flex;
+ justify-content: flex-start;
+ flex-direction: column;
+ align-content: center;
+ width:100%;
+ align-items: center;
+}
+#posts{
+    display:flex;
+    flex-direction: column;
+    align-content: center;
+    width:90%;
+
+}
+#recentPost{
+    font-family:'Montserrat', sans-serif;
+    margin: 2px;
+    font-style: normal;
+    text-align: center;
     font-size: 18px;
+}
+#close{
+    font-family: 'Fredoka one', sans-serif;
+    color:#FF5A5C;
+    font-size: 22px;
+    margin-right: 2%;
+    margin-bottom: 10px;
+}
+#share{
+    margin-top: 10%;
+    border:none;
+    background: #FF5A5C;;
+    border-radius: 10px;
+    font-family: 'Fredoka one', sans-serif;
+    color:white ;
+    letter-spacing: 0.5px;
+    font-size: 16px;
+    width: 80px;
+    height: 30px
+}
+
+#edit{
+    font-family: 'Fredoka One', cursive;
+    border:none;
+    background: none;
+   color:#D76524;
+   justify-content: flex-start;
+}
+
+#like{
     
+}
+
+#deletes{
+    border:none;
+    font-family: 'Fredoka One', cursive;
+    background: none;
+   color:#C72426;
+   margin-right: 80%;
+
+}
+
+#divButtons{
+    display: flex;
+}
+
+#userMail{
+    font-family: 'Fredoka one', sans-serif;
+    font-size: 18px;
+    color: #662A08;    
+    letter-spacing: .5px;
 }
