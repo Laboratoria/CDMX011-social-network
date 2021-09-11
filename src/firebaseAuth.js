@@ -1,8 +1,8 @@
-// Registra usuario en firebase
 export const authUser = (email, password) => firebase.auth()
   .createUserWithEmailAndPassword(email, password);
   // ..
 export const getUser = () => firebase.auth().currentUser;
+
 
 // Continua el registro con google
 export const gmailAuth = (onNavigate) => {
@@ -10,14 +10,14 @@ export const gmailAuth = (onNavigate) => {
   firebase.auth()
     .signInWithPopup(provider)
     .then((result) => {
-    /** @type {firebase.auth.OAuthCredential} */
-      const credential = result.credential;
+      // const credential = result.credential;
       // This gives you a Google Access Token. You can use it to access the Google API.
-      const token = credential.accessToken;
+      // const token = credential.accessToken;
       // The signed-in user info.
-      const user = result.user;
+      const user = result.user.displayName;
+      console.log(user);
+
       onNavigate('/home');
-      console.log(credential, token, user);
     // ...
     }).catch((error) => {
     // Handle Errors here.
