@@ -3,7 +3,7 @@
 import { onNavigate } from '../routes.js';
 
 
-import {logOutUser, onGetPost, getPost, updatePost,deletePost, savePost } from '../lib/fireBase.js';
+import {logOutUser, onGetPost, getPost, updatePost,deletePost, savePost, addLikes} from '../lib/fireBase.js';
 //import { async } from 'regenerator-runtime';
 
 
@@ -62,7 +62,7 @@ const postContainer = document.getElementById('postContainer');
   //Cargar la pagina y aparezcan los post 
   firebase.auth().onAuthStateChanged((getUser) => {
     const currentUserEmail = getUser.email;
-    console.log(currentUserEmail);
+    //console.log(currentUserEmail);
 
     if (getUser) {
     onGetPost((querySnapshot) => {
@@ -75,60 +75,49 @@ const postContainer = document.getElementById('postContainer');
       postData.id = doc.id;
       //Obtener usuario de cada post//
       const postUser= doc.data().user;
-      console.log(postUser);
+      //console.log(postUser);
       
 
      //Template de post
       postContainer.innerHTML += `
-     <div class= "post_container">
-     <div class="postHeader">
-     <div class="user">
-     <p class="userPost">${doc.data().user}</p>
-     <p class="postDate">${new Date(doc.data().date.seconds*1000).toDateString()}</p>
-     </div>
-    <div class="verMas"> 
-    <nav>
-      <input type="checkbox" id="${postData.id}" class="btnMenu menu" ></input>
-      <label for="${postData.id}"  class="labelPost" >...</label>
-      <ul class='menuToPost'>
-        <li><button class  = "btn_delete delete" data-id="${postData.id}" >Delete</button></li>
-        <li><button class  = "btn_edit edit" data-id="${postData.id}" >Edit</button></li>
-      </ul>
-    </nav>
-    </div>
-     </div>
-     <hr id="blackLine">
-     <div class="postText">
-      <h2>${doc.data().textShare}</h2>
-     </div>
-     <hr id="blackLine">
-     <div class="usuarioPost">
-     <div class="likes"><input src='../img/like.png' class='btn_like'  type='image' /> </div>
-      </div>
-      </div>
-      `;
-      
-    //   const btnMore = postContainer.querySelectorAll('.btnMenu');
-    //   btnMore.forEach(btn => {
-    //     btn.addEventListener('click', () => {
-    //       if(currentUserEmail === postUser){
-    //         btnMore.style.display= "none"; 
-    //       }else{
-    //         console.log('diferentes') 
-    //       }
-    //   })
-    // })
-
+          <div class= "post_container">
+            <div class="postHeader">
+              <div class="user">
+                <p class="userPost">${doc.data().user}</p>
+                <p class="postDate">${new Date(doc.data().date.seconds*1000).toDateString()}</p>
+              </div>
+              <div class="verMas"> 
+                <nav>
+                  <input type="checkbox" id="${postData.id}" class="btnMenu menu" ></input>
+                  <label for="${postData.id}"  class="labelPost" >...</label>
+                  <ul class='menuToPost'>
+                    <li><button class  = "btn_delete delete" data-id="${postData.id}" >Delete</button></li>
+                    <li><button class  = "btn_edit edit" data-id="${postData.id}" >Edit</button></li>
+                  </ul>
+                </nav>
+                </div>
+                </div>
+                <hr id="blackLine">
+                <div class="postText">
+                  <h2>${doc.data().textShare}</h2>
+                </div>
+                <hr id="blackLine">
+                <div class="usuarioPost">
+              <div class="likes"><input src= '../img/emptylike.png' class='btn_like' id="like" type='image' value=${postData.id}/> </div>
+              </div>
+            </div>
+        `;
+     
+    
        if(currentUserEmail == postUser){
-        
       // document.getElementsByClassName("labelPost").style.display= "none";
-      }else{
-        console.log('diferentes')
-      const btn= document.querySelectorAll('.labelPost');
-      btn.forEach(btn2 =>{
-        btn2.style.display="none";
-      })
-      }
+      } else {
+        //console.log('diferentes')
+        const btn= document.querySelectorAll('.labelPost');
+        btn.forEach(btn2 =>{
+          btn2.style.display="none";
+        });
+      };
     
       //Borrar post//
       const btnDel = postContainer.querySelectorAll('.delete');
@@ -153,27 +142,35 @@ const postContainer = document.getElementById('postContainer');
             posting['buttonNewPost'].value = 'Update';
           });
         });
-
-      
-      const btnLike = postContainer.querySelectorAll('.btn_like');
-      
-      function Toggle() {
-        if(btnLike.src == '../img/emptylike.png' ){
-          btnLike.src = '../img/like.png'
-          
-      }else {
-        btnLike.src = '../img/emptylike.png'
-      }
-      }
-      //Botón like//
+        
+        //Botón like//
+        //console.log(postData.id);
+        // let likesFb = firebase.firestore().collection('posts').doc(postData.id);
+        const btnLike = postContainer.querySelectorAll('#like');
+        const likeValue = document.getElementById('like').value;
         btnLike.forEach(btn => {
-          //let countLikes = 0;
+          let countLikes = 0;
           btn.addEventListener('click', () => {
-            // countLikes += 1;
-            // console.log(countLikes); 
-            Toggle()
-                    
-          })
+            console.log(likeValue)
+            //addLikes(likeValue)
+            //console.log(postData.id);
+            countLikes += 1;
+            console.log(countLikes); 
+            // likesFb.update({
+            //   likes: firebase.firestore.FieldValue.increment(1)
+            // })
+             
+           //console.log(btn.src);
+          if(btn.src===("http://localhost:5000/img/emptylike.png")){
+              btn.src = '../img/like.png';
+              //console.log('unclicked');          
+          }else {
+            btn.src = '../img/emptylike.png';
+            //console.log('clicked')
+          }
+      
+        }
+        ); 
         });
 
     });
@@ -193,7 +190,8 @@ const postContainer = document.getElementById('postContainer');
   firebase.firestore().collection('posts').doc().set({
     textShare,
     date: firebase.firestore.Timestamp.fromDate(new Date()),
-    user:firebase.auth().currentUser.email
+    user:firebase.auth().currentUser.email,
+    likes: 0,
   });
   
 //Compartir post 
