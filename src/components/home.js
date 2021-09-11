@@ -4,7 +4,11 @@ import { logOut, getUser } from '../firebaseAuth.js';
 
 export const home = () => {
   const homePage = document.createElement('div');
-  const userEmail = getUser();
+  let userEmail = getUser();
+  if (userEmail !== null) {
+    userEmail = userEmail.email;
+  }
+
   const htmlNodes = `<header id = "wallBanner" ><img id="logoWall" src="./imagenes/Imagen1.png">
   <h1 id="petFriendsWall">Pet Friends</h1><img id="signOut" src= "./imagenes/exit.png"></header>
   <h2 id= "welcomeMessage">Bienvenid@ ${userEmail} </h2><div id="postContainer"><img id= "yellowDog" src="./imagenes/Güero.png">
