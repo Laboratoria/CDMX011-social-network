@@ -1,6 +1,6 @@
 /* eslint-disable */
 
-import { logIn, stateUser } from '../lib/fireBase.js'
+import { logIn } from '../lib/fireBase.js'
 import { onNavigate } from '../routes.js';
 export { onNavigate } from '../routes.js';
 
@@ -44,23 +44,7 @@ export const toViewLogIn = (container) => {
         //inputType.type == 'password' ? inputType.type = 'text' : inputType.type = 'password';
 
     });
-    // function mostrarBoton() {
-    //     const btnEye = document.getElementById('viewPass');
-    //     const btnHide = document.getElementById('hidePass');
-    //     btnEye.style.display = 'none';
-    //     btnHide.style.display = 'inline';
-    // }
-
-    // const btnEye = document.getElementById('viewPass');
-    // const btnHide = document.getElementById('hidePass');
-
-    // btnEye.addEventListener("click", () =>{
-    //     btnHide.style.display = "block";
-    // });
-    // btnHide.addEventListener("click", () =>{
-    //     btnEye.style.display ="none";
-    // }) 
-
+ 
     const logInForm = document.querySelector('#logInForm');
     logInForm.addEventListener('submit', (e) => {
         console.log('debug 1')

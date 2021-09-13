@@ -107,3 +107,10 @@ export const logOutUser = () => {
   return firebase.auth().signOut()
 }
 
+export const addLikes = (postId) => {
+  let likesFb = firebase.firestore().collection('posts').doc(postId);
+  likesFb.update({
+    likes: firebase.firestore.FieldValue.increment(1)
+  })
+}
+
