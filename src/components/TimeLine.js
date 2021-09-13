@@ -2,8 +2,8 @@
 
 import { onNavigate } from '../routes.js';
 import { modal, closeModal, showModal } from './ModalPost.js';
-import { logOutUser, onGetPost, getPost, updatePost, deletePost, savePost, getUser, actualUser } from '../lib/fireBase.js';
-
+import {logOutUser, onGetPost, getPost, updatePost,deletePost, savePost, addLikes, getUser , actualUser} from '../lib/fireBase.js';
+//import { async } from 'regenerator-runtime';
 
 
 export const toViewtimeline = (container) => {
@@ -47,12 +47,11 @@ firebase.auth().onAuthStateChanged((getUser) => {
   container.innerHTML = html
 
 
-  // const postContainer = document.createElement('div');
-  // postContainer.classList.add('post-box');
-  // container.appendChild(postContainer);
 
-  //Log out de app
-  const toLogOut = document.getElementById('logOut');
+const postContainer = document.getElementById('postContainer');
+   
+   //Log out de app
+    const toLogOut = document.getElementById('logOut');
   toLogOut.addEventListener('click', () => {
 
     logOutUser().then(() => {
@@ -64,7 +63,6 @@ firebase.auth().onAuthStateChanged((getUser) => {
   //Post
 
   const posting = document.getElementById('postForm');
-
 
   const postContainer = document.getElementById('postContainer');
  
@@ -133,6 +131,7 @@ firebase.auth().onAuthStateChanged((getUser) => {
             //llamar modal
             modal();
             closeModal();
+    
           });
           
           //Borrar post//
@@ -143,6 +142,39 @@ firebase.auth().onAuthStateChanged((getUser) => {
               await deletePost(e.target.dataset.id);
             });
           });
+
+        });
+        
+        //Botón like//
+        //console.log(postData.id);
+        // let likesFb = firebase.firestore().collection('posts').doc(postData.id);
+        const btnLike = postContainer.querySelectorAll('#like');
+        const likeValue = document.getElementById('like').value;
+        btnLike.forEach(btn => {
+          let countLikes = 0;
+          btn.addEventListener('click', () => {
+            console.log(likeValue)
+            //addLikes(likeValue)
+            //console.log(postData.id);
+            countLikes += 1;
+            console.log(countLikes); 
+            // likesFb.update({
+            //   likes: firebase.firestore.FieldValue.increment(1)
+            // })
+             
+           //console.log(btn.src);
+          if(btn.src===("http://localhost:5000/img/emptylike.png")){
+              btn.src = '../img/like.png';
+              //console.log('unclicked');          
+          }else {
+            btn.src = '../img/emptylike.png';
+            //console.log('clicked')
+          }
+      
+        }
+        ); 
+        });
+
 
           //Editar post//
           const btnEdit = postContainer.querySelectorAll('.edit');
@@ -169,6 +201,7 @@ firebase.auth().onAuthStateChanged((getUser) => {
   // };
   //mostrar ocultar btn vermas
 
+  
 
 
   // const savePost = (textShare) =>
@@ -178,8 +211,6 @@ firebase.auth().onAuthStateChanged((getUser) => {
   //     user: firebase.auth().currentUser.email
   //     uid: firebase.auth().currentUser.uid
   //   });
-
-
 
 
   //Compartir post 
@@ -214,5 +245,6 @@ firebase.auth().onAuthStateChanged((getUser) => {
       onNavigate('/');
     }
   
+
   });
 }

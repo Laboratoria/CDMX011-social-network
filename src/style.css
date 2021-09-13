@@ -44,10 +44,7 @@
     margin-bottom: 5px;
 }
 
-/*.timeLineSection {
-    background-color:#000;
-}*/
-/* btn ... */
+
 .menuToPost{
     display: none;
     position:absolute;
@@ -238,34 +235,8 @@ margin: 0px;
     box-shadow: rgba(170, 170, 168, 0.4) 5px 5px 10px;
     width: 150px;
 }
-/* #toGoogle img{
-    height: 20px;
-    width: 20px;
-} */
 
-#toGoogle2{
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    width: 170px;
-    height: 23px;
-}
-#toGoogle2 >img{
-    margin-right: -5px;
-    margin-left: 10px;
-    height: 22px;
-}
-#google{
-    margin: 0px;
-    background: rgba(255, 255, 255, 0);
-    color: white;
-    border: none;
-}
 
-/* div.btn_log.google{
-    position: static;
-    align-self: center;
-} */
 
 /*TIMELINE CSS*/
 
@@ -320,11 +291,12 @@ div.post-box{
   
   }
   .usuarioPost{
+      align-content: flex-end;
     display:flex;
     flex-direction:row-reverse;
     justify-content:space-between;
     padding-right: 3vh;/*15px*/
-    padding-left:10px;
+    padding-left:250px;
     font-size: 1rem;
   }
   .user{
@@ -347,14 +319,16 @@ div.post-box{
     background: #979797;
     margin-top: 5px;
     padding: 0px 3px;
-
+    height: 3.5vh;
 }
+
   
 div#postContainer.postContainer{
     display: flex;
     flex-direction: column;
     align-items: center;
 }
+
 /*FOOTER*/
 
 footer {
