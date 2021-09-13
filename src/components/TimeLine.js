@@ -64,10 +64,7 @@ const postContainer = document.getElementById('postContainer');
 
   const posting = document.getElementById('postForm');
 
-  const postContainer = document.getElementById('postContainer');
- 
-
-      console.log(actualUser())
+       console.log(actualUser())
       //Cargar la pagina y aparezcan los post 
       onGetPost((querySnapshot) => {
         postContainer.innerHTML = '';
@@ -108,7 +105,7 @@ const postContainer = document.getElementById('postContainer');
      </div>
      <hr id="blackLine">
      <div class="usuarioPost">
-     <div class="likes"><input src='../img/heart.png' class='btn_like'  type='image' /> </div>
+     <div class="likes"><input src='../img/emptylike.png' id='like' class='btn_like'  type='image' /> </div>
       </div>
       </div>
       `;
@@ -162,13 +159,13 @@ const postContainer = document.getElementById('postContainer');
             //   likes: firebase.firestore.FieldValue.increment(1)
             // })
              
-           //console.log(btn.src);
+           console.log(btn.src);
           if(btn.src===("http://localhost:5000/img/emptylike.png")){
               btn.src = '../img/like.png';
-              //console.log('unclicked');          
+              console.log('unclicked');          
           }else {
             btn.src = '../img/emptylike.png';
-            //console.log('clicked')
+            console.log('clicked')
           }
       
         }
@@ -193,29 +190,7 @@ const postContainer = document.getElementById('postContainer');
 
         });
 
-      });
-    // }else {
-    //   onNavigate('/');
-    // }
-  
-  // };
-  //mostrar ocultar btn vermas
-
-  
-
-
-  // const savePost = (textShare) =>
-  //   firebase.firestore().collection('posts').doc().set({
-  //     textShare,
-  //     date: firebase.firestore.Timestamp.fromDate(new Date()),
-  //     user: firebase.auth().currentUser.email
-  //     uid: firebase.auth().currentUser.uid
-  //   });
-
-
-  //Compartir post 
-
-  posting.addEventListener('submit', async (e) => {
+    posting.addEventListener('submit', async (e) => {
     e.preventDefault();
 
     //console.log("Share");
