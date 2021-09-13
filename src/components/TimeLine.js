@@ -1,9 +1,7 @@
 /* eslint-disable */
 
 import { onNavigate } from '../routes.js';
-
-
-import {logOutUser, onGetPost, getPost, updatePost,deletePost, savePost, addLikes} from '../lib/fireBase.js';
+import {logOutUser, onGetPost, getPost, updatePost,deletePost, savePost, addLikes, getUser , actualUser} from '../lib/fireBase.js';
 //import { async } from 'regenerator-runtime';
 
 
@@ -40,6 +38,7 @@ export const toViewtimeline = (container) => {
  
   </div>
 `;
+
 let editStatus = false;
 let id = '';
 container.innerHTML = html
@@ -59,17 +58,18 @@ const postContainer = document.getElementById('postContainer');
  
   const posting = document.getElementById('postForm');
 
-  //Cargar la pagina y aparezcan los post 
+  
   firebase.auth().onAuthStateChanged((getUser) => {
     const currentUserEmail = getUser.email;
     //console.log(currentUserEmail);
 
     if (getUser) {
+      
+    console.log(actualUser())
+      //Cargar la pagina y aparezcan los post 
     onGetPost((querySnapshot) => {
       postContainer.innerHTML = '';
       querySnapshot.forEach(doc =>{
-      
-
       //Obtener id de cada post//
       const postData = doc.data();
       postData.id = doc.id;
@@ -78,6 +78,10 @@ const postContainer = document.getElementById('postContainer');
       //console.log(postUser);
       
 
+      const postEmail = doc.data().user;
+     
+    
+      
      //Template de post
       postContainer.innerHTML += `
           <div class= "post_container">
@@ -109,16 +113,28 @@ const postContainer = document.getElementById('postContainer');
         `;
      
     
-       if(currentUserEmail == postUser){
-      // document.getElementsByClassName("labelPost").style.display= "none";
-      } else {
-        //console.log('diferentes')
+      //  if(currentUserEmail == postUser){
+      // // document.getElementsByClassName("labelPost").style.display= "none";
+      // } else {
+      //   //console.log('diferentes')
+      //   const btn= document.querySelectorAll('.labelPost');
+      //   btn.forEach(btn2 =>{
+      //     btn2.style.display="none";
+      //   });
+      // };
+    
+   
+      if( actualUser() == postEmail){
+        
+        // document.getElementsByClassName("labelPost").style.display= "none";
+        }else{
+          console.log('diferentes')
         const btn= document.querySelectorAll('.labelPost');
         btn.forEach(btn2 =>{
           btn2.style.display="none";
-        });
-      };
-    
+        })
+        }
+
       //Borrar post//
       const btnDel = postContainer.querySelectorAll('.delete');
         btnDel.forEach(btn => {
@@ -182,6 +198,7 @@ const postContainer = document.getElementById('postContainer');
     }
   });
   // };
+//mostrar ocultar btn vermas
 
   
 

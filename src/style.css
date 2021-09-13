@@ -296,7 +296,7 @@ div.post-box{
   .usuarioPost{
       align-content: flex-end;
     display:flex;
-    flex-direction:row;
+    flex-direction:row-reverse;
     justify-content:space-between;
     padding-right: 3vh;/*15px*/
     padding-left:250px;
