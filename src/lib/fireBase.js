@@ -2,7 +2,7 @@
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
 /* eslint-disable */
 
-// import { onNavigate } from '../routes.js';
+import { onNavigate } from '../routes.js';
 
 const firebaseConfig = {
   apiKey: 'AIzaSyCaBVEyo0yKvVWGvxHpTufYnUwG7qMZ2FY',
@@ -53,16 +53,6 @@ export const register = (singUpEmail, singUpPassword) => {
 // Firebase login
 export const logIn = (logInEmail, logInPassword) => {
   return firebase.auth().signInWithEmailAndPassword(logInEmail, logInPassword);
-  // .then((user) => {
-  //   console.log(user);
-  //   console.log('signIn');
-  //   // register.reset();
-  //   // singUpform.querySelector(".error").innerHTML = "";
-  // })
-  // .catch((error) => {
-  //   const alertaError=error.message;
-  //   document.querySelector('.error').innerHTML=`${alertaError}`;
-  // });
 };
 
 // Google autentication
@@ -81,22 +71,39 @@ export const continueGitHub = () => {
 };
 
 //Observador si está logeado
-export const stateUser = () => {
-  firebase.auth().onAuthStateChanged((getUser) => {
-      if (getUser) {
-      
-      console.log(getUser.uid);
-      
-      //const anUsuer = logIn(logInEmail, logInPassword);
-      //onNavigate('/TimeLine');
-    } else {
-      // User is signed out
-    }
-  });
-}
- //LogOut
-export const logOutUser = () => {
+// export const stateUser = () => {
  
+//   firebase.auth().onAuthStateChanged((getUser) => {
+//       if (getUser) {
+      
+//       console.log(getUser.email);
+//       user=getUser.email;
+      
+   
+//       //const anUsuer = logIn(logInEmail, logInPassword);
+//       //onNavigate('/TimeLine');
+//     } else {
+//       // User is signed out
+//       console.log(getUser);
+//       user=getUser.email;
+//     }
+//   });
+//   return user;
+// }
+ //LogOut
+ let email ;
+export const actualUser=()=>{
+ const user = firebase.auth().currentUser;
+if (user !== null) {
+  // The user object has basic properties such as display name, email, etc.
+ 
+   email = user.email;
+}
+return email
+}
+
+export const logOutUser = () => {
+  onNavigate('/')
   return firebase.auth().signOut()
 }
 

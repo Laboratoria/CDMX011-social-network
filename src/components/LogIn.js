@@ -1,6 +1,6 @@
 /* eslint-disable */
 
-import { logIn } from '../lib/fireBase.js'
+import { logIn, stateUser } from '../lib/fireBase.js'
 import { onNavigate } from '../routes.js';
 export { onNavigate } from '../routes.js';
 

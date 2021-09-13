@@ -3,7 +3,7 @@
 import { onNavigate } from '../routes.js';
 
 
-import {logOutUser, onGetPost, getPost, updatePost,deletePost, savePost  } from '../lib/fireBase.js';
+import {logOutUser, onGetPost, getPost, updatePost,deletePost, savePost, getUser , actualUser} from '../lib/fireBase.js';
 //import { async } from 'regenerator-runtime';
 
 
@@ -29,7 +29,7 @@ export const toViewtimeline = (container) => {
     <section class="TimeContainer" id="section">
     
     <form  id="postForm">
-        <textarea text="textArea" class="textPost" id="textPost" rows="5" cols="40" maxlength="500" placeholder="Post something :)"></textarea><br>
+        <textarea text="textArea" class="textPost" id="textPost" rows="5" cols="40" maxlength="500" placeholder="Post something :)" required ></textarea><br>
         <input type="submit" id="buttonNewPost"  value="Share" /> 
         
     </form>
@@ -40,6 +40,7 @@ export const toViewtimeline = (container) => {
  
   </div>
 `;
+
 let editStatus = false;
 let id = '';
 container.innerHTML = html
@@ -62,80 +63,65 @@ const postContainer = document.getElementById('postContainer');
  
   const posting = document.getElementById('postForm');
 
- 
-   
+  
+  firebase.auth().onAuthStateChanged((getUser) => {
 
-
-
-  //Cargar la pagina y aparezcan los post 
-  window.addEventListener('DOMContentLoaded', async (e) =>{
-   
+    if (getUser) {
+      
+    console.log(actualUser())
+      //Cargar la pagina y aparezcan los post 
     onGetPost((querySnapshot) => {
       postContainer.innerHTML = '';
       querySnapshot.forEach(doc =>{
-      
-
       //Obtener id de cada post//
       const postData = doc.data();
       postData.id = doc.id;
-      
 
+      const postEmail = doc.data().user;
+     
+    
+      
      //Template de post
      postContainer.innerHTML += `
      <div class= "post_container">
      <div class="postHeader">
+     <div class="user">
+     <p class="userPost">${doc.data().user}</p>
+     <p class="postDate">${new Date(doc.data().date.seconds*1000).toDateString()}</p>
+
+     </div>
     <div class="verMas"> 
     <nav>
-    <input type="checkbox" id="${postData.id}" class="btnMenu menu" ></input>
-    <label for="${postData.id}"  class="labelPost" >...</label>
-    <ul class='menuToPost'>
-      <li><button class  = "btn_delete delete" data-id="${postData.id}" >Delete</button></li>
-      <li><button class  = "btn_edit edit" data-id="${postData.id}" >Edit</button></li>
-    </ul>
-  </nav>
+      <input type="checkbox" id="${postData.id}" class="btnMenu menu" ></input>
+      <label for="${postData.id}"  class="labelPost" >...</label>
+      <ul class='menuToPost'>
+        <li><button class  = "btn_delete delete" data-id="${postData.id}" >Delete</button></li>
+        <li><button class  = "btn_edit edit" data-id="${postData.id}" >Edit</button></li>
+      </ul>
+    </nav>
     </div>
      </div>
      <hr id="blackLine">
      <div class="postText">
-     <h2>${doc.data().textShare}</h2>
+      <h2>${doc.data().textShare}</h2>
      </div>
      <hr id="blackLine">
      <div class="usuarioPost">
-     <div class="user">
-     <p>${doc.data().user}</p>
-     <p class="postDate">${new Date(doc.data().date.seconds*1000).toDateString()}</p>
-
-     </div>
      <div class="likes"><input src='../img/heart.png' class='btn_like'  type='image' /> </div>
       </div>
-      
-     <!-- <div class = "buttonsDelEdit">
-
-        <button class  = "btn_log delete" data-id="${postData.id}" >Delete</button>
-        <button class  = "btn_log edit" data-id="${postData.id}" >Edit</button>
-      </div>-->
       </div>
-      `;
+      `; 
         
-      //Menu ver mas
-      const viewMore= postContainer.querySelectorAll('.menu');
-      // const elementosLi= postContainer.querySelectorAll('.labelPost');
-      // console.log(elementosLi);
-
-      // viewMore.forEach(btnViewMore =>{
-      //   btnViewMore.addEventListener('click', function (e) {
+      if( actualUser() == postEmail){
         
-      //     const id = e.target.dataset.id;
-      //     console.log(id);
-      //   });
-      // });
-      // elementosLi.forEach(btn =>{
-      //   btn.addEventListener('',function (e) {
-      //     const id = e.target.dataset.id;
-      //     console.log(id);
-      //   });
-      // })
-        
+        // document.getElementsByClassName("labelPost").style.display= "none";
+        }else{
+          console.log('diferentes')
+        const btn= document.querySelectorAll('.labelPost');
+        btn.forEach(btn2 =>{
+          btn2.style.display="none";
+        })
+        }
 
       //Borrar post//
       const btnDel = postContainer.querySelectorAll('.delete');
@@ -164,10 +150,15 @@ const postContainer = document.getElementById('postContainer');
     });
 
    });
-    
+    }
+    else{
+      onNavigate('/');
+    }
   });
+  // };
+//mostrar ocultar btn vermas
 
-  
+
 
   const savePost = (textShare) =>
   firebase.firestore().collection('posts').doc().set({
@@ -183,9 +174,9 @@ const postContainer = document.getElementById('postContainer');
 
   posting.addEventListener('submit', async (e)  =>{
     e.preventDefault();
-    console.log("Share");
+    //console.log("Share");
     const textShare= posting['textPost'];
-    console.log(textShare);
+    //console.log(textShare);
 
     if (!editStatus){
       await savePost(textShare.value);
