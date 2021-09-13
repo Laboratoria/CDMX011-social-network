@@ -2,12 +2,12 @@
 
 import { onNavigate } from '../routes.js';
 import { modal, closeModal, showModal } from './ModalPost.js';
-import { logOutUser, onGetPost, getPost, updatePost, deletePost, savePost, getUser, actualUser, stateUser } from '../lib/fireBase.js';
+import { logOutUser, onGetPost, getPost, updatePost, deletePost, savePost, getUser, actualUser } from '../lib/fireBase.js';
 
 
 
 export const toViewtimeline = (container) => {
-  
+
   const html = `
     <div class = "TimeContainer">
     <header class="timelineHeader"><!--no se esta usando clase-->
@@ -37,11 +37,11 @@ export const toViewtimeline = (container) => {
  
   </div>
 `;
-stateUser();
-  const postContainer = document.getElementById('postContainer');
-// firebase.auth().onAuthStateChanged((getUser) => {
+// stateUser();
 
-//   if (getUser) {
+firebase.auth().onAuthStateChanged((getUser) => {
+
+  if (getUser) {
   let editStatus = false;
   let id = '';
   container.innerHTML = html
@@ -66,6 +66,7 @@ stateUser();
   const posting = document.getElementById('postForm');
 
 
+  const postContainer = document.getElementById('postContainer');
  
 
       console.log(actualUser())
@@ -77,7 +78,7 @@ stateUser();
           const postData = doc.data();
           postData.id = doc.id;
 
-          const postEmail = doc.data().user;
+          const postUid = doc.data().uid;
 
 
 
@@ -93,7 +94,8 @@ stateUser();
     <div class="verMas"> 
     <nav>
     <input type="checkbox" id="${postData.id}" class="btnMenu menu" ></input>
-    <label for="${postData.id}" id="${postData.id}"  class="labelPost" >...</label>
+    <label for="${postData.id}" class="labelPost" ><div class='${postData.uid}'></div></label>
+    
     <ul class='menuToPost'>
       <li><button class  = "btn_delete delete" data-id="${postData.id}" >Delete</button></li>
       <li><button class  = "btn_edit edit" data-id="${postData.id}" >Edit</button></li>
@@ -111,12 +113,13 @@ stateUser();
       </div>
       </div>
       `;
-          const btn = document.querySelectorAll('.labelPost');//como mandarle id en lugar de nombre de clase 
+          const labelOptions = document.querySelectorAll(`.${postData.uid}`);//como mandarle id en lugar de nombre de clase 
+          console.log(labelOptions)
 
-          console.log(postEmail);
-          if (actualUser() == postEmail) {
-            btn.forEach(btn2 => {
-              btn2.style.display = "block";
+          // console.log(postEmail);
+          if (actualUser() == postUid) {
+            labelOptions.forEach(btn2 => {
+              btn2.innerHTML=`<div class='labelPost' >...</div>`;
             })
             // document.getElementsByClassName("labelPost").style.display= "none";
           }
@@ -124,7 +127,8 @@ stateUser();
           const toNewPost = document.getElementById('newPost');
           toNewPost.addEventListener('click', () => {
             console.log('click evento');
-            showModal.style.display = "block";
+            showModal.style.visibility = "visible";
+           // container.innerHTML=`<div id="modal" class="modal"></div>`;
             //llamar modal
             modal();
             closeModal();
@@ -166,12 +170,13 @@ stateUser();
 
 
 
-  const savePost = (textShare) =>
-    firebase.firestore().collection('posts').doc().set({
-      textShare,
-      date: firebase.firestore.Timestamp.fromDate(new Date()),
-      user: firebase.auth().currentUser.email
-    });
+  // const savePost = (textShare) =>
+  //   firebase.firestore().collection('posts').doc().set({
+  //     textShare,
+  //     date: firebase.firestore.Timestamp.fromDate(new Date()),
+  //     user: firebase.auth().currentUser.email
+  //     uid: firebase.auth().currentUser.uid
+  //   });
 
 
 
@@ -203,5 +208,9 @@ stateUser();
 
   }); 
   
-
+ }else {
+      onNavigate('/');
+    }
+  
+  });
 }

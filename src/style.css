@@ -61,7 +61,7 @@
   }
 .labelPost {
     box-sizing: border-box;
-    display: none;
+    display: block;
     /* display: inline-block; */
     /* border: .1px solid rgb(255, 255, 255); */
     color: rgb(17, 17, 17);
@@ -435,7 +435,7 @@ textarea#textPost.textPost{
 
 
 .modal {
-	display: none; /* Hidden by default */
+	visibility: hidden; /* Hidden by default */
 	position: fixed; /* Stay in place */
 	z-index: 1; /* Sit on top */
 	padding-top: 80px; /* Location of the box */
