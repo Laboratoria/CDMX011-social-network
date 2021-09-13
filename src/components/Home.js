@@ -30,18 +30,23 @@ export const toViewHome = (container) => {
 
   container.innerHTML = html;
 
+  //Funcion para boton de crear cuenta y mandar a signUp
   const toCreate = document.getElementById('toCreate');
   toCreate.addEventListener('click', (e) => {
     e.preventDefault();
     onNavigate('/signUp');
    // console.log(stateUser());
   });
+
+  //Función para mandar a LogIn
   const toLogIn = document.getElementById('toLogIn');
   toLogIn.addEventListener('click', (e) => {
     e.preventDefault();
     onNavigate('/LogIn');
     //stateUser();
   });
+
+  //Función para iniciar sesión con Google
   const toContinueGoogle = document.getElementById('toGoogle');
   toContinueGoogle.addEventListener('click', () => {
     continueGoogle()
@@ -56,6 +61,8 @@ export const toViewHome = (container) => {
     //e.preventDefault();
     //onNavigate('/LogIn');
   });
+
+  //Función para iniciar sesión con GitHub
   const toContinueGitHub = document.getElementById('toGitHub');
   toContinueGitHub.addEventListener('click', (e) => {
     e.preventDefault();
