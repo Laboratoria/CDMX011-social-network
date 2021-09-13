@@ -30,7 +30,7 @@
     
     position: relative;
     width: 260px;
-    height: 400px;
+    height: 450px;
     background: rgb(1, 1, 1, .9);
     color: #fff;
     mix-blend-mode: normal;
@@ -45,25 +45,17 @@
     margin-bottom: 5px;
 }
 
-/*.timeLineSection {
-    background-color:#000;
-}*/
-
 .menuToPost{
     display: none;
     position:absolute;
     width: 65px;
   }
-  
+   .menu{
+    display: none;
+  }  
   .menu:checked  ~ ul{
     display:block;
-    position:absolute;
   }
-  
-  .menu{
-    display: none;
-    position:absolute;
-  } 
 .labelPost {
     box-sizing: border-box;
     display: inline-block;
@@ -77,22 +69,8 @@
     text-align: center;
     user-select: none;
   }
-  
  
- 
-  
-  
-  
   /* Estilo del boton cuando el menú está expandido*/
-  
-/*   
-   .menuToPost{
-
-    padding: 0;
-    width: 65px;
-    position:absolute;
-  }  */
-  
   
   .menuToPost > li {
     display: block;
@@ -100,27 +78,15 @@
     margin: 0;
     padding: 10px;
     list-style: none;
-    
-    /*border-bottom: 1px solid grey;*/
-    
+    border-bottom: 1px solid grey;
   }
   /* ul{
     margin-top:0;
     padding: 0;
-    width: 80px;
-    margin-right: 10px;
-   
-  }
-  
-  
-  li {
-    display: block;
-    background: lightgrey;
-    margin: 0;
-    list-style: none;
-    border-bottom: 1px solid grey;
-    
-  } */
+    /*width: 80px;*/
+    /* margin-right: 10px;
+  }/*
+  */
   
   /*Estilo cuando el mouse pasa encima de cada link del menu*/
   li:hover {
@@ -172,7 +138,9 @@ input {
     padding-left: 10px;
     margin-top:5px
 }
-
+/* input#toGoogle{
+    width: 20px;
+} */
 
 #viewPass {
     position: absolute;
@@ -257,19 +225,21 @@ margin: 0px;
 }
 
 
-.google {
+#toGoogle {
     border: 3px solid rgb(219, 188, 46);
     box-shadow: rgba(235, 206, 43, 0.4) 5px 5px 10px;
+    width: 150px;
 }
-/* #toGoogle img{
-    height: 20px;
-    width: 20px;
-} */
 
-/* div.btn_log.google{
-    position: static;
-    align-self: center;
-} */
+#toGitHub {
+    border: 3px solid rgb(194, 192, 183);
+    box-shadow: rgba(170, 170, 168, 0.4) 5px 5px 10px;
+    width: 150px;
+}
+
+.full {
+    src: ('../img/emptylike.png');
+}
 
 /*TIMELINE CSS*/
 
@@ -308,8 +278,13 @@ div.post-box{
 }
 .postHeader{
     display:flex;
-    flex-direction:row-reverse;
+    flex-direction:row;
     margin-right:3vh;/*15px*/
+    justify-content: space-between;
+    /*align-items: center;*/
+    padding-left:10px;
+    font-size: 1rem;
+    font-family:Georgia, 'Times New Roman', Times, serif;
   }
   .postText{
    margin: 0px;/*10px*/
@@ -319,11 +294,12 @@ div.post-box{
   
   }
   .usuarioPost{
+      align-content: flex-end;
     display:flex;
-    flex-direction:row;
+    flex-direction:row-reverse;
     justify-content:space-between;
     padding-right: 3vh;/*15px*/
-    padding-left:10px;
+    padding-left:250px;
     font-size: 1rem;
   }
   .user{
@@ -346,14 +322,16 @@ div.post-box{
     background: #979797;
     margin-top: 5px;
     padding: 0px 3px;
-
+    height: 3.5vh;
 }
+
   
 div#postContainer.postContainer{
     display: flex;
     flex-direction: column;
     align-items: center;
 }
+
 /*FOOTER*/
 
 footer {
