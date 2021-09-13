@@ -29,7 +29,7 @@
     
     position: relative;
     width: 260px;
-    height: 400px;
+    height: 450px;
     background: rgb(1, 1, 1, .9);
     color: #fff;
     mix-blend-mode: normal;
@@ -227,9 +227,16 @@ margin: 0px;
 }
 
 
-.google {
+#toGoogle {
     border: 3px solid rgb(219, 188, 46);
     box-shadow: rgba(235, 206, 43, 0.4) 5px 5px 10px;
+    width: 150px;
+}
+
+#toGitHub {
+    border: 3px solid rgb(194, 192, 183);
+    box-shadow: rgba(170, 170, 168, 0.4) 5px 5px 10px;
+    width: 150px;
 }
 /* #toGoogle img{
     height: 20px;

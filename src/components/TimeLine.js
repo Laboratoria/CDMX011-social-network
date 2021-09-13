@@ -26,7 +26,7 @@ export const toViewtimeline = (container) => {
 
     <section class="TimeContainer" id="section">
     <form  id="postForm">
-        <textarea text="textArea" class="textPost" id="textPost" rows="5" cols="40" maxlength="500" placeholder="Post something :)"></textarea><br>
+        <textarea text="textArea" class="textPost" id="textPost" rows="5" cols="40" maxlength="500" placeholder="Post something :)" required ></textarea><br>
         <input type="submit" id="buttonNewPost"  value="Share" /> 
         
     </form>
@@ -101,11 +101,12 @@ firebase.auth().onAuthStateChanged((getUser) => {
       <li><button class  = "btn_edit edit" data-id="${postData.id}" >Edit</button></li>
     </ul>
   </nav>
+
     </div>
      </div>
      <hr id="blackLine">
      <div class="postText">
-     <h2>${doc.data().textShare}</h2>
+      <h2>${doc.data().textShare}</h2>
      </div>
      <hr id="blackLine">
      <div class="usuarioPost">
@@ -185,9 +186,10 @@ firebase.auth().onAuthStateChanged((getUser) => {
 
   posting.addEventListener('submit', async (e) => {
     e.preventDefault();
-    console.log("Share");
-    const textShare = posting['textPost'];
-    console.log(textShare);
+
+    //console.log("Share");
+    const textShare= posting['textPost'];
+    //console.log(textShare);
 
     if (!editStatus) {
       await savePost(textShare.value);
