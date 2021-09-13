@@ -2,7 +2,7 @@
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
 /* eslint-disable */
 
-// import { onNavigate } from '../routes.js';
+ import { onNavigate } from '../routes.js';
 
 const firebaseConfig = {
   apiKey: 'AIzaSyCaBVEyo0yKvVWGvxHpTufYnUwG7qMZ2FY',
@@ -72,25 +72,29 @@ export const continueGitHub = () => {
 };
 
 //Observador si está logeado
-// export const stateUser = () => {
+export const stateUser = () => {
  
-//   firebase.auth().onAuthStateChanged((getUser) => {
-//       if (getUser) {
-      
-//       console.log(getUser.email);
-//       user=getUser.email;
-      
-   
-//       //const anUsuer = logIn(logInEmail, logInPassword);
-//       //onNavigate('/TimeLine');
-//     } else {
-//       // User is signed out
-//       console.log(getUser);
-//       user=getUser.email;
-//     }
-//   });
-//   return user;
-// }
+  firebase.auth().onAuthStateChanged((getUser) => {
+      if (getUser) {
+      const entrar=()=>{
+        onNavigate('/TimeLine');
+      }
+      return entrar()
+      // console.log(getUser.email);
+      // return  onNavigate('/TimeLine');
+
+    } else {
+      // User is signed out
+const noEntrar=()=>{
+  onNavigate('/');
+}
+return noEntrar()
+      // console.log(getUser);
+      //  onNavigate('/');
+    }
+  });
+    
+}
  //LogOut
  let email ;
 export const actualUser=()=>{
