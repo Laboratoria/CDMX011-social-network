@@ -23,6 +23,7 @@ export const getUser = () => firebase.auth().currentUser;
 //console.log(getUser());
 //export const dataBase = () => firebase.firestore();
 
+
 //Generar colección de post publicados, ordenarlos por fecha y actualizar nuevos cambios.
 export const onGetPost = (callback) => firebase.firestore().collection('posts').orderBy('date', 'desc').onSnapshot(callback);
 
@@ -50,6 +51,7 @@ export const register = (singUpEmail, singUpPassword) => {
 };
 
 
+
 // Firebase login
 export const logIn = (logInEmail, logInPassword) => {
   return firebase.auth().signInWithEmailAndPassword(logInEmail, logInPassword);
@@ -64,6 +66,7 @@ export const logIn = (logInEmail, logInPassword) => {
   //   document.querySelector('.error').innerHTML=`${alertaError}`;
   // });
 };
+
 
 // Google autentication
 export const continueGoogle = () => {
@@ -81,19 +84,35 @@ export const continueGitHub = () => {
 };
 
 //Observador si está logeado
-export const stateUser = () => {
-  firebase.auth().onAuthStateChanged((getUser) => {
-      if (getUser) {
-      
-      console.log(getUser.uid);
-      
-      //const anUsuer = logIn(logInEmail, logInPassword);
-      //onNavigate('/TimeLine');
-    } else {
-      // User is signed out
-    }
-  });
-}
+// export const stateUser = () => {
+//   auth.onAuthStateChanged((getUser) => {
+//       if (getUser) {
+//           if (window.location.origin) {
+//               onNavigate('/home');
+//           } else {
+//               window.location
+//           }
+//       } else {
+//           onNavigate('/');
+//       }
+//   })
+// }
+export const stateUser = () =>{
+  firebase.auth().onAuthStateChanged((user) =>{  
+     if (user) {
+         
+         if (register === true){
+           onNavigate('/TimeLine');
+         }
+       } else  {
+        
+         onNavigate('/');
+       }
+     });
+};
+
+
+
  //LogOut
 export const logOutUser = () => {
  

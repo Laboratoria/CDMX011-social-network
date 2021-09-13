@@ -2,7 +2,6 @@
 
 exports[`Colección de test en Home Should render in Home 1`] = `
 "
- 
   <div class=\\"homeContainer\\">
     <section class=\\"container\\">
         <img class=\\"logo\\" src=\\"img/PIC&amp;ART.png\\" alt=\\"logo\\">
@@ -16,6 +15,5 @@ exports[`Colección de test en Home Should render in Home 1`] = `
         <input type=\\"button\\" class=\\"btn_log github\\" value=\\"Continue with GitHub\\" id=\\"toGitHub\\">
         </div>
     </section>
-  </div>
-  "
+  </div>"
 `;

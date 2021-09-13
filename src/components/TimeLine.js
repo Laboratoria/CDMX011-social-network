@@ -29,8 +29,8 @@ export const toViewtimeline = (container) => {
     <section class="TimeContainer" id="section">
     
     <form  id="postForm">
-        <textarea text="textArea" class="textPost" id="textPost" rows="5" cols="40" maxlength="500" placeholder="Post something :)"></textarea><br>
-        <input type="submit" id="buttonNewPost"  value="Share" /> 
+        <textarea text="textArea" class="textPost" id="textPost" rows="5" cols="40" maxlength="500" placeholder="Post something :)" required ></textarea><br>
+        <input type="submit" id="buttonNewPost"  value="Share"  /> 
         
     </form>
     <div class= "postContainer"  id = "postContainer"></div>
@@ -68,7 +68,7 @@ const postContainer = document.getElementById('postContainer');
 
 
   //Cargar la pagina y aparezcan los post 
-  window.addEventListener('DOMContentLoaded', async (e) =>{
+  
    
     onGetPost((querySnapshot) => {
       postContainer.innerHTML = '';
@@ -165,7 +165,7 @@ const postContainer = document.getElementById('postContainer');
 
    });
     
-  });
+ 
 
   
 

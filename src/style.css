@@ -104,7 +104,7 @@
     /*border-bottom: 1px solid grey;*/
     
   }
-  ul{
+  /* ul{
     margin-top:0;
     padding: 0;
     width: 80px;
@@ -120,7 +120,7 @@
     list-style: none;
     border-bottom: 1px solid grey;
     
-  }
+  } */
   
   /*Estilo cuando el mouse pasa encima de cada link del menu*/
   li:hover {
@@ -172,9 +172,7 @@ input {
     padding-left: 10px;
     margin-top:5px
 }
-input#toGoogle{
-    width: 20px;
-}
+
 
 #viewPass {
     position: absolute;
