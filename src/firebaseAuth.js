@@ -3,7 +3,9 @@ export const authUser = (email, password) => firebase.auth()
   // ..
 export const getUser = () => firebase.auth().currentUser;
 
-
+const saveUserData = (user) => {
+  firebase.database.ref("users").push(getUser());
+}
 // Continua el registro con google
 export const gmailAuth = (onNavigate) => {
   const provider = new firebase.auth.GoogleAuthProvider();
@@ -15,7 +17,10 @@ export const gmailAuth = (onNavigate) => {
       // const token = credential.accessToken;
       // The signed-in user info.
       const user = result.user.displayName;
-      console.log(user);
+      const userPhoto = result.user.photoURL;
+      console.log(user, userPhoto);
+      
+      
 
       onNavigate('/home');
     // ...
@@ -42,3 +47,17 @@ export const logOut = (onNavigate) => firebase.auth().signOut()
   }).catch((error) => {
     console.log(error);
   });
+
+// firestore
+export const postInFirestore = (post) => db.collection('posts').add({ post });
+
+
+/* export const persistance = (email, password) => firebase.auth().setPersistence(firebase.auth.Auth.Persistence.LOCAL)
+  .then(() => {
+    return firebase.auth().signInWithEmailAndPassword(email, password);
+  })
+  .catch((error) => {
+    // Handle Errors here.
+    var errorCode = error.code;
+    var errorMessage = error.message;
+  }) */
