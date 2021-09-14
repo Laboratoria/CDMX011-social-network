@@ -385,11 +385,9 @@ textarea#textPost.textPost{
     border-top-left-radius: 0px;
     height: 3.3vh;
     width: 81.5vw;
-    
-    font-size: 16px;
-    
-    
+    font-size: 16px;   
 }
+
 
 /*.btn_post{
     width: 16vw;

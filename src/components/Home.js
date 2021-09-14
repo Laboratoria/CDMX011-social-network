@@ -7,7 +7,7 @@ import {continueGitHub} from '../lib/fireBase.js';
 
 
 export const toViewHome = (container) => {
-  console.log('estoy en home');
+  //console.log('estoy en home');
   const html = `
  
   <div class = "homeContainer">
@@ -19,7 +19,6 @@ export const toViewHome = (container) => {
         <input type="button" class="btn_log login" value="LOG IN" id="toLogIn" />
         <input type="button" class="btn_log signup" value="SIGN UP" id="toCreate" /><br>
         <p2>──────  or  ──────</p2><br>
-        <div class="btn_log google" id="toGoogle2"><img src="./img/google-logo.png"><input type="button" id="google" value="Continue with Google" /></div>
         <input type="button" class="btn_log google" value="Continue with Google" id="toGoogle" />
         <input type="button" class="btn_log github" value="Continue with GitHub" id="toGitHub" />
         </div>

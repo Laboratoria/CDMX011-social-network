@@ -43,7 +43,8 @@ firebase.firestore().collection('posts').doc().set({
   textShare,
   date: firebase.firestore.Timestamp.fromDate(new Date()),
   user: firebase.auth().currentUser.email,
-  uid: firebase.auth().currentUser.uid
+  uid: firebase.auth().currentUser.uid,
+  likes: 0,
 });
 
 // Firebase register
@@ -72,23 +73,6 @@ export const continueGitHub = () => {
   return firebase.auth().signInWithPopup(provider);
 };
 
-//Observador si está logeado
-// export const stateUser = () => {
- 
-//   firebase.auth().onAuthStateChanged((getUser) => {
-//       if (getUser) {
-  
-//       console.log(getUser.email);
-//        onNavigate('/TimeLine');
-
-//     } else {
-//       // User is signed out
-//       console.log(getUser);
-//        onNavigate('/');
-//   }
-    
-// });
-// }
  //LogOut
  let email ;
 export const actualUser=()=>{
