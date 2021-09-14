@@ -74,8 +74,7 @@ export const home = () => {
     divButtons.append(edit, deletes, like);
     recentPostDiv.append(usermail, recentPost, divButtons);
     postInFirestore(postPublish);
-
- });
+   });
   /* console.log(persistance(userEmail)); */
   return homePage;
 };
