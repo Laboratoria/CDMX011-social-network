@@ -24,13 +24,13 @@ export const closeModal = () => {
     const span = document.getElementsByClassName("close")[0];
     console.log(span);
     span.addEventListener('click', function () {
-        showModal.style.display = "none";
+        showModal.style.visibility= "hidden";
     })
 
     window.onclick = function (event) {// When the user clicks anywhere outside of the modal, close it
 
         if (event.target == showModal) {
-            showModal.style.display = "none";
+            showModal.style.visibility= "hidden";
         }
     }
 }
