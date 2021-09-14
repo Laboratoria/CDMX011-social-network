@@ -37,6 +37,12 @@ export const toViewtimeline = (container) => {
  
   </div>
 `;
+var imagenEmptyLike = "../img/emptylike.png"
+var imagenLike ="../img/like.png"
+var btnValue = ""
+var imgLike = (boo) => {
+  btnValue = boo
+}
 // stateUser();
 
 firebase.auth().onAuthStateChanged((getUser) => {
@@ -69,13 +75,12 @@ const postContainer = document.getElementById('postContainer');
       onGetPost((querySnapshot) => {
         postContainer.innerHTML = '';
         querySnapshot.forEach(doc => {
+
           //Obtener id de cada post//
           const postData = doc.data();
           postData.id = doc.id;
 
           const postUid = doc.data().uid;
-
-
 
           //Template de post
           postContainer.innerHTML += `
@@ -105,7 +110,7 @@ const postContainer = document.getElementById('postContainer');
      </div>
      <hr id="blackLine">
      <div class="usuarioPost">
-     <div class="likes"><input src='../img/emptylike.png' id='like' class='btn_like'  type='image' value="${postData.id}"/> </div>
+     <div class="likes"><input id='like' src=${btnValue===postData.id?imagenLike:imagenEmptyLike}  name="like" class='btn_like' type='image' value="${postData.id}"/> </div>
       </div>
       </div>
       `;
@@ -144,25 +149,29 @@ const postContainer = document.getElementById('postContainer');
         
         //Botón like//
         const btnLike = postContainer.querySelectorAll('#like');
+        let inputLike = document.getElementById("like").src
+        console.log(inputLike)
         
         btnLike.forEach(btn => {
           let countLikes = 0;
           btn.addEventListener('click', () => {
             console.log(btn.value) //id de cada post al dar click al botón de like
            
-            //console.log(postData.id);
             countLikes += 1;
             console.log(countLikes); 
-            
+            //btn.src = 'http://localhost:5000/img/like.png';
+            imgLike(btn.value)
+            addLikes(btn.value)
+            //inputLike = '../img/like.png'
             //console.log(btn.src);
-            if(btn.src===("http://localhost:5000/img/emptylike.png")){
-              btn.src = '../img/like.png';
-              addLikes(btn.value)
-              //console.log('unclicked');          
-            }else {
-              btn.src = '../img/emptylike.png';
-              //console.log('clicked')
-            }
+            // if(btn.src = "http://localhost:5000/img/emptylike.png"){
+            //   btn.src = 'http://localhost:5000/img/like.png';
+            //   console.log(btn.src)
+            //   //console.log('unclicked');        
+            // }else {
+            //   btn.src = '../img/emptylike.png';
+            //   //console.log('clicked')
+            //}
       
           }); 
         });
