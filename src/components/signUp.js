@@ -4,7 +4,7 @@ import { onNavigate } from '../routes.js';
 import { register } from '../lib/fireBase.js';
 
 export const toViewSignUp = (container) => {
-    console.log('Estoy en signUp')
+    //console.log('Estoy en signUp')
 
     const html = ` <div class = "homeContainer">
     <section class='container signup-form'>

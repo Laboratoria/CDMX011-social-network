@@ -89,7 +89,7 @@ const postContainer = document.getElementById('postContainer');
     <div class="verMas"> 
     <nav>
     <input type="checkbox" id="${postData.id}" class="btnMenu menu" ></input>
-    <label for="${postData.id}" class="labelPost" ><div class='${postData.uid}'></div></label>
+    <label for="${postData.id}" class="labelPost ${postData.uid}" ></label>
     
     <ul class='menuToPost'>
       <li><button class  = "btn_delete delete" data-id="${postData.id}" >Delete</button></li>
@@ -105,12 +105,12 @@ const postContainer = document.getElementById('postContainer');
      </div>
      <hr id="blackLine">
      <div class="usuarioPost">
-     <div class="likes"><input src='../img/emptylike.png' id='like' class='btn_like'  type='image' /> </div>
+     <div class="likes"><input src='../img/emptylike.png' id='like' class='btn_like'  type='image' value="${postData.id}"/> </div>
       </div>
       </div>
       `;
           const labelOptions = document.querySelectorAll(`.${postData.uid}`);//como mandarle id en lugar de nombre de clase 
-          console.log(labelOptions)
+          //console.log(labelOptions)
 
           // console.log(postEmail);
           if (actualUser() == postUid) {
@@ -143,33 +143,28 @@ const postContainer = document.getElementById('postContainer');
         });
         
         //Botón like//
-        //console.log(postData.id);
-        // let likesFb = firebase.firestore().collection('posts').doc(postData.id);
         const btnLike = postContainer.querySelectorAll('#like');
-        const likeValue = document.getElementById('like').value;
+        
         btnLike.forEach(btn => {
           let countLikes = 0;
           btn.addEventListener('click', () => {
-            console.log(likeValue)
-            //addLikes(likeValue)
+            console.log(btn.value) //id de cada post al dar click al botón de like
+           
             //console.log(postData.id);
             countLikes += 1;
             console.log(countLikes); 
-            // likesFb.update({
-            //   likes: firebase.firestore.FieldValue.increment(1)
-            // })
-             
-           console.log(btn.src);
-          if(btn.src===("http://localhost:5000/img/emptylike.png")){
+            
+            //console.log(btn.src);
+            if(btn.src===("http://localhost:5000/img/emptylike.png")){
               btn.src = '../img/like.png';
-              console.log('unclicked');          
-          }else {
-            btn.src = '../img/emptylike.png';
-            console.log('clicked')
-          }
+              addLikes(btn.value)
+              //console.log('unclicked');          
+            }else {
+              btn.src = '../img/emptylike.png';
+              //console.log('clicked')
+            }
       
-        }
-        ); 
+          }); 
         });
 
 

@@ -43,7 +43,8 @@ firebase.firestore().collection('posts').doc().set({
   textShare,
   date: firebase.firestore.Timestamp.fromDate(new Date()),
   user: firebase.auth().currentUser.email,
-  uid: firebase.auth().currentUser.uid
+  uid: firebase.auth().currentUser.uid,
+  likes: 0,
 });
 
 // Firebase register
