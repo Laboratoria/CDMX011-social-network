@@ -47,7 +47,7 @@ export const login = () => {
         console.log(errorCode, errorMessage);
         loginPage.querySelector('#entryError').innerHTML = 'Verifica los datos ingresados';
       });
-    // console.log(printEmail);
+    /* console.log(persistance(printEmail, savedPassword)); */// console.log(printEmail);
   });
   /* loginPage.querySelector('#email').addEventListener('click', (e) => {
     e.preventDefault();

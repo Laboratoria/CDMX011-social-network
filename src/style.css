@@ -233,7 +233,7 @@ input {
     display: flex;
     background-color:#D3F5FF;;
     width: 85%;
-    height: 75%;
+    height: 40%;
     flex-direction: column;
     align-items: flex-end;
     border: 3.5px solid #1EBFD1;
@@ -312,21 +312,20 @@ input {
    justify-content: flex-start;
 }
 
-#like{
-    
-}
-
 #deletes{
     border:none;
     font-family: 'Fredoka One', cursive;
     background: none;
-   color:#C72426;
-   margin-right: 80%;
+    color:#C72426;
+    margin-right: 92%;
+    margin-left: 10px;
 
 }
 
 #divButtons{
     display: flex;
+    flex-wrap: nowrap;
+    justify-content: space-evenly;
 }
 
 #userMail{
