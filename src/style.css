@@ -408,11 +408,9 @@ textarea#textPost.textPost{
     border-top-left-radius: 0px;
     height: 3.3vh;
     width: 81.5vw;
-
     font-size: 16px;
-
-
 }
+
 
 /*.btn_post{
     width: 16vw;
@@ -456,7 +454,7 @@ textarea#textPost.textPost{
 
   .modal-content {
 	position:absolute;
-	background-color: #fefefe;
+	background-color: #65727c;
     margin: 20vh 0px;
 	padding: 0;
 	border: 1px solid #888;
@@ -499,7 +497,7 @@ textarea#textPost.textPost{
 
   .modal-header {
 	padding: 2px 16px;
-	background-color: #143dd0d2;
+	background-color: #212121;
 	color: white;
   }
 
