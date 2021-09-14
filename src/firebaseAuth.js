@@ -3,9 +3,9 @@ export const authUser = (email, password) => firebase.auth()
   // ..
 export const getUser = () => firebase.auth().currentUser;
 
-const saveUserData = (user) => {
-  firebase.database.ref("users").push(getUser());
-}
+/* export const saveUserData = (user) => {
+  firebase.database.ref('users').push(getUser());
+}; */
 // Continua el registro con google
 export const gmailAuth = (onNavigate) => {
   const provider = new firebase.auth.GoogleAuthProvider();
@@ -19,9 +19,6 @@ export const gmailAuth = (onNavigate) => {
       const user = result.user.displayName;
       const userPhoto = result.user.photoURL;
       console.log(user, userPhoto);
-      
-      
-
       onNavigate('/home');
     // ...
     }).catch((error) => {
@@ -49,10 +46,17 @@ export const logOut = (onNavigate) => firebase.auth().signOut()
   });
 
 // firestore
+const db = firebase.firestore();
 export const postInFirestore = (post) => db.collection('posts').add({ post });
 
-
-/* export const persistance = (email, password) => firebase.auth().setPersistence(firebase.auth.Auth.Persistence.LOCAL)
+export const printPostFromFirestore = () => db.collection('posts').get()
+  .then((snapshot) => {
+    snapshot.forEach((doc) => {
+      console.log(`${JSON.stringify(doc.data().post)}`);
+    });
+  });
+/* export const persistance = (email, password) => firebase.auth().setPersistence
+(firebase.auth.Auth.Persistence.LOCAL)
   .then(() => {
     return firebase.auth().signInWithEmailAndPassword(email, password);
   })

@@ -1,6 +1,8 @@
 // eslint-disable-next-line import/no-cycle
 import { onNavigate } from '../main.js';
-import { logOut, getUser, postInFirestore} from '../firebaseAuth.js';
+import {
+  logOut, getUser, postInFirestore, printPostFromFirestore,
+} from '../firebaseAuth.js';
 
 export const home = () => {
   let userEmail = getUser();
@@ -46,8 +48,7 @@ export const home = () => {
     modal.style.visibility = 'hidden';
 
     const postPublish = homePage.querySelector('#post').value;
-    
-    
+
     const postDivPublish = homePage.querySelector('#posts');
 
     const recentPostDiv = document.createElement('div');
@@ -74,8 +75,8 @@ export const home = () => {
     divButtons.append(edit, deletes, like);
     recentPostDiv.append(usermail, recentPost, divButtons);
     postInFirestore(postPublish);
-
- });
+    console.log(printPostFromFirestore(postPublish));
+  });
   /* console.log(persistance(userEmail)); */
   return homePage;
 };
