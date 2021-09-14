@@ -13,7 +13,6 @@ export const toViewtimeline = (container) => {
     <header class="timelineHeader"><!--no se esta usando clase-->
     <div class = "headTimeline">
     <img class="iconApp" src="img/picartBlanco.png">
-   <!-- <input type="button"  value="salir" id="logOut" />-->
    
     </div>
     <hr id="witheBorder">
@@ -47,8 +46,6 @@ firebase.auth().onAuthStateChanged((getUser) => {
   container.innerHTML = html
 
 
-
-const postContainer = document.getElementById('postContainer');
    
    //Log out de app
     const toLogOut = document.getElementById('logOut');
@@ -108,7 +105,7 @@ const postContainer = document.getElementById('postContainer');
      </div>
      <hr id="blackLine">
      <div class="usuarioPost">
-     <div class="likes"><input src='../img/heart.png' class='btn_like'  type='image' /> </div>
+     <div class="likes"><input src='../img/heart.png' class='btn_like' id="like" type='image' /> </div>
       </div>
       </div>
       `;
@@ -193,25 +190,7 @@ const postContainer = document.getElementById('postContainer');
 
         });
 
-      });
-    // }else {
-    //   onNavigate('/');
-    // }
-  
-  // };
-  //mostrar ocultar btn vermas
-
-  
-
-
-  // const savePost = (textShare) =>
-  //   firebase.firestore().collection('posts').doc().set({
-  //     textShare,
-  //     date: firebase.firestore.Timestamp.fromDate(new Date()),
-  //     user: firebase.auth().currentUser.email
-  //     uid: firebase.auth().currentUser.uid
-  //   });
-
+      
 
   //Compartir post 
 
