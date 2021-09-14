@@ -13,7 +13,6 @@ export const toViewtimeline = (container) => {
     <header class="timelineHeader"><!--no se esta usando clase-->
     <div class = "headTimeline">
     <img class="iconApp" src="img/picartBlanco.png">
-   <!-- <input type="button"  value="salir" id="logOut" />-->
    
     </div>
     <hr id="witheBorder">
@@ -37,6 +36,7 @@ export const toViewtimeline = (container) => {
  
   </div>
 `;
+
 let imagenEmptyLike = "../img/emptylike.png"
 let imagenLike ="../img/like.png"
 let btnValue = ""
@@ -100,7 +100,7 @@ let btnValue = ""
       </ul>
     </nav>
 
-      </div>
+     </div>
       </div>
       <hr id="blackLine">
       <div class="postText">
@@ -174,6 +174,10 @@ let btnValue = ""
             }); 
           });
 
+        });
+
+      
+
 
             //Editar post//
             const btnEdit = postContainer.querySelectorAll('.edit');
@@ -191,7 +195,8 @@ let btnValue = ""
             });
 
           });
-
+    
+    //Share post
       posting.addEventListener('submit', async (e) => {
       e.preventDefault();
 
