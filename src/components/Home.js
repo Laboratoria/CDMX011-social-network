@@ -7,7 +7,7 @@ import {continueGitHub} from '../lib/fireBase.js';
 
 
 export const toViewHome = (container) => {
-  console.log('estoy en home');
+  //console.log('estoy en home');
   const html = `
  
   <div class = "homeContainer">
