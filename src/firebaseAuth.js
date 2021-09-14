@@ -3,9 +3,6 @@ export const authUser = (email, password) => firebase.auth()
   // ..
 export const getUser = () => firebase.auth().currentUser;
 
-const saveUserData = (user) => {
-  firebase.database.ref("users").push(getUser());
-}
 // Continua el registro con google
 export const gmailAuth = (onNavigate) => {
   const provider = new firebase.auth.GoogleAuthProvider();
@@ -19,8 +16,6 @@ export const gmailAuth = (onNavigate) => {
       const user = result.user.displayName;
       const userPhoto = result.user.photoURL;
       console.log(user, userPhoto);
-      
-      
 
       onNavigate('/home');
     // ...
