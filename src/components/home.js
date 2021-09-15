@@ -1,4 +1,3 @@
-// eslint-disable-next-line import/no-cycle
 import { onNavigate } from '../main.js';
 import {
   logOut, getUser, postInFirestore, printPostFromFirestore,
@@ -52,7 +51,7 @@ export const home = () => {
         const recentPostDiv = document.createElement('div');
         recentPostDiv.setAttribute('id', 'recentPostDiv');
         const usermail = document.createElement('p');
-        usermail.innerHTML = 'aqui va el useremail';
+        usermail.innerHTML = `${userEmail}`;
         usermail.setAttribute('id', 'userMail');
         const recentPost = document.createElement('p');
         recentPost.setAttribute('id', 'recentPost');
@@ -78,13 +77,11 @@ export const home = () => {
 
       homePage.querySelector('#share').addEventListener('click', () => {
         modal.style.visibility = 'hidden';
-    
+
         const postPublish = homePage.querySelector('#post').value;
         postInFirestore(postPublish);
       });
     });
-
-  
 
   /* console.log(persistance(userEmail)); */
   return homePage;
