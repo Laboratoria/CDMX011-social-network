@@ -2,7 +2,7 @@
 
 import { onNavigate } from '../routes.js';
 import { modal, closeModal, showModal } from './ModalPost.js';
-import {logOutUser, onGetPost, getPost, updatePost,deletePost, savePost, addLikes, getUser , actualUser} from '../lib/fireBase.js';
+import { logOutUser, onGetPost, getPost, updatePost, deletePost,addLikes, savePost, disLike, actualUser } from '../lib/fireBase.js';
 //import { async } from 'regenerator-runtime';
 
 
@@ -24,9 +24,9 @@ export const toViewtimeline = (container) => {
     </nav> 
 
     <section class="TimeContainer" id="section">
-    <form  id="postForm">
-        <textarea text="textArea" class="textPost" id="textPost" rows="5" cols="40" maxlength="500" placeholder="Post something :)" required ></textarea><br>
-        <input type="submit" id="buttonNewPost"  value="Share" /> 
+    <form  id="postForm1">
+       <!-- <textarea text="textArea" class="textPost1" id="textPost1" rows="5" cols="40" maxlength="500" placeholder="Post something :)" required ></textarea><br>
+        <input type="submit" id="buttonNewPost"  value="Share" /> -->
         
     </form>
     <div class= "postContainer"  id = "postContainer"></div>
@@ -37,12 +37,12 @@ export const toViewtimeline = (container) => {
   </div>
 `;
 
-let imagenEmptyLike = "../img/emptylike.png"
-let imagenLike ="../img/like.png"
-let btnValue = ""
+// let imagenEmptyLike = "../img/emptylike.png"
+// let imagenLike ="../img/like.png"
+// let btnValue = ""
 // const imgLike = (boo) => {
 //   btnValue = boo
-// }
+//  }
 
   // stateUser();
   firebase.auth().onAuthStateChanged((getUser) => {
@@ -77,6 +77,9 @@ let btnValue = ""
             //Obtener id de cada post//
             const postData = doc.data();
             postData.id = doc.id;
+        
+            const postLikes= doc.data().likes.length; //longitud del array de likes
+            //console.log(postLikes);
 
             const postUid = doc.data().uid;
 
@@ -108,8 +111,8 @@ let btnValue = ""
       </div>
       <hr id="blackLine">
       <div class="usuarioPost">
-      <div class="likes"><input id='like' src=${btnValue===postData.id?imagenLike:imagenEmptyLike}  name="like" class='btn_like' type='image' value="${postData.id}"/> 
-      <p class="countLike"> </p>
+      <div class="likes"><input id='like' src='../img/emptylike.png'  data-id="${postData.id}" name="like" class='btn_like' type='image' value="${postData.id}"/> 
+      <p class="countLike">${postLikes} </p>
       </div> 
       </div>
         </div>
@@ -124,17 +127,6 @@ let btnValue = ""
               })
               // document.getElementsByClassName("labelPost").style.display= "none";
             }
-            //to create a new post
-            const toNewPost = document.getElementById('newPost');
-            toNewPost.addEventListener('click', () => {
-              console.log('click evento');
-              showModal.style.visibility = "visible";
-            // container.innerHTML=`<div id="modal" class="modal"></div>`;
-              //llamar modal
-              modal();
-              closeModal();
-      
-            });
             
             //Borrar post//
             const btnDel = postContainer.querySelectorAll('.delete');
@@ -145,12 +137,9 @@ let btnValue = ""
               });
             });
 
-          });
-          
-          //Botón like//
+            //Botón like//
+                   
           const btnLike = postContainer.querySelectorAll('#like');
-         // const counter = postContainer.querySelectorAll('.countLike');
-          
           btnLike.forEach(btn => {
             let countLikes = 0;
             btn.addEventListener('click', () => {
@@ -162,29 +151,31 @@ let btnValue = ""
               addLikes(btn.value)
               
               console.log(btn.src); //source de la img del click
-              if(btn.src === "http://localhost:5000/img/emptylike.png"){
+              if(btn.src === "http://localhost:54045/img/emptylike.png"){
                 btn.src = '../img/like.png';
-               console.log('clicked');   
-                   
+                console.log('clicked');   
+                
+                
               }else {
+                disLike(btn.value);
                 btn.src = '../img/emptylike.png';
-                console.log('unclicked')
+                console.log('unclicked');
               }
-        
-            }); 
+              
+              
+            });
+
           });
-
-        });
-
-      
-
-
+          
+           
+          });
+     
             //Editar post//
             const btnEdit = postContainer.querySelectorAll('.edit');
             btnEdit.forEach(btn => {
               btn.addEventListener('click', async (e) => {
                 const doc = await getPost(e.target.dataset.id);
-                console.log(doc.data());
+                console.log(getPost());
 
                 editStatus = true;
                 id = doc.id;
@@ -194,7 +185,19 @@ let btnValue = ""
               });
             });
 
-          });
+        });  
+
+          //to create a new post
+            const toNewPost = document.getElementById('newPost');
+            toNewPost.addEventListener('click', () => {
+              console.log('click evento');
+              showModal.style.visibility = "visible";
+            // container.innerHTML=`<div id="modal" class="modal"></div>`;
+              //llamar modal
+              modal();
+              closeModal();
+      
+            });
     
     //Share post
       posting.addEventListener('submit', async (e) => {
@@ -222,7 +225,7 @@ let btnValue = ""
       textShare.focus();
 
     }); 
-    
+  
     }else {
           onNavigate('/');
         }
