@@ -314,14 +314,16 @@ div.post-box{
 
   }
   .usuarioPost{
-      align-content: flex-end;
-    display:flex;
-    flex-direction:row-reverse;
-    justify-content:space-between;
-    padding-right: 3vh;/*15px*/
-    padding-left:250px;
+    align-content: flex-end;
+    align-items: stretch;
+    display: flex;
+    height: auto;
+    /*justify-content:space-between;*/
+    /* padding-right: 3vh;15px */
+    padding-left:245px; 
     font-size: 1rem;
   }
+
   .user{
       line-height: 5px;
       margin-top: 0px;
@@ -343,6 +345,14 @@ div.post-box{
     margin-top: 5px;
     padding: 0px 3px;
     height: 3.5vh;
+    display: flex;
+}
+
+div.countLike {
+    display: flex;
+    margin-top: 7px;
+    margin-left: 2px;
+    flex-direction: row-reverse;
 }
 
 
