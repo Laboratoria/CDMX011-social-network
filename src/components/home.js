@@ -75,7 +75,12 @@ export const home = () => {
     divButtons.append(edit, deletes, like);
     recentPostDiv.append(usermail, recentPost, divButtons);
     postInFirestore(postPublish);
-    console.log(printPostFromFirestore(postPublish));
+    printPostFromFirestore()
+      .then((snapshot) => {
+        snapshot.forEach((doc) => {
+          console.log(`${JSON.stringify(doc.data().post)}`);
+        });
+      });
   });
   /* console.log(persistance(userEmail)); */
   return homePage;

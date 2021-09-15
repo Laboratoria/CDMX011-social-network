@@ -49,12 +49,8 @@ export const logOut = (onNavigate) => firebase.auth().signOut()
 const db = firebase.firestore();
 export const postInFirestore = (post) => db.collection('posts').add({ post });
 
-export const printPostFromFirestore = () => db.collection('posts').get()
-  .then((snapshot) => {
-    snapshot.forEach((doc) => {
-      console.log(`${JSON.stringify(doc.data().post)}`);
-    });
-  });
+export const printPostFromFirestore = () => db.collection('posts').get();
+
 /* export const persistance = (email, password) => firebase.auth().setPersistence
 (firebase.auth.Auth.Persistence.LOCAL)
   .then(() => {
