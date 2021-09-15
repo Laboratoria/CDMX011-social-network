@@ -112,8 +112,7 @@ export const toViewtimeline = (container) => {
       <hr id="blackLine">
         <div class="usuarioPost">
           <div class="likes"><input id='like' src='../img/emptylike.png'  data-id="${postData.id}" name="like" class='btn_like' type='image' value="${postData.id}"/>
-         
-        </div> 
+          </div> 
         <div class="countLike">${postLikes} </div>
       </div>
         </div>
