@@ -44,44 +44,44 @@ export const home = () => {
     modal.style.visibility = 'hidden';
   });
 
-  homePage.querySelector('#share').addEventListener('click', () => {
-    modal.style.visibility = 'hidden';
+  printPostFromFirestore()
+    .then((snapshot) => {
+      snapshot.forEach((doc) => {
+        const postDivPublish = homePage.querySelector('#posts');
 
-    const postPublish = homePage.querySelector('#post').value;
+        const recentPostDiv = document.createElement('div');
+        recentPostDiv.setAttribute('id', 'recentPostDiv');
+        const usermail = document.createElement('p');
+        usermail.innerHTML = 'aqui va el useremail';
+        usermail.setAttribute('id', 'userMail');
+        const recentPost = document.createElement('p');
+        recentPost.setAttribute('id', 'recentPost');
+        recentPost.textContent = `${JSON.stringify(doc.data().post)}`;
+        const divButtons = document.createElement('divButtons');
+        divButtons.setAttribute('id', 'divButtons');
+        const edit = document.createElement('button');
+        edit.setAttribute('id', 'edit');
+        edit.textContent = 'Editar';
+        const deletes = document.createElement('button');
+        deletes.setAttribute('id', 'deletes');
+        deletes.textContent = 'Eliminar';
+        const like = document.createElement('img');
+        like.setAttribute('id', 'like');
+        like.setAttribute('src', './imagenes/patitaGris.png');
 
-    const postDivPublish = homePage.querySelector('#posts');
+        postDivPublish.append(recentPostDiv);
+        divButtons.append(edit, deletes, like);
+        recentPostDiv.append(usermail, recentPost, divButtons);
 
-    const recentPostDiv = document.createElement('div');
-    recentPostDiv.setAttribute('id', 'recentPostDiv');
-    const usermail = document.createElement('p');
-    usermail.innerHTML = 'aqui va el useremail';
-    usermail.setAttribute('id', 'userMail');
-    const recentPost = document.createElement('p');
-    recentPost.setAttribute('id', 'recentPost');
-    recentPost.textContent = postPublish;
-    const divButtons = document.createElement('divButtons');
-    divButtons.setAttribute('id', 'divButtons');
-    const edit = document.createElement('button');
-    edit.setAttribute('id', 'edit');
-    edit.textContent = 'Editar';
-    const deletes = document.createElement('button');
-    deletes.setAttribute('id', 'deletes');
-    deletes.textContent = 'Eliminar';
-    const like = document.createElement('img');
-    like.setAttribute('id', 'like');
-    like.setAttribute('src', './imagenes/patitaGris.png');
-
-    postDivPublish.append(recentPostDiv);
-    divButtons.append(edit, deletes, like);
-    recentPostDiv.append(usermail, recentPost, divButtons);
-    postInFirestore(postPublish);
-    printPostFromFirestore()
-      .then((snapshot) => {
-        snapshot.forEach((doc) => {
-          console.log(`${JSON.stringify(doc.data().post)}`);
-        });
+      // recentPost.textContent =
       });
-  });
+
+      homePage.querySelector('#share').addEventListener('click', () => {
+        modal.style.visibility = 'hidden';
+        const postPublish = homePage.querySelector('#post').value;
+        postInFirestore(postPublish);
+      });
+    });
   /* console.log(persistance(userEmail)); */
   return homePage;
 };
