@@ -7,7 +7,7 @@ import {continueGitHub} from '../lib/fireBase.js';
 
 
 export const toViewHome = (container) => {
-  console.log('estoy en home');
+  //console.log('estoy en home');
   const html = `
  
   <div class = "homeContainer">
@@ -19,8 +19,11 @@ export const toViewHome = (container) => {
         <input type="button" class="btn_log login" value="LOG IN" id="toLogIn" />
         <input type="button" class="btn_log signup" value="SIGN UP" id="toCreate" /><br>
         <p2>──────  or  ──────</p2><br>
-        <input type="button" class="btn_log google" value="Continue with Google" id="toGoogle" />
-        <input type="button" class="btn_log github" value="Continue with GitHub" id="toGitHub" />
+        <button class="btn_log google" id="toGoogle" name="withGoogle" >Continue with <img id="googleImg" src="./img/google-logo.png"></button>
+        <button class="btn_log github" id="toGitHub" name="withGitHub" >Continue with <img id="gitHubImg" src="./img/gitHub.png"></button>
+        
+          <!-- <input type="button" class="btn_log github" value="Continue with GitHub" id="toGitHub" />-->
+
         </div>
     </section>
   </div>
@@ -30,18 +33,23 @@ export const toViewHome = (container) => {
 
   container.innerHTML = html;
 
+  //Funcion para boton de crear cuenta y mandar a signUp
   const toCreate = document.getElementById('toCreate');
   toCreate.addEventListener('click', (e) => {
     e.preventDefault();
     onNavigate('/signUp');
    // console.log(stateUser());
   });
+
+  //Función para mandar a LogIn
   const toLogIn = document.getElementById('toLogIn');
   toLogIn.addEventListener('click', (e) => {
     e.preventDefault();
     onNavigate('/LogIn');
     //stateUser();
   });
+
+  //Función para iniciar sesión con Google
   const toContinueGoogle = document.getElementById('toGoogle');
   toContinueGoogle.addEventListener('click', () => {
     continueGoogle()
@@ -56,6 +64,8 @@ export const toViewHome = (container) => {
     //e.preventDefault();
     //onNavigate('/LogIn');
   });
+
+  //Función para iniciar sesión con GitHub
   const toContinueGitHub = document.getElementById('toGitHub');
   toContinueGitHub.addEventListener('click', (e) => {
     e.preventDefault();
