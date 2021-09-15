@@ -2,7 +2,7 @@
 
 import { onNavigate } from '../routes.js';
 import { modal, closeModal, showModal } from './ModalPost.js';
-import {logOutUser, onGetPost, getPost, updatePost, deletePost, savePost, addLikes, disLike, actualUser} from '../lib/fireBase.js';
+import { logOutUser, onGetPost, getPost, updatePost, deletePost,addLikes, savePost, getUser, actualUser } from '../lib/fireBase.js';
 //import { async } from 'regenerator-runtime';
 
 
@@ -24,9 +24,9 @@ export const toViewtimeline = (container) => {
     </nav> 
 
     <section class="TimeContainer" id="section">
-    <form  id="postForm">
-        <textarea text="textArea" class="textPost" id="textPost" rows="5" cols="40" maxlength="500" placeholder="Post something :)" required ></textarea><br>
-        <input type="submit" id="buttonNewPost"  value="Share" /> 
+    <form  id="postForm1">
+       <!-- <textarea text="textArea" class="textPost1" id="textPost1" rows="5" cols="40" maxlength="500" placeholder="Post something :)" required ></textarea><br>
+        <input type="submit" id="buttonNewPost"  value="Share" /> -->
         
     </form>
     <div class= "postContainer"  id = "postContainer"></div>
@@ -127,17 +127,6 @@ export const toViewtimeline = (container) => {
               })
               // document.getElementsByClassName("labelPost").style.display= "none";
             }
-            //to create a new post
-            const toNewPost = document.getElementById('newPost');
-            toNewPost.addEventListener('click', () => {
-              console.log('click evento');
-              showModal.style.visibility = "visible";
-            // container.innerHTML=`<div id="modal" class="modal"></div>`;
-              //llamar modal
-              modal();
-              closeModal();
-      
-            });
             
             //Borrar post//
             const btnDel = postContainer.querySelectorAll('.delete');
@@ -152,25 +141,17 @@ export const toViewtimeline = (container) => {
                    
           const btnLike = postContainer.querySelectorAll('#like');
           btnLike.forEach(btn => {
-            btn.addEventListener('click', (e) => {
-              e.preventDefault();
-              //console.log(btn.value); //id de cada post al dar click al botón de like
-            //  const likeArray =  postData.likes;
-            //  console.log(likeArray);
-            //  const likeUser = likeArray.includes(actualUser());
-            //  console.log(likeUser);
+            let countLikes = 0;
+            btn.addEventListener('click', () => {
+              console.log(btn.value); //id de cada post al dar click al botón de like
+              countLikes += 1;
+              console.log(countLikes);
 
-              // if(likeUser === true){
-              //   addLikes(btn.value);
-              //   btn.src = '../img/like.png';
-              //   console.log(':)')
-              // } else {
-              //   disLike(btn.value)
-              //   console.log(':(')
-              // }
-
-              if(btn.src === "http://localhost:5000/img/emptylike.png"){
-                addLikes(btn.value);
+              //imgLike(btn.value)
+              addLikes(btn.value)
+              
+              console.log(btn.src); //source de la img del click
+              if(btn.src === "http://localhost:54045/img/emptylike.png"){
                 btn.src = '../img/like.png';
                 console.log('clicked');   
                 
@@ -188,12 +169,7 @@ export const toViewtimeline = (container) => {
           
            
           });
-
-    
-
-      
-
-
+     
             //Editar post//
             const btnEdit = postContainer.querySelectorAll('.edit');
             btnEdit.forEach(btn => {
@@ -209,8 +185,20 @@ export const toViewtimeline = (container) => {
               });
             });
 
-          
-          });
+        });  
+
+          //to create a new post
+            const toNewPost = document.getElementById('newPost');
+            toNewPost.addEventListener('click', () => {
+              console.log('click evento');
+              showModal.style.visibility = "visible";
+            // container.innerHTML=`<div id="modal" class="modal"></div>`;
+              //llamar modal
+              modal();
+              closeModal();
+      
+            });
+    
     //Share post
       posting.addEventListener('submit', async (e) => {
       e.preventDefault();
@@ -243,6 +231,5 @@ export const toViewtimeline = (container) => {
         }
     
 
-      });
-    
-  }
+    });
+}
