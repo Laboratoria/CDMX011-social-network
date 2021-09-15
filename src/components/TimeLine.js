@@ -1,7 +1,7 @@
 /* eslint-disable */
 
 import { onNavigate } from '../routes.js';
-import { modal, closeModal, showModal } from './ModalPost.js';
+import { modal, closeModal, showModal, editPost } from './ModalPost.js';
 import { logOutUser, onGetPost, getPost, updatePost, deletePost,addLikes, savePost, disLike, actualUser } from '../lib/fireBase.js';
 //import { async } from 'regenerator-runtime';
 
@@ -184,13 +184,16 @@ export const toViewtimeline = (container) => {
             btnEdit.forEach(btn => {
               btn.addEventListener('click', async (e) => {
                 const doc = await getPost(e.target.dataset.id);
-                console.log(getPost());
-
+                // console.log(getPost());
                 editStatus = true;
                 id = doc.id;
-
-                posting["textPost"].value = doc.data().textShare;
-                posting['buttonNewPost'].value = 'Update';
+                
+              showModal.style.visibility = "visible";
+              editPost(editStatus,doc.data().textShare, id );
+                
+                
+                // posting["textPost"].value = doc.data().textShare;
+                // posting['buttonNewPost'].value = 'Update';
               });
             });
 
@@ -204,36 +207,36 @@ export const toViewtimeline = (container) => {
             // container.innerHTML=`<div id="modal" class="modal"></div>`;
               //llamar modal
               modal();
-              closeModal();
+              // closeModal();
       
             });
     
     //Share post
-      posting.addEventListener('submit', async (e) => {
-      e.preventDefault();
+    //   posting.addEventListener('submit', async (e) => {
+    //   e.preventDefault();
 
-      //console.log("Share");
-      const textShare= posting['textPost'];
-      //console.log(textShare);
+    //   //console.log("Share");
+    //   const textShare= posting['textPost'];
+    //   //console.log(textShare);
 
-      if (!editStatus) {
-        await savePost(textShare.value);
-      } else {
-        await updatePost(id, {
-          textShare: textShare.value
-        });
+    //   if (!editStatus) {
+    //     await savePost(textShare.value);
+    //   } else {
+    //     await updatePost(id, {
+    //       textShare: textShare.value
+    //     });
 
-        editStatus = false;
-        id = '';
-        posting['buttonNewPost'].value = 'Share';
+    //     editStatus = false;
+    //     id = '';
+    //     posting['buttonNewPost'].value = 'Share';
 
-      };
+    //   };
 
 
-      posting.reset();
-      textShare.focus();
+    //   posting.reset();
+    //   textShare.focus();
 
-    }); 
+    // }); 
   
     }else {
           onNavigate('/');
