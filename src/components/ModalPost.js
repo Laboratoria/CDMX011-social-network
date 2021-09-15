@@ -2,6 +2,7 @@
 //crear modal
 export const showModal = document.getElementById("modal");
 import {  updatePost, savePost } from '../lib/fireBase.js';
+import { onNavigate } from './LogIn.js';
 // import {postContainer} from './TimeLine.js';
 // const showModal = document.getElementsByClassName("TimeContainer");
 ///modal
@@ -21,7 +22,8 @@ export const modal = () => {
     </div>
   </div>
     `
-
+    let editStatus = false;
+    let id = '';
     const posting = document.getElementById('postForm');
     console.log(posting);
 
@@ -35,8 +37,10 @@ posting.addEventListener('submit', async (e) => {
 
     if (!editStatus) {
       await savePost(textShare.value);
+      showModal.style.visibility= "hidden";
     } else {
       await updatePost(id, {
+        
         textShare: textShare.value
       });
 
@@ -46,13 +50,19 @@ posting.addEventListener('submit', async (e) => {
 
     };
 
-
+    // closeModal();
     posting.reset();
     textShare.focus();
 
-  }); }
+  }); 
 
-    let editStatus = false;
+
+
+}
+
+
+
+    
 
 export const closeModal = () => {
     const span = document.getElementsByClassName("close")[0];
@@ -83,3 +93,53 @@ export const closeModal = () => {
     //      posting['buttonNewPost'].value = 'Update';
     //    });
     //  });
+export const editPost= (status, text, id)=>{
+    console.log('entro a modal');
+    showModal.innerHTML += `
+    <div class="modal-content">
+    <div class="modal-header">
+      <span class="close" ">&times;</span>
+      <h1>Post something</h1>
+    </div>
+    <div class="description">
+    <form  id="postForm">
+    <textarea text="textArea" class="textPost" id="textPost" rows="5" cols="40" maxlength="500" placeholder="Post something :)">${text}</textarea><br>
+    <input type="submit" id="buttonNewPost"  value="Update" />   
+</form>
+    </div>
+  </div>
+    `
+    // closeModal();
+    
+    let editStatus = false;
+    
+    const posting = document.getElementById('postForm');
+    
+posting.addEventListener('submit', async (e) => {
+  e.preventDefault();
+
+  //console.log("Share");
+  const textShare= posting['textPost'];
+  //console.log(textShare);
+
+  if (!editStatus) {
+    await savePost(textShare.value);
+    showModal.style.visibility= "hidden";
+  } else {
+    await updatePost(id, {
+      
+      textShare: textShare.value
+    });
+
+    editStatus = false;
+    id = '';
+    posting['buttonNewPost'].value = 'Share';
+
+  };
+
+  // closeModal();
+  posting.reset();
+  textShare.focus();
+
+}); 
+}
