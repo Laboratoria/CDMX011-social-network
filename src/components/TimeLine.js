@@ -77,7 +77,7 @@ export const toViewtimeline = (container) => {
             //Obtener id de cada post//
             const postData = doc.data();
             postData.id = doc.id;
-        
+            const likeUser = postData.likes.includes(actualUser());
             const postLikes= doc.data().likes.length; //longitud del array de likes
             //console.log(postLikes);
 
@@ -110,11 +110,11 @@ export const toViewtimeline = (container) => {
         <h2>${doc.data().textShare}</h2>
       </div>
       <hr id="blackLine">
-        <div class="usuarioPost">
-          <div class="likes"><input id='like' src='../img/emptylike.png'  data-id="${postData.id}" name="like" class='btn_like' type='image' value="${postData.id}"/>
-         
-        </div> 
-        <div class="countLike">${postLikes} </div>
+      <div class="usuarioPost">
+      <div class="likes"><input id='like' src='${likeUser ? '../img/like.png' : '../img/emptylike.png'}'  data-id="${postData.id}" name="like" class='btn_like' type='image' value="${postData.id}"/></div> 
+      <div class="countLike">${postLikes} </div>
+  
+
       </div>
         </div>
         `;
@@ -141,44 +141,39 @@ export const toViewtimeline = (container) => {
 
             //Botón like//
                    
-          const btnLike = postContainer.querySelectorAll('#like');
-          btnLike.forEach(btn => {
-            btn.addEventListener('click', (e) => {
-              //e.preventDefault();
-              //console.log(btn.value); //id de cada post al dar click al botón de like
-            //  const likeArray =  postData.likes;
-            //  console.log(likeArray);
-            //  const likeUser = likeArray.includes(actualUser());
-            //  console.log(likeUser);
+                      
+            const btnLike = postContainer.querySelectorAll('.likes');
+            btnLike.forEach(btn => {
+              btn.addEventListener('click', async (e) => {
+              const docpost =  await getPost(e.target.dataset.id);
+              console.log(docpost);
+                const postEdit = docpost.data();
+                id = docpost.id;
+                const uidUser = firebase.auth().currentUser.uid;
+                const likesFb = firebase.firestore().collection('posts').doc(id)
+                //console.log(docpost)
+                const likeArray = postEdit.likes;
+  
+              if(likeArray.includes(uidUser)) {
+                likesFb.update({
+                  likes: firebase.firestore.FieldValue.arrayRemove(uidUser) //se tendría que agregar el uid
+                });
 
-              // if(likeUser === true){
-              //   addLikes(btn.value);
-              //   btn.src = '../img/like.png';
-              //   console.log(':)')
-              // } else {
-              //   disLike(btn.value)
-              //   console.log(':(')
-              // }
-
-              if(btn.src === "http://localhost:5000/img/emptylike.png"){
-                addLikes(btn.value);
-                btn.src = '../img/like.png';
-                console.log('clicked');   
-                
-                
-              }else {
-                disLike(btn.value);
                 btn.src = '../img/emptylike.png';
-                console.log('unclicked');
+                    console.log("le quité mi like");
+              }else {
+                btn.src = '../img/like.png';
+                likesFb.update({
+                      likes: firebase.firestore.FieldValue.arrayUnion(uidUser)
+                    });
+                    
+                    console.log("le di like");
               }
-              
-              
-            });
+          });
+        });
+     
+     
 
-          });
-          
-           
-          });
             //Editar post//
             const btnEdit = postContainer.querySelectorAll('.edit');
             btnEdit.forEach(btn => {
@@ -190,14 +185,14 @@ export const toViewtimeline = (container) => {
                 
               showModal.style.visibility = "visible";
               editPost(editStatus,doc.data().textShare, id );
-                
+              closeModal();
                 
                 // posting["textPost"].value = doc.data().textShare;
                 // posting['buttonNewPost'].value = 'Update';
               });
             });
 
-        });  
+        });  });
 
           //to create a new post
             const toNewPost = document.getElementById('newPost');
@@ -207,7 +202,7 @@ export const toViewtimeline = (container) => {
             // container.innerHTML=`<div id="modal" class="modal"></div>`;
               //llamar modal
               modal();
-              // closeModal();
+              closeModal();
       
             });
     

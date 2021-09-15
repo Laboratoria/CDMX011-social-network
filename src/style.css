@@ -323,6 +323,7 @@ div.post-box{
     padding-left:245px; 
     font-size: 1rem;
   }
+
   .user{
       line-height: 5px;
       margin-top: 0px;
@@ -352,7 +353,6 @@ div.countLike {
     margin-top: 7px;
     margin-left: 2px;
     flex-direction: row-reverse;
-    position: relative;
 }
 
 

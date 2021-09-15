@@ -50,7 +50,7 @@ posting.addEventListener('submit', async (e) => {
 
     };
 
-    // closeModal();
+    closeModal();
     posting.reset();
     textShare.focus();
 
@@ -137,7 +137,7 @@ posting.addEventListener('submit', async (e) => {
 
   };
 
-  // closeModal();
+  closeModal();
   posting.reset();
   textShare.focus();
 
