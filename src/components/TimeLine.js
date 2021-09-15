@@ -113,11 +113,12 @@ export const toViewtimeline = (container) => {
       <div class="usuarioPost">
       <div class="likes"><input id='like' src='${likeUser ? '../img/like.png' : '../img/emptylike.png'}'  data-id="${postData.id}" name="like" class='btn_like' type='image' value="${postData.id}"/></div> 
       <div class="countLike">${postLikes} </div>
+  
 
-      
       </div>
         </div>
         `;
+    
             const labelOptions = document.querySelectorAll(`.${postData.uid}`);//como mandarle id en lugar de nombre de clase 
             //console.log(labelOptions)
 
@@ -140,8 +141,7 @@ export const toViewtimeline = (container) => {
 
             //Botón like//
                    
-         
-                   
+                      
             const btnLike = postContainer.querySelectorAll('.likes');
             btnLike.forEach(btn => {
               btn.addEventListener('click', async (e) => {
@@ -158,6 +158,7 @@ export const toViewtimeline = (container) => {
                 likesFb.update({
                   likes: firebase.firestore.FieldValue.arrayRemove(uidUser) //se tendría que agregar el uid
                 });
+
                 btn.src = '../img/emptylike.png';
                     console.log("le quité mi like");
               }else {
@@ -172,6 +173,7 @@ export const toViewtimeline = (container) => {
         });
      
      
+
             //Editar post//
             const btnEdit = postContainer.querySelectorAll('.edit');
             btnEdit.forEach(btn => {
