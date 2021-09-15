@@ -127,17 +127,7 @@ export const toViewtimeline = (container) => {
               })
               // document.getElementsByClassName("labelPost").style.display= "none";
             }
-            //to create a new post
-            const toNewPost = document.getElementById('newPost');
-            toNewPost.addEventListener('click', () => {
-              console.log('click evento');
-              showModal.style.visibility = "visible";
-            // container.innerHTML=`<div id="modal" class="modal"></div>`;
-              //llamar modal
-              modal();
-              closeModal();
-      
-            });
+            
             
             //Borrar post//
             const btnDel = postContainer.querySelectorAll('.delete');
@@ -153,7 +143,7 @@ export const toViewtimeline = (container) => {
           const btnLike = postContainer.querySelectorAll('#like');
           btnLike.forEach(btn => {
             btn.addEventListener('click', (e) => {
-              e.preventDefault();
+              //e.preventDefault();
               //console.log(btn.value); //id de cada post al dar click al botón de like
             //  const likeArray =  postData.likes;
             //  console.log(likeArray);
@@ -189,11 +179,6 @@ export const toViewtimeline = (container) => {
            
           });
 
-    
-
-      
-
-
             //Editar post//
             const btnEdit = postContainer.querySelectorAll('.edit');
             btnEdit.forEach(btn => {
@@ -210,6 +195,18 @@ export const toViewtimeline = (container) => {
             });
 
           
+          });
+
+          //to create a new post
+          const toNewPost = document.getElementById('newPost');
+          toNewPost.addEventListener('click', () => {
+            console.log('click evento');
+            showModal.style.visibility = "visible";
+          // container.innerHTML=`<div id="modal" class="modal"></div>`;
+            //llamar modal
+            modal();
+            closeModal();
+    
           });
     //Share post
       posting.addEventListener('submit', async (e) => {
