@@ -29,6 +29,7 @@ export const onGetPost = (callback) => firebase.firestore().collection('posts').
 //Obtener un solo post por ID//
 export const getPost = (id) => firebase.firestore().collection('posts').doc(id).get();
 
+
 //Borrar los post en interfaz y en firestore
 export const deletePost = id => {firebase.firestore().collection('posts').doc(id).delete()
   .then (alert('Are you sure you want to delete your post?'));
@@ -44,7 +45,7 @@ firebase.firestore().collection('posts').doc().set({
   date: firebase.firestore.Timestamp.fromDate(new Date()),
   user: firebase.auth().currentUser.email,
   uid: firebase.auth().currentUser.uid,
-  likes: 0,
+  likes: [],
 });
 
 // Firebase register
@@ -90,10 +91,22 @@ export const logOutUser = () => {
   return firebase.auth().signOut()
 }
 
-export const addLikes = (postId) => {
-  let likesFb = firebase.firestore().collection('posts').doc(postId);
+
+export const addLikes = (idPost) => {
+  const uidUser = firebase.auth().currentUser.uid; //uid del current user
+  //console.log(uidUser);
+  const likesFb = firebase.firestore().collection('posts').doc(idPost); //cómo sacar el id del post? o se llamaría en TimeLine?
+  //console.log(likesFb); //cosa rara que no entiendo
   likesFb.update({
-    likes: firebase.firestore.FieldValue.increment(1)
-  })
+    likes: firebase.firestore.FieldValue.arrayUnion(uidUser) //se tendría que agregar el uid
+  });
+  
 }
 
+export const disLike = (idPost) => {
+  const uidUser = firebase.auth().currentUser.uid; 
+  const likesFb = firebase.firestore().collection('posts').doc(idPost);
+  likesFb.update({
+    likes: firebase.firestore.FieldValue.arrayRemove(uidUser)
+  });
+}
