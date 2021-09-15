@@ -1,6 +1,8 @@
 /* eslint-disable */
 //crear modal
 export const showModal = document.getElementById("modal");
+import {  updatePost, savePost } from '../lib/fireBase.js';
+// import {postContainer} from './TimeLine.js';
 // const showModal = document.getElementsByClassName("TimeContainer");
 ///modal
 export const modal = () => {
@@ -18,7 +20,39 @@ export const modal = () => {
 </form>
     </div>
   </div>
-    `}
+    `
+
+    const posting = document.getElementById('postForm');
+    console.log(posting);
+
+
+posting.addEventListener('submit', async (e) => {
+    e.preventDefault();
+
+    //console.log("Share");
+    const textShare= posting['textPost'];
+    //console.log(textShare);
+
+    if (!editStatus) {
+      await savePost(textShare.value);
+    } else {
+      await updatePost(id, {
+        textShare: textShare.value
+      });
+
+      editStatus = false;
+      id = '';
+      posting['buttonNewPost'].value = 'Share';
+
+    };
+
+
+    posting.reset();
+    textShare.focus();
+
+  }); }
+
+    let editStatus = false;
 
 export const closeModal = () => {
     const span = document.getElementsByClassName("close")[0];
@@ -34,3 +68,18 @@ export const closeModal = () => {
         }
     }
 }
+
+     //Editar post//
+    //  const btnEdit = postContainer.querySelectorAll('.edit');
+    //  btnEdit.forEach(btn => {
+    //    btn.addEventListener('click', async (e) => {
+    //      const doc = await getPost(e.target.dataset.id);
+    //      console.log(doc.data());
+
+    //      editStatus = true;
+    //      id = doc.id;
+
+    //      posting["textPost"].value = doc.data().textShare;
+    //      posting['buttonNewPost'].value = 'Update';
+    //    });
+    //  });

@@ -2,7 +2,7 @@
 
 import { onNavigate } from '../routes.js';
 import { modal, closeModal, showModal } from './ModalPost.js';
-import {logOutUser, onGetPost, getPost, updatePost,deletePost, savePost, addLikes, getUser , actualUser} from '../lib/fireBase.js';
+import { logOutUser, onGetPost, getPost, updatePost, deletePost,addLikes, savePost, getUser, actualUser } from '../lib/fireBase.js';
 //import { async } from 'regenerator-runtime';
 
 
@@ -24,9 +24,9 @@ export const toViewtimeline = (container) => {
     </nav> 
 
     <section class="TimeContainer" id="section">
-    <form  id="postForm">
-        <textarea text="textArea" class="textPost" id="textPost" rows="5" cols="40" maxlength="500" placeholder="Post something :)" required ></textarea><br>
-        <input type="submit" id="buttonNewPost"  value="Share" /> 
+    <form  id="postForm1">
+       <!-- <textarea text="textArea" class="textPost1" id="textPost1" rows="5" cols="40" maxlength="500" placeholder="Post something :)" required ></textarea><br>
+        <input type="submit" id="buttonNewPost"  value="Share" /> -->
         
     </form>
     <div class= "postContainer"  id = "postContainer"></div>
@@ -124,17 +124,6 @@ let btnValue = ""
               })
               // document.getElementsByClassName("labelPost").style.display= "none";
             }
-            //to create a new post
-            const toNewPost = document.getElementById('newPost');
-            toNewPost.addEventListener('click', () => {
-              console.log('click evento');
-              showModal.style.visibility = "visible";
-            // container.innerHTML=`<div id="modal" class="modal"></div>`;
-              //llamar modal
-              modal();
-              closeModal();
-      
-            });
             
             //Borrar post//
             const btnDel = postContainer.querySelectorAll('.delete');
@@ -162,7 +151,7 @@ let btnValue = ""
               addLikes(btn.value)
               
               console.log(btn.src); //source de la img del click
-              if(btn.src === "http://localhost:5000/img/emptylike.png"){
+              if(btn.src === "http://localhost:54045/img/emptylike.png"){
                 btn.src = '../img/like.png';
                console.log('clicked');   
                    
@@ -173,12 +162,7 @@ let btnValue = ""
         
             }); 
           });
-
-        });
-
-      
-
-
+     
             //Editar post//
             const btnEdit = postContainer.querySelectorAll('.edit');
             btnEdit.forEach(btn => {
@@ -194,7 +178,19 @@ let btnValue = ""
               });
             });
 
-          });
+        });  
+
+          //to create a new post
+            const toNewPost = document.getElementById('newPost');
+            toNewPost.addEventListener('click', () => {
+              console.log('click evento');
+              showModal.style.visibility = "visible";
+            // container.innerHTML=`<div id="modal" class="modal"></div>`;
+              //llamar modal
+              modal();
+              closeModal();
+      
+            });
     
     //Share post
       posting.addEventListener('submit', async (e) => {
@@ -222,7 +218,7 @@ let btnValue = ""
       textShare.focus();
 
     }); 
-    
+  
     }else {
           onNavigate('/');
         }
