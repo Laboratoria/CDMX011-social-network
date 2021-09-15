@@ -28,8 +28,7 @@ export const onGetPost = (callback) => firebase.firestore().collection('posts').
 
 //Obtener un solo post por ID//
 export const getPost = (id) => firebase.firestore().collection('posts').doc(id).get();
-
-
+console.log(getPost);
 //Borrar los post en interfaz y en firestore
 export const deletePost = id => {firebase.firestore().collection('posts').doc(id).delete()
   .then (alert('Are you sure you want to delete your post?'));
@@ -77,11 +76,11 @@ export const continueGitHub = () => {
  //LogOut
  let email ;
 export const actualUser=()=>{
- const user = firebase.auth().currentUser;
-if (user !== null) {
+//  const user = firebase.auth().currentUser;
+if (getUser() !== null) {
   // The user object has basic properties such as display name, email, etc.
  
-    return user.uid;
+    return getUser().uid;
 }
 //return email
 }
