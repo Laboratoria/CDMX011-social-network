@@ -2,7 +2,7 @@
 
 import { onNavigate } from '../routes.js';
 import { modal, closeModal, showModal } from './ModalPost.js';
-import {logOutUser, onGetPost, getPost, updatePost,deletePost, savePost, addLikes, getUser , actualUser} from '../lib/fireBase.js';
+import {logOutUser, onGetPost, getPost, updatePost, deletePost, savePost, addLikes, disLike, actualUser} from '../lib/fireBase.js';
 //import { async } from 'regenerator-runtime';
 
 
@@ -13,7 +13,6 @@ export const toViewtimeline = (container) => {
     <header class="timelineHeader"><!--no se esta usando clase-->
     <div class = "headTimeline">
     <img class="iconApp" src="img/picartBlanco.png">
-   <!-- <input type="button"  value="salir" id="logOut" />-->
    
     </div>
     <hr id="witheBorder">
@@ -37,12 +36,13 @@ export const toViewtimeline = (container) => {
  
   </div>
 `;
-let imagenEmptyLike = "../img/emptylike.png"
-let imagenLike ="../img/like.png"
-let btnValue = ""
+
+// let imagenEmptyLike = "../img/emptylike.png"
+// let imagenLike ="../img/like.png"
+// let btnValue = ""
 // const imgLike = (boo) => {
 //   btnValue = boo
-// }
+//  }
 
   // stateUser();
   firebase.auth().onAuthStateChanged((getUser) => {
@@ -77,6 +77,9 @@ let btnValue = ""
             //Obtener id de cada post//
             const postData = doc.data();
             postData.id = doc.id;
+        
+            const postLikes= doc.data().likes.length; //longitud del array de likes
+            //console.log(postLikes);
 
             const postUid = doc.data().uid;
 
@@ -100,7 +103,7 @@ let btnValue = ""
       </ul>
     </nav>
 
-      </div>
+     </div>
       </div>
       <hr id="blackLine">
       <div class="postText">
@@ -108,8 +111,8 @@ let btnValue = ""
       </div>
       <hr id="blackLine">
       <div class="usuarioPost">
-      <div class="likes"><input id='like' src=${btnValue===postData.id?imagenLike:imagenEmptyLike}  name="like" class='btn_like' type='image' value="${postData.id}"/> 
-      <p class="countLike"> </p>
+      <div class="likes"><input id='like' src='../img/emptylike.png'  data-id="${postData.id}" name="like" class='btn_like' type='image' value="${postData.id}"/> 
+      <p class="countLike">${postLikes} </p>
       </div> 
       </div>
         </div>
@@ -145,34 +148,50 @@ let btnValue = ""
               });
             });
 
-          });
-          
-          //Botón like//
-          const btnLike = postContainer.querySelectorAll('#like');
-         // const counter = postContainer.querySelectorAll('.countLike');
-          
-          btnLike.forEach(btn => {
-            let countLikes = 0;
-            btn.addEventListener('click', () => {
-              console.log(btn.value); //id de cada post al dar click al botón de like
-              countLikes += 1;
-              console.log(countLikes);
-
-              //imgLike(btn.value)
-              addLikes(btn.value)
-              
-              console.log(btn.src); //source de la img del click
-              if(btn.src === "http://localhost:5000/img/emptylike.png"){
-                btn.src = '../img/like.png';
-               console.log('clicked');   
+            //Botón like//
                    
+          const btnLike = postContainer.querySelectorAll('#like');
+          btnLike.forEach(btn => {
+            btn.addEventListener('click', (e) => {
+              e.preventDefault();
+              //console.log(btn.value); //id de cada post al dar click al botón de like
+            //  const likeArray =  postData.likes;
+            //  console.log(likeArray);
+            //  const likeUser = likeArray.includes(actualUser());
+            //  console.log(likeUser);
+
+              // if(likeUser === true){
+              //   addLikes(btn.value);
+              //   btn.src = '../img/like.png';
+              //   console.log(':)')
+              // } else {
+              //   disLike(btn.value)
+              //   console.log(':(')
+              // }
+
+              if(btn.src === "http://localhost:5000/img/emptylike.png"){
+                addLikes(btn.value);
+                btn.src = '../img/like.png';
+                console.log('clicked');   
+                
+                
               }else {
+                disLike(btn.value);
                 btn.src = '../img/emptylike.png';
-                console.log('unclicked')
+                console.log('unclicked');
               }
-        
-            }); 
+              
+              
+            });
+
           });
+          
+           
+          });
+
+    
+
+      
 
 
             //Editar post//
@@ -180,7 +199,7 @@ let btnValue = ""
             btnEdit.forEach(btn => {
               btn.addEventListener('click', async (e) => {
                 const doc = await getPost(e.target.dataset.id);
-                console.log(doc.data());
+                console.log(getPost());
 
                 editStatus = true;
                 id = doc.id;
@@ -190,8 +209,9 @@ let btnValue = ""
               });
             });
 
+          
           });
-
+    //Share post
       posting.addEventListener('submit', async (e) => {
       e.preventDefault();
 
@@ -217,11 +237,12 @@ let btnValue = ""
       textShare.focus();
 
     }); 
-    
+  
     }else {
           onNavigate('/');
         }
     
 
-    });
-}
+      });
+    
+  }
