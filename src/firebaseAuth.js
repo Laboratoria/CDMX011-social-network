@@ -1,11 +1,11 @@
 export const authUser = (email, password) => firebase.auth()
   .createUserWithEmailAndPassword(email, password);
-  // ..
+// ..
 export const getUser = () => firebase.auth().currentUser;
 
-const saveUserData = (user) => {
+/* const saveUserData = (user) => {
   firebase.database.ref("users").push(getUser());
-}
+} */
 // Continua el registro con google
 export const gmailAuth = (onNavigate) => {
   const provider = new firebase.auth.GoogleAuthProvider();
@@ -19,13 +19,11 @@ export const gmailAuth = (onNavigate) => {
       const user = result.user.displayName;
       const userPhoto = result.user.photoURL;
       console.log(user, userPhoto);
-      
-      
 
       onNavigate('/home');
-    // ...
+      // ...
     }).catch((error) => {
-    // Handle Errors here.
+      // Handle Errors here.
       const errorCode = error.code;
       const errorMessage = error.message;
       // The email of the user's account used.
@@ -48,9 +46,17 @@ export const logOut = (onNavigate) => firebase.auth().signOut()
     console.log(error);
   });
 
+// Persistencie
+export const persistence = (startsesion) => firebase.auth()
+  .setPersistence(firebase.auth.Auth.Persistence.LOCAL)
+  .then(() => startsesion);
+
 // firestore
+const db = firebase.firestore();
+
 export const postInFirestore = (post) => db.collection('posts').add({ post });
 
+export const printPostFromFirestore = () => db.collection('posts').get();
 
 /* export const persistance = (email, password) => firebase.auth().setPersistence(firebase.auth.Auth.Persistence.LOCAL)
   .then(() => {

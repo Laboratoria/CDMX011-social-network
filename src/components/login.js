@@ -1,6 +1,6 @@
 import { onNavigate } from '../main.js';
 import { allFunctions } from '../lib/validFunc.js';
-import { signIn, gmailAuth } from '../firebaseAuth.js';
+import { signIn, gmailAuth, persistence } from '../firebaseAuth.js';
 
 export const login = () => {
   const loginPage = document.createElement('div');
@@ -24,12 +24,12 @@ export const login = () => {
   </div>`;
 
   loginPage.innerHTML = htmlLogin;
-
+  let savedPassword = '';
   let printEmail = '';
   loginPage.querySelector('#signIn').addEventListener('click', (e) => {
     e.preventDefault();
     const saveEmail = loginPage.querySelector('#email').value;
-    const savedPassword = loginPage.querySelector('#password').value;
+    savedPassword = loginPage.querySelector('#password').value;
     const validEmailFunc = allFunctions.validEmail(saveEmail);
     if (validEmailFunc === false) {
       loginPage.querySelector('#invalidEmail').innerHTML = 'Favor de ingresar correo válido.';
@@ -53,6 +53,7 @@ export const login = () => {
     e.preventDefault();
     onNavigate('/home');
   }); */
+  persistence(signIn);
 
   loginPage.querySelector('.openEye').addEventListener('click', () => {
     const returnPassword = loginPage.querySelector('#password');
