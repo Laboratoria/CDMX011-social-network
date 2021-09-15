@@ -1,8 +1,8 @@
 /* eslint-disable */
 
 import { onNavigate } from '../routes.js';
-import { modal, closeModal, showModal } from './ModalPost.js';
-import {logOutUser, onGetPost, getPost, updatePost, deletePost, savePost, addLikes, disLike, actualUser} from '../lib/fireBase.js';
+import { modal, closeModal, showModal, editPost } from './ModalPost.js';
+import { logOutUser, onGetPost, getPost, updatePost, deletePost,addLikes, savePost, disLike, actualUser } from '../lib/fireBase.js';
 //import { async } from 'regenerator-runtime';
 
 
@@ -24,9 +24,9 @@ export const toViewtimeline = (container) => {
     </nav> 
 
     <section class="TimeContainer" id="section">
-    <form  id="postForm">
-        <textarea text="textArea" class="textPost" id="textPost" rows="5" cols="40" maxlength="500" placeholder="Post something :)" required ></textarea><br>
-        <input type="submit" id="buttonNewPost"  value="Share" /> 
+    <form  id="postForm1">
+       <!-- <textarea text="textArea" class="textPost1" id="textPost1" rows="5" cols="40" maxlength="500" placeholder="Post something :)" required ></textarea><br>
+        <input type="submit" id="buttonNewPost"  value="Share" /> -->
         
     </form>
     <div class= "postContainer"  id = "postContainer"></div>
@@ -110,13 +110,15 @@ export const toViewtimeline = (container) => {
         <h2>${doc.data().textShare}</h2>
       </div>
       <hr id="blackLine">
-      <div class="usuarioPost">
-      <div class="likes"><input id='like' src='../img/emptylike.png'  data-id="${postData.id}" name="like" class='btn_like' type='image' value="${postData.id}"/> 
-      <p class="countLike">${postLikes} </p>
-      </div> 
+        <div class="usuarioPost">
+          <div class="likes"><input id='like' src='../img/emptylike.png'  data-id="${postData.id}" name="like" class='btn_like' type='image' value="${postData.id}"/>
+         
+        </div> 
+        <div class="countLike">${postLikes} </div>
       </div>
         </div>
         `;
+    
             const labelOptions = document.querySelectorAll(`.${postData.uid}`);//como mandarle id en lugar de nombre de clase 
             //console.log(labelOptions)
 
@@ -127,17 +129,6 @@ export const toViewtimeline = (container) => {
               })
               // document.getElementsByClassName("labelPost").style.display= "none";
             }
-            //to create a new post
-            const toNewPost = document.getElementById('newPost');
-            toNewPost.addEventListener('click', () => {
-              console.log('click evento');
-              showModal.style.visibility = "visible";
-            // container.innerHTML=`<div id="modal" class="modal"></div>`;
-              //llamar modal
-              modal();
-              closeModal();
-      
-            });
             
             //Borrar post//
             const btnDel = postContainer.querySelectorAll('.delete');
@@ -153,7 +144,7 @@ export const toViewtimeline = (container) => {
           const btnLike = postContainer.querySelectorAll('#like');
           btnLike.forEach(btn => {
             btn.addEventListener('click', (e) => {
-              e.preventDefault();
+              //e.preventDefault();
               //console.log(btn.value); //id de cada post al dar click al botón de like
             //  const likeArray =  postData.likes;
             //  console.log(likeArray);
@@ -188,61 +179,69 @@ export const toViewtimeline = (container) => {
           
            
           });
-
-    
-
-      
-
-
             //Editar post//
             const btnEdit = postContainer.querySelectorAll('.edit');
             btnEdit.forEach(btn => {
               btn.addEventListener('click', async (e) => {
                 const doc = await getPost(e.target.dataset.id);
-                console.log(getPost());
-
+                // console.log(getPost());
                 editStatus = true;
                 id = doc.id;
-
-                posting["textPost"].value = doc.data().textShare;
-                posting['buttonNewPost'].value = 'Update';
+                
+              showModal.style.visibility = "visible";
+              editPost(editStatus,doc.data().textShare, id );
+                
+                
+                // posting["textPost"].value = doc.data().textShare;
+                // posting['buttonNewPost'].value = 'Update';
               });
             });
 
-          
-          });
+        });  
+
+          //to create a new post
+            const toNewPost = document.getElementById('newPost');
+            toNewPost.addEventListener('click', () => {
+              console.log('click evento');
+              showModal.style.visibility = "visible";
+            // container.innerHTML=`<div id="modal" class="modal"></div>`;
+              //llamar modal
+              modal();
+              // closeModal();
+      
+            });
+    
     //Share post
-      posting.addEventListener('submit', async (e) => {
-      e.preventDefault();
+    //   posting.addEventListener('submit', async (e) => {
+    //   e.preventDefault();
 
-      //console.log("Share");
-      const textShare= posting['textPost'];
-      //console.log(textShare);
+    //   //console.log("Share");
+    //   const textShare= posting['textPost'];
+    //   //console.log(textShare);
 
-      if (!editStatus) {
-        await savePost(textShare.value);
-      } else {
-        await updatePost(id, {
-          textShare: textShare.value
-        });
+    //   if (!editStatus) {
+    //     await savePost(textShare.value);
+    //   } else {
+    //     await updatePost(id, {
+    //       textShare: textShare.value
+    //     });
 
-        editStatus = false;
-        id = '';
-        posting['buttonNewPost'].value = 'Share';
+    //     editStatus = false;
+    //     id = '';
+    //     posting['buttonNewPost'].value = 'Share';
 
-      };
+    //   };
 
 
-      posting.reset();
-      textShare.focus();
+    //   posting.reset();
+    //   textShare.focus();
 
-    }); 
+    // }); 
   
     }else {
           onNavigate('/');
         }
     
 
-      });
-    
-  }
+    });
+}
