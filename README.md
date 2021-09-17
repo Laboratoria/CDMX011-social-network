@@ -1,9 +1,9 @@
-# Creando una Red Social
+# Creando una Red Social : PIC&ART
 
 ## Índice
 
-* [1. Preámbulo](#1-preámbulo)
-* [2. Resumen del proyecto](#2-resumen-del-proyecto)
+* [1. Resumen del proyecto]
+* [2. Definición del producto]
 * [3. Objetivos de aprendizaje](#3-objetivos-de-aprendizaje)
 * [4. Consideraciones generales](#4-consideraciones-generales)
 * [5. Criterios de aceptación mínimos del proyecto](#5-criterios-de-aceptación-mínimos-del-proyecto)
@@ -11,20 +11,16 @@
 * [7. Entrega](#7-entrega)
 * [8. Pistas, tips y lecturas complementarias](#8-pistas-tips-y-lecturas-complementarias)
 
-## 1. Preámbulo
+## 1. Resumen del proyecto
 
-Instagram, Snapchat, Twitter, Facebook, Twitch, Linkedin, etc. Las redes
-sociales han invadido nuestras vidas. Las amamos u odiamos, y muchos no podemos
-vivir sin ellas.
+Red social dirigida a artistas de cualquier tipo, donde pueden compartir ideas, proyectos, creaciones, exposiciones y puedan sentirse parte de una comunidad ideal para ellos, así como para cualquier .
 
-Hay redes sociales de todo tipo y para todo tipo de intereses. Por ejemplo,
-en una ronda de financiamiento con inversionistas, se presentó una red social
-para químicos en la que los usuarios podían publicar artículos sobre sus
-investigaciones, comentar en los artículos de sus colegas, y filtrar artículos
-de acuerdo a determinadas etiquetas o su popularidad, lo más reciente, o lo
-más comentado.
+Elaborada por: 
+ - Flor Angelica Jardinez Hernandez
+ - Nancy Janet Díaz Menchaca
+ - Paola Colette Ordoñez Rodríguez 
 
-## 2. Resumen del proyecto
+## 2. Definición del producto
 
 En este proyecto construirás una Red Social sobre lo que decidan tú y tu equipo.
 Podría ser, por ejemplo, sobre alimentación saludable, feminismo, educación,
@@ -40,11 +36,11 @@ El objetivo principal de aprendizaje de este proyecto es construir una
 [_responsive_](https://curriculum.laboratoria.la/es/topics/css/02-responsive) (con más de una vista / página)
 en la que podamos **leer y escribir datos**.
 
-## 3. Objetivos de aprendizaje
+## 3. Historias de Usuario
 
 Reflexiona y luego marca los objetivos que has llegado a entender y aplicar en tu proyecto. Piensa en eso al decidir tu estrategia de trabajo.
 
-### HTML
+## 4. Prototipos
 
 - [ ] **Uso de HTML semántico**
 
@@ -54,7 +50,7 @@ Reflexiona y luego marca los objetivos que has llegado a entender y aplicar en t
   * [Semantics - MDN Web Docs Glossary](https://developer.mozilla.org/en-US/docs/Glossary/Semantics#Semantics_in_HTML)
 </p></details>
 
-### CSS
+### Vista final
 
 - [ ] **Uso de selectores de CSS**
 
