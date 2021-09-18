@@ -2,8 +2,8 @@
 
 ## Índice
 
-* [1. Resumen del proyecto]
-* [2. Definición del producto]
+* [1. Resumen del proyecto](#1-resumen-del-proyecto)
+* [2. Definición del producto] (#2-definición-del-producto)
 * [3. Objetivos de aprendizaje](#3-objetivos-de-aprendizaje)
 * [4. Consideraciones generales](#4-consideraciones-generales)
 * [5. Criterios de aceptación mínimos del proyecto](#5-criterios-de-aceptación-mínimos-del-proyecto)
@@ -32,9 +32,18 @@ Reflexiona y luego marca los objetivos que has llegado a entender y aplicar en t
 
 ## 4. Prototipos
 
-Con base en las primeras tres historias de usuario, se diseñaron prototipos de alta fidelidad para su iteración, mediante consultas a diferentes usuarios.
+Con base en las primeras tres historias de usuario, página de bienvenida, registro e inicio de sesión, se diseñaron prototipos de baja fidelidad para su iteración.
 
 <img src="./src/img-readme/prot-baja-fid-1.jpeg" alt="protipo-baja-fidelidad-1"/>
+
+Posteriormente, con la herramienta Figma se diseñaron los prototipos de alta fidelidad donde se propuso el siguiente diseño:  
+
+<img src="./src/img-readme/prot-alta-fid-1.jpeg" alt="protipo-alta-fidelidad-1"/>
+
+Después de consultarlo con diferentes usuarios y tomando en cuenta sus comentarios, se modificó el diseño final:
+
+<img src="./src/img-readme/prot-alta-fid-2.jpeg" alt="protipo-alta-fidelidad-2"/>
+
 
 ### Vista final
 
