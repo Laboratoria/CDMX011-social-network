@@ -3,7 +3,7 @@
 ## Índice
 
 * [1. Resumen del proyecto](#1-resumen-del-proyecto)
-* [2. Definición del producto] (#2-definición-del-producto)
+* [2. Definición del producto](#2-definición-del-producto)
 * [3. Objetivos de aprendizaje](#3-objetivos-de-aprendizaje)
 * [4. Consideraciones generales](#4-consideraciones-generales)
 * [5. Criterios de aceptación mínimos del proyecto](#5-criterios-de-aceptación-mínimos-del-proyecto)
@@ -13,7 +13,7 @@
 
 ## 1. Resumen del proyecto
 
-Red social dirigida a artistas de cualquier tipo, donde pueden compartir ideas, proyectos, creaciones, exposiciones y puedan sentirse parte de una comunidad ideal para ellos, así como para cualquier .
+Red social dirigida a artistas de cualquier tipo, donde pueden compartir ideas, proyectos, creaciones, exposiciones y puedan sentirse parte de una comunidad ideal para ellos, así como para cualquier amante del arte en general.
 
 Elaborada por: 
  - Flor Angelica Jardinez Hernandez
@@ -32,7 +32,7 @@ Reflexiona y luego marca los objetivos que has llegado a entender y aplicar en t
 
 ## 4. Prototipos
 
-Con base en las primeras tres historias de usuario, página de bienvenida, registro e inicio de sesión, se diseñaron prototipos de baja fidelidad para su iteración.
+Con base en las primeras tres historias de usuario (página de bienvenida, registro e inicio de sesión), se diseñaron prototipos de baja fidelidad para su iteración.
 
 <img src="./src/img-readme/prot-baja-fid-1.jpeg" alt="protipo-baja-fidelidad-1"/>
 
@@ -42,38 +42,18 @@ Posteriormente, con la herramienta Figma se diseñaron los prototipos de alta fi
 
 Después de consultarlo con diferentes usuarios y tomando en cuenta sus comentarios, se modificó el diseño final:
 
-<img src="./src/img-readme/prot-alta-fid-2.jpeg" alt="protipo-alta-fidelidad-2"/>
-
+<img src="./src/img-readme/prot-alta-fid-2.png" alt="protipo-alta-fidelidad-2"/>
 
 ### Vista final
+Vista final de la interfaz para dispositivos móviles:
 
-- [ ] **Uso de selectores de CSS**
+<img src="./src/img-readme/final-view.png" alt="interfaz-móviles"/>
 
-  <details><summary>Links</summary><p>
+Interfaz para computadoras: 
 
-  * [Intro a CSS](https://curriculum.laboratoria.la/es/topics/css/01-css/01-intro-css)
-  * [CSS Selectors - MDN](https://developer.mozilla.org/es/docs/Web/CSS/CSS_Selectors)
-</p></details>
-
-- [ ] **Modelo de caja (box model): borde, margen, padding**
-
-  <details><summary>Links</summary><p>
-
-  * [Box Model & Display](https://curriculum.laboratoria.la/es/topics/css/01-css/02-boxmodel-and-display)
-  * [The box model - MDN](https://developer.mozilla.org/en-US/docs/Learn/CSS/Building_blocks/The_box_model)
-  * [Introduction to the CSS box model - MDN](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Box_Model/Introduction_to_the_CSS_box_model)
-  * [CSS display - MDN](https://developer.mozilla.org/pt-BR/docs/Web/CSS/display)
-  * [display - CSS Tricks](https://css-tricks.com/almanac/properties/d/display/)
-</p></details>
-
-- [ ] **Uso de flexbox en CSS**
-
-  <details><summary>Links</summary><p>
-
-  * [A Complete Guide to Flexbox - CSS Tricks](https://css-tricks.com/snippets/css/a-guide-to-flexbox/)
-  * [Flexbox Froggy](https://flexboxfroggy.com/#es)
-  * [Flexbox - MDN](https://developer.mozilla.org/en-US/docs/Learn/CSS/CSS_layout/Flexbox)
-</p></details>
+<img src="./src/img-readme/final-view-deskt-1.png" alt="interfaz-desktop-home"/>
+<img src="./src/img-readme/final-view-deskt-2.png" alt="interfaz-desktop-login"/>
+<img src="./src/img-readme/final-view-deskt-3.png" alt="interfaz-desktop-signup"/>
 
 ### Web APIs
 
