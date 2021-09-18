@@ -22,19 +22,9 @@ Elaborada por:
 
 ## 2. Definición del producto
 
-En este proyecto construirás una Red Social sobre lo que decidan tú y tu equipo.
-Podría ser, por ejemplo, sobre alimentación saludable, feminismo, educación,
-salud, energías renovables, amantes de las [Empanadas](https://es.wikipedia.org/wiki/Empanada)
-o de los [Tacos de Canasta](https://es.wikipedia.org/wiki/Taco), de la
-[Feijoada](https://es.wikipedia.org/wiki/Feijoada), o de lo que sea.
-
-Tu Red Social tendrá que permitir a cualquier usuario crear una cuenta de
-acceso y loguearse con ella; crear, editar, borrar y _"likear"_ publicacciones.
-
-El objetivo principal de aprendizaje de este proyecto es construir una
-[Single-page Application (SPA)](https://es.wikipedia.org/wiki/Single-page_application)
-[_responsive_](https://curriculum.laboratoria.la/es/topics/css/02-responsive) (con más de una vista / página)
-en la que podamos **leer y escribir datos**.
+Se realizó  una red social dirigida a artistas y público en general interesados en este tema, consistió en construir una single page aplication (SPA) donde los contenidos cargaran de una manera más fluida y sencilla para el usuario, sin necesidad de tener que redirigir a otras páginas en todo momento. Además de ser ua aplicación responsiva, se puede interactuar con ella desde dispositivos móviles y computadoras.
+Esta permite registrarse con cualquier cuenta de correo electrónico, así como iniciar sesión de forma directa con cuentas de Google y GitHub. 
+En la sección del muro se observan las publicaciones de otros usuarios y las propias, se pueden dar y quitar likes de estas, además de crear, editar y eliminar los post del usuario que ha iniciado sesión en la red.
 
 ## 3. Historias de Usuario
 
@@ -42,13 +32,9 @@ Reflexiona y luego marca los objetivos que has llegado a entender y aplicar en t
 
 ## 4. Prototipos
 
-- [ ] **Uso de HTML semántico**
+Con base en las primeras tres historias de usuario, se diseñaron prototipos de alta fidelidad para su iteración, mediante consultas a diferentes usuarios.
 
-  <details><summary>Links</summary><p>
-
-  * [HTML semántico](https://curriculum.laboratoria.la/es/topics/html/02-html5/02-semantic-html)
-  * [Semantics - MDN Web Docs Glossary](https://developer.mozilla.org/en-US/docs/Glossary/Semantics#Semantics_in_HTML)
-</p></details>
+<img src="./src/img-readme/prot-baja-fid-1.jpeg" alt="protipo-baja-fidelidad-1"/>
 
 ### Vista final
 
