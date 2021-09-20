@@ -4,7 +4,7 @@ import { onNavigate } from '../routes.js';
 import { register } from '../lib/fireBase.js';
 
 export const toViewSignUp = (container) => {
-    console.log('Estoy en signUp')
+    //console.log('Estoy en signUp')
 
     const html = ` <div class = "homeContainer">
     <section class='container signup-form'>
@@ -15,7 +15,7 @@ export const toViewSignUp = (container) => {
         <br><label value='password'>Password*</label>
         <input id='singUpPassword' type='password' placeholder='Password' required/>
         <input src='../img/eye.png' id='viewPass' type='image' />
-        <br><input type='submit' class='btn_log signup' id="btnSignUp" value='SIGN UP' /><br>
+        <br><br><input type='submit' class='btn_log signup' id="btnSignUp" value='SIGN UP' /><br>
         <p class="error"></p> 
         <br>
         <br>

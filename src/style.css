@@ -26,7 +26,7 @@
 }
 
 .container {
-    
+
     position: relative;
     width: 260px;
     height: 450px;
@@ -52,14 +52,14 @@
   }
    .menu{
     display: none;
-  }  
+  }
   .menu:checked  ~ ul{
     display:block;
   }
 .labelPost {
     box-sizing: border-box;
-    display: block;
-    /* display: inline-block; */
+    visibility: visibility;
+    display: inline-block; 
     /* border: .1px solid rgb(255, 255, 255); */
     color: rgb(17, 17, 17);
     width: 30px;
@@ -70,38 +70,48 @@
     text-align: center;
     user-select: none;
   }
- 
+
   /* Estilo del boton cuando el menú está expandido*/
-  
+
   .menuToPost > li {
     display: block;
-    background: lightgrey;
+    background: #000;
     margin: 0;
-    padding: 10px;
+    align-items: center;
     list-style: none;
-    border-bottom: 1px solid grey;
+    padding-left: 3px;
+    border: 3px solid rgb(189, 37, 163);
+    transition: all .2s ease;
+    border-radius: 5px;
+    font-family: 'Source Sans Pro', sans-serif;
   }
-  /* ul{
+  ul{
     margin-top:0;
     padding: 0;
     /*width: 80px;*/
-    /* margin-right: 10px;
-  }/*
-  */
-  
+    margin-right: 10px;
+  }
+
+
+
   /*Estilo cuando el mouse pasa encima de cada link del menu*/
   li:hover {
     filter: brightness(110%);
+    border: 3px solid rgb(245, 177, 233);
   }
-  
+
   .btn_delete, .btn_edit{
-    width: 50px;
+    width: 30px;
     height: auto;
-    background: lightgrey;
+    background: black;
+    color: #fff;
     border: none;
+    font-family: 'Source Sans Pro', sans-serif;
+    padding: 5px;
+    font-size: medium;
 }
-  
-  
+
+
 .container a {
     text-decoration: none;
     color: #fff;
@@ -121,7 +131,7 @@
     color:rgb(252, 140, 140);
     font-size: 14px;
     background-color: #000;
-    
+
 }
 
 
@@ -148,7 +158,7 @@ input {
     width: 18px;
     padding: 2px 3px;
     border-radius: 8px;
-    
+
 }
 
 
@@ -195,6 +205,7 @@ margin: 0px;
 /*BOTONES*/
 
 .btn_log {
+    /* display: inline-flex; */
     position: static;
     align-self: center;
     width: 150px;
@@ -225,17 +236,39 @@ margin: 0px;
 
 
 #toGoogle {
-    border: 3px solid rgb(219, 188, 46);
-    box-shadow: rgba(235, 206, 43, 0.4) 5px 5px 10px;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    border: 3px solid #FDDA16;
+    box-shadow: rgb(235 206 43 / 40%) 5px 5px 10px;
     width: 150px;
+    flex-direction: row;
 }
 
 #toGitHub {
     border: 3px solid rgb(194, 192, 183);
     box-shadow: rgba(170, 170, 168, 0.4) 5px 5px 10px;
     width: 150px;
+    display: inline-flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
 }
-
+ /* #toGoogle2{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    text-align: center;
+    align-self: center;
+    width: 150px;
+    height: 27px;
+}  */
+#googleImg , #gitHubImg{
+    display: inline-block;
+    margin-left: 5px;
+    width: 20px;
+    height: 20px;
+}
 
 
 /*TIMELINE CSS*/
@@ -246,7 +279,7 @@ margin: 0px;
     outline: none;
     padding:5px 5px;
     margin: 0px 0px;
-    
+
 }
 .post-box{
 
@@ -255,13 +288,13 @@ margin: 0px;
 }
 div.post-box{
     display: flex;
-    flex-direction: column; 
+    flex-direction: column;
     align-content: center;
     background-color: #000;
     width: 400px;
     -ms-flex-align: center;
     justify-content: center;
-    
+
 }
 .post_container {
     display: flex;
@@ -281,24 +314,27 @@ div.post-box{
     /*align-items: center;*/
     padding-left:10px;
     font-size: 1rem;
-    font-family:Georgia, 'Times New Roman', Times, serif;
+    font-family: 'Source Sans Pro', sans-serif;
   }
   .postText{
    margin: 0px;/*10px*/
    height: auto;
    padding: 0px 15px;
    background: lightgrey;
-  
+   font-family: 'Source Sans Pro', sans-serif;
+
   }
   .usuarioPost{
-      align-content: flex-end;
-    display:flex;
-    flex-direction:row-reverse;
-    justify-content:space-between;
-    padding-right: 3vh;/*15px*/
-    padding-left:250px;
+    align-content: flex-end;
+    align-items: stretch;
+    display: flex;
+    height: auto;
+    /*justify-content:space-between;*/
+    /* padding-right: 3vh;15px */
+    padding-left:245px; 
     font-size: 1rem;
   }
+
   .user{
       line-height: 5px;
       margin-top: 0px;
@@ -320,9 +356,17 @@ div.post-box{
     margin-top: 5px;
     padding: 0px 3px;
     height: 3.5vh;
+    display: flex;
 }
 
-  
+div.countLike {
+    display: flex;
+    margin-top: 7px;
+    margin-left: 2px;
+    flex-direction: row-reverse;
+}
+
+
 div#postContainer.postContainer{
     display: flex;
     flex-direction: column;
@@ -353,7 +397,7 @@ footer {
     bottom: 0px;
     right:0px;
 }
-#postForm{ 
+#postForm, #postEditForm{
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -370,7 +414,7 @@ footer {
     border: none;
     width: 75.3vw;
     background: lightgrey;
-   
+
 }
 textarea#textPost.textPost{
     padding: 10px 10px;
@@ -380,16 +424,14 @@ textarea#textPost.textPost{
     background-color:#1FACFC;
     border: none;
     margin-top: 75px;
-    margin-left: 6.9%;
+    margin-left: 9.2%;
     border-top-right-radius: 0px;
     border-top-left-radius: 0px;
     height: 3.3vh;
     width: 81.5vw;
-    
     font-size: 16px;
-    
-    
 }
+
 
 /*.btn_post{
     width: 16vw;
@@ -402,7 +444,7 @@ textarea#textPost.textPost{
     }*/
     .btn_mas{
         width: 100%;
-        height: 7.5vh;   
+        height: 7.5vh;
         padding: 0px;
         background-color: #3E3E3E;
     }
@@ -427,14 +469,14 @@ textarea#textPost.textPost{
 	background-color: rgb(0,0,0); /* Fallback color */
 	background-color: rgba(0, 0, 0, 0.479); /* Black w/ opacity */
 	overflow: auto; /* Enable scroll if needed */
-	
+
   }
   /* Modal Content */
 
   .modal-content {
 	position:absolute;
-	background-color: #fefefe;
-    margin: 20vh 0px;  
+	background-color: #65727c;
+    margin: 20vh 0px;
 	padding: 0;
 	border: 1px solid #888;
 	 /* width: 80%;  */
@@ -444,21 +486,21 @@ textarea#textPost.textPost{
     -webkit-animation-name: animatetop;
 	-webkit-animation-duration: 0.4s;
 	animation-name: animatetop;
-	animation-duration: 0.4s; 
-	
+	animation-duration: 0.4s;
+
   }
-  
+
   /* Add Animation */
    @-webkit-keyframes animatetop {
-	from {top:-300px; opacity:0} 
+	from {top:-300px; opacity:0}
 	to {top:0; opacity:1}
   }
-  
+
   @keyframes animatetop {
 	from {top:-300px; opacity:0}
 	to {top:0; opacity:1}
-  } 
-  
+  }
+
   /* The Close Button */
   .close {
 	color: white;
@@ -466,20 +508,20 @@ textarea#textPost.textPost{
 	font-size: 28px;
 	font-weight: bold;
   }
-  
+
   .close:hover,
   .close:focus {
 	color: #000;
 	text-decoration: none;
 	cursor: pointer;
   }
-  
+
   .modal-header {
 	padding: 2px 16px;
-	background-color: #143dd0d2;
+	background-color: #212121;
 	color: white;
   }
-  
+
 
   .modal-footer {
 	padding: 2px 16px;
@@ -494,9 +536,9 @@ textarea#textPost.textPost{
 /*cuando la pantalla es mayor a 700px (desktop y tablet)*/
 
 @media screen and (min-width: 700px) {
-    /* body {
+    /*body {
         background: url("./img/wallpaper.png");
-    } */
+    }*/
     .root {
         width: 900px;
         height: auto;
@@ -510,9 +552,10 @@ textarea#textPost.textPost{
         color: #fff;
         mix-blend-mode: normal;
         display: flex;
+        flex-direction: column;
         margin: auto;
         padding: 10px;
-        margin-bottom: 5px;
+        
     }
     p {
         padding-left: 0px;
@@ -525,6 +568,19 @@ textarea#textPost.textPost{
         height: 50%;
         float: left;
         margin-left: 20px;
+    }
+
+    .headTimeline{
+        height: 90px;
+    }
+
+    .iconApp{
+        position: relative;
+        align-self: flex-start;
+        width: 15%;
+    height: 90%;
+        padding-top: 10px;
+    
     }
 
     .content {
@@ -555,7 +611,7 @@ textarea#textPost.textPost{
         display: flex;
         align-self: center;
         flex-direction: column;
-        background-color: #fff;
+        background-color: #979797;
         border-radius: 10px;
         margin: 10px;
         border: solid 2px rgb(0, 0, 0);
@@ -572,5 +628,45 @@ textarea#textPost.textPost{
     }
     .TextArea {
         align-content: center;
+    }
+    .postHeader, .postText {
+        width: 520px;
+        margin: 0px;
+        font-family: 'Source Sans Pro', sans-serif;
+    }
+    .usuarioPost{
+        display: flex;
+        padding-left:490px; 
+    }
+
+    /* CSS Responsive Modal */
+    .modal {
+        align-content: center;
+    padding-left: 375px;
+    }
+    .modal-header, .modal-content {
+        width: 600px;
+        align-self: center;
+    }
+    #postForm {
+        width: 700px;
+        align-self: center;
+    }
+    #buttonNewPost {
+        width: 560px;
+        align-self: center;
+        margin-left: -100px;
+    }
+    #textPost {
+        margin-left: 20px;
+    }
+    .btn_mas{
+        position: fixed;
+        width: 55px;
+        height: 55px;
+        line-height: 50px;
+        bottom: 65px;
+        right: 40px;
+        background: none;
     }
 }

@@ -5,7 +5,7 @@ import { onNavigate } from '../routes.js';
 export { onNavigate } from '../routes.js';
 
 export const toViewLogIn = (container) => {
-    console.log('Estoy en LogIn');
+    //console.log('Estoy en LogIn');
     const html = ` 
     <div class = "homeContainer">
     <section class='container logIn-form'>
@@ -47,13 +47,13 @@ export const toViewLogIn = (container) => {
  
     const logInForm = document.querySelector('#logInForm');
     logInForm.addEventListener('submit', (e) => {
-        console.log('debug 1')
+        //console.log('debug 1')
 
         const emailUser = document.querySelector('#logInEmail').value;
         const passwordUser = document.querySelector('#logInPassword').value;
         logIn(emailUser, passwordUser)
             .then(() => {
-            console.log('debug 2')
+            //console.log('debug 2')
             onNavigate('/TimeLine');
             })
             .catch((error) => {
@@ -65,7 +65,7 @@ export const toViewLogIn = (container) => {
 
     document.querySelector("#logInForm").addEventListener('submit', (e) => {
         e.preventDefault()
-        console.log("estoy evitando el reset")
+        //console.log("estoy evitando el reset")
         //onNavigate('/TimeLine')
     });
 
