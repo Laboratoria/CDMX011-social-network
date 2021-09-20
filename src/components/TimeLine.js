@@ -183,7 +183,7 @@ export const toViewtimeline = (container) => {
                 id = doc.id;
                 
               showModal.style.visibility = "visible";
-              editPost(true,doc.data().textShare, id );
+              editPost(doc.data().textShare, id );
              closeModal();
                 
                 // posting["textPost"].value = doc.data().textShare;
