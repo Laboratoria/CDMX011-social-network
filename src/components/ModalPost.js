@@ -2,28 +2,36 @@
 //crear modal
 export const showModal = document.getElementById("modal");
 import { updatePost, savePost } from '../lib/fireBase.js';
-import { onNavigate } from './LogIn.js';
-// import {postContainer} from './TimeLine.js';
-// const showModal = document.getElementsByClassName("TimeContainer");
-///modal
-export const modal = (id) => {
+
+
+const createModal = () => {
   showModal.innerHTML += `
-    <div class="modal-content">
-    <div class="modal-header">
-      <span class="close">&times;</span>
-      <h1>Post something :)</h1>
-    </div>
-    <div class="description">
-    <form  id="postForm" >
-    <textarea text="textArea" class="textPost" id="textPost" rows="5" cols="40" maxlength="500" placeholder="Post something :)"></textarea><br>
-    <input type="submit" id="buttonNewPost"  value="Share" />   
-</form>
-    </div>
+  <div class="modal-content">
+  <div class="modal-header">
+    <span class="close">&times;</span>
+    <h1>Post something :)</h1>
   </div>
-    `
+  <div class="description" id="insertHere">
+  
+  </div>
+</div>
+  `
+}
+
+
+export const modal = () => {
+
+  createModal();
+
+  const formShare = document.getElementById('insertHere');
+
+  formShare.innerHTML = `<form  id="postForm" >
+  <textarea text="textArea" class="textPost" id="textPost" rows="5" cols="40" maxlength="500" placeholder="Post something :)"></textarea><br>
+  <input type="submit" id="buttonNewPost"  value="Share" />   
+</form>`;
+
   let btnView = document.querySelectorAll('#postForm');
   console.log(btnView);
-  const posting = document.getElementById('postForm');
 
 
   btnView.forEach(function (posting) {
@@ -46,53 +54,49 @@ export const modal = (id) => {
 }
 let span;
 
-export const editPost = ( text, id) => {
-  console.log('entro a modal');
-  showModal.innerHTML += `
-    <div class="modal-content">
-    <div class="modal-header">
-      <span class="close" ">&times;</span>
-      <h1>Post something</h1>
-    </div>
-    <div class="description">
-    <form  id="postEditForm">
-    <textarea text="textArea" class="textPost" id="textPost" rows="5" cols="40" maxlength="500" placeholder="Post something :)">${text}</textarea><br>
-    <input type="submit" id="buttonNewPost"  value="Update" />   
-</form>
-    </div>
-  </div>
-    `
-  const editPosting = document.getElementById('postEditForm');
+export const editPost = (text, id) => {
+  createModal();
 
-  editPosting.addEventListener('submit', async (e) => {
-    e.preventDefault();
+  const formEdit = document.getElementById('insertHere');
 
-    const textShare = editPosting['textPost'];
+  formEdit.innerHTML = `<form  id="postForm" >
+  <textarea text="textArea" class="textPost" id="textPost" rows="5" cols="40" maxlength="500" placeholder="Post something :)">${text}</textarea><br>
+  <input type="submit" id="buttonNewPost"  value="Share" />   
+</form>`;
 
-    await updatePost(id, {
+  let editPosting = document.querySelectorAll('#postForm');
+  console.log(editPosting);
 
-      textShare: textShare.value
+  editPosting.forEach(editPost => {
+    editPost.addEventListener('submit', async (e) => {
+      e.preventDefault();
+
+      const textShare = editPost['textPost'];
+
+      await updatePost(id, {
+
+        textShare: textShare.value
+      });
+
+
+
+
+      editPost.reset();
+      textShare.focus();
+      showModal.style.visibility = "hidden";
     });
-
-
-
-
-    editPosting.reset();
-    textShare.focus();
-    showModal.style.visibility = "hidden";
   });
-
 }
 
 export const closeModal = () => {
 
-   span = document.querySelectorAll(".close");
-   console.log(span)
-   span.forEach(function (close) {
-  close.addEventListener('click', function () {
-    showModal.style.visibility = "hidden";
+  span = document.querySelectorAll(".close");
+  console.log(span)
+  span.forEach(function (close) {
+    close.addEventListener('click', function () {
+      showModal.style.visibility = "hidden";
+    })
   })
-   })
   window.onclick = function (event) {// When the user clicks anywhere outside of the modal, close it
 
     if (event.target == showModal) {
