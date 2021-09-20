@@ -48,7 +48,7 @@ export const toViewtimeline = (container) => {
   firebase.auth().onAuthStateChanged((getUser) => {
 
     if (getUser) {
-    let editStatus = false;
+    // let editStatus = false;
     let id = '';
     container.innerHTML = html
 
@@ -183,7 +183,7 @@ export const toViewtimeline = (container) => {
                 id = doc.id;
                 
               showModal.style.visibility = "visible";
-              editPost(true,doc.data().textShare, id );
+              editPost(doc.data().textShare, id );
              closeModal();
                 
                 // posting["textPost"].value = doc.data().textShare;
@@ -212,33 +212,7 @@ export const toViewtimeline = (container) => {
               onNavigate('/TimeLine');
             })
     
-    //Share post
-    //   posting.addEventListener('submit', async (e) => {
-    //   e.preventDefault();
-
-    //   //console.log("Share");
-    //   const textShare= posting['textPost'];
-    //   //console.log(textShare);
-
-    //   if (!editStatus) {
-    //     await savePost(textShare.value);
-    //   } else {
-    //     await updatePost(id, {
-    //       textShare: textShare.value
-    //     });
-
-    //     editStatus = false;
-    //     id = '';
-    //     posting['buttonNewPost'].value = 'Share';
-
-    //   };
-
-
-    //   posting.reset();
-    //   textShare.focus();
-
-    // }); 
-  
+    
     }else {
           onNavigate('/');
         }
