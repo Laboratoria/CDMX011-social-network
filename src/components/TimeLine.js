@@ -132,13 +132,13 @@ export const toViewtimeline = (container) => {
             }
             
             //Borrar post//
-            const btnDel = postContainer.querySelectorAll('.delete');
-            btnDel.forEach(btn => {
-              btn.addEventListener('click', async (e) => {
-                //console.log(e.target.dataset.id);// es el ID del post clickeado
-                await deletePost(e.target.dataset.id);
-              });
-            });
+            // const btnDel = postContainer.querySelectorAll('.delete');
+            // btnDel.forEach(btn => {
+            //   btn.addEventListener('click', async (e) => {
+            //     //console.log(e.target.dataset.id);// es el ID del post clickeado
+            //     await deletePost(e.target.dataset.id);
+            //   });
+            // });
 
             //Botón like//
                    
@@ -176,20 +176,20 @@ export const toViewtimeline = (container) => {
      
 
             //Editar post//
-            const btnEdit = postContainer.querySelectorAll('.edit');
-            btnEdit.forEach(btn => {
-              btn.addEventListener('click', async (e) => {
-                const doc = await getPost(e.target.dataset.id);
-                id = doc.id;
+            // const btnEdit = postContainer.querySelectorAll('.edit');
+            // btnEdit.forEach(btn => {
+            //   btn.addEventListener('click', async (e) => {
+            //     const doc = await getPost(e.target.dataset.id);
+            //     id = doc.id;
                 
-              showModal.style.visibility = "visible";
-              editPost(doc.data().textShare, id );
-             closeModal();
+            //   showModal.style.visibility = "visible";
+            //   editPost(doc.data().textShare, id );
+            //  closeModal();
                 
-                // posting["textPost"].value = doc.data().textShare;
-                // posting['buttonNewPost'].value = 'Update';
-              });
-            });
+            //     // posting["textPost"].value = doc.data().textShare;
+            //     // posting['buttonNewPost'].value = 'Update';
+            //   });
+            // });
 
         });  });
 
