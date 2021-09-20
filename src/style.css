@@ -58,8 +58,8 @@
   }
 .labelPost {
     box-sizing: border-box;
-    display: block;
-    /* display: inline-block; */
+    visibility: visibility;
+    display: inline-block; 
     /* border: .1px solid rgb(255, 255, 255); */
     color: rgb(17, 17, 17);
     width: 30px;
@@ -396,7 +396,7 @@ footer {
     bottom: 0px;
     right:0px;
 }
-#postForm{
+#postForm, #postEditForm{
     display: flex;
     flex-direction: column;
     justify-content: center;
