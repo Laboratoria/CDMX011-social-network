@@ -75,11 +75,15 @@
 
   .menuToPost > li {
     display: block;
-    background: lightgrey;
+    background: #000;
     margin: 0;
-    padding: 10px;
+    align-items: center;
     list-style: none;
-    border-bottom: 1px solid grey;
+    padding-left: 3px;
+    border: 3px solid rgb(189, 37, 163);
+    transition: all .2s ease;
+    border-radius: 5px;
+    font-family: 'Source Sans Pro', sans-serif;
   }
   ul{
     margin-top:0;
@@ -92,13 +96,18 @@
   /*Estilo cuando el mouse pasa encima de cada link del menu*/
   li:hover {
     filter: brightness(110%);
+    border: 3px solid rgb(245, 177, 233);
   }
 
   .btn_delete, .btn_edit{
-    width: 50px;
+    width: 30px;
     height: auto;
-    background: lightgrey;
+    background: black;
+    color: #fff;
     border: none;
+    font-family: 'Source Sans Pro', sans-serif;
+    padding: 5px;
+    font-size: medium;
 }
 
 
@@ -304,24 +313,27 @@ div.post-box{
     /*align-items: center;*/
     padding-left:10px;
     font-size: 1rem;
-    font-family:Georgia, 'Times New Roman', Times, serif;
+    font-family: 'Source Sans Pro', sans-serif;
   }
   .postText{
    margin: 0px;/*10px*/
    height: auto;
    padding: 0px 15px;
    background: lightgrey;
+   font-family: 'Source Sans Pro', sans-serif;
 
   }
   .usuarioPost{
-      align-content: flex-end;
-    display:flex;
-    flex-direction:row-reverse;
-    justify-content:space-between;
-    padding-right: 3vh;/*15px*/
-    padding-left:250px;
+    align-content: flex-end;
+    align-items: stretch;
+    display: flex;
+    height: auto;
+    /*justify-content:space-between;*/
+    /* padding-right: 3vh;15px */
+    padding-left:245px; 
     font-size: 1rem;
   }
+
   .user{
       line-height: 5px;
       margin-top: 0px;
@@ -343,6 +355,14 @@ div.post-box{
     margin-top: 5px;
     padding: 0px 3px;
     height: 3.5vh;
+    display: flex;
+}
+
+div.countLike {
+    display: flex;
+    margin-top: 7px;
+    margin-left: 2px;
+    flex-direction: row-reverse;
 }
 
 
@@ -515,9 +535,9 @@ textarea#textPost.textPost{
 /*cuando la pantalla es mayor a 700px (desktop y tablet)*/
 
 @media screen and (min-width: 700px) {
-    /* body {
+    /*body {
         background: url("./img/wallpaper.png");
-    } */
+    }*/
     .root {
         width: 900px;
         height: auto;
@@ -531,9 +551,10 @@ textarea#textPost.textPost{
         color: #fff;
         mix-blend-mode: normal;
         display: flex;
+        flex-direction: column;
         margin: auto;
         padding: 10px;
-        margin-bottom: 5px;
+        
     }
     p {
         padding-left: 0px;
@@ -546,6 +567,19 @@ textarea#textPost.textPost{
         height: 50%;
         float: left;
         margin-left: 20px;
+    }
+
+    .headTimeline{
+        height: 90px;
+    }
+
+    .iconApp{
+        position: relative;
+        align-self: flex-start;
+        width: 15%;
+    height: 90%;
+        padding-top: 10px;
+    
     }
 
     .content {
@@ -576,7 +610,7 @@ textarea#textPost.textPost{
         display: flex;
         align-self: center;
         flex-direction: column;
-        background-color: #fff;
+        background-color: #979797;
         border-radius: 10px;
         margin: 10px;
         border: solid 2px rgb(0, 0, 0);
@@ -593,5 +627,45 @@ textarea#textPost.textPost{
     }
     .TextArea {
         align-content: center;
+    }
+    .postHeader, .postText {
+        width: 520px;
+        margin: 0px;
+        font-family: 'Source Sans Pro', sans-serif;
+    }
+    .usuarioPost{
+        display: flex;
+        padding-left:490px; 
+    }
+
+    /* CSS Responsive Modal */
+    .modal {
+        align-content: center;
+    padding-left: 375px;
+    }
+    .modal-header, .modal-content {
+        width: 600px;
+        align-self: center;
+    }
+    #postForm {
+        width: 700px;
+        align-self: center;
+    }
+    #buttonNewPost {
+        width: 560px;
+        align-self: center;
+        margin-left: -100px;
+    }
+    #textPost {
+        margin-left: 20px;
+    }
+    .btn_mas{
+        position: fixed;
+        width: 55px;
+        height: 55px;
+        line-height: 50px;
+        bottom: 65px;
+        right: 40px;
+        background: none;
     }
 }
