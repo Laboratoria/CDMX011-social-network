@@ -11,7 +11,7 @@ exports[`Colección de test en logIn Should render in logIn 1`] = `
         <br><label class=\\"title\\" value=\\"password\\">Password</label>
         <input id=\\"logInPassword\\" type=\\"password\\" placeholder=\\"Password\\" required=\\"\\">
         <input src=\\"../img/eye.png\\" id=\\"viewPass\\" type=\\"image\\">
-        <input src=\\"../img/hide.png\\" id=\\"hidePass\\" display=\\"block\\" type=\\"image\\"><br>
+        <br>
         <br><input type=\\"submit\\" class=\\"btn_log login\\" id=\\"btnLogIn\\" value=\\"LOG IN\\"><br>
         <p class=\\"error\\"></p>
         <br>

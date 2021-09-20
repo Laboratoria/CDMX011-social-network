@@ -93,6 +93,7 @@
   }
 
 
+
   /*Estilo cuando el mouse pasa encima de cada link del menu*/
   li:hover {
     filter: brightness(110%);
