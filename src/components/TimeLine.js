@@ -18,8 +18,8 @@ export const toViewtimeline = (container) => {
     <hr id="witheBorder">
     </header>
     <nav class="navBar" > 
-    <div><input src='../img/homeL.png' class='btnNavBarMovil'  type='image' /></div>
-    <div><input src='../img/post1.png' class='btn_mas' id='newPost' type='image'/></div>
+    <div><input src='../img/homeL.png' class='btnNavBarMovil' id="ToGoHome" type='image' /></div>
+    <div><input src='../img/post1.png' class='btn_mas' id='newPost' type='image' /></div>
     <div><input src='../img/logOutt.png' id='logOut' class="btnNavBarMovil" type='image' /></div>
     </nav> 
 
@@ -95,7 +95,7 @@ export const toViewtimeline = (container) => {
       <div class="verMas"> 
       <nav>
       <input type="checkbox" id="${postData.id}" class="btnMenu menu" ></input>
-      <label for="${postData.id}" class="labelPost ${postData.uid}" ></label>
+      <label for="${postData.id}" class="${postData.uid}" ></label>
       
       <ul class='menuToPost'>
         <li><button class  = "btn_delete delete" data-id="${postData.id}" >Delete</button></li>
@@ -117,14 +117,14 @@ export const toViewtimeline = (container) => {
       
       </div>
         </div>
-        `;
-            const labelOptions = document.querySelectorAll(`.${postData.uid}`);//como mandarle id en lugar de nombre de clase 
-            //console.log(labelOptions)
+        `
+            const labelOptions = document.querySelectorAll(`.${postData.uid}`);
 
             // console.log(postEmail);
             if (actualUser() == postUid) {
               labelOptions.forEach(btn2 => {
                 btn2.innerHTML=`<div class='labelPost' >...</div>`;
+                
               })
               // document.getElementsByClassName("labelPost").style.display= "none";
             }
@@ -177,13 +177,11 @@ export const toViewtimeline = (container) => {
             btnEdit.forEach(btn => {
               btn.addEventListener('click', async (e) => {
                 const doc = await getPost(e.target.dataset.id);
-                // console.log(getPost());
-                editStatus = true;
                 id = doc.id;
                 
               showModal.style.visibility = "visible";
-              editPost(editStatus,doc.data().textShare, id );
-              closeModal();
+              editPost(true,doc.data().textShare, id );
+             closeModal();
                 
                 // posting["textPost"].value = doc.data().textShare;
                 // posting['buttonNewPost'].value = 'Update';
@@ -199,10 +197,17 @@ export const toViewtimeline = (container) => {
               showModal.style.visibility = "visible";
             // container.innerHTML=`<div id="modal" class="modal"></div>`;
               //llamar modal
-              modal();
+              modal(actualUser());
               closeModal();
       
             });
+
+            //To go home
+
+            const home= document.getElementById('ToGoHome');
+            home.addEventListener('click', () =>{
+              onNavigate('/TimeLine');
+            })
     
     //Share post
     //   posting.addEventListener('submit', async (e) => {

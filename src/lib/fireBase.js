@@ -31,7 +31,7 @@ export const getPost = (id) => firebase.firestore().collection('posts').doc(id).
 console.log(getPost);
 //Borrar los post en interfaz y en firestore
 export const deletePost = id => {firebase.firestore().collection('posts').doc(id).delete()
-  .then (alert('Are you sure you want to delete your post?'));
+  .then (confirm('Are you sure you want to delete your post?'));
 };
 
 //Editar los post
