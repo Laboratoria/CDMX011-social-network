@@ -71,7 +71,7 @@ export const home = () => {
     if (allFunctions.validPost(postPublish) === false) {
       alert('No has publicado un post aún');
     } else {
-      postInFirestore(postPublish);
+      postInFirestore(postPublish, userEmail);
     }
 
     // const catchPost = homePage.querySelector('#catchPost');
