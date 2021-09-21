@@ -120,9 +120,11 @@ export const toViewtimeline = (container) => {
             //Borrar post//
             const btnDel = postContainer.querySelectorAll('.delete');
             btnDel.forEach(btn => {
-              btn.addEventListener('click', async (e) => {
-                //console.log(e.target.dataset.id);// es el ID del post clickeado
-                await deletePost(e.target.dataset.id);
+              btn.addEventListener('click',  async(e) => {
+                let confirmDelete = confirm ( '¿Are you sure?');
+                if (confirmDelete) {
+                  await deletePost(e.target.dataset.id);
+                }
               });
             });
 

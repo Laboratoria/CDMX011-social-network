@@ -87,6 +87,7 @@
     padding: 0;
     margin-right: 10px;
   }
+
   /*Estilo cuando el mouse pasa encima de cada link del menu*/
   li:hover {
     filter: brightness(110%);

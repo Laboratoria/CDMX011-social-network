@@ -23,6 +23,7 @@ export const getUser = () => firebase.auth().currentUser;
 //console.log(getUser());
 //export const dataBase = () => firebase.firestore();
 
+
 //Generar colección de post publicados, ordenarlos por fecha y actualizar nuevos cambios.
 export const onGetPost = (callback) => firebase.firestore().collection('posts').orderBy('date', 'desc').onSnapshot(callback);
 
@@ -30,10 +31,8 @@ export const onGetPost = (callback) => firebase.firestore().collection('posts').
 export const getPost = (id) => firebase.firestore().collection('posts').doc(id).get();
 console.log(getPost);
 //Borrar los post en interfaz y en firestore
-export const deletePost = id => {firebase.firestore().collection('posts').doc(id).delete()
-  .then (confirm('Are you sure you want to delete your post?'));
-
-};
+export const deletePost = id => firebase.firestore().collection('posts').doc(id).delete();
+  
 
 //Editar los post
 export const updatePost = (id, updatedPost) => firebase.firestore().collection('posts').doc(id).update(updatedPost);
@@ -54,10 +53,12 @@ export const register = (singUpEmail, singUpPassword) => {
 };
 
 
+
 // Firebase login
 export const logIn = (logInEmail, logInPassword) => {
   return firebase.auth().signInWithEmailAndPassword(logInEmail, logInPassword);
 };
+
 
 // Google autentication
 export const continueGoogle = () => {

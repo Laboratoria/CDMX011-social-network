@@ -6,7 +6,6 @@ import {continueGitHub} from '../lib/fireBase.js';
 export const toViewHome = (container) => {
   //console.log('estoy en home');
   const html = `
- 
   <div class = "homeContainer">
     <section class="container">
         <img class="logo" src="img/PIC&ART.png" alt="logo">
@@ -23,9 +22,7 @@ export const toViewHome = (container) => {
 
         </div>
     </section>
-  </div>
   </div>`
-  
   ;
 
   container.innerHTML = html;
