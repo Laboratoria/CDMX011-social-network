@@ -1,7 +1,8 @@
 import { onNavigate } from '../main.js';
 import {
-  logOut, getUser, postInFirestore, printPostFromFirestore,
+  logOut, getUser, postInFirestore, updatePost,
 } from '../firebaseAuth.js';
+import { allFunctions } from '../lib/validFunc.js';
 
 export const home = () => {
   let userEmail = getUser();
@@ -15,7 +16,7 @@ export const home = () => {
   <h1 id="petFriendsWall">Pet Friends</h1>
   <img id="signOut" src= "./imagenes/exit.png"></header>
   <h2 id= "welcomeMessage">Bienvenid@ ${userEmail} </h2>
-  
+  <p id= "catchPost"></p>
   <div id="postContainer">
   <img id= "yellowDog" src="./imagenes/Güero.png">
   <button id="postInput">Cuéntanos sobre tu petFriend</button>
@@ -31,6 +32,25 @@ export const home = () => {
   `;
   homePage.innerHTML = htmlNodes;
 
+  // printPostFromFirestore()
+  // .then((snapshot) => {
+  updatePost((snapshot) => {
+    const postDivPublish = homePage.querySelector('#posts');
+    postDivPublish.innerHTML = '';
+    snapshot.forEach((doc) => {
+      const htmlPostsPublished = `<div id= "recentPostDiv">
+          <p id="userMail"></p>
+          <p id="recentPost">${doc.data().post}</p>
+          <div id= "divButtons"><button id= "edit">Editar</button>
+          <button id= "deletes"> Eliminar</button> 
+          <img id= "img" src="./imagenes/patitaGris.png">
+          </div>
+          </div>`;
+
+      postDivPublish.innerHTML += htmlPostsPublished;
+    });
+  });
+
   const modal = homePage.querySelector('#backModal');
   homePage.querySelector('#signOut').addEventListener('click', () => logOut(onNavigate));
 
@@ -43,45 +63,18 @@ export const home = () => {
     modal.style.visibility = 'hidden';
   });
 
-  printPostFromFirestore()
-    .then((snapshot) => {
-      snapshot.forEach((doc) => {
-        const postDivPublish = homePage.querySelector('#posts');
+  homePage.querySelector('#share').addEventListener('click', () => {
+    modal.style.visibility = 'hidden';
+    // const catchPost = homePage.querySelector('#catchPost');
+    const postPublish = homePage.querySelector('#post').value;
+    if (allFunctions.validPost(postPublish) === false) {
+      alert('No has publicado un post aún');
+    } else {
+      postInFirestore(postPublish, userEmail);
+    }
 
-        const recentPostDiv = document.createElement('div');
-        recentPostDiv.setAttribute('id', 'recentPostDiv');
-        const usermail = document.createElement('p');
-        usermail.innerHTML = `${userEmail}`;
-        usermail.setAttribute('id', 'userMail');
-        const recentPost = document.createElement('p');
-        recentPost.setAttribute('id', 'recentPost');
-        recentPost.textContent = `${JSON.stringify(doc.data().post)}`;
-        const divButtons = document.createElement('divButtons');
-        divButtons.setAttribute('id', 'divButtons');
-        const edit = document.createElement('button');
-        edit.setAttribute('id', 'edit');
-        edit.textContent = 'Editar';
-        const deletes = document.createElement('button');
-        deletes.setAttribute('id', 'deletes');
-        deletes.textContent = 'Eliminar';
-        const like = document.createElement('img');
-        like.setAttribute('id', 'like');
-        like.setAttribute('src', './imagenes/patitaGris.png');
-
-        postDivPublish.append(recentPostDiv);
-        divButtons.append(edit, deletes, like);
-        recentPostDiv.append(usermail, recentPost, divButtons);
-
-      // recentPost.textContent =
-      });
-
-      homePage.querySelector('#share').addEventListener('click', () => {
-        modal.style.visibility = 'hidden';
-
-        const postPublish = homePage.querySelector('#post').value;
-        postInFirestore(postPublish);
-      });
-    });
+    // const catchPost = homePage.querySelector('#catchPost');
+  });
 
   /* console.log(persistance(userEmail)); */
   return homePage;
