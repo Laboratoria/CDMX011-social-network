@@ -18,7 +18,7 @@ export const toViewtimeline = (container) => {
     <hr id="witheBorder">
     </header>
     <nav class="navBar" > 
-    <div><input src='../img/HomeL.png' class='btnNavBar' id="ToGoHome" type='image' /></div>
+    <div><input src='../img/homeL.png' class='btnNavBar' id="ToGoHome" type='image' /></div>
     <div><input src='../img/post1.png' class='btn_mas' id='newPost' type='image' /></div>
     <div><input src='../img/logOutt.png' id='logOut' class="btnNavBar" type='image' /></div>
     </nav> 
