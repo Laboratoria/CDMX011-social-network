@@ -8,10 +8,10 @@ export const home = () => {
   let userEmail = getUser();
   if (userEmail !== null) {
     userEmail = userEmail.email;
-  }
-  const homePage = document.createElement('div');
-  homePage.setAttribute('id', 'homePage');
-  const htmlNodes = `<header id = "wallBanner" >
+
+    const homePage = document.createElement('div');
+    homePage.setAttribute('id', 'homePage');
+    const htmlNodes = `<header id = "wallBanner" >
   <img id="logoWall" src="./imagenes/Imagen1.png">
   <h1 id="petFriendsWall">Pet Friends</h1>
   <img id="signOut" src= "./imagenes/exit.png"></header>
@@ -30,16 +30,16 @@ export const home = () => {
   </div>
   <div id="posts"></div>
   `;
-  homePage.innerHTML = htmlNodes;
+    homePage.innerHTML = htmlNodes;
 
-  // printPostFromFirestore()
-  // .then((snapshot) => {
-  updatePost((snapshot) => {
-    const postDivPublish = homePage.querySelector('#posts');
-    postDivPublish.innerHTML = '';
-    snapshot.forEach((doc) => {
-      const htmlPostsPublished = `<div id= "recentPostDiv">
-          <p id="userMail"></p>
+    // printPostFromFirestore()
+    // .then((snapshot) => {
+    updatePost((snapshot) => {
+      const postDivPublish = homePage.querySelector('#posts');
+      postDivPublish.innerHTML = '';
+      snapshot.forEach((doc) => {
+        const htmlPostsPublished = `<div id= "recentPostDiv">
+          <p id="userMail">${doc.data().user}</p>
           <p id="recentPost">${doc.data().post}</p>
           <div id= "divButtons"><button id= "edit">Editar</button>
           <button id= "deletes"> Eliminar</button> 
@@ -47,35 +47,38 @@ export const home = () => {
           </div>
           </div>`;
 
-      postDivPublish.innerHTML += htmlPostsPublished;
+        postDivPublish.innerHTML += htmlPostsPublished;
+      });
     });
-  });
 
-  const modal = homePage.querySelector('#backModal');
-  homePage.querySelector('#signOut').addEventListener('click', () => logOut(onNavigate));
+    const modal = homePage.querySelector('#backModal');
+    homePage.querySelector('#signOut').addEventListener('click', () => logOut(onNavigate));
 
-  homePage.querySelector('#postInput').addEventListener('click', () => {
-    modal.style.visibility = 'visible';
-    homePage.querySelector('#post').value = '';
-  });
+    homePage.querySelector('#postInput').addEventListener('click', () => {
+      modal.style.visibility = 'visible';
+      homePage.querySelector('#post').value = '';
+    });
 
-  homePage.querySelector('#close').addEventListener('click', () => {
-    modal.style.visibility = 'hidden';
-  });
+    homePage.querySelector('#close').addEventListener('click', () => {
+      modal.style.visibility = 'hidden';
+    });
 
-  homePage.querySelector('#share').addEventListener('click', () => {
-    modal.style.visibility = 'hidden';
+    homePage.querySelector('#share').addEventListener('click', () => {
+      modal.style.visibility = 'hidden';
+      // const catchPost = homePage.querySelector('#catchPost');
+      const postPublish = homePage.querySelector('#post').value;
+      if (allFunctions.validPost(postPublish) === false) {
+        alert('No has publicado un post aún');
+      } else {
+        postInFirestore(postPublish, userEmail);
+      }
+
     // const catchPost = homePage.querySelector('#catchPost');
-    const postPublish = homePage.querySelector('#post').value;
-    if (allFunctions.validPost(postPublish) === false) {
-      alert('No has publicado un post aún');
-    } else {
-      postInFirestore(postPublish, userEmail);
-    }
+    });
+    return homePage;
+    /* console.log(persistance(userEmail)); */
+  }
 
-    // const catchPost = homePage.querySelector('#catchPost');
-  });
-
-  /* console.log(persistance(userEmail)); */
-  return homePage;
+  // eslint-disable-next-line no-alert
+  return alert('inicia sesión');
 };

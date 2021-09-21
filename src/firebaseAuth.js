@@ -3,9 +3,17 @@ export const authUser = (email, password) => firebase.auth()
 // ..
 export const getUser = () => firebase.auth().currentUser;
 
-/* const saveUserData = (user) => {
-  firebase.database.ref("users").push(getUser());
-} */
+/* export const stateCheck = () => firebase.auth()
+  .onAuthStateChanged((user) => {
+    if (user) {
+      console.log('signIn');
+     fs.collection('posts').get()
+      .then((snapshot) => {
+        console.log(snapshot.docs);
+      });
+    } console.log('signOut');
+  });
+ */
 // Continua el registro con google
 export const gmailAuth = (onNavigate) => {
   const provider = new firebase.auth.GoogleAuthProvider();
