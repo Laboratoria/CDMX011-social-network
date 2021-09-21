@@ -63,9 +63,10 @@ export const persistence = (startsesion) => firebase.auth()
 // firestore
 const db = firebase.firestore();
 
-export const postInFirestore = (post) => db.collection('posts').add({ post });
+export const postInFirestore = (post, user) => db.collection('posts').add({ post, user });
 
 export const printPostFromFirestore = () => db.collection('posts').get();
+export const updatePost = (callback) => db.collection('posts').onSnapshot(callback);
 
 /* export const persistance = (email, password) => firebase.auth().setPersistence
 (firebase.auth.Auth.Persistence.LOCAL)

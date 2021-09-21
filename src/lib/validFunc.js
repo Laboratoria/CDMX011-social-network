@@ -15,4 +15,10 @@ export const allFunctions = {
     }
   },
 
+  validPost(post) {
+    if (post === '') {
+      return false;
+    }
+    return true;
+  },
 };
