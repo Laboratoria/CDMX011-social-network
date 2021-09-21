@@ -9,7 +9,7 @@ const createModal = () => {
   <div class="modal-content">
   <div class="modal-header">
     <span class="close">&times;</span>
-    <h1>Post something :)</h1>
+    <h1 class="modalTitle">Post something :)</h1>
   </div>
   <div class="description" id="insertHere">
   
@@ -61,7 +61,7 @@ export const editPost = (text, id) => {
 
   formEdit.innerHTML = `<form  id="postForm" >
   <textarea text="textArea" class="textPost" id="textPost" rows="5" cols="40" maxlength="500" placeholder="Post something :)">${text}</textarea><br>
-  <input type="submit" id="buttonNewPost"  value="Share" />   
+  <input type="submit" id="buttonNewPost"  value="Update" />   
 </form>`;
 
   let editPosting = document.querySelectorAll('#postForm');

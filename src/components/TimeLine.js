@@ -2,7 +2,7 @@
 
 import { onNavigate } from '../routes.js';
 import { modal, closeModal, showModal, editPost } from './ModalPost.js';
-import { logOutUser, onGetPost, getPost, updatePost, deletePost,addLikes, savePost, disLike, actualUser } from '../lib/fireBase.js';
+import { logOutUser, onGetPost, getPost, deletePost, addLikes, disLike, actualUser } from '../lib/fireBase.js';
 //import { async } from 'regenerator-runtime';
 
 
@@ -18,17 +18,13 @@ export const toViewtimeline = (container) => {
     <hr id="witheBorder">
     </header>
     <nav class="navBar" > 
-    <div><input src='../img/homeL.png' class='btnNavBarMovil' id="ToGoHome" type='image' /></div>
+    <div><input src='../img/homeL.png' class='btnNavBar' id="ToGoHome" type='image' /></div>
     <div><input src='../img/post1.png' class='btn_mas' id='newPost' type='image' /></div>
-    <div><input src='../img/logOutt.png' id='logOut' class="btnNavBarMovil" type='image' /></div>
+    <div><input src='../img/logOutt.png' id='logOut' class="btnNavBar" type='image' /></div>
     </nav> 
 
     <section class="TimeContainer" id="section">
-    <form  id="postForm1">
-       <!-- <textarea text="textArea" class="textPost1" id="textPost1" rows="5" cols="40" maxlength="500" placeholder="Post something :)" required ></textarea><br>
-        <input type="submit" id="buttonNewPost"  value="Share" /> -->
-        
-    </form>
+    
     <div class= "postContainer"  id = "postContainer"></div>
     
   </section>
@@ -36,13 +32,6 @@ export const toViewtimeline = (container) => {
  
   </div>
 `;
-
-// let imagenEmptyLike = "../img/emptylike.png"
-// let imagenLike ="../img/like.png"
-// let btnValue = ""
-// const imgLike = (boo) => {
-//   btnValue = boo
-//  }
 
   // stateUser();
   firebase.auth().onAuthStateChanged((getUser) => {
@@ -105,11 +94,9 @@ export const toViewtimeline = (container) => {
 
      </div>
       </div>
-      <hr id="blackLine">
       <div class="postText">
         <h2>${doc.data().textShare}</h2>
       </div>
-      <hr id="blackLine">
       <div class="usuarioPost">
       <div class="likes"><input id='like' src='${likeUser ? '../img/like.png' : '../img/emptylike.png'}'  data-id="${postData.id}" name="like" class='btn_like' type='image' value="${postData.id}"/></div> 
       <div class="countLike">${postLikes} </div>
@@ -128,7 +115,6 @@ export const toViewtimeline = (container) => {
                 btn2.innerHTML=`<div class='labelPost' >...</div>`;
                 
               })
-              // document.getElementsByClassName("labelPost").style.display= "none";
             }
             
             //Borrar post//
@@ -185,9 +171,6 @@ export const toViewtimeline = (container) => {
               showModal.style.visibility = "visible";
               editPost(doc.data().textShare, id );
              closeModal();
-                
-                // posting["textPost"].value = doc.data().textShare;
-                // posting['buttonNewPost'].value = 'Update';
               });
             });
 
@@ -198,7 +181,7 @@ export const toViewtimeline = (container) => {
             toNewPost.addEventListener('click', () => {
               console.log('click evento');
               showModal.style.visibility = "visible";
-            // container.innerHTML=`<div id="modal" class="modal"></div>`;
+          
               //llamar modal
               modal(actualUser());
               closeModal();
