@@ -17,7 +17,7 @@ export const home = () => {
   <h1 id="petFriendsWall">Pet Friends</h1>
   <img id="signOut" src= "./imagenes/exit.png"></header>
   <h2 id= "welcomeMessage">Bienvenid@ ${userEmail} </h2>
-  
+  <p id= "catchPost"></p>
   <div id="postContainer">
   <img id= "yellowDog" src="./imagenes/Güero.png">
   <button id="postInput">Cuéntanos sobre tu petFriend</button>
@@ -25,7 +25,6 @@ export const home = () => {
   <div id="backModal">
   <div id="modal">
   <h3 id="close">x</h3>
-  <p id= "catchPost"></p>
   <textarea id="post" placeholder = "Cuéntanos sobre tu petFriend"></textarea>
   <button id="share">Publicar</button>
   </div>
@@ -67,13 +66,15 @@ export const home = () => {
 
   homePage.querySelector('#share').addEventListener('click', () => {
     modal.style.visibility = 'hidden';
-
-    const postPublish = homePage.querySelector('#post').value;
-    postInFirestore(postPublish);
     // const catchPost = homePage.querySelector('#catchPost');
+    const postPublish = homePage.querySelector('#post').value;
     if (allFunctions.validPost(postPublish) === false) {
-      alert('Escribe un comentario');
+      alert('No has publicado un post aún');
+    } else {
+      postInFirestore(postPublish);
     }
+
+    // const catchPost = homePage.querySelector('#catchPost');
   });
 
   /* console.log(persistance(userEmail)); */
