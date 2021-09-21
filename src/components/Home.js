@@ -3,9 +3,6 @@ import { onNavigate } from '../routes.js';
 import {continueGoogle} from '../lib/fireBase.js';
 import {continueGitHub} from '../lib/fireBase.js';
 
-
-
-
 export const toViewHome = (container) => {
   //console.log('estoy en home');
   const html = `
@@ -58,8 +55,6 @@ export const toViewHome = (container) => {
       console.log(error.message);
     });
     
-    //e.preventDefault();
-    //onNavigate('/LogIn');
   });
 
   //Función para iniciar sesión con GitHub

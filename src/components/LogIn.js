@@ -41,8 +41,7 @@ export const toViewLogIn = (container) => {
         }else if(inputType.type = 'password') {
             btnEye.src = "../img/eye.png"
         }
-        //inputType.type == 'password' ? inputType.type = 'text' : inputType.type = 'password';
-
+        
     });
  
     const logInForm = document.querySelector('#logInForm');
@@ -65,16 +64,6 @@ export const toViewLogIn = (container) => {
 
     document.querySelector("#logInForm").addEventListener('submit', (e) => {
         e.preventDefault()
-        //console.log("estoy evitando el reset")
-        //onNavigate('/TimeLine')
     });
-
-
-
-
-    //logInForm.reset();
-
-    //singUpform.querySelector(".error").innerHTML = register.catch;
-
 
 }
