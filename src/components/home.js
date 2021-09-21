@@ -52,11 +52,11 @@ export const home = () => {
         const recentPostDiv = document.createElement('div');
         recentPostDiv.setAttribute('id', 'recentPostDiv');
         const usermail = document.createElement('p');
-        usermail.innerHTML = 'aqui va el useremail';
+        usermail.innerHTML = `${userEmail}`;
         usermail.setAttribute('id', 'userMail');
         const recentPost = document.createElement('p');
         recentPost.setAttribute('id', 'recentPost');
-        recentPost.textContent = `${JSON.stringify(doc.data().post)}`;
+        recentPost.textContent = `${doc.data().post}`;
         const divButtons = document.createElement('divButtons');
         divButtons.setAttribute('id', 'divButtons');
         const edit = document.createElement('button');

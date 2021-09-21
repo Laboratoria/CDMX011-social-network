@@ -63,10 +63,10 @@ export const register = () => {
 
   registerPage.querySelector('.openEye').addEventListener('click', () => {
     const returnPassword = registerPage.querySelector('#password');
-    if (returnPassword.type === 'text') {
-      returnPassword.type = 'password';
-    } else {
+    if (returnPassword.type === 'password') {
       returnPassword.type = 'text';
+    } else {
+      returnPassword.type = 'password';
     }
   });
   registerPage.querySelector('#signInGoogle').addEventListener('click', () => {
