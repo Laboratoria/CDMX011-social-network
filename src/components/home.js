@@ -38,7 +38,7 @@ export const home = () => {
     postDivPublish.innerHTML = '';
     snapshot.forEach((doc) => {
       const htmlPostsPublished = `<div id= "recentPostDiv">
-          <p id="userMail">${doc.data().user}</p>
+          <p id="userMail">${doc.data().user}:</p>
           <p id="recentPost">${doc.data().post}</p>
           <div id= "divButtons"><button id= "edit">Editar</button>
           <button id= "deletes"> Eliminar</button> 

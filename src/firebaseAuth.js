@@ -62,8 +62,6 @@ export const logOut = (onNavigate) => firebase.auth().signOut()
   .then(() => {
     onNavigate('/');
     console.log('sesion cerrada');
-  }).catch((error) => {
-    console.log(error);
   });
 
 // Persistencie
