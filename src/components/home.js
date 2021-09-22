@@ -1,7 +1,6 @@
-// eslint-disable-next-line import/no-cycle
 import { onNavigate } from '../main.js';
 import {
-  logOut, getUser, postInFirestore, updatePost,
+  logOut, getUser, postInFirestore, updatePost, db,
 } from '../firebaseAuth.js';
 import { allFunctions } from '../lib/validFunc.js';
 
@@ -33,14 +32,13 @@ export const home = () => {
   `;
   homePage.innerHTML = htmlNodes;
 
-  // printPostFromFirestore()
-  // .then((snapshot) => {
+  const postDivPublish = homePage.querySelector('#posts');
+
   updatePost((snapshot) => {
-    const postDivPublish = homePage.querySelector('#posts');
     postDivPublish.innerHTML = '';
     snapshot.forEach((doc) => {
       const htmlPostsPublished = `<div id= "recentPostDiv">
-          <p id="userMail"></p>
+          <p id="userMail">${doc.data().user}</p>
           <p id="recentPost">${doc.data().post}</p>
           <div id= "divButtons"><button id= "edit">Editar</button>
           <button id= "deletes"> Eliminar</button> 
@@ -49,6 +47,17 @@ export const home = () => {
           </div>`;
 
       postDivPublish.innerHTML += htmlPostsPublished;
+      /* postDivPublish.querySelector('#deletes').addEventListener('click', (e) => {
+        e.stopPropagation();
+        const id = e.target.parentElement.getAttribute('data-id');
+        db.collections('posts').doc(id).delete();
+      }); */
+      postDivPublish.querySelector('#deletes').addEventListener('click', (e) => {
+        e.stopPropagation();
+        const id = e.target.parentElement.getAttribute('data-id');
+        db.collections('posts').doc(id).delete();
+        console.log('hola');
+      });
     });
   });
 
@@ -76,7 +85,5 @@ export const home = () => {
 
     // const catchPost = homePage.querySelector('#catchPost');
   });
-
-  /* console.log(persistance(userEmail)); */
   return homePage;
 };

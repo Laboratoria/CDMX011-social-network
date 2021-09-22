@@ -3,9 +3,20 @@ export const authUser = (email, password) => firebase.auth()
 // ..
 export const getUser = () => firebase.auth().currentUser;
 
-/* const saveUserData = (user) => {
-  firebase.database.ref("users").push(getUser());
-} */
+export const stateCheck = () => firebase.auth()
+  .onAuthStateChanged((user) => {
+    let uid = null;
+    if (user) {
+      uid = user.uid;
+      return uid;
+    /* fs.collection('posts').get()
+       .then((snapshot) => {
+        console.log(snapshot.docs);
+      }); */
+    }
+    return uid;
+  });
+
 // Continua el registro con google
 export const gmailAuth = (onNavigate) => {
   const provider = new firebase.auth.GoogleAuthProvider();
@@ -52,12 +63,18 @@ export const persistence = (startsesion) => firebase.auth()
   .then(() => startsesion);
 
 // firestore
-const db = firebase.firestore();
+export const db = firebase.firestore();
 
 export const postInFirestore = (post, user) => db.collection('posts').add({ post, user });
 
 export const printPostFromFirestore = () => db.collection('posts').get();
 export const updatePost = (callback) => db.collection('posts').onSnapshot(callback);
+
+/* export const deletePost = () => db.collection("posts").doc("DC").delete().then(() => {
+  console.log("Document deleted!");
+}).catch((error) => {
+  console.error("Error removing document: ", error);
+}); */
 
 /* export const persistance = (email, password) => firebase.auth().setPersistence
 (firebase.auth.Auth.Persistence.LOCAL)
