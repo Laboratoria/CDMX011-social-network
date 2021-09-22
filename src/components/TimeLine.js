@@ -121,7 +121,7 @@ export const toViewtimeline = (container) => {
             const btnDel = postContainer.querySelectorAll('.delete');
             btnDel.forEach(btn => {
               btn.addEventListener('click',  async(e) => {
-                let confirmDelete = confirm ( '¿Are you sure?');
+                let confirmDelete = confirm ( 'Are you sure?');
                 if (confirmDelete) {
                   await deletePost(e.target.dataset.id);
                 }
