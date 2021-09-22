@@ -40,7 +40,7 @@ export const home = () => {
     postDivPublish.innerHTML = '';
     snapshot.forEach((doc) => {
       const htmlPostsPublished = `<div id= "recentPostDiv">
-          <p id="userMail"></p>
+          <p id="userMail">${doc.data().user}</p>
           <p id="recentPost">${doc.data().post}</p>
           <div id= "divButtons"><button id= "edit">Editar</button>
           <button id= "deletes"> Eliminar</button> 
@@ -49,6 +49,10 @@ export const home = () => {
           </div>`;
 
       postDivPublish.innerHTML += htmlPostsPublished;
+      const deletebtn = postDivPublish.querySelector('#deletes');
+      const comentId = doc.id;
+      console.log (comentId);
+      // deletebtn.addEventListener('click', =>)
     });
   });
 
