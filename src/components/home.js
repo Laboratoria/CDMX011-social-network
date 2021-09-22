@@ -1,7 +1,6 @@
-// eslint-disable-next-line import/no-cycle
 import { onNavigate } from '../main.js';
 import {
-  logOut, getUser, postInFirestore, updatePost,
+  logOut, getUser, postInFirestore, updatePost, deletePost,
 } from '../firebaseAuth.js';
 import { allFunctions } from '../lib/validFunc.js';
 
@@ -33,27 +32,42 @@ export const home = () => {
   `;
   homePage.innerHTML = htmlNodes;
 
-  // printPostFromFirestore()
-  // .then((snapshot) => {
+  const postDivPublish = homePage.querySelector('#posts');
+
   updatePost((snapshot) => {
-    const postDivPublish = homePage.querySelector('#posts');
     postDivPublish.innerHTML = '';
     snapshot.forEach((doc) => {
+      const comentId = doc.id;
       const htmlPostsPublished = `<div id= "recentPostDiv">
           <p id="userMail">${doc.data().user}</p>
           <p id="recentPost">${doc.data().post}</p>
-          <div id= "divButtons"><button id= "edit">Editar</button>
-          <button id= "deletes"> Eliminar</button> 
+          <div id= "divButtons"><button id= "edit" >Editar</button>
+          <button id= "deletes" class="btndeletes" data-id= ${comentId} > Eliminar</button> 
           <img id= "img" src="./imagenes/patitaGris.png">
           </div>
           </div>`;
 
       postDivPublish.innerHTML += htmlPostsPublished;
-      const deletebtn = postDivPublish.querySelector('#deletes');
-      const comentId = doc.id;
-      console.log (comentId);
-      // deletebtn.addEventListener('click', =>)
+      /* postDivPublish.querySelector('#deletes').addEventListener('click', (e) => {
+        e.stopPropagation();
+        const id = e.target.parentElement.getAttribute('data-id');
+
+      }); */
+      const deletebtn = postDivPublish.querySelectorAll('.btndeletes');
+
+      deletebtn.forEach((btnDelete) => {
+        btnDelete.addEventListener('click', (e) => {
+          deletePost(e.target.dataset.id);
+        });
+      });
     });
+    /* postDivPublish.querySelector('#deletes').addEventListener('click', (e) => {
+        e.stopPropagation();
+        const id = e.target.parentElement.getAttribute('data-id');
+        db.collections('posts').doc(id).delete();
+        console.log('hola');
+      });
+    }); */
   });
 
   const modal = homePage.querySelector('#backModal');
@@ -80,7 +94,5 @@ export const home = () => {
 
     // const catchPost = homePage.querySelector('#catchPost');
   });
-
-  /* console.log(persistance(userEmail)); */
   return homePage;
 };
