@@ -1,3 +1,6 @@
+html {
+    background: #121212;
+}
 .homeContainer {
     display: flex;
     flex-direction: column;
@@ -276,7 +279,7 @@ input {
 }
 
 .btn_mas{
-        width: 100%;
+        width: 14.5vw;/*100%*/
         height: 7.5vh;
         padding: 0px;
         background-color: #3E3E3E;
@@ -284,7 +287,7 @@ input {
 .btnNavBar{
         padding-top: 5px;
         background-color: #3E3E3E;
-        width: 100%;
+        width: 30vw;
         height: 6.5vh;
 }
   /* The Close Button */
@@ -399,6 +402,7 @@ div#postContainer.postContainer{
     border: none;
     width: 75.3vw;
     background: lightgrey;
+    
 
 }
 textarea#textPost.textPost{
@@ -593,6 +597,10 @@ footer {
         right: 40px;
         background: none;
     }
+    .btnNavBar{
+        width: 100%;
+        height: 6.5vh;
+}
 
     /*----- CSS Responsive Modal -----*/
     .modal {
@@ -615,6 +623,7 @@ footer {
     }
     #textPost {
         margin-left: 20px;
+        outline:0px none transparent;
     }
     .modalTitle {
         padding-left: 10px;
