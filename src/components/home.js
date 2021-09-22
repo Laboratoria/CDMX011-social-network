@@ -1,7 +1,7 @@
 import { onNavigate } from '../main.js';
 import { allFunctions } from '../lib/validFunc.js';
 import {
-  logOut, getUser, postInFirestore, updatePost, db,
+  logOut, getUser, postInFirestore, updatePost, deletePost,
 } from '../firebaseAuth.js';
 
 export const home = () => {
@@ -37,11 +37,12 @@ export const home = () => {
   updatePost((snapshot) => {
     postDivPublish.innerHTML = '';
     snapshot.forEach((doc) => {
+      const comentId = doc.id;
       const htmlPostsPublished = `<div id= "recentPostDiv">
           <p id="userMail">${doc.data().user}:</p>
           <p id="recentPost">${doc.data().post}</p>
-          <div id= "divButtons"><button id= "edit">Editar</button>
-          <button id= "deletes"> Eliminar</button> 
+          <div id= "divButtons"><button id= "edit" >Editar</button>
+          <button id= "deletes" class="btndeletes" data-id= ${comentId} > Eliminar</button> 
           <img id= "img" src="./imagenes/patitaGris.png">
           </div>
           </div>`;
@@ -50,15 +51,23 @@ export const home = () => {
       /* postDivPublish.querySelector('#deletes').addEventListener('click', (e) => {
         e.stopPropagation();
         const id = e.target.parentElement.getAttribute('data-id');
-        db.collections('posts').doc(id).delete();
+
       }); */
-      postDivPublish.querySelector('#deletes').addEventListener('click', (e) => {
+      const deletebtn = postDivPublish.querySelectorAll('.btndeletes');
+
+      deletebtn.forEach((btnDelete) => {
+        btnDelete.addEventListener('click', (e) => {
+          deletePost(e.target.dataset.id);
+        });
+      });
+    });
+    /* postDivPublish.querySelector('#deletes').addEventListener('click', (e) => {
         e.stopPropagation();
         const id = e.target.parentElement.getAttribute('data-id');
         db.collections('posts').doc(id).delete();
         console.log('hola');
       });
-    });
+    }); */
   });
 
   const modal = homePage.querySelector('#backModal');
