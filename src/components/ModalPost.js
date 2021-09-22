@@ -1,5 +1,5 @@
+/* eslint-disable import/no-cycle */
 /* eslint-disable */
-//crear modal
 export const showModal = document.getElementById("modal");
 import { updatePost, savePost } from '../lib/fireBase.js';
 
@@ -26,7 +26,7 @@ export const modal = () => {
   const formShare = document.getElementById('insertHere');
 
   formShare.innerHTML = `<form  id="postForm" >
-  <textarea text="textArea" class="textPost" id="textPost" rows="5" cols="40" maxlength="500" placeholder="Post something :)"></textarea><br>
+  <textarea required text="textArea" class="textPost" id="textPost" rows="5" cols="40" maxlength="500" placeholder="Post something :)"></textarea><br>
   <input type="submit" id="buttonNewPost"  value="Share" />   
 </form>`;
 
@@ -60,7 +60,7 @@ export const editPost = (text, id) => {
   const formEdit = document.getElementById('insertHere');
 
   formEdit.innerHTML = `<form  id="postForm" >
-  <textarea text="textArea" class="textPost" id="textPost" rows="5" cols="40" maxlength="500" placeholder="Post something :)">${text}</textarea><br>
+  <textarea text="textArea" required class="textPost" id="textPost" rows="5" cols="40" maxlength="500" placeholder="Post something :)">${text}</textarea><br>
   <input type="submit" id="buttonNewPost"  value="Update" />   
 </form>`;
 
@@ -95,9 +95,10 @@ export const closeModal = () => {
   span.forEach(function (close) {
     close.addEventListener('click', function () {
       showModal.style.visibility = "hidden";
-    })
-  })
-  window.onclick = function (event) {// When the user clicks anywhere outside of the modal, close it
+    });
+});
+  window.onclick = function (event) {
+    // When the user clicks anywhere outside of the modal, close it
 
     if (event.target == showModal) {
       showModal.style.visibility = "hidden";
