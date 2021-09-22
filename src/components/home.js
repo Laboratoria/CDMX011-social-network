@@ -1,9 +1,9 @@
 // eslint-disable-next-line import/no-cycle
 import { onNavigate } from '../main.js';
+import { allFunctions } from '../lib/validFunc.js';
 import {
   logOut, getUser, postInFirestore, updatePost,
 } from '../firebaseAuth.js';
-import { allFunctions } from '../lib/validFunc.js';
 
 export const home = () => {
   let userEmail = getUser();
@@ -40,7 +40,7 @@ export const home = () => {
     postDivPublish.innerHTML = '';
     snapshot.forEach((doc) => {
       const htmlPostsPublished = `<div id= "recentPostDiv">
-          <p id="userMail"></p>
+          <p id="userMail">${doc.data().user}</p>
           <p id="recentPost">${doc.data().post}</p>
           <div id= "divButtons"><button id= "edit">Editar</button>
           <button id= "deletes"> Eliminar</button> 
