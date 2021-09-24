@@ -1,7 +1,7 @@
 import { onNavigate } from '../main.js';
 import { allFunctions } from '../lib/validFunc.js';
 import {
-  signIn, gmailAuth, persistence, getUser,
+  signIn, gmailAuth,
 } from '../firebaseAuth.js';
 
 export const login = () => {
@@ -42,20 +42,13 @@ export const login = () => {
     signIn(printEmail, savedPassword)
       .then(() => {
         onNavigate('/home');
-        console.log('Estas logueada', getUser());
+        console.log('Estas logueada');
       })
       .catch((error) => {
         const errorMessage = error.message;
         loginPage.querySelector('#entryError').innerHTML = errorMessage;
       });
-    /* console.log(persistance(printEmail, savedPassword)); */// console.log(printEmail);
   });
-  /* loginPage.querySelector('#email').addEventListener('click', (e) => {
-    e.preventDefault();
-    onNavigate('/home');
-  }); */
-  persistence(signIn);
-
   loginPage.querySelector('.openEye').addEventListener('click', () => {
     const returnPassword = loginPage.querySelector('#password');
     if (returnPassword.type === 'password') {

@@ -1,7 +1,7 @@
 import { onNavigate } from '../main.js';
 import { allFunctions } from '../lib/validFunc.js';
 import {
-  logOut, getUser, postInFirestore, updatePost, deletePost,
+  logOut, getUser, postInFirestore, updatePost, deletePost, stateCheck,
 } from '../firebaseAuth.js';
 
 export const home = () => {
@@ -10,12 +10,13 @@ export const home = () => {
     userEmail = userEmail.email;
   }
   const homePage = document.createElement('div');
+  stateCheck(homePage);
   homePage.setAttribute('id', 'homePage');
   const htmlNodes = `<header id = "wallBanner" >
   <img id="logoWall" src="./imagenes/Imagen1.png">
   <h1 id="petFriendsWall">Pet Friends</h1>
   <img id="signOut" src= "./imagenes/exit.png"></header>
-  <h2 id= "welcomeMessage">Bienvenid@ ${userEmail} </h2>
+  <h2 id= "welcomeMessage">Bienvenid@</h2>
   <p id= "catchPost"></p>
   <div id="postContainer">
   <img id= "yellowDog" src="./imagenes/Güero.png">
@@ -42,32 +43,38 @@ export const home = () => {
           <p id="userMail">${doc.data().user}:</p>
           <p id="recentPost">${doc.data().post}</p>
           <div id= "divButtons"><button id= "edit" >Editar</button>
-          <button id= "deletes" class="btndeletes" data-id= ${comentId} > Eliminar</button> 
+          <button id= "deletes" class="btndeletes"  > Eliminar</button> 
           <img id= "img" src="./imagenes/patitaGris.png">
+          <div class="deleteBackModal">
+          <div class="deleteModal" >
+          <h2 class= "confirmText">¿Estás segur@ que deseas eliminar este post? </h2>
+          <button class="si" data-id= ${comentId}>Si</button>
+          <button class="no" >No</button>
+          </div>
+          </div>
           </div>
           </div>`;
 
       postDivPublish.innerHTML += htmlPostsPublished;
-      /* postDivPublish.querySelector('#deletes').addEventListener('click', (e) => {
-        e.stopPropagation();
-        const id = e.target.parentElement.getAttribute('data-id');
 
-      }); */
       const deletebtn = postDivPublish.querySelectorAll('.btndeletes');
-
+      const deleteModal = postDivPublish.querySelector('.deleteBackModal');
+      const confirmDelete = postDivPublish.querySelectorAll('.si');
       deletebtn.forEach((btnDelete) => {
-        btnDelete.addEventListener('click', (e) => {
-          deletePost(e.target.dataset.id);
+        btnDelete.addEventListener('click', () => {
+          deleteModal.style.visibility = 'visible';
+          confirmDelete.forEach((bntYes) => {
+            bntYes.addEventListener('click', (e) => {
+              deletePost(e.target.dataset.id);
+              deleteModal.style.visibility = 'hidden';
+            });
+          });
+          postDivPublish.querySelector('.no').addEventListener('click', () => {
+            deleteModal.style.visibility = 'hidden';
+          });
         });
       });
     });
-    /* postDivPublish.querySelector('#deletes').addEventListener('click', (e) => {
-        e.stopPropagation();
-        const id = e.target.parentElement.getAttribute('data-id');
-        db.collections('posts').doc(id).delete();
-        console.log('hola');
-      });
-    }); */
   });
 
   const modal = homePage.querySelector('#backModal');
@@ -91,8 +98,6 @@ export const home = () => {
     } else {
       postInFirestore(postPublish, userEmail);
     }
-
-    // const catchPost = homePage.querySelector('#catchPost');
   });
   return homePage;
 };
