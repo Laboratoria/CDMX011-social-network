@@ -1,6 +1,8 @@
 import { onNavigate } from '../main.js';
 import { allFunctions } from '../lib/validFunc.js';
-import { signIn, gmailAuth, persistence } from '../firebaseAuth.js';
+import {
+  signIn, gmailAuth,
+} from '../firebaseAuth.js';
 
 export const login = () => {
   const loginPage = document.createElement('div');
@@ -26,6 +28,7 @@ export const login = () => {
   loginPage.innerHTML = htmlLogin;
   let savedPassword = '';
   let printEmail = '';
+
   loginPage.querySelector('#signIn').addEventListener('click', (e) => {
     e.preventDefault();
     const saveEmail = loginPage.querySelector('#email').value;
@@ -42,25 +45,16 @@ export const login = () => {
         console.log('Estas logueada');
       })
       .catch((error) => {
-        const errorCode = error.code;
         const errorMessage = error.message;
-        console.log(errorCode, errorMessage);
-        loginPage.querySelector('#entryError').innerHTML = 'Verifica los datos ingresados';
+        loginPage.querySelector('#entryError').innerHTML = errorMessage;
       });
-    /* console.log(persistance(printEmail, savedPassword)); */// console.log(printEmail);
   });
-  /* loginPage.querySelector('#email').addEventListener('click', (e) => {
-    e.preventDefault();
-    onNavigate('/home');
-  }); */
-  persistence(signIn);
-
   loginPage.querySelector('.openEye').addEventListener('click', () => {
     const returnPassword = loginPage.querySelector('#password');
-    if (returnPassword.type === 'text') {
-      returnPassword.type = 'password';
-    } else {
+    if (returnPassword.type === 'password') {
       returnPassword.type = 'text';
+    } else {
+      returnPassword.type = 'password';
     }
   });
   loginPage.querySelector('#routeButton').addEventListener('click', () => onNavigate('/register'));

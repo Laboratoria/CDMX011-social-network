@@ -10,9 +10,6 @@
     align-items:center;
     position: relative;
     padding-top:20% ;
-    
-
-
 }
 
 h1{
@@ -45,22 +42,13 @@ body{
     flex-direction: column;
 }
 input {
-
     margin-top: 10%;
     display: flex;
-    
-
     width: 304.23px;
     height: 40px;
-
     font-family:'Montserrat', sans-serif;
-    font-style: normal;
-    font-weight: normal;
     font-size: 16px;
-    line-height: 20px;
-
     color: #AAA6A6;
-
     background: #FFF9F9;
     border: 2px solid #1EBFD1;
     box-sizing: border-box;
@@ -76,30 +64,22 @@ input {
     flex-direction: column;
 }
 
-#signIn{
-    display: flex;
+#signIn, .si, .no{
     margin-top: 10%;
     border:none;
-
     background: #1EBFD1;
     border-radius: 10px;
     width: 125px;
     height: 29px;
-
-    position: relative;
-    vertical-align: middle;
     font-family: "Fredoka One",cursive;
-    font-style: normal;
-    font-weight: normal;
     color: #FFF9F9;
     font-size: 16px;
     letter-spacing: 1px;
     line-height: 2;
-
-    text-align: center; 
-    justify-content: center;   
-   
-
+}
+.si, .no{
+    width: 60px;
+    height: 29px;
 }
 
 #signInGoogle{
@@ -134,19 +114,12 @@ input {
 }
 
 #routeButton{
-    display: flex;
     border:none;
     margin-left: 3%;
     background:none;
-
-    position: relative;
-    vertical-align: middle;
     font-family: 'Fredoka one', sans-serif;
-    font-style: normal;
-    font-weight: normal;
     color: #f67b7c;
     font-size: 18px;
-
 }
 .eyeContainer{
     position: relative;
@@ -176,9 +149,6 @@ input {
 #welcomeMessage{
     display: flex;
     align-content: center;
-    flex-wrap: wrap;
-    flex-direction: column;
-
     font-family: 'Fredoka one', sans-serif;
     font-size: 18px;
     margin-top: 26px;
@@ -214,7 +184,7 @@ input {
     Height: 43px;
 }
 
-#backModal{
+#backModal, .deleteBackModal{
     visibility: hidden;
     top: 0px;
     display: flex;
@@ -224,11 +194,9 @@ input {
     background-color: #f67b7bb4; 
     justify-content: space-around;
     align-items: center;
-    
-    
 }
 
-#modal{
+#modal, .deleteModal{
     border-radius: 10px;
     display: flex;
     background-color:#D3F5FF;;
@@ -239,6 +207,16 @@ input {
     border: 3.5px solid #1EBFD1;
     padding: 2%; 
 }
+.deleteModal{
+    width: 86%;
+    height: 15%;
+    display: flex;
+    align-items: stretch;
+    justify-content: space-between;
+    align-content: center;
+    flex-direction: row
+}
+
 
 #post{
     background-color:#D3F5FF;;
@@ -260,6 +238,7 @@ input {
 }
 #recentPostDiv{
  padding: 1%;
+ padding-left: 3%;
  background-color: #f67b7bb4; 
  margin-bottom: 2%;
  border-radius: 10px;
@@ -328,7 +307,7 @@ input {
     justify-content: space-evenly;
 }
 
-#userMail{
+#userMail, .confirmText{
     font-family: 'Fredoka one', sans-serif;
     font-size: 18px;
     color: #662A08;    

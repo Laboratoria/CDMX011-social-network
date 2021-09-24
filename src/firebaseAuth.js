@@ -1,16 +1,27 @@
+/* eslint-disable no-return-assign */
+const firebaseConfig = {
+  apiKey: 'AIzaSyDaVL9xrLkXNtmtT3zogQtjb_kmOGJWmj0',
+  authDomain: 'petfriends-fac02.firebaseapp.com',
+  projectId: 'petfriends-fac02',
+  storageBucket: 'petfriends-fac02.appspot.com',
+  messagingSenderId: '185985738506',
+  appId: '1:185985738506:web:9852348d59899bbec5fcf3',
+};
+firebase.initializeApp(firebaseConfig);
+
 export const authUser = (email, password) => firebase.auth()
   .createUserWithEmailAndPassword(email, password);
-// ..
+
 export const getUser = () => firebase.auth().currentUser;
 
-export const stateCheck = () => firebase.auth()
+export const stateCheck = (homePage) => firebase.auth()
   .onAuthStateChanged((user) => {
-    let uid = null;
     if (user) {
-      uid = user.uid;
-      return uid;
+      return user;
+
     }
-    return uid;
+    // eslint-disable-next-line no-param-reassign
+    return homePage.innerHTML = 'Inicia sesion';
   });
 
 // Continua el registro con google
@@ -19,14 +30,9 @@ export const gmailAuth = (onNavigate) => {
   firebase.auth()
     .signInWithPopup(provider)
     .then((result) => {
-      // const credential = result.credential;
-      // This gives you a Google Access Token. You can use it to access the Google API.
-      // const token = credential.accessToken;
-      // The signed-in user info.
       const user = result.user.displayName;
       const userPhoto = result.user.photoURL;
       console.log(user, userPhoto);
-
       onNavigate('/home');
       // ...
     }).catch((error) => {
@@ -49,22 +55,7 @@ export const logOut = (onNavigate) => firebase.auth().signOut()
   .then(() => {
     onNavigate('/');
     console.log('sesion cerrada');
-  }).catch((error) => {
-    console.log(error);
   });
-
-// Persistencie
-export const persistence = (startsesion) => firebase.auth()
-  .setPersistence(firebase.auth.Auth.Persistence.LOCAL)
-  .then(() => startsesion);
-
-// Evita que el usuario sin sesión iniciada pueda publicar
-export const sessionStatus = (impresion) => firebase.auth().onAuthStateChanged((user) => {
-  if (user) {
-    return user;
-  }
-  return impresion;
-});
 
 // firestore
 export const db = firebase.firestore();
@@ -72,12 +63,7 @@ export const db = firebase.firestore();
 export const postInFirestore = (post, user) => db.collection('posts').add({ post, user });
 
 export const printPostFromFirestore = () => db.collection('posts').get();
+
 export const updatePost = (callback) => db.collection('posts').onSnapshot(callback);
 
 export const deletePost = (id) => db.collection('posts').doc(id).delete();
-
-/* export const deletePost = () => db.collection("posts").doc("DC").delete().then(() => {
-  console.log("Document deleted!");
-}).catch((error) => {
-  console.error("Error removing document: ", error);
-}); */
