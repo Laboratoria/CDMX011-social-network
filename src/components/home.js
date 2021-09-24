@@ -1,6 +1,6 @@
 import { onNavigate } from '../main.js';
 import {
-  logOut, getUser, postInFirestore, updatePost, deletePost,
+  logOut, getUser, postInFirestore, updatePost, deletePost, sessionStatus,
 } from '../firebaseAuth.js';
 import { allFunctions } from '../lib/validFunc.js';
 
@@ -9,7 +9,10 @@ export const home = () => {
   if (userEmail !== null) {
     userEmail = userEmail.email;
   }
+
   const homePage = document.createElement('div');
+  sessionStatus(homePage);
+
   homePage.setAttribute('id', 'homePage');
   const htmlNodes = `<header id = "wallBanner" >
   <img id="logoWall" src="./imagenes/Imagen1.png">

@@ -9,10 +9,6 @@ export const stateCheck = () => firebase.auth()
     if (user) {
       uid = user.uid;
       return uid;
-    /* fs.collection('posts').get()
-       .then((snapshot) => {
-        console.log(snapshot.docs);
-      }); */
     }
     return uid;
   });
@@ -62,6 +58,14 @@ export const persistence = (startsesion) => firebase.auth()
   .setPersistence(firebase.auth.Auth.Persistence.LOCAL)
   .then(() => startsesion);
 
+// Evita que el usuario sin sesión iniciada pueda publicar
+export const sessionStatus = (impresion) => firebase.auth().onAuthStateChanged((user) => {
+  if (user) {
+    return user;
+  }
+  return impresion;
+});
+
 // firestore
 export const db = firebase.firestore();
 
@@ -77,14 +81,3 @@ export const deletePost = (id) => db.collection('posts').doc(id).delete();
 }).catch((error) => {
   console.error("Error removing document: ", error);
 }); */
-
-/* export const persistance = (email, password) => firebase.auth().setPersistence
-(firebase.auth.Auth.Persistence.LOCAL)
-  .then(() => {
-    return firebase.auth().signInWithEmailAndPassword(email, password);
-  })
-  .catch((error) => {
-    // Handle Errors here.
-    var errorCode = error.code;
-    var errorMessage = error.message;
-  }) */
