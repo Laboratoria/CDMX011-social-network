@@ -1,6 +1,6 @@
 import { onNavigate } from '../main.js';
 import { allFunctions } from '../lib/validFunc.js';
-import { signIn, gmailAuth, persistence } from '../firebaseAuth.js';
+import { signIn, gmailAuth } from '../firebaseAuth.js';
 
 export const login = () => {
   const loginPage = document.createElement('div');
@@ -47,13 +47,7 @@ export const login = () => {
         console.log(errorCode, errorMessage);
         loginPage.querySelector('#entryError').innerHTML = 'Verifica los datos ingresados';
       });
-    /* console.log(persistance(printEmail, savedPassword)); */// console.log(printEmail);
   });
-  /* loginPage.querySelector('#email').addEventListener('click', (e) => {
-    e.preventDefault();
-    onNavigate('/home');
-  }); */
-  persistence(signIn);
 
   loginPage.querySelector('.openEye').addEventListener('click', () => {
     const returnPassword = loginPage.querySelector('#password');

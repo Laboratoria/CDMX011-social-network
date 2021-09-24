@@ -57,11 +57,6 @@ export const logOut = (onNavigate) => firebase.auth().signOut()
     console.log(error);
   });
 
-// Persistencie
-export const persistence = (startsesion) => firebase.auth()
-  .setPersistence(firebase.auth.Auth.Persistence.LOCAL)
-  .then(() => startsesion);
-
 // firestore
 export const db = firebase.firestore();
 
@@ -71,20 +66,3 @@ export const printPostFromFirestore = () => db.collection('posts').get();
 export const updatePost = (callback) => db.collection('posts').onSnapshot(callback);
 
 export const deletePost = (id) => db.collection('posts').doc(id).delete();
-
-/* export const deletePost = () => db.collection("posts").doc("DC").delete().then(() => {
-  console.log("Document deleted!");
-}).catch((error) => {
-  console.error("Error removing document: ", error);
-}); */
-
-/* export const persistance = (email, password) => firebase.auth().setPersistence
-(firebase.auth.Auth.Persistence.LOCAL)
-  .then(() => {
-    return firebase.auth().signInWithEmailAndPassword(email, password);
-  })
-  .catch((error) => {
-    // Handle Errors here.
-    var errorCode = error.code;
-    var errorMessage = error.message;
-  }) */
