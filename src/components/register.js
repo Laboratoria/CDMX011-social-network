@@ -11,11 +11,12 @@ export const register = () => {
   <h1 id="petFriends">Pet Friends</h1>
   </header>
   <form id="formContainer" action="#">
-  <input id="email" type="email" placeholder="Ingresa tu correo electrónico" required="required">
+  <input id="email" type="email" placeholder="Ingresa tu correo electrónico" autofocus required="required">
   <h5 id="invalidEmail"></h5>
   <div class="eyeContainer">
   <input id="password" type="password" placeholder="Crea tu contraseña" required="required">
   <img class="openEye" src="./imagenes/openEye 1.png">
+  <img class="closeEye" src="./imagenes/closeEye 1.png">
   </div>
   <input id="confirmPassword" placeholder="Confirma tu contraseña" required="required" type="password">
   <h5 id="invalidPassword"></h5>
@@ -62,6 +63,18 @@ export const register = () => {
   });
 
   registerPage.querySelector('.openEye').addEventListener('click', () => {
+    registerPage.querySelector('.closeEye').style.visibility = 'visible';
+    registerPage.querySelector('.openEye').style.visibility = 'hidden';
+    const returnPassword = registerPage.querySelector('#password');
+    if (returnPassword.type === 'password') {
+      returnPassword.type = 'text';
+    } else {
+      returnPassword.type = 'password';
+    }
+  });
+  registerPage.querySelector('.closeEye').addEventListener('click', () => {
+    registerPage.querySelector('.closeEye').style.visibility = 'hidden';
+    registerPage.querySelector('.openEye').style.visibility = 'visible';
     const returnPassword = registerPage.querySelector('#password');
     if (returnPassword.type === 'password') {
       returnPassword.type = 'text';

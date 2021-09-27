@@ -44,16 +44,16 @@ export const home = () => {
     postDivPublish.innerHTML = '';
     snapshot.forEach((doc) => {
       const comentId = doc.id;
-      const htmlPostsPublished = `<div id= "recentPostDiv">
+      const htmlPostsPublished = `<div id= "recentPostDiv" >
           <p id="userMail">${doc.data().user}:</p>
           <p id="recentPost">${doc.data().post}</p>
           <div id= "divButtons"><button id= "edit" >Editar</button>
-          <button id= "deletes" class="btndeletes"  > Eliminar</button> 
+          <button id= "deletes" class="btndeletes" data-id= ${comentId} > Eliminar</button> 
           <img id= "img" src="./imagenes/patitaGris.png">
           <div class="deleteBackModal">
           <div class="deleteModal" >
           <h2 class= "confirmText">¿Estás segur@ que deseas eliminar este post? </h2>
-          <button class="si" data-id= ${comentId}>Si</button>
+          <button class="si">Si</button>
           <button class="no" >No</button>
           </div>
           </div>
@@ -64,18 +64,19 @@ export const home = () => {
 
       const deletebtn = postDivPublish.querySelectorAll('.btndeletes');
       const deleteModal = postDivPublish.querySelector('.deleteBackModal');
-      const confirmDelete = postDivPublish.querySelectorAll('.si');
       deletebtn.forEach((btnDelete) => {
-        btnDelete.addEventListener('click', () => {
+        btnDelete.addEventListener('click', (f) => {
+          console.log(f.target.dataset.id);
           deleteModal.style.visibility = 'visible';
-          confirmDelete.forEach((bntYes) => {
-            bntYes.addEventListener('click', (e) => {
-              deletePost(e.target.dataset.id);
+          const confirmDelete = () => deletePost(f.target.dataset.id);
+          deleteModal.addEventListener('click', (e) => {
+            if (e.target.classList.contains('si')) {
+              confirmDelete();
               deleteModal.style.visibility = 'hidden';
-            });
-          });
-          postDivPublish.querySelector('.no').addEventListener('click', () => {
-            deleteModal.style.visibility = 'hidden';
+            } else {
+              console.log('false');
+              deleteModal.style.visibility = 'hidden';
+            }
           });
         });
       });
