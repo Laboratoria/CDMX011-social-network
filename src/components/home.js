@@ -1,9 +1,7 @@
 import { onNavigate } from '../main.js';
 import { allFunctions } from '../lib/validFunc.js';
 import {
-  
   logOut, getUser, postInFirestore, updatePost, deletePost, stateCheck,
-
 } from '../firebaseAuth.js';
 
 export const home = () => {
@@ -44,27 +42,63 @@ export const home = () => {
     postDivPublish.innerHTML = '';
     snapshot.forEach((doc) => {
       const comentId = doc.id;
-      const htmlPostsPublished = `<div id= "recentPostDiv">
-          <p id="userMail">${doc.data().user}:</p>
-          <p id="recentPost">${doc.data().post}</p>
-          <div id= "divButtons"><button id= "edit" >Editar</button>
-          <button id= "deletes" class="btndeletes"  > Eliminar</button> 
-          <img id= "img" src="./imagenes/patitaGris.png">
-          <div class="deleteBackModal">
-          <div class="deleteModal" >
-          <h2 class= "confirmText">¿Estás segur@ que deseas eliminar este post? </h2>
-          <button class="si" data-id= ${comentId}>Si</button>
-          <button class="no" >No</button>
-          </div>
-          </div>
-          </div>
-          </div>`;
+      const htmlPostsPublished = `
+      <div id= "recentPostDiv">
+        <p id="userMail">${doc.data().user}:</p>
+        <p id="recentPost">${doc.data().post}</p>
+        <div id= "divButtons" class= "divButtons">
+            <button id= "edit" >Editar</button>
+            <button id= "deletes" class="btndeletes" data-id=${comentId}> Eliminar</button> 
+            <img id= "img" src="./imagenes/patitaGris.png">
+            <span class="deleteBackModal">
+              <div class="deleteModal">
+                <h2 class= "confirmText">¿Estás segur@ que deseas eliminar este post? </h2>
+                <button class="si" data-id=${comentId}>Si</button>
+                <button class="no" >No</button>
+              </div>
+          </span>
+        </div>
+      </div>`;
 
       postDivPublish.innerHTML += htmlPostsPublished;
 
-      const deletebtn = postDivPublish.querySelectorAll('.btndeletes');
+      // const deletebtn = postDivPublish.querySelectorAll('.btndeletes');
       const deleteModal = postDivPublish.querySelector('.deleteBackModal');
+      const divButtonsConst = postDivPublish.querySelectorAll('.divButtons');
+      const deleteModalConainer = postDivPublish.querySelectorAll('.deleteModal');
+
+      divButtonsConst.forEach((divButtonsAll) => {
+        divButtonsAll.addEventListener('click', (e) => {
+          if (e.target.className === 'btndeletes') {
+            deleteModal.style.visibility = 'visible';
+            console.log(e.target.dataset.id);
+          }
+
+          if (e.target.className === 'si') {
+            deleteModal.style.visibility = 'hidden';
+            // console.log(e.target.dataset.id);
+          }
+        });
+      });
+
+      /* deletebtn.forEach((btnDelete) => {
+        btnDelete.addEventListener('click', () => {
+          deleteModal.style.visibility = 'visible';
+        });
+      });
+
       const confirmDelete = postDivPublish.querySelectorAll('.si');
+
+      confirmDelete.forEach((btnYes) => {
+        btnYes.addEventListener('click', (e) => {
+          // console.log(e.target.dataset.id);
+          deletePost(e.target.dataset.id);
+          deleteModal.style.visibility = 'hidden';
+        });
+      }); */
+      /* const deleteModal = postDivPublish.querySelector('.deleteBackModal');
+      const confirmDelete = postDivPublish.querySelectorAll('.si');
+
       deletebtn.forEach((btnDelete) => {
         btnDelete.addEventListener('click', () => {
           deleteModal.style.visibility = 'visible';
@@ -78,7 +112,7 @@ export const home = () => {
             deleteModal.style.visibility = 'hidden';
           });
         });
-      });
+      }); */
     });
   });
 
