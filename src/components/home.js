@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-expressions */
 import { onNavigate } from '../main.js';
 import { allFunctions } from '../lib/validFunc.js';
 import {
@@ -19,7 +20,7 @@ export const home = () => {
   <img id="logoWall" src="./imagenes/Imagen1.png">
   <h1 id="petFriendsWall">Pet Friends</h1>
   <img id="signOut" src= "./imagenes/exit.png"></header>
-  <h2 id= "welcomeMessage">Bienvenid@</h2>
+  <h2 id= "welcomeMessage">Bienvenid@ ${userEmail}</h2>
   <p id= "catchPost"></p>
   <div id="postContainer">
   <img id= "yellowDog" src="./imagenes/Güero.png">
@@ -60,11 +61,25 @@ export const home = () => {
 
       postDivPublish.innerHTML += htmlPostsPublished;
 
+      // const userPost = doc.data().user;
+      // Esto es un objeto
+      // console.log(userEmail);
+      // Esto es un string
+      // const userObject = { userPost };
+      // console.log(userObject.userPost);
       const deletebtn = postDivPublish.querySelectorAll('.btndeletes');
+
+      /*  deletebtn.forEach((personalDelete) => {
+        const personalDlt = () => {personalDelete.style.display = 'hidden'};
+        if (userObject.userPost !== userEmail) {
+          personalDlt;
+          console.log('si funciona');
+        }
+      }); */
+
       const deleteModal = postDivPublish.querySelector('.deleteBackModal');
       deletebtn.forEach((btnDelete) => {
         btnDelete.addEventListener('click', (f) => {
-          console.log(f.target.dataset.id);
           deleteModal.style.visibility = 'visible';
           const confirmDelete = () => deletePost(f.target.dataset.id);
           deleteModal.addEventListener('click', (e) => {
@@ -72,7 +87,6 @@ export const home = () => {
               confirmDelete();
               deleteModal.style.visibility = 'hidden';
             } else {
-              console.log('false');
               deleteModal.style.visibility = 'hidden';
             }
           });

@@ -14,14 +14,7 @@ export const authUser = (email, password) => firebase.auth()
 
 export const getUser = () => firebase.auth().currentUser;
 
-export const stateCheck = (homePage) => firebase.auth()
-  .onAuthStateChanged((user) => {
-    if (user) {
-      return user;
-    }
-    // eslint-disable-next-line no-param-reassign
-    return homePage.innerHTML = 'Inicia sesion';
-  });
+export const stateCheck = () => firebase.auth();
 
 // Continua el registro con google
 export const gmailAuth = (onNavigate) => {
