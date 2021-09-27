@@ -10,11 +10,12 @@ export const login = () => {
   <header id="banner"><img id="logo" src="./imagenes/Imagen1.png">
   <h1 id="petFriends">Pet Friends</h1></header>
   <form id="formContainer">
-  <input id="email" placeholder="Correo electrónico">
+  <input id="email" placeholder="Correo electrónico" autofocus>
   <h5 id="invalidEmail"></h5>
   <div class="eyeContainer">
-  <input id="password" type="password" placeholder="Contraseña" required="required">
+  <input id="password" type="password" placeholder="Contraseña"  required="required">
   <img class="openEye" src="./imagenes/openEye 1.png">
+  <img class="closeEye" src="./imagenes/closeEye 1.png">
   </div>
   <h5 id="entryError"></h5>
   <button id="signIn">Iniciar sesión</button>
@@ -50,6 +51,8 @@ export const login = () => {
       });
   });
   loginPage.querySelector('.openEye').addEventListener('click', () => {
+    loginPage.querySelector('.closeEye').style.visibility = 'visible';
+    loginPage.querySelector('.openEye').style.visibility = 'hidden';
     const returnPassword = loginPage.querySelector('#password');
     if (returnPassword.type === 'password') {
       returnPassword.type = 'text';
@@ -57,6 +60,17 @@ export const login = () => {
       returnPassword.type = 'password';
     }
   });
+  loginPage.querySelector('.closeEye').addEventListener('click', () => {
+    loginPage.querySelector('.closeEye').style.visibility = 'hidden';
+    loginPage.querySelector('.openEye').style.visibility = 'visible';
+    const returnPassword = loginPage.querySelector('#password');
+    if (returnPassword.type === 'password') {
+      returnPassword.type = 'text';
+    } else {
+      returnPassword.type = 'password';
+    }
+  });
+
   loginPage.querySelector('#routeButton').addEventListener('click', () => onNavigate('/register'));
 
   loginPage.querySelector('#signInGoogle').addEventListener('click', () => {

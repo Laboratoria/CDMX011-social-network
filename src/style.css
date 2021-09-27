@@ -125,12 +125,15 @@ input {
     position: relative;
 
 }
-.openEye {
+.openEye, .closeEye {
     position: absolute;
     right: 10px;
     top: 50%;
     transform: translateY(50%);
     cursor: pointer;
+}
+.closeEye{
+    visibility: hidden;
 }
 
 #wallBanner{
