@@ -47,7 +47,7 @@ export const home = () => {
       const htmlPostsPublished = `<div id= "recentPostDiv">
           <p id="userMail">${doc.data().user}:</p>
           <p id="recentPost">${doc.data().post}</p>
-          <div id= "divButtons"><button id= "edit" >Editar</button>
+          <div id= "divButtons"><button id= "edit" class="edit">Editar</button>
           <button id= "deletes" class="btndeletes"  > Eliminar</button> 
           <img id= "img" src="./imagenes/patitaGris.png">
           <div class="deleteBackModal">
@@ -62,7 +62,28 @@ export const home = () => {
 
       postDivPublish.innerHTML += htmlPostsPublished;
 
-      const deletebtn = postDivPublish.querySelectorAll('.btndeletes');
+      postDivPublish.addEventListener('click', (e) => {
+        console.log(e.target);
+      });
+      /*   Inicio código Caro */ const deletebtn = postDivPublish.querySelectorAll('.btndeletes');
+      const deleteModal = postDivPublish.querySelector('.deleteBackModal');
+      deletebtn.forEach((btnDelete) => {
+        btnDelete.addEventListener('click', () => {
+          deleteModal.style.visibility = 'visible';
+        });
+      });
+
+      const confirmDelete = postDivPublish.querySelectorAll('.si');
+
+      confirmDelete.forEach((btnYes) => {
+        btnYes.addEventListener('click', (e) => {
+          // console.log(e.target.dataset.id);
+          deletePost(e.target.dataset.id);
+          deleteModal.style.visibility = 'hidden';
+        });
+      });
+
+      /* código inicial const deletebtn = postDivPublish.querySelectorAll('.btndeletes');
       const deleteModal = postDivPublish.querySelector('.deleteBackModal');
       const confirmDelete = postDivPublish.querySelectorAll('.si');
       deletebtn.forEach((btnDelete) => {
@@ -70,15 +91,17 @@ export const home = () => {
           deleteModal.style.visibility = 'visible';
           confirmDelete.forEach((bntYes) => {
             bntYes.addEventListener('click', (e) => {
-              deletePost(e.target.dataset.id);
-              deleteModal.style.visibility = 'hidden';
+              if (e.target.matches(e.target.dataset.id)) {
+                deletePost(e.target.dataset.id);
+                deleteModal.style.visibility = 'hidden';
+              } else { console.log(e.target.dataset.id); }
             });
           });
           postDivPublish.querySelector('.no').addEventListener('click', () => {
             deleteModal.style.visibility = 'hidden';
           });
         });
-      });
+      }); */
     });
   });
 
