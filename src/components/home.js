@@ -60,7 +60,7 @@ export const home = () => {
 
       postDivPublish.innerHTML += htmlPostsPublished;
 
-      // const deletebtn = postDivPublish.querySelectorAll('.btndeletes');
+      const deletebtn = postDivPublish.querySelectorAll('.btndeletes');
       const deleteModal = postDivPublish.querySelector('.deleteBackModal');
       deletebtn.forEach((btnDelete) => {
         btnDelete.addEventListener('click', (f) => {
