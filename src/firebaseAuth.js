@@ -1,3 +1,4 @@
+/* eslint-disable no-return-assign */
 const firebaseConfig = {
   apiKey: 'AIzaSyDaVL9xrLkXNtmtT3zogQtjb_kmOGJWmj0',
   authDomain: 'petfriends-fac02.firebaseapp.com',

@@ -1,9 +1,7 @@
 import { onNavigate } from '../main.js';
 import { allFunctions } from '../lib/validFunc.js';
 import {
-
   logOut, getUser, postInFirestore, updatePost, deletePost, stateCheck,
-
 } from '../firebaseAuth.js';
 
 export const home = () => {
@@ -44,7 +42,7 @@ export const home = () => {
     postDivPublish.innerHTML = '';
     snapshot.forEach((doc) => {
       const comentId = doc.id;
-      const htmlPostsPublished = `<div id= "recentPostDiv">
+      const htmlPostsPublished = `<div id= "recentPostDiv" >
           <p id="userMail">${doc.data().user}:</p>
           <p id="recentPost">${doc.data().post}</p>
           <div id= "divButtons"><button id= "edit" class="edit">Editar</button>
@@ -53,7 +51,7 @@ export const home = () => {
           <div class="deleteBackModal">
           <div class="deleteModal" >
           <h2 class= "confirmText">¿Estás segur@ que deseas eliminar este post? </h2>
-          <button class="si" data-id= ${comentId}>Si</button>
+          <button class="si">Si</button>
           <button class="no" >No</button>
           </div>
           </div>
@@ -62,24 +60,22 @@ export const home = () => {
 
       postDivPublish.innerHTML += htmlPostsPublished;
 
-      postDivPublish.addEventListener('click', (e) => {
-        console.log(e.target);
-      });
-      /*   Inicio código Caro */ const deletebtn = postDivPublish.querySelectorAll('.btndeletes');
+      const deletebtn = postDivPublish.querySelectorAll('.btndeletes');
       const deleteModal = postDivPublish.querySelector('.deleteBackModal');
       deletebtn.forEach((btnDelete) => {
-        btnDelete.addEventListener('click', () => {
+        btnDelete.addEventListener('click', (f) => {
+          console.log(f.target.dataset.id);
           deleteModal.style.visibility = 'visible';
-        });
-      });
-
-      const confirmDelete = postDivPublish.querySelectorAll('.si');
-
-      confirmDelete.forEach((btnYes) => {
-        btnYes.addEventListener('click', (e) => {
-          // console.log(e.target.dataset.id);
-          deletePost(e.target.dataset.id);
-          deleteModal.style.visibility = 'hidden';
+          const confirmDelete = () => deletePost(f.target.dataset.id);
+          deleteModal.addEventListener('click', (e) => {
+            if (e.target.classList.contains('si')) {
+              confirmDelete();
+              deleteModal.style.visibility = 'hidden';
+            } else {
+              console.log('false');
+              deleteModal.style.visibility = 'hidden';
+            }
+          });
         });
       });
 
