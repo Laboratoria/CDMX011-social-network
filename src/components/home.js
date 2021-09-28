@@ -2,7 +2,7 @@
 import { onNavigate } from '../main.js';
 import { allFunctions } from '../lib/validFunc.js';
 import {
-  logOut, getUser, postInFirestore, updatePost, deletePost, stateCheck,
+  logOut, getUser, postInFirestore, updatePost, deletePost, stateCheck, editPost,
 } from '../firebaseAuth.js';
 
 export const home = () => {
@@ -36,8 +36,9 @@ export const home = () => {
   <div id="posts"></div>
   `;
   homePage.innerHTML = htmlNodes;
-
+  const modal = homePage.querySelector('#backModal');
   const postDivPublish = homePage.querySelector('#posts');
+  let postPublish = homePage.querySelector('#post').value;
 
   updatePost((snapshot) => {
     postDivPublish.innerHTML = '';
@@ -46,9 +47,10 @@ export const home = () => {
       const htmlPostsPublished = `<div id= "recentPostDiv" >
           <p id="userMail">${doc.data().user}:</p>
           <p id="recentPost">${doc.data().post}</p>
-          <div id= "divButtons"><button id= "edit" >Editar</button>
+          <div id= "divButtons">
+          <button id= "edit" class= "btnEdit" data-id= ${comentId} >Editar</button>
           <button id= "deletes" class="btndeletes" data-id= ${comentId} > Eliminar</button> 
-          <img id= "img" src="./imagenes/patitaGris.png">
+          <img id="img"  class= "like" src="./imagenes/patitaGris.png">
           <div class="deleteBackModal">
           <div class="deleteModal" >
           <h2 class= "confirmText">¿Estás segur@ que deseas eliminar este post? </h2>
@@ -60,6 +62,18 @@ export const home = () => {
           </div>`;
 
       postDivPublish.innerHTML += htmlPostsPublished;
+
+      const colorPaw = postDivPublish.querySelectorAll('.like');
+
+      colorPaw.forEach((postLike) => {
+        postLike.addEventListener('click', (e) => {
+          if (e.target.getAttribute('src') === './imagenes/patitaGris.png') {
+            postLike.setAttribute('src', './imagenes/patitaColor.png');
+          } else {
+            postLike.setAttribute('src', './imagenes/patitaGris.png');
+          }
+        });
+      });
 
       // const userPost = doc.data().user;
       // Esto es un objeto
@@ -92,15 +106,25 @@ export const home = () => {
           });
         });
       });
+      // la constante se llama modal
+      const btnEdit = postDivPublish.querySelectorAll('.btnEdit');
+
+      btnEdit.forEach((edtPost) => {
+        edtPost.addEventListener('click', (event) => {
+          modal.style.visibility = 'visible';
+          const id = event.target.dataset.id;
+          editPost(id, postPublish);
+          console.log(event.target.dataset.id);
+        });
+      });
     });
   });
 
-  const modal = homePage.querySelector('#backModal');
   homePage.querySelector('#signOut').addEventListener('click', () => logOut(onNavigate));
 
   homePage.querySelector('#postInput').addEventListener('click', () => {
     modal.style.visibility = 'visible';
-    homePage.querySelector('#post').value = '';
+    postPublish = '';
   });
 
   homePage.querySelector('#close').addEventListener('click', () => {
@@ -110,12 +134,12 @@ export const home = () => {
   homePage.querySelector('#share').addEventListener('click', () => {
     modal.style.visibility = 'hidden';
     // const catchPost = homePage.querySelector('#catchPost');
-    const postPublish = homePage.querySelector('#post').value;
     if (allFunctions.validPost(postPublish) === false) {
       alert('No has publicado un post aún');
     } else {
       postInFirestore(postPublish, userEmail);
     }
   });
+
   return homePage;
 };
