@@ -316,3 +316,7 @@ input {
     color: #662A08;    
     letter-spacing: .5px;
 }
+
+.btndeletes{
+    visibility: visible;
+}

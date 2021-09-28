@@ -66,3 +66,5 @@ export const printPostFromFirestore = () => db.collection('posts').get();
 export const updatePost = (callback) => db.collection('posts').onSnapshot(callback);
 
 export const deletePost = (id) => db.collection('posts').doc(id).delete();
+
+export const editPost = (id, post) => db.collection('posts').doc(id).update({ post });

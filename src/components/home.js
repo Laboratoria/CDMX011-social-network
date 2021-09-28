@@ -1,7 +1,8 @@
+/* eslint-disable no-unused-expressions */
 import { onNavigate } from '../main.js';
 import { allFunctions } from '../lib/validFunc.js';
 import {
-  logOut, getUser, postInFirestore, updatePost, deletePost, stateCheck,
+  logOut, getUser, postInFirestore, updatePost, deletePost, stateCheck, editPost,
 } from '../firebaseAuth.js';
 
 export const home = () => {
@@ -19,7 +20,7 @@ export const home = () => {
   <img id="logoWall" src="./imagenes/Imagen1.png">
   <h1 id="petFriendsWall">Pet Friends</h1>
   <img id="signOut" src= "./imagenes/exit.png"></header>
-  <h2 id= "welcomeMessage">Bienvenid@</h2>
+  <h2 id= "welcomeMessage">Bienvenid@ ${userEmail}</h2>
   <p id= "catchPost"></p>
   <div id="postContainer">
   <img id= "yellowDog" src="./imagenes/Güero.png">
@@ -35,8 +36,9 @@ export const home = () => {
   <div id="posts"></div>
   `;
   homePage.innerHTML = htmlNodes;
-
+  const modal = homePage.querySelector('#backModal');
   const postDivPublish = homePage.querySelector('#posts');
+  let postPublish = homePage.querySelector('#post').value;
 
   updatePost((snapshot) => {
     postDivPublish.innerHTML = '';
@@ -45,9 +47,10 @@ export const home = () => {
       const htmlPostsPublished = `<div id= "recentPostDiv" >
           <p id="userMail">${doc.data().user}:</p>
           <p id="recentPost">${doc.data().post}</p>
-          <div id= "divButtons"><button id= "edit" class="edit">Editar</button>
-          <button id= "deletes" class="btndeletes"  > Eliminar</button> 
-          <img id= "img" src="./imagenes/patitaGris.png">
+          <div id= "divButtons">
+          <button id= "edit" class= "btnEdit" data-id= ${comentId} >Editar</button>
+          <button id= "deletes" class="btndeletes" data-id= ${comentId} > Eliminar</button> 
+          <img id="img"  class= "like" src="./imagenes/patitaGris.png">
           <div class="deleteBackModal">
           <div class="deleteModal" >
           <h2 class= "confirmText">¿Estás segur@ que deseas eliminar este post? </h2>
@@ -60,11 +63,37 @@ export const home = () => {
 
       postDivPublish.innerHTML += htmlPostsPublished;
 
+      const colorPaw = postDivPublish.querySelectorAll('.like');
+
+      colorPaw.forEach((postLike) => {
+        postLike.addEventListener('click', (e) => {
+          if (e.target.getAttribute('src') === './imagenes/patitaGris.png') {
+            postLike.setAttribute('src', './imagenes/patitaColor.png');
+          } else {
+            postLike.setAttribute('src', './imagenes/patitaGris.png');
+          }
+        });
+      });
+
+      // const userPost = doc.data().user;
+      // Esto es un objeto
+      // console.log(userEmail);
+      // Esto es un string
+      // const userObject = { userPost };
+      // console.log(userObject.userPost);
       const deletebtn = postDivPublish.querySelectorAll('.btndeletes');
+
+      /*  deletebtn.forEach((personalDelete) => {
+        const personalDlt = () => {personalDelete.style.display = 'hidden'};
+        if (userObject.userPost !== userEmail) {
+          personalDlt;
+          console.log('si funciona');
+        }
+      }); */
+
       const deleteModal = postDivPublish.querySelector('.deleteBackModal');
       deletebtn.forEach((btnDelete) => {
         btnDelete.addEventListener('click', (f) => {
-          console.log(f.target.dataset.id);
           deleteModal.style.visibility = 'visible';
           const confirmDelete = () => deletePost(f.target.dataset.id);
           deleteModal.addEventListener('click', (e) => {
@@ -72,41 +101,30 @@ export const home = () => {
               confirmDelete();
               deleteModal.style.visibility = 'hidden';
             } else {
-              console.log('false');
               deleteModal.style.visibility = 'hidden';
             }
           });
         });
       });
+      // la constante se llama modal
+      const btnEdit = postDivPublish.querySelectorAll('.btnEdit');
 
-      /* código inicial const deletebtn = postDivPublish.querySelectorAll('.btndeletes');
-      const deleteModal = postDivPublish.querySelector('.deleteBackModal');
-      const confirmDelete = postDivPublish.querySelectorAll('.si');
-      deletebtn.forEach((btnDelete) => {
-        btnDelete.addEventListener('click', () => {
-          deleteModal.style.visibility = 'visible';
-          confirmDelete.forEach((bntYes) => {
-            bntYes.addEventListener('click', (e) => {
-              if (e.target.matches(e.target.dataset.id)) {
-                deletePost(e.target.dataset.id);
-                deleteModal.style.visibility = 'hidden';
-              } else { console.log(e.target.dataset.id); }
-            });
-          });
-          postDivPublish.querySelector('.no').addEventListener('click', () => {
-            deleteModal.style.visibility = 'hidden';
-          });
+      btnEdit.forEach((edtPost) => {
+        edtPost.addEventListener('click', (event) => {
+          modal.style.visibility = 'visible';
+          const id = event.target.dataset.id;
+          editPost(id, postPublish);
+          console.log(event.target.dataset.id);
         });
-      }); */
+      });
     });
   });
 
-  const modal = homePage.querySelector('#backModal');
   homePage.querySelector('#signOut').addEventListener('click', () => logOut(onNavigate));
 
   homePage.querySelector('#postInput').addEventListener('click', () => {
     modal.style.visibility = 'visible';
-    homePage.querySelector('#post').value = '';
+    postPublish = '';
   });
 
   homePage.querySelector('#close').addEventListener('click', () => {
@@ -116,12 +134,12 @@ export const home = () => {
   homePage.querySelector('#share').addEventListener('click', () => {
     modal.style.visibility = 'hidden';
     // const catchPost = homePage.querySelector('#catchPost');
-    const postPublish = homePage.querySelector('#post').value;
     if (allFunctions.validPost(postPublish) === false) {
       alert('No has publicado un post aún');
     } else {
       postInFirestore(postPublish, userEmail);
     }
   });
+
   return homePage;
 };
