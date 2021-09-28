@@ -67,4 +67,6 @@ export const updatePost = (callback) => db.collection('posts').onSnapshot(callba
 
 export const deletePost = (id) => db.collection('posts').doc(id).delete();
 
-export const editPost = (id, post) => db.collection('posts').doc(id).update({ post });
+export const getTaskForEdit = (id) => db.collection('posts').doc(id).get();
+
+// export const editPost = (id, post) => db.collection('posts').doc(id).update({ post });

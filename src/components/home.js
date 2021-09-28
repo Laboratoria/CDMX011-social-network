@@ -2,7 +2,7 @@
 import { onNavigate } from '../main.js';
 import { allFunctions } from '../lib/validFunc.js';
 import {
-  logOut, getUser, postInFirestore, updatePost, deletePost, stateCheck, editPost,
+  logOut, getUser, postInFirestore, updatePost, deletePost, stateCheck, getTaskForEdit,
 } from '../firebaseAuth.js';
 
 export const home = () => {
@@ -112,9 +112,9 @@ export const home = () => {
       btnEdit.forEach((edtPost) => {
         edtPost.addEventListener('click', (event) => {
           modal.style.visibility = 'visible';
-          const id = event.target.dataset.id;
-          editPost(id, postPublish);
-          console.log(event.target.dataset.id);
+          const docForEdit = getTaskForEdit(event.target.dataset.id);
+         // editPost(id, postPublish);
+          console.log(docForEdit);
         });
       });
     });
