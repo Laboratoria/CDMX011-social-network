@@ -1,5 +1,4 @@
-// Este es el punto de entrada de tu aplicacion
-
-import { myFunction } from './lib/index.js';
-
-myFunction();
+/*import { render } from './component.js';
+ document.getElementById('root').appendChild(render());*/
+import { renderN }from './componentN.js';
+document.getElementById('root').appendChild(render());
