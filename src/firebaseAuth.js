@@ -14,14 +14,7 @@ export const authUser = (email, password) => firebase.auth()
 
 export const getUser = () => firebase.auth().currentUser;
 
-export const stateCheck = (homePage) => firebase.auth()
-  .onAuthStateChanged((user) => {
-    if (user) {
-      return user;
-    }
-    // eslint-disable-next-line no-param-reassign
-    return homePage.innerHTML = 'Inicia sesion';
-  });
+export const stateCheck = () => firebase.auth();
 
 // Continua el registro con google
 export const gmailAuth = (onNavigate) => {
@@ -61,12 +54,12 @@ export const db = firebase.firestore();
 
 export const postInFirestore = (post, user) => db.collection('posts').add({ post, user });
 
-export const printPostFromFirestore = () => db.collection('posts').get();
-
 export const updatePost = (callback) => db.collection('posts').onSnapshot(callback);
 
 export const deletePost = (id) => db.collection('posts').doc(id).delete();
 
 export const getTaskForEdit = (id) => db.collection('posts').doc(id).get();
+
+export const printPostFromFirestore = () => db.collection('posts').get();
 
 // export const editPost = (id, post) => db.collection('posts').doc(id).update({ post });
