@@ -5,7 +5,7 @@ export const render = ()=>{
     button.textContent = 'Haz clic aquí';
     button.addEventListener('click', () =>{
     const printHello = document.createElement('p');
-    printHello.textContent = 'Buenas tardes';
+    printHello.textContent = 'Hola';
     newDiv.appendChild(printHello);
     });
         newDiv.appendChild(button);

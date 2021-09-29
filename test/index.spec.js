@@ -1,8 +1,11 @@
-// importamos la funcion que vamos a testear
-import { myFunction } from '../src/lib/index';
-
-describe('myFunction', () => {
-  it('debería ser una función', () => {
-    expect(typeof myFunction).toBe('function');
-  });
-});
+/**
+ * @jest-enviroment jsdom
+ */
+import { render } from "../src/component";
+describe('colecciones de test sobre el DOM', () => {
+  test('Test sobre render', () => {
+    const renderizado = render();
+    console.log(renderizado.outerHTML);
+    
+  })
+})
