@@ -1,7 +1,7 @@
 import { onNavigate } from '../main.js';
 import { allFunctions } from '../lib/validFunc.js';
 import {
-  logOut, getUser, postInFirestore, updatePost, deletePost, stateCheck, editPost,
+  logOut, getUser, postInFirestore, updatePost, deletePost, stateCheck, getTaskForEdit,
 } from '../firebaseAuth.js';
 
 export const home = () => {
@@ -9,6 +9,10 @@ export const home = () => {
   if (userEmail !== '') {
     userEmail = userEmail.email;
   }
+<<<<<<< HEAD
+=======
+  // const editStatus = false;
+>>>>>>> c0df2fa4be1809a1a4d861b0f0310587cdead7d5
   const homePage = document.createElement('div');
   stateCheck(homePage);
   homePage.setAttribute('id', 'homePage');
@@ -57,11 +61,44 @@ export const home = () => {
   });
   const postDivPublish = homePage.querySelector('#posts');
 
+  // Botón de cerrar sesión
+  homePage.querySelector('#signOut').addEventListener('click', () => logOut(onNavigate));
+
+  // Botón para abrir el modal
+  homePage.querySelector('#postInput').addEventListener('click', () => {
+    modal.style.visibility = 'visible';
+    homePage.querySelector('#post').value = '';
+  });
+
+  // Es la x para cerrar el modal
+  homePage.querySelector('#close').addEventListener('click', () => {
+    modal.style.visibility = 'hidden';
+  });
+
+  // Botón para publicar el post
+  homePage.querySelector('#share').addEventListener('click', () => {
+    modal.style.visibility = 'hidden';
+    const postPublish = homePage.querySelector('#post').value;
+    // const catchPost = homePage.querySelector('#catchPost');
+    /*    if (!editStatus) {
+      postInFirestore(postPublish, userEmail);
+    } else {
+      homePage.querySelector('#share').innerHTML = 'Guardar';
+    } */
+
+    if (allFunctions.validPost(postPublish) === false) {
+      alert('No has publicado un post aún');
+    } else {
+      postInFirestore(postPublish, userEmail);
+    }
+  });
+
+  // Imprime los post ya existentes en pantalla
   updatePost((snapshot) => {
     postDivPublish.innerHTML = '';
     snapshot.forEach((doc) => {
       const comentId = doc.id;
-      const htmlPostsPublished = `<div id= "recentPostDiv" >
+      const htmlPostsPublished = `<div id= "recentPostDiv" class= "completePost">
           <p id="userMail">${doc.data().user}:</p>
           <p id="recentPost">${doc.data().post}</p>
           <div id= "divButtons">
@@ -80,6 +117,7 @@ export const home = () => {
 
       postDivPublish.innerHTML += htmlPostsPublished;
 
+      // Función para manipular el like
       const colorPaw = postDivPublish.querySelectorAll('.like');
 
       colorPaw.forEach((postLike) => {
@@ -91,6 +129,11 @@ export const home = () => {
           }
         });
       });
+<<<<<<< HEAD
+=======
+
+      // Botón para eliminar post
+>>>>>>> c0df2fa4be1809a1a4d861b0f0310587cdead7d5
       const deletebtn = postDivPublish.querySelectorAll('.btndeletes');
 
       const deleteModal = postDivPublish.querySelector('.deleteBackModal');
@@ -108,15 +151,29 @@ export const home = () => {
           });
         });
       });
+<<<<<<< HEAD
+=======
+
+      // Botón para editar el post
+      const btnEdit = postDivPublish.querySelectorAll('.btnEdit');
+>>>>>>> c0df2fa4be1809a1a4d861b0f0310587cdead7d5
 
       const btnEdit = postDivPublish.querySelectorAll('.btnEdit');
       const postValue = homePage.querySelector('#post').value;
       btnEdit.forEach((edtPost) => {
-        edtPost.addEventListener('click', (event) => {
+        edtPost.addEventListener('click', async (event) => {
           modal.style.visibility = 'visible';
+<<<<<<< HEAD
           const id = event.target.dataset.id;
           editPost(id, postValue);
           console.log(event.target.dataset.id);
+=======
+          const docForEdit = await getTaskForEdit(event.target.dataset.id);
+          // editPost(id, postPublish);
+          console.log(docForEdit.data());
+
+          homePage.querySelector('#post').value = docForEdit.data().post;
+>>>>>>> c0df2fa4be1809a1a4d861b0f0310587cdead7d5
         });
       });
     });
