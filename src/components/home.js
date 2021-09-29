@@ -1,4 +1,3 @@
-/* eslint-disable no-unused-expressions */
 import { onNavigate } from '../main.js';
 import { allFunctions } from '../lib/validFunc.js';
 import {
@@ -7,14 +6,11 @@ import {
 
 export const home = () => {
   let userEmail = getUser();
-  if (userEmail !== null) {
+  if (userEmail !== '') {
     userEmail = userEmail.email;
   }
-
   const homePage = document.createElement('div');
-
   stateCheck(homePage);
-
   homePage.setAttribute('id', 'homePage');
   const htmlNodes = `<header id = "wallBanner" >
   <img id="logoWall" src="./imagenes/Imagen1.png">
@@ -36,9 +32,30 @@ export const home = () => {
   <div id="posts"></div>
   `;
   homePage.innerHTML = htmlNodes;
+
   const modal = homePage.querySelector('#backModal');
+  homePage.querySelector('#signOut').addEventListener('click', () => logOut(onNavigate));
+
+  homePage.querySelector('#postInput').addEventListener('click', () => {
+    modal.style.visibility = 'visible';
+    homePage.querySelector('#post').value = '';
+  });
+
+  homePage.querySelector('#close').addEventListener('click', () => {
+    modal.style.visibility = 'hidden';
+  });
+
+  homePage.querySelector('#share').addEventListener('click', () => {
+    modal.style.visibility = 'hidden';
+    // const catchPost = homePage.querySelector('#catchPost');
+    const postPublish = homePage.querySelector('#post').value;
+    if (allFunctions.validPost(postPublish) === false) {
+      alert('No has publicado un post aún');
+    } else {
+      postInFirestore(postPublish, userEmail);
+    }
+  });
   const postDivPublish = homePage.querySelector('#posts');
-  let postPublish = homePage.querySelector('#post').value;
 
   updatePost((snapshot) => {
     postDivPublish.innerHTML = '';
@@ -49,15 +66,15 @@ export const home = () => {
           <p id="recentPost">${doc.data().post}</p>
           <div id= "divButtons">
           <button id= "edit" class= "btnEdit" data-id= ${comentId} >Editar</button>
-          <button id= "deletes" class="btndeletes" data-id= ${comentId} > Eliminar</button> 
-          <img id="img"  class= "like" src="./imagenes/patitaGris.png">
+          <button id= "deletes" class="btndeletes" data-id= ${comentId} > Eliminar</button>
           <div class="deleteBackModal">
           <div class="deleteModal" >
           <h2 class= "confirmText">¿Estás segur@ que deseas eliminar este post? </h2>
           <button class="si">Si</button>
           <button class="no" >No</button>
           </div>
-          </div>
+          </div> 
+          <img id="img"  class= "like" src="./imagenes/patitaGris.png">
           </div>
           </div>`;
 
@@ -74,22 +91,7 @@ export const home = () => {
           }
         });
       });
-
-      // const userPost = doc.data().user;
-      // Esto es un objeto
-      // console.log(userEmail);
-      // Esto es un string
-      // const userObject = { userPost };
-      // console.log(userObject.userPost);
       const deletebtn = postDivPublish.querySelectorAll('.btndeletes');
-
-      /*  deletebtn.forEach((personalDelete) => {
-        const personalDlt = () => {personalDelete.style.display = 'hidden'};
-        if (userObject.userPost !== userEmail) {
-          personalDlt;
-          console.log('si funciona');
-        }
-      }); */
 
       const deleteModal = postDivPublish.querySelector('.deleteBackModal');
       deletebtn.forEach((btnDelete) => {
@@ -106,39 +108,18 @@ export const home = () => {
           });
         });
       });
-      // la constante se llama modal
-      const btnEdit = postDivPublish.querySelectorAll('.btnEdit');
 
+      const btnEdit = postDivPublish.querySelectorAll('.btnEdit');
+      const postValue = homePage.querySelector('#post').value;
       btnEdit.forEach((edtPost) => {
         edtPost.addEventListener('click', (event) => {
           modal.style.visibility = 'visible';
           const id = event.target.dataset.id;
-          editPost(id, postPublish);
+          editPost(id, postValue);
           console.log(event.target.dataset.id);
         });
       });
     });
-  });
-
-  homePage.querySelector('#signOut').addEventListener('click', () => logOut(onNavigate));
-
-  homePage.querySelector('#postInput').addEventListener('click', () => {
-    modal.style.visibility = 'visible';
-    postPublish = '';
-  });
-
-  homePage.querySelector('#close').addEventListener('click', () => {
-    modal.style.visibility = 'hidden';
-  });
-
-  homePage.querySelector('#share').addEventListener('click', () => {
-    modal.style.visibility = 'hidden';
-    // const catchPost = homePage.querySelector('#catchPost');
-    if (allFunctions.validPost(postPublish) === false) {
-      alert('No has publicado un post aún');
-    } else {
-      postInFirestore(postPublish, userEmail);
-    }
   });
 
   return homePage;
