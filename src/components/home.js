@@ -6,13 +6,10 @@ import {
 
 export const home = () => {
   let userEmail = getUser();
-  if (userEmail !== '') {
+  if (userEmail !== null) {
     userEmail = userEmail.email;
   }
-<<<<<<< HEAD
-=======
   // const editStatus = false;
->>>>>>> c0df2fa4be1809a1a4d861b0f0310587cdead7d5
   const homePage = document.createElement('div');
   stateCheck(homePage);
   homePage.setAttribute('id', 'homePage');
@@ -129,11 +126,8 @@ export const home = () => {
           }
         });
       });
-<<<<<<< HEAD
-=======
 
       // Botón para eliminar post
->>>>>>> c0df2fa4be1809a1a4d861b0f0310587cdead7d5
       const deletebtn = postDivPublish.querySelectorAll('.btndeletes');
 
       const deleteModal = postDivPublish.querySelector('.deleteBackModal');
@@ -151,29 +145,17 @@ export const home = () => {
           });
         });
       });
-<<<<<<< HEAD
-=======
 
       // Botón para editar el post
       const btnEdit = postDivPublish.querySelectorAll('.btnEdit');
->>>>>>> c0df2fa4be1809a1a4d861b0f0310587cdead7d5
-
-      const btnEdit = postDivPublish.querySelectorAll('.btnEdit');
-      const postValue = homePage.querySelector('#post').value;
       btnEdit.forEach((edtPost) => {
         edtPost.addEventListener('click', async (event) => {
           modal.style.visibility = 'visible';
-<<<<<<< HEAD
-          const id = event.target.dataset.id;
-          editPost(id, postValue);
-          console.log(event.target.dataset.id);
-=======
           const docForEdit = await getTaskForEdit(event.target.dataset.id);
           // editPost(id, postPublish);
           console.log(docForEdit.data());
 
           homePage.querySelector('#post').value = docForEdit.data().post;
->>>>>>> c0df2fa4be1809a1a4d861b0f0310587cdead7d5
         });
       });
     });
