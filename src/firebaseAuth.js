@@ -62,4 +62,4 @@ export const getTaskForEdit = (id) => db.collection('posts').doc(id).get();
 
 export const printPostFromFirestore = () => db.collection('posts').get();
 
-// export const editPost = (id, post) => db.collection('posts').doc(id).update({ post });
+export const editPost = (id, post) => db.collection('posts').doc(id).update({ post });
