@@ -1,4 +1,5 @@
 // eslint-disable-next-line import/no-cycle
+// eslint-disable-next-line import/no-cycle
 import { allFunctions } from '../lib/validFunc.js';
 import { authUser, gmailAuth } from '../firebaseAuth.js';
 import { onNavigate } from '../main.js';
