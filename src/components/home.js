@@ -2,15 +2,15 @@
 import { onNavigate } from '../main.js';
 import { allFunctions } from '../lib/validFunc.js';
 import {
-  logOut, getUser, postInFirestore, updatePost, deletePost, stateCheck, getTaskForEdit,
+  logOut, getUser, postInFirestore, updatePost, deletePost, stateCheck, getTaskForEdit, editPost,
 } from '../firebaseAuth.js';
 
 export const home = () => {
   let userEmail = getUser();
-  if (userEmail !== null) {
+  if (userEmail !== '') {
     userEmail = userEmail.email;
   }
-  // const editStatus = false;
+  let editStatus = false;
   const homePage = document.createElement('div');
 
   stateCheck(homePage);
@@ -30,7 +30,7 @@ export const home = () => {
   <div id="modal">
   <h3 id="close">x</h3>
   <textarea id="post" placeholder = "Cuéntanos sobre tu petFriend"></textarea>
-  <button id="share">Publicar</button>
+  <button id="share" class="send" >Publicar</button>
   </div>
   </div>
   <div id="posts"></div>
@@ -58,11 +58,11 @@ export const home = () => {
     modal.style.visibility = 'hidden';
     const postPublish = homePage.querySelector('#post').value;
     // const catchPost = homePage.querySelector('#catchPost');
-    /*    if (!editStatus) {
+    if (!editStatus) {
       postInFirestore(postPublish, userEmail);
     } else {
       homePage.querySelector('#share').innerHTML = 'Guardar';
-    } */
+    }
 
     if (allFunctions.validPost(postPublish) === false) {
       alert('No has publicado un post aún');
@@ -134,10 +134,17 @@ export const home = () => {
         edtPost.addEventListener('click', async (event) => {
           modal.style.visibility = 'visible';
           const docForEdit = await getTaskForEdit(event.target.dataset.id);
-          // editPost(id, postPublish);
+
           console.log(docForEdit.data());
 
           homePage.querySelector('#post').value = docForEdit.data().post;
+          editStatus = true;
+          if (editStatus === true) {
+           // editPost(docForEdit, homePage.querySelector('#post').value);
+            editPost(event.target.dataset.id, homePage.querySelector('#post').value);
+            console.log('hola');
+            // postDivPublish.querySelectorAll('.send').textContent = 'Actualizar';
+          }
         });
       });
     });
