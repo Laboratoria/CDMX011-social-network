@@ -2,6 +2,7 @@
 import { login } from './components/login.js';
 import { register } from './components/register.js';
 import { home } from './components/home.js';
+import { edit } from './components/edit.js';
 import { stateCheck } from './firebaseAuth.js';
 
 const routesDiv = document.getElementById('root');
@@ -10,6 +11,7 @@ const routes = {
   '/': login,
   '/register': register,
   '/home': home,
+  '/edit': edit,
 };
 
 // este export es para ir de Home a Registro
