@@ -152,13 +152,6 @@ export const home = () => {
               postEditModal.style.visibility = 'hidden';
             }
           });
-          // homePage.querySelector('.editPost').value = docForEdit.data().post;
-          // if (editStatus === true) {
-          //   editPost(event.target.dataset.id, homePage.querySelector('#post').value);
-          //   console.log('hola');
-          //   editPost(docForEdit, homePage.querySelector('#post').value);
-          //   postDivPublish.querySelectorAll('.send').textContent = 'Actualizar';
-          // }
         });
       });
     });
