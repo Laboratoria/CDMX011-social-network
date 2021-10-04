@@ -7,10 +7,12 @@ import {
 
 export const home = () => {
   let userEmail = getUser();
-  if (userEmail !== '') {
+  if (userEmail !== null) {
     userEmail = userEmail.email;
+  } else {
+    userEmail = '';
   }
-  const editStatus = false;
+  // let editStatus = false;
   const homePage = document.createElement('div');
 
   stateCheck(homePage);
@@ -57,17 +59,12 @@ export const home = () => {
   homePage.querySelector('#share').addEventListener('click', () => {
     modal.style.visibility = 'hidden';
     const postPublish = homePage.querySelector('#post').value;
-    // const catchPost = homePage.querySelector('#catchPost');
-    if (!editStatus) {
-      postInFirestore(postPublish, userEmail);
-    } else {
-      homePage.querySelector('#share').innerHTML = 'Guardar';
-    }
-
+    const date = new Date();
+    const postDate = `${date.getDate()}/${date.getMonth() + 1}/${date.getFullYear()} a las ${date.getHours()}:${date.getMinutes()}`;
     if (allFunctions.validPost(postPublish) === false) {
       alert('No has publicado un post aún');
     } else {
-      postInFirestore(postPublish, userEmail);
+      postInFirestore(postPublish, userEmail, postDate);
     }
   });
 
@@ -78,9 +75,17 @@ export const home = () => {
       const comentId = doc.id;
       const htmlPostsPublished = `<div id= "recentPostDiv" class= "completePost">
           <p id="userMail">${doc.data().user}:</p>
+          <p id="date">${doc.data().date}</p>
           <p id="recentPost">${doc.data().post}</p>
           <div id= "divButtons">
           <button id= "edit" class= "btnEdit" data-id= ${comentId} >Editar</button>
+          <div class="editBackModal">
+          <div class="editModal">
+          <h3 class="editClose">x</h3>
+          <textarea class="editPost"></textarea>
+          <button id="share" class="save">Guardar</button>
+          </div>
+          </div>
           <button id= "deletes" class="btndeletes" data-id= ${comentId} > Eliminar</button> 
           <img id="img"  class= "like" src="./imagenes/patitaGris.png">
           <div class="deleteBackModal">
@@ -129,22 +134,24 @@ export const home = () => {
 
       // Botón para editar el post
       const btnEdit = postDivPublish.querySelectorAll('.btnEdit');
-
+      const postEditModal = postDivPublish.querySelector('.editBackModal');
+      const editedPost = postDivPublish.querySelector('.editPost');
       btnEdit.forEach((edtPost) => {
         edtPost.addEventListener('click', async (event) => {
-          // modal.style.visibility = 'visible';
-          await getTaskForEdit(event.target.dataset.id);
-          onNavigate('/edit');
+          postEditModal.style.visibility = 'visible';
+          const docForEdit = await getTaskForEdit(event.target.dataset.id);
+          editedPost.value = docForEdit.data().post;
           // console.log(docForEdit.data());
-
-          // homePage.querySelector('#post').value = docForEdit.data().post;
-          // editStatus = true;
-          // if (editStatus === true) {
-          // editPost(docForEdit, homePage.querySelector('#post').value);
-          // editPost(event.target.dataset.id, homePage.querySelector('#post').value);
-          // console.log('hola');
-          // postDivPublish.querySelectorAll('.send').textContent = 'Actualizar';
-          //  }
+          console.log(docForEdit.id);
+          postEditModal.addEventListener('click', (e) => {
+            if (e.target.classList.contains('save')) {
+              editPost(docForEdit.id, editedPost.value);
+              postEditModal.style.visibility = 'hidden';
+            }
+            if (e.target.classList.contains('editClose')) {
+              postEditModal.style.visibility = 'hidden';
+            }
+          });
         });
       });
     });

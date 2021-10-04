@@ -52,7 +52,9 @@ export const logOut = (onNavigate) => firebase.auth().signOut()
 // firestore
 export const db = firebase.firestore();
 
-export const postInFirestore = (post, user) => db.collection('posts').add({ post, user });
+export const postInFirestore = (post, user, date) => db.collection('posts').add({
+  post, user, date,
+});
 
 export const updatePost = (callback) => db.collection('posts').onSnapshot(callback);
 
