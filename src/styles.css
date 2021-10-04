@@ -1,0 +1,30 @@
+:root{
+    background-color: rgb(247, 226, 244);
+}
+#inicioDiv{
+    display:flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  background-color: rgb(37, 136, 248); 
+}
+#divInicioDeSesion{
+    
+    position: relative;
+    width: 450px;
+    height: 320px;
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    background-color: rgb(145, 77, 77);
+    border-radius: 9spx;
+    margin: 20px;
+    padding: 11px 8px;
+}
+
+#imagenInicioSesion{
+    width: 450px;
+    height: 320px;  
+}
+.marca{}
+
+#{}
