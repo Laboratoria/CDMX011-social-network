@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-expressions */
 import { onNavigate } from '../main.js';
 import { allFunctions } from '../lib/validFunc.js';
 import {
@@ -6,12 +7,16 @@ import {
 
 export const home = () => {
   let userEmail = getUser();
-  if (userEmail !== '') {
+  if (userEmail !== null) {
     userEmail = userEmail.email;
+  } else {
+    userEmail = '';
   }
-  let editStatus = false;
+  // let editStatus = false;
   const homePage = document.createElement('div');
+
   stateCheck(homePage);
+
   homePage.setAttribute('id', 'homePage');
   const htmlNodes = `<header id = "wallBanner" >
   <img id="logoWall" src="./imagenes/Imagen1.png">
@@ -33,29 +38,7 @@ export const home = () => {
   <div id="posts"></div>
   `;
   homePage.innerHTML = htmlNodes;
-
   const modal = homePage.querySelector('#backModal');
-  homePage.querySelector('#signOut').addEventListener('click', () => logOut(onNavigate));
-
-  homePage.querySelector('#postInput').addEventListener('click', () => {
-    modal.style.visibility = 'visible';
-    homePage.querySelector('#post').value = '';
-  });
-
-  homePage.querySelector('#close').addEventListener('click', () => {
-    modal.style.visibility = 'hidden';
-  });
-
-  homePage.querySelector('#share').addEventListener('click', () => {
-    modal.style.visibility = 'hidden';
-    // const catchPost = homePage.querySelector('#catchPost');
-    const postPublish = homePage.querySelector('#post').value;
-    if (allFunctions.validPost(postPublish) === false) {
-      alert('No has publicado un post aún');
-    } else {
-      postInFirestore(postPublish, userEmail);
-    }
-  });
   const postDivPublish = homePage.querySelector('#posts');
 
   // Botón de cerrar sesión
@@ -76,17 +59,12 @@ export const home = () => {
   homePage.querySelector('#share').addEventListener('click', () => {
     modal.style.visibility = 'hidden';
     const postPublish = homePage.querySelector('#post').value;
-    // const catchPost = homePage.querySelector('#catchPost');
-    if (!editStatus) {
-      postInFirestore(postPublish, userEmail);
-    } else {
-      homePage.querySelector('#share').innerHTML = 'Guardar';
-    }
-
+    const date = new Date();
+    const postDate = `${date.getDate()}/${date.getMonth() + 1}/${date.getFullYear()} a las ${date.getHours()}:${date.getMinutes()}`;
     if (allFunctions.validPost(postPublish) === false) {
       alert('No has publicado un post aún');
     } else {
-      postInFirestore(postPublish, userEmail);
+      postInFirestore(postPublish, userEmail, postDate);
     }
   });
 
@@ -97,18 +75,26 @@ export const home = () => {
       const comentId = doc.id;
       const htmlPostsPublished = `<div id= "recentPostDiv" class= "completePost">
           <p id="userMail">${doc.data().user}:</p>
+          <p id="date">${doc.data().date}</p>
           <p id="recentPost">${doc.data().post}</p>
           <div id= "divButtons">
           <button id= "edit" class= "btnEdit" data-id= ${comentId} >Editar</button>
-          <button id= "deletes" class="btndeletes" data-id= ${comentId} > Eliminar</button>
+          <div class="editBackModal">
+          <div class="editModal">
+          <h3 class="editClose">x</h3>
+          <textarea class="editPost"></textarea>
+          <button id="share" class="save">Guardar</button>
+          </div>
+          </div>
+          <button id= "deletes" class="btndeletes" data-id= ${comentId} > Eliminar</button> 
+          <img id="img"  class= "like" src="./imagenes/patitaGris.png">
           <div class="deleteBackModal">
           <div class="deleteModal" >
           <h2 class= "confirmText">¿Estás segur@ que deseas eliminar este post? </h2>
           <button class="si">Si</button>
           <button class="no" >No</button>
           </div>
-          </div> 
-          <img id="img"  class= "like" src="./imagenes/patitaGris.png">
+          </div>
           </div>
           </div>`;
 
@@ -148,21 +134,31 @@ export const home = () => {
 
       // Botón para editar el post
       const btnEdit = postDivPublish.querySelectorAll('.btnEdit');
+      const postEditModal = postDivPublish.querySelector('.editBackModal');
+      const editedPost = postDivPublish.querySelector('.editPost');
       btnEdit.forEach((edtPost) => {
         edtPost.addEventListener('click', async (event) => {
-          modal.style.visibility = 'visible';
+          postEditModal.style.visibility = 'visible';
           const docForEdit = await getTaskForEdit(event.target.dataset.id);
-
-          console.log(docForEdit.data());
-
-          homePage.querySelector('#post').value = docForEdit.data().post;
-          editStatus = true;
-          if (editStatus === true) {
-           // editPost(docForEdit, homePage.querySelector('#post').value);
-            editPost(event.target.dataset.id, homePage.querySelector('#post').value);
-            console.log('hola');
-            // postDivPublish.querySelectorAll('.send').textContent = 'Actualizar';
-          }
+          editedPost.value = docForEdit.data().post;
+          // console.log(docForEdit.data());
+          console.log(docForEdit.id);
+          postEditModal.addEventListener('click', (e) => {
+            if (e.target.classList.contains('save')) {
+              editPost(docForEdit.id, editedPost.value);
+              postEditModal.style.visibility = 'hidden';
+            }
+            if (e.target.classList.contains('editClose')) {
+              postEditModal.style.visibility = 'hidden';
+            }
+          });
+          // homePage.querySelector('.editPost').value = docForEdit.data().post;
+          // if (editStatus === true) {
+          //   editPost(event.target.dataset.id, homePage.querySelector('#post').value);
+          //   console.log('hola');
+          //   editPost(docForEdit, homePage.querySelector('#post').value);
+          //   postDivPublish.querySelectorAll('.send').textContent = 'Actualizar';
+          // }
         });
       });
     });

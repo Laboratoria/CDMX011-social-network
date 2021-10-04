@@ -16,7 +16,7 @@ export const allFunctions = {
   },
 
   validPost(post) {
-    if (post === '') {
+    if (post === '' || post === ' ') {
       return false;
     }
     return true;

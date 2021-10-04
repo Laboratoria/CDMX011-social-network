@@ -187,7 +187,7 @@ input {
     Height: 43px;
 }
 
-#backModal, .deleteBackModal{
+#backModal, .deleteBackModal, .editBackModal{
     visibility: hidden;
     top: 0px;
     display: flex;
@@ -199,7 +199,7 @@ input {
     align-items: center;
 }
 
-#modal, .deleteModal{
+#modal, .deleteModal, .editModal{
     border-radius: 10px;
     display: flex;
     background-color:#D3F5FF;;
@@ -221,7 +221,7 @@ input {
 }
 
 
-#post{
+#post, .editPost{
     background-color:#D3F5FF;;
     margin-top: 2%;
     margin-bottom: 2%;
@@ -266,7 +266,7 @@ input {
     text-align: center;
     font-size: 18px;
 }
-#close{
+#close, .editClose{
     font-family: 'Fredoka one', sans-serif;
     color:#FF5A5C;
     font-size: 22px;
@@ -284,6 +284,10 @@ input {
     font-size: 16px;
     width: 80px;
     height: 30px
+}
+#date{
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
 }
 
 #edit{
