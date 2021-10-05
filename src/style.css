@@ -248,9 +248,10 @@ input {
  display: flex;
  justify-content: flex-start;
  flex-direction: column;
- align-content: center;
+ align-items: flex-start;
+ /* align-content: center; */
  width:100%;
- align-items: center;
+/*  align-items: center; */
 }
 #posts{
     display:flex;
@@ -288,6 +289,7 @@ input {
 #date{
     font-family: 'Montserrat';
     font-weight: 600;
+    font-size: 11px
 }
 
 #edit{
@@ -296,6 +298,8 @@ input {
     background: none;
    color:#D76524;
    justify-content: flex-start;
+   margin-right: 5px;
+  
 }
 
 #deletes{
@@ -311,7 +315,7 @@ input {
 #divButtons{
     display: flex;
     flex-wrap: nowrap;
-    justify-content: space-evenly;
+    
 }
 
 #userMail, .confirmText{
@@ -321,6 +325,10 @@ input {
     letter-spacing: .5px;
 }
 
-.btndeletes{
-    visibility: visible;
+#text{
+    visibility: hidden;
+}
+
+.like{
+ margin-right: 15px;
 }
