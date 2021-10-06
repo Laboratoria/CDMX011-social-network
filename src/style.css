@@ -33,6 +33,10 @@ body{
 }
 #root{
     width: 100%;
+    display: flex;
+    justify-content: flex-end;
+    align-items: baseline;
+    height: 100%;
 
 }
 
@@ -190,6 +194,7 @@ input {
 #backModal, .deleteBackModal, .editBackModal{
     visibility: hidden;
     top: 0px;
+    left: 0px;
     display: flex;
     position: fixed;
     width: 100%;
@@ -250,7 +255,6 @@ input {
  flex-direction: column;
  align-items: flex-start;
  /* align-content: center; */
- width:100%;
 /*  align-items: center; */
 }
 #posts{
@@ -331,4 +335,35 @@ input {
 
 .like{
  margin-right: 15px;
+}
+
+.loginPage{
+    justify-content: flex-end;
+
+}
+
+@media screen and (min-width: 850px ) and (max-width: 1500px) {
+    body{
+       
+        
+        display: flex;
+       align-items:stretch;
+       width: 100rem;
+       height: 30rem;
+    }
+    
+    .loginPage{
+        justify-content: flex-end;
+        width: 400px;
+        height: 600px;
+        background: rgba(241, 86, 86, 0.47);
+border-radius: 20px;
+    }
+
+    #root{
+        background-image: url("./imagenes/wallPaw.png");
+        background-repeat: no-repeat;
+        background-size: 100%;
+        
+    }
 }
