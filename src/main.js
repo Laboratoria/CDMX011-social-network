@@ -1,8 +1,11 @@
 /* eslint-disable import/no-cycle */
+
 /* eslint-disable import/no-unresolved */
 import { inicio } from './components/iniciar.js';
 import { muro } from './components/muro.js';
 import { registro } from './components/registro.js';
+
+
 
 const rootDiv = document.getElementById('root');
 
@@ -11,8 +14,6 @@ const rutas = {
   '/muro': muro,
   '/registro': registro,
 };
-// eslint-disable-next-line no-console
-console.log(rutas);
 
 export const onNavigate = (pathname) => {
   window.history.pushState(
@@ -37,4 +38,6 @@ window.onpopstate = () => {
   rootDiv.appendChild(rutas[window.location.pathname]());
 };
 
+
 rootDiv.appendChild(component());
+
