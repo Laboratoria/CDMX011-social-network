@@ -6,7 +6,12 @@ import {
 
 export const login = () => {
   const loginPage = document.createElement('div');
-  const htmlLogin = `<div class="loginPage">
+  loginPage.setAttribute('id', 'loginContainer');
+  const htmlLogin = `<div id="wallPaw">
+  <img class="pawTop" src="./imagenes/pawsTop.png">
+  <p id="spam">El mejor sitio para <br> presumir a <br>tus mascotas</p>
+  <img class="pawButton" src="./imagenes/pawsButton.png"></div>
+  <div class="loginPage">
   <header id="banner"><img id="logo" src="./imagenes/Imagen1.png">
   <h1 id="petFriends">Pet Friends</h1></header>
   <form id="formContainer">

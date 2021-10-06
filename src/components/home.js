@@ -74,10 +74,12 @@ export const home = () => {
     snapshot.forEach((doc) => {
       const comentId = doc.id;
       const htmlPostsPublished = `<div id= "recentPostDiv" class= "completePost">
-          <p id="userMail">${doc.data().user}:</p>
+          <p id="userMail" class="userMail" >${doc.data().user}:</p>
           <p id="date">${doc.data().date}</p>
           <p id="recentPost">${doc.data().post}</p>
-          <div id= "divButtons">
+          ${userEmail === doc.data().user
+    ? `<div id= "divButtons">
+          <img id="img"  class= "like" src="./imagenes/patitaGris.png">
           <button id= "edit" class= "btnEdit" data-id= ${comentId} >Editar</button>
           <div class="editBackModal">
           <div class="editModal">
@@ -86,15 +88,15 @@ export const home = () => {
           <button id="share" class="save">Guardar</button>
           </div>
           </div>
-          <button id= "deletes" class="btndeletes" data-id= ${comentId} > Eliminar</button> 
-          <img id="img"  class= "like" src="./imagenes/patitaGris.png">
+       <button id= "deletes" class="btndeletes" data-id= ${comentId} > Eliminar</button> 
           <div class="deleteBackModal">
           <div class="deleteModal" >
           <h2 class= "confirmText">¿Estás segur@ que deseas eliminar este post? </h2>
           <button class="si">Si</button>
           <button class="no" >No</button>
           </div>
-          </div>
+          </div>`
+    : '<img id="img"  class= "like" src="./imagenes/patitaGris.png">'}
           </div>
           </div>`;
 
