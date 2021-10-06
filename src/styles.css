@@ -2,29 +2,105 @@
     background-color: rgb(247, 226, 244);
 }
 #inicioDiv{
-    display:flex;
+  display:flex;
   flex-wrap: wrap;
   justify-content: center;
-  background-color: rgb(37, 136, 248); 
+  background-color: rgb(0,0,0); 
 }
 #divInicioDeSesion{
-    
+    top: -30px;
     position: relative;
-    width: 450px;
+    width: 250px;
     height: 320px;
     display:flex;
     flex-direction: column;
     justify-content: center;
-    background-color: rgb(145, 77, 77);
-    border-radius: 9spx;
+    background-color: white;
+    border-radius: 9px;
     margin: 20px;
     padding: 11px 8px;
+    border-radius: 10px;
+    align-items: center;
 }
 
 #imagenInicioSesion{
-    width: 450px;
+    width: 100px;
     height: 320px;  
+    border-radius: 9px;
 }
-.marca{}
+img{
+    display: block;
+    margin: auto;
+    width: 204px; 
+    }
+.marca{
+    color:white;
+}
+#slogan{
+    color: white;
+}
+#correo-electronico{
+background-color:rgb(204,203,201);
+height: 250px;
+border-radius: 5px;
+margin: 5px;
+}
+#contraseña{
+    background-color: rgb(204,203,201);
+    height: 250px;
+    border-radius: 5px;
+    /*margin separar los botones*/
+    margin: 5px;
+    }
 
-#{}
+#boton-ingresar{
+    background-color: purple;
+    font-family: 'Courier New', Courier, monospace;
+    border-radius: 10px;
+    box-shadow:5px 5px 10px black;
+    color:white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display:inline-block;
+    font-size: 16px;
+    margin: 10px;
+    cursor: pointer;
+    -webkit-transition-duration: 0.4s; /* Safari */
+    transition-duration: 0.4s;
+    height: 50px;
+    }
+.Registro{
+    color:blue;
+   position: center;
+
+}
+p{
+    font-family: 'Courier New', Courier, monospace;
+    color: black;
+    font-size: medium;
+    text-align:center;
+}
+#inicioSesion{
+    border-radius: 9px;
+    background-color: gray;
+    
+}
+/*Inicia estilos del muro*/
+.contenedorMuro{
+    display:flex;
+    flex-direction: column;
+    /*justify-content: center;*/
+    align-items: center;
+}
+h1.marca{
+    color: #0a0a0a;
+}
+.publicar{
+   width: 100%;
+   height: 60px;
+
+}
+
+
+  

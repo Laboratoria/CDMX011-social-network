@@ -1,3 +1,3 @@
-import { inicio } from './lib/componentes/Componets/Iniciar.js';
+import { muro } from './lib/componentes/Componets/Muro.js';
 
-document.getElementById('root').append(inicio());
+document.getElementById('root').append(muro());
