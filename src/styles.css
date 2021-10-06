@@ -1,43 +1,43 @@
 :root{
-  background-color: rgb(14, 12, 13);
+    background-color: rgb(247, 226, 244);
 }
 #inicioDiv{
-display:flex;
-flex-wrap: wrap;
-justify-content: center;
-background-color: rgb(0,0,0); 
+  display:flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  background-color: rgb(0,0,0); 
 }
 #divInicioDeSesion{
-  top: -30px;
-  position: relative;
-  width: 250px;
-  height: 320px;
-  display:flex;
-  flex-direction: column;
-  justify-content: center;
-  background-color: white;
-  border-radius: 9px;
-  margin: 20px;
-  padding: 11px 8px;
-  border-radius: 10px;
-  align-items: center;
+    top: -30px;
+    position: relative;
+    width: 250px;
+    height: 320px;
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    background-color: white;
+    border-radius: 9px;
+    margin: 20px;
+    padding: 11px 8px;
+    border-radius: 10px;
+    align-items: center;
 }
 
 #imagenInicioSesion{
-  width: 100px;
-  height: 320px;  
-  border-radius: 9px;
+    width: 100px;
+    height: 320px;  
+    border-radius: 9px;
 }
 img{
-  display: block;
-  margin: auto;
-  width: 204px; 
-  }
+    display: block;
+    margin: auto;
+    width: 204px; 
+    }
 .marca{
-  color:white;
+    color:white;
 }
 #slogan{
-  color: white;
+    color: white;
 }
 #correo-electronico{
 background-color:rgb(204,203,201);
@@ -46,44 +46,61 @@ border-radius: 5px;
 margin: 5px;
 }
 #contraseña{
-  background-color: rgb(204,203,201);
-  height: 250px;
-  border-radius: 5px;
-  /*margin separar los botones*/
-  margin: 5px;
-  }
+    background-color: rgb(204,203,201);
+    height: 250px;
+    border-radius: 5px;
+    /*margin separar los botones*/
+    margin: 5px;
+    }
 
 #boton-ingresar{
-  background-color: purple;
-  font-family: 'Courier New', Courier, monospace;
-  border-radius: 10px;
-  box-shadow:5px 5px 10px black;
-  color:white;
-  padding: 15px 32px;
-  text-align: center;
-  text-decoration: none;
-  display:inline-block;
-  font-size: 16px;
-  margin: 10px;
-  cursor: pointer;
-  -webkit-transition-duration: 0.4s; /* Safari */
-  transition-duration: 0.4s;
-  height: 50px;
-  }
+    background-color: purple;
+    font-family: 'Courier New', Courier, monospace;
+    border-radius: 10px;
+    box-shadow:5px 5px 10px black;
+    color:white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display:inline-block;
+    font-size: 16px;
+    margin: 10px;
+    cursor: pointer;
+    -webkit-transition-duration: 0.4s; /* Safari */
+    transition-duration: 0.4s;
+    height: 50px;
+    }
 .Registro{
-  color:blue;
- position: center;
+    color:blue;
+   position: center;
 
 }
 p{
-  font-family: 'Courier New', Courier, monospace;
-  color: black;
-  font-size: medium;
-  text-align:center;
+    font-family: 'Courier New', Courier, monospace;
+    color: black;
+    font-size: medium;
+    text-align:center;
 }
 #inicioSesion{
-  border-radius: 9px;
-  background-color: gray;
-  
+    border-radius: 9px;
+    background-color: gray;
+    
+}
+/*Inicia estilos del muro*/
+.contenedorMuro{
+    display:flex;
+    flex-direction: column;
+    /*justify-content: center;*/
+    align-items: center;
+}
+h1.marca{
+    color: #0a0a0a;
+}
+.publicar{
+   width: 100%;
+   height: 60px;
+
 }
 
+
+  
