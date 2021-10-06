@@ -1,3 +1,4 @@
+/* eslint-disable import/no-cycle */
 /* eslint-disable import/named */
 import { onNavigate } from '../main.js';
 
@@ -12,7 +13,7 @@ export const muro = () => {
   const botonPublicar = document.createElement('button');
   botonPublicar.textContent = 'Publicar';
   botonPublicar.id = 'boton-publicar';
-  botonPublicar.addEventListener('click', () => onNavigate('/'));
+  botonPublicar.addEventListener('click', () => onNavigate('/muro'));
   homeDiv.appendChild(tituloHome);
   homeDiv.appendChild(publicar);
   homeDiv.appendChild(botonPublicar);

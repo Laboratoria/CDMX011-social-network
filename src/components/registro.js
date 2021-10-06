@@ -1,3 +1,4 @@
+/* eslint-disable import/no-cycle */
 // eslint-disable-next-line import/named
 import { onNavigate } from '../main.js';
 
