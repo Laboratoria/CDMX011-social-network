@@ -109,6 +109,7 @@ input {
 #lastContainer{
     display: flex;
     align-items: flex-end;
+    justify-content: center;
 }
 
 #registerIn{
@@ -253,9 +254,9 @@ input {
  display: flex;
  justify-content: flex-start;
  flex-direction: column;
- align-items: flex-start;
- /* align-content: center; */
-/*  align-items: center; */
+ align-content: center;
+ width:100%;
+ align-items: center;
 }
 #posts{
     display:flex;
@@ -293,7 +294,6 @@ input {
 #date{
     font-family: 'Montserrat';
     font-weight: 600;
-    font-size: 11px
 }
 
 #edit{
@@ -302,8 +302,6 @@ input {
     background: none;
    color:#D76524;
    justify-content: flex-start;
-   margin-right: 5px;
-  
 }
 
 #deletes{
@@ -319,7 +317,7 @@ input {
 #divButtons{
     display: flex;
     flex-wrap: nowrap;
-    
+    justify-content: space-evenly;
 }
 
 #userMail, .confirmText{
@@ -328,42 +326,69 @@ input {
     color: #662A08;    
     letter-spacing: .5px;
 }
-
-#text{
-    visibility: hidden;
+#wallPaw{
+    display: none;
 }
-
-.like{
- margin-right: 15px;
-}
-
-.loginPage{
-    justify-content: flex-end;
-
-}
-
-@media screen and (min-width: 850px ) and (max-width: 1500px) {
-    body{
-       
-        
-        display: flex;
-       align-items:stretch;
-       width: 100rem;
-       height: 30rem;
-    }
-    
-    .loginPage{
-        justify-content: flex-end;
-        width: 400px;
-        height: 600px;
-        background: rgba(241, 86, 86, 0.47);
-border-radius: 20px;
-    }
+@media screen and (min-width: 850px ){
 
     #root{
-        background-image: url("./imagenes/wallPaw.png");
-        background-repeat: no-repeat;
-        background-size: 100%;
+        display: flex;
+        justify-content: flex-end;
+        width: 100%;
         
+    }
+    .loginPage{
+        justify-content: flex-end;
+        width: 730px;
+        height: 850px;
+        background: rgba(241, 86, 86, 0.47);
+        border-radius: 20px;
+        margin-top: 6em;
+        margin-right: 4em;
+    }
+    h1{
+        font-size: 4em;
+    }
+    input{
+        width: 527px;
+        height: 56.67px;
+        border: 3px solid #1EBFD1;
+    }
+    .openEye{
+        right: 18px;
+        margin-top: 2%;
+    }
+    #signIn{
+        width: 180px;
+        height: 55px;
+        font-size: 20px;
+    }
+    #signInGoogle{
+        width: 311px;
+        height: 55px;
+        font-size: 20px;
+        background: #FF5A5C;
+    }
+    #registerIn{
+        font-size: 20px;
+       
+    }
+    #routeButton{
+        font-size: 21px;
+        color: #C72426;
+    }
+    #loginContainer{
+        display: flex;
+    }
+    #wallPaw{
+        display: block;
+    }
+    #spam{
+        font-family:'Montserrat', sans-serif;
+        font-size: 60px;
+        color: #732F3B;
+    }
+    .pawTop{
+    bottom: 0px;
     }
 }
