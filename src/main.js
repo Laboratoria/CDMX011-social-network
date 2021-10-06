@@ -1,3 +1,40 @@
-import { muro } from './lib/componentes/Componets/Muro.js';
+/* eslint-disable import/no-cycle */
+/* eslint-disable import/no-unresolved */
+import { inicio } from './components/iniciar.js';
+import { muro } from './components/muro.js';
+import { registro } from './components/registro.js';
 
-document.getElementById('root').append(muro());
+const rootDiv = document.getElementById('root');
+
+const rutas = {
+  '/': inicio,
+  '/muro': muro,
+  '/registro': registro,
+};
+// eslint-disable-next-line no-console
+console.log(rutas);
+
+export const onNavigate = (pathname) => {
+  window.history.pushState(
+    {},
+    pathname,
+    window.location.origin + pathname,
+  );
+
+  while (rootDiv.firstChild) {
+    rootDiv.removeChild(rootDiv.firstChild);
+  }
+
+  rootDiv.appendChild(rutas[pathname]());
+};
+
+const component = rutas[window.location.pathname];
+
+window.onpopstate = () => {
+  while (rootDiv.firstChild) {
+    rootDiv.removeChild(rootDiv.firstChild);
+  }
+  rootDiv.appendChild(rutas[window.location.pathname]());
+};
+
+rootDiv.appendChild(component());

@@ -1,3 +1,6 @@
+/* eslint-disable import/named */
+import { onNavigate } from '../main.js';
+
 export const inicio = () => {
   const inicioDiv = document.createElement('div');
   inicioDiv.id = 'inicioDiv';
@@ -9,18 +12,18 @@ export const inicio = () => {
   slogan.id = 'slogan';
   const imagenInicioDeSesion = document.createElement('img');
   imagenInicioDeSesion.id = 'imagenInicioDeSesion';
-  imagenInicioDeSesion.src = '/lib/componentes/Assets/mounstruo.png';
+  imagenInicioDeSesion.src = '/Assets/mounstruo.png';
   inicioDiv.append(marca);
   inicioDiv.append(slogan);
   inicioDiv.append(imagenInicioDeSesion);
   const divInicioDeSesion = document.createElement('div');
   divInicioDeSesion.id = 'divInicioDeSesion';
   const inicioSesion = document.createElement('h2');
-  inicioSesion.textContent = 'Iniciar Sesión';
+  inicioSesion.textContent = 'Iniciar Sesion';
   inicioSesion.id = 'inicio-sesion';
   const correoElectronico = document.createElement('input');
-  correoElectronico.placeholder = 'Correo electrónico';
   correoElectronico.id = 'correo-electronico';
+  correoElectronico.placeholder = 'Correo Electronico';
   const contraseña = document.createElement('input');
   contraseña.id = 'contraseña';
   contraseña.placeholder = 'Contraseña';
@@ -28,15 +31,16 @@ export const inicio = () => {
   const botonIngresar = document.createElement('button');
   botonIngresar.textContent = 'Ingresar';
   botonIngresar.id = 'boton-ingresar';
+  botonIngresar.addEventListener('click', () => onNavigate('/muro'));
   const opcion = document.createElement('p');
   opcion.textContent = 'o';
   opcion.className = 'letra-o';
   const textoSinCuenta = document.createElement('p');
-  textoSinCuenta.textContent = 'No tienes cuenta. Regístrate';
+  textoSinCuenta.textContent = 'No tienes cuenta. Registrate ';
   textoSinCuenta.className = 'texto-no-cuenta';
   const registro = document.createElement('a');
-  registro.textContent = 'Aquí';
-  registro.href = 'Registro.js';
+  registro.textContent = 'Aqui';
+  registro.addEventListener('click', () => onNavigate('/registro'));
   registro.className = 'registro';
   divInicioDeSesion.appendChild(inicioSesion);
   divInicioDeSesion.appendChild(correoElectronico);

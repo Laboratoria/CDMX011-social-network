@@ -1,3 +1,6 @@
+// eslint-disable-next-line import/named
+import { onNavigate } from '../main.js';
+
 export const registro = () => {
   const registroDiv = document.createElement('div');
   const titulo = document.createElement('h1');
@@ -16,8 +19,8 @@ export const registro = () => {
   const botonCrearCuenta = document.createElement('button');
   botonCrearCuenta.textContent = 'Crear cuenta';
   botonCrearCuenta.id = 'boton-crear-cuenta';
-  botonCrearCuenta,id
-
+  // eslint-disable-next-line no-undef
+  botonCrearCuenta.addEventListener('click', () => onNavigate('/'));
   registroDiv.append(titulo);
   registroDiv.append(nombre);
   registroDiv.append(correoElectronico);
