@@ -2,17 +2,14 @@
 import { onNavigate } from '../main.js';
 import { allFunctions } from '../lib/validFunc.js';
 import {
-  logOut, getUser, postInFirestore, updatePost, deletePost, stateCheck, getTaskForEdit, editPost,
+  logOut, getUser, postInFirestore, updatePost, deletePost, stateCheck,
+  getTaskForEdit, editPost, storageRef,
 } from '../firebaseAuth.js';
 
 export const home = () => {
   let userEmail = getUser();
-  if (userEmail !== null) {
-    userEmail = userEmail.email;
-  } else {
-    userEmail = '';
-  }
-  // let editStatus = false;
+  userEmail !== null ? userEmail = userEmail.email : userEmail = '';
+
   const homePage = document.createElement('div');
 
   stateCheck(homePage);
@@ -32,6 +29,7 @@ export const home = () => {
   <div id="modal">
   <h3 id="close">x</h3>
   <textarea id="post" placeholder = "Cuéntanos sobre tu petFriend"></textarea>
+  <input type="file" id="addImg" name="addImg" accept="image/png, image/jpeg, image/jpg">
   <button id="share" class="send" >Publicar</button>
   </div>
   </div>
@@ -58,6 +56,11 @@ export const home = () => {
   // Botón para publicar el post
   homePage.querySelector('#share').addEventListener('click', () => {
     modal.style.visibility = 'hidden';
+    // Sección de imagen
+    const imgPost = homePage.querySelector('#addImg').files[0];
+    storageRef(imgPost, imgPost.name);
+
+    //  sección de comentario
     const postPublish = homePage.querySelector('#post').value;
     const date = new Date();
     const postDate = `${date.getDate()}/${date.getMonth() + 1}/${date.getFullYear()} a las ${date.getHours()}:${date.getMinutes()}`;

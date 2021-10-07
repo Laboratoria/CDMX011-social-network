@@ -65,3 +65,10 @@ export const getTaskForEdit = (id) => db.collection('posts').doc(id).get();
 export const printPostFromFirestore = () => db.collection('posts').get();
 
 export const editPost = (id, post) => db.collection('posts').doc(id).update({ post });
+
+// storage
+export const storage = firebase.storage();
+
+export const storageRef = (postImg, img) => firebase.storage().ref(`/imgPost/${postImg.name}`).put(img).then(() => {
+  console.log('Uploaded a blob or file!');
+});
