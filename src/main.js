@@ -11,7 +11,6 @@ const rutas = {
   '/muro': muro,
   '/registro': registro,
 };
-console.log(rutas);
 
 export const onNavigate = (pathname) => {
   window.history.pushState(

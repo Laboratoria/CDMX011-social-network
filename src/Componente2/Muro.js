@@ -1,10 +1,11 @@
-// eslint-disable-next-line import/no-unresolved
+// eslint-disable-next-line import/no-cycle
 import { onNavigate } from '../main.js';
 
 export const muro = () => {
   const homeDiv = document.createElement('div');
+  homeDiv.id = 'homeDiv';
   const tituloHome = document.createElement('h1');
-  tituloHome.className = 'marca';
+  tituloHome.id = 'marcaMuro';
   tituloHome.textContent = 'TRANSMUTA';
   const publicar = document.createElement('input');
   publicar.textContent = 'publicar';
