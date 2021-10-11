@@ -75,10 +75,6 @@ export const likesCounter = (idFromPost, idFromUser) => db.collection('posts').d
 
 // export const updateLikes= (likesUser) => firebase.firestore.FieldValue.arrayUnion(likesUser),
 
-export const updateLike = (id, like) => db.collection('posts').doc(id).update({ like });
+export const updateLike = (id, like) => db.collection('posts').doc(id).update({ like: firebase.firestore.FieldValue.arrayUnion(like) });
 
-/* export const arrayUnionLike = (arrLike) => arrLike.update({
-  like: firebase.firestore.FieldValue.arrayUnion('boton'),
-}); */
-
-/// *  */
+export const dislike = (id, like) => db.collection('posts').doc(id).update({ like: firebase.firestore.FieldValue.arrayRemove(like) });
