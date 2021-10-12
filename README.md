@@ -8,22 +8,28 @@ Red social destinada a usuarios interesados en ver y compartir contenido de sus 
 
 ## Prototipo de alta fidelidad
 
-* Propuesta de prototipos
+- Propuesta de prototipos
+
+
 ![Propuesta de prototipos](./src/imagenes/PrototipoPetFriends.png)
 
-* Registro
-<br>
+- Registro
+
+
 ![Registro](./src/imagenes/ProtoMovilRegistro.png)
 
-* Inicio de sesión
-<br>
+- Inicio de sesión
+
+
 ![Inicio de sesión](./src/imagenes/protoMovil.png)
 
-* Home
-<br>
+- Home
+
+
 ![Home](./src/imagenes/protoMovilHome.png)
 
-* Ventana de publicación
-<br>
+- Ventana de publicación
+
+
 ![Ventana de publicación](./src/imagenes/protoModal.png)
 
