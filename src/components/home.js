@@ -2,8 +2,8 @@
 import { onNavigate } from '../main.js';
 import { allFunctions } from '../lib/validFunc.js';
 import {
-  logOut, getUser, postInFirestore, updatePost, deletePost, stateCheck, updateLike,
-  getIdFromCollection, editPost, storageRef, dislike,
+  logOut, getUser, postInFirestore, updatePost, deletePost, updateLike,
+  getIdFromCollection, editPost, dislike,
 } from '../firebaseAuth.js';
 
 export const home = () => {
@@ -11,8 +11,6 @@ export const home = () => {
   userEmail !== null ? userEmail = userEmail.email : userEmail = '';
 
   const homePage = document.createElement('div');
-
-  stateCheck(homePage);
 
   homePage.setAttribute('id', 'homePage');
   const htmlNodes = `<header id = "wallBanner" >
@@ -68,8 +66,8 @@ export const home = () => {
     }
 
     // Sección de imagen
-    const imgPost = homePage.querySelector('#addImg').files[0];
-    storageRef(imgPost, imgPost.name);
+    /*  const imgPost = homePage.querySelector('#addImg').files[0];
+    storageRef(imgPost, imgPost.name); */
   });
 
   // Imprime los post ya existentes en pantalla
@@ -152,8 +150,6 @@ export const home = () => {
           postEditModal.style.visibility = 'visible';
           const docForEdit = await getIdFromCollection(event.target.dataset.id);
           editedPost.value = docForEdit.data().post;
-          // console.log(docForEdit.data());
-          console.log(docForEdit.id);
           postEditModal.addEventListener('click', (e) => {
             if (e.target.classList.contains('save')) {
               editPost(docForEdit.id, editedPost.value);

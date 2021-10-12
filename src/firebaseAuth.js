@@ -64,12 +64,13 @@ export const getIdFromCollection = (id) => db.collection('posts').doc(id).get();
 
 export const editPost = (id, post) => db.collection('posts').doc(id).update({ post });
 
-// storage
-export const storage = firebase.storage();
+// storage esto es para subir imagenes
+// export const storage = firebase.storage();
 
-export const storageRef = (postImg, img) => firebase.storage().ref(`/imgPost/${postImg.name}`).put(img).then(() => {
+/* export const storageRef = (postImg, img) => firebase.storage().ref(`/imgPost/${postImg.name}`)
+.put(img).then(() => {
   console.log('Uploaded a blob or file!');
-});
+}); */
 
 export const likesCounter = (idFromPost, idFromUser) => db.collection('posts').doc(idFromPost).update({ idFromUser });
 
