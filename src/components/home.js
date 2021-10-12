@@ -84,8 +84,8 @@ export const home = () => {
           <p id="recentPost">${doc.data().post}</p>
           ${userEmail === doc.data().user
     ? `<div id= "divButtons">
-          <img id="img"  class= "like" src="./imagenes/patitaGris.png"  data-idpost= ${comentId} data-id= ${idUserFromLike} >
-          <p id="paragCounter" class="paragCounter">${doc.data().like.length}<p>
+          <img id="img"  class= "like" ${doc.data().like.includes(idUserFromLike) ? 'src= "./imagenes/patitaColor.png"' : 'src= "./imagenes/patitaGris.png"'}  data-idpost= ${comentId} data-id= ${idUserFromLike} >
+          <p id="paragCounter" class="paragCounter">${doc.data().like.length}</p>
           <button id= "edit" class= "btnEdit" data-id= ${comentId} >Editar</button>
             <div class="editBackModal">
                <div class="editModal">
@@ -102,8 +102,8 @@ export const home = () => {
               <button class="no" >No</button>
              </div>
           </div>`
-    : `<img id="img"  data-idpost= ${comentId}  data-id= ${idUserFromLike} class= "like" src="./imagenes/patitaGris.png">
-    <p id="paragCounter" class="paragCounter">${doc.data().like.length}<p>`}
+    : `<img id="img"  data-idpost= ${comentId}  data-id= ${idUserFromLike} class= "like" ${doc.data().like.includes(idUserFromLike) ? 'src= "./imagenes/patitaColor.png"' : 'src= "./imagenes/patitaGris.png"'} >
+    <p id="paragCounter" class="paragCounter">${doc.data().like.length}</p>`}
             </div>
           </div>`;
 
@@ -115,22 +115,11 @@ export const home = () => {
       colorPaw.forEach((postLike) => {
         postLike.addEventListener('click', async (e) => {
           const likeId = await getIdFromCollection(e.target.dataset.idpost);
-
-          if (e.target.getAttribute('src') === './imagenes/patitaGris.png') {
-            postLike.setAttribute('src', './imagenes/patitaColor.png');
-          } else {
-            postLike.setAttribute('src', './imagenes/patitaGris.png');
-          }
-
           const arrayLike = likeId.data();
-          const idPost = e.target.dataset.idpost;
-          console.log(e.target.dataset.id);
-          console.log(likeId.data().like);
-
           if (!arrayLike.like.includes(e.target.dataset.id)) {
-            updateLike(idPost, e.target.dataset.id);
+            updateLike(e.target.dataset.idpost, e.target.dataset.id);
           } else {
-            dislike(idPost, e.target.dataset.id);
+            dislike(e.target.dataset.idpost, e.target.dataset.id);
           }
         });
       });
