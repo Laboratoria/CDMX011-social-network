@@ -1,10 +1,9 @@
 *{
- 
     margin: 0px;
     padding: 0px;  
   
   }
-  .homePage {
+ .homePage {
       display:flex;
       justify-content: center;
       align-items:center;
@@ -33,9 +32,10 @@
   }
   #root{
       width: 100%;
-  
   }
-  
+  .loginPage{
+     padding-top: 1em;
+}
   #banner {
       display: flex;
       align-items: center;
@@ -240,6 +240,8 @@
       flex-direction: column;
       display:flex;
       align-items: center;
+      width: 100%;
+
   }
   #recentPostDiv{
    padding: 1%;
@@ -248,11 +250,9 @@
    margin-bottom: 2%;
    border-radius: 10px;
    display: flex;
-   justify-content: flex-start;
    flex-direction: column;
-   align-content: center;
    width:100%;
-   align-items: center;
+   align-items: baseline;
   }
   #posts{
       display:flex;
@@ -260,6 +260,12 @@
       align-content: center;
       width:90%;
   
+  }
+  #addImg{
+    width: 158px;
+    height: 71px;
+    border-radius: 0px;
+    border: none;
   }
   #recentPost{
       font-family:'Montserrat', sans-serif;
@@ -290,6 +296,7 @@
   #date{
       font-family: 'Montserrat';
       font-weight: 600;
+      font-size: 12px;
   }
   
   #edit{
@@ -298,6 +305,7 @@
       background: none;
      color:#D76524;
      justify-content: flex-start;
+     margin-left: 5em;
   }
   
   #deletes{
@@ -305,8 +313,8 @@
       font-family: 'Fredoka One', cursive;
       background: none;
       color:#C72426;
-      margin-right: 92%;
-      margin-left: 10px;
+      margin-left: 2em;
+
   
   }
   
@@ -335,11 +343,11 @@
       }
       .loginPage{
           justify-content: flex-end;
-          width: 730px;
-          height: 850px;
+          width: 39em;
+          height: 60em;
           background: rgba(241, 86, 86, 0.47);
           border-radius: 20px;
-          margin-top: 6em;
+          margin-top: 2%;
           margin-right: 4em;
       }
       h1{
