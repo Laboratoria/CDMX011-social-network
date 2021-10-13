@@ -1,13 +1,15 @@
+
 :root{
-    background-color: rgb(247, 226, 244);
-}
-#inicioDiv{
+    background: #FBEBDB;
+  }
+  #inicioDiv{
   display:flex;
   flex-wrap: wrap;
   justify-content: center;
-  background-color: rgb(0,0,0); 
-}
-#divInicioDeSesion{
+  
+  background: #FBEBDB;
+  }
+  #divInicioDeSesion{
     top: -30px;
     position: relative;
     width: 250px;
@@ -15,92 +17,219 @@
     display:flex;
     flex-direction: column;
     justify-content: center;
-    background-color: white;
+    background:#eadaf3;
     border-radius: 9px;
     margin: 20px;
     padding: 11px 8px;
     border-radius: 10px;
     align-items: center;
-}
-
-#imagenInicioSesion{
+  }
+  
+  #imagenInicioSesion{
     width: 100px;
     height: 320px;  
     border-radius: 9px;
-}
-img{
+  }
+  img{
     display: block;
     margin: auto;
     width: 204px; 
     }
-.marca{
-    color:white;
-}
-#slogan{
-    color: white;
-}
-#correo-electronico{
-background-color:rgb(204,203,201);
-height: 250px;
-border-radius: 5px;
-margin: 5px;
-}
-#contraseña{
-    background-color: rgb(204,203,201);
-    height: 250px;
-    border-radius: 5px;
-    /*margin separar los botones*/
-    margin: 5px;
+  .marca{
+    color: #787878;
+  
+  }
+  #slogan{
+    color: #787878;
+  }
+  #correo-electronico{
+  background-color:rgb(255, 255, 255);
+  height: 200px;
+  margin: 5px;
+  border-radius: 5px;
+  border-color: bisque;
+  }
+  
+  #contraseña{
+   background-color:rgb(255, 255, 255);
+  height: 200px;
+  margin: 5px;
+  border-radius: 5px;
+  border-color: bisque;
     }
-
-#boton-ingresar{
-    background-color: purple;
-    font-family: 'Courier New', Courier, monospace;
-    border-radius: 10px;
-    box-shadow:5px 5px 10px black;
-    color:white;
-    padding: 15px 32px;
+  
+  #boton-ingresar{
+    position:relative;
+    align-content: center;
     text-align: center;
-    text-decoration: none;
-    display:inline-block;
     font-size: 16px;
+    line-height: 16px;
     margin: 10px;
     cursor: pointer;
     -webkit-transition-duration: 0.4s; /* Safari */
     transition-duration: 0.4s;
-    height: 50px;
+    width: 108px;
+    height: 22px;
+    border-color: bisque;
+    color: rgb(88, 88, 88);
+    position: center;
+    background-color: #e09dff;
+    border-radius: 3px;
+    border-color: bisque;
     }
-.Registro{
-    color:blue;
+  .registro{
+    color: rgb(88, 88, 88);
    position: center;
-
-}
-p{
+   border-radius: 3px;
+   border-color: bisque;
+  }
+  p{
     font-family: 'Courier New', Courier, monospace;
     color: black;
     font-size: medium;
     text-align:center;
-}
-#inicioSesion{
+  }
+  #inicioSesion{
     border-radius: 9px;
     background-color: gray;
-    
-}
-/*Inicia estilos del muro*/
-.contenedorMuro{
-    display:flex;
-    flex-direction: column;
-    /*justify-content: center;*/
-    align-items: center;
-}
-h1.marca{
-    color: #0a0a0a;
-}
-.publicar{
-   width: 100%;
-   height: 60px;
-
-}
-
-
+  }
   
+  #inicio-sesion{
+    font-family: Ruda;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 24px;
+  line-height: 22px;
+  
+  color: #696666;
+  }
+  .texto-no-cuenta{
+    font-family: Ranga;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 12px;
+  line-height: 18px;
+  color: #8D8A8A;
+  
+  }
+  .letra-o{
+    font-family: Ranga;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 12px;
+    line-height: 18px;
+    color: #8D8A8A;
+  }
+  #homeDiv{
+    display:flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    background-color: #FBEBDB; 
+  }
+  
+  #marcaMuro{
+    color:#787878;
+    position: relative;
+    justify-content: center;
+    
+  }
+  .publicar{
+    position: relative;
+    background-color: #E5E0E8;
+    width: 100%;
+   height: 60px;
+   position: relative;
+   margin: 30px;
+  }
+  #boton-publicar{
+    position: relative;
+  text-align: center;
+  font-size: 16px;
+  line-height: 16px;
+  margin: 10px;
+  cursor: pointer;
+  -webkit-transition-duration: 0.4s; /* Safari */
+  transition-duration: 0.4s;
+  width: 108px;
+  height: 22px;
+  border-color: bisque;
+  color: rgb(88, 88, 88);
+  position: center;
+  background-color: #e09dff;
+  border-radius: 3px;
+  border-color: bisque;
+  top: 20px;
+  
+  }
+  
+  #divRegistro{
+  display:flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: #FBEBDB;
+  }
+  #Titulo{
+    color: #787878;
+    width: 192px;
+    height: 21px;
+    position: relative;
+    font-family: Forum;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 36px;
+    line-height: 40px;
+    }
+  #nombreRegistro{
+  position: relative;
+    background-color:rgb(255, 255, 255);
+    height: 20px;
+    margin: 14px;
+    border-radius: 5px;
+    border-color: bisque;
+  
+  }
+  #c-electronico{
+    position:relative;
+    background-color:rgb(255, 255, 255);
+    height: 20px;
+    margin: 14px;
+    border-radius: 5px;
+    border-color: bisque;
+  }
+  .contraseña{
+    position: relative;
+    background-color:rgb(255, 255, 255);
+    height: 20px;
+    margin: 14px;
+    border-radius: 5px;
+    border-color: bisque;
+    position: -webkit-sticky;
+  position: sticky;
+  top: 20px;
+  
+  }
+  #boton-crear-cuenta{
+    position:relative;
+    align-content: center;
+    text-align: center;
+    font-size: 16px;
+    line-height: 16px;
+    margin: 10px;
+    cursor: pointer;
+    -webkit-transition-duration: 0.4s; /* Safari */
+    transition-duration: 0.4s;
+    width: 108px;
+    height: 50px;
+    border-color: bisque;
+    color: rgb(88, 88, 88);
+    position: center;
+    background-color: #e09dff;
+    border-radius: 3px;
+    border-color: bisque;
+  }
+  /*Se modifica el ícono casa verde*/
+  #homeImagen{
+    width: 50px;
+    height: 30px;
+  }

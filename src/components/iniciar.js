@@ -17,15 +17,20 @@ export const inicio = () => {
   inicioDiv.append(marca);
   inicioDiv.append(slogan);
   inicioDiv.append(imagenInicioDeSesion);
-  const divInicioDeSesion = document.createElement('div');
+  const divInicioDeSesion = document.createElement('form');
   divInicioDeSesion.id = 'divInicioDeSesion';
+  divInicioDeSesion.method = 'post';
+  divInicioDeSesion.action = 'muro';
   const inicioSesion = document.createElement('h2');
   inicioSesion.textContent = 'Iniciar Sesion';
   inicioSesion.id = 'inicio-sesion';
   const correoElectronico = document.createElement('input');
   correoElectronico.id = 'correo-electronico';
+  correoElectronico.name = 'correo-electronico';
   correoElectronico.placeholder = 'Correo Electronico';
   const contraseña = document.createElement('input');
+  // este lo va a tomar como índice de mi post
+  contraseña.name = 'contraseña';
   contraseña.id = 'contraseña';
   contraseña.placeholder = 'Contraseña';
   contraseña.type = 'password';
