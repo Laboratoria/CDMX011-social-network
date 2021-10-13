@@ -14,6 +14,7 @@ export const registro = () => {
   nombre.placeholder = 'Nombre';
   nombre.id = 'nombreRegistro';
   nombre.type = 'text';
+  apellido.type = 'text';
   const correoElectronico = document.createElement('input');
   correoElectronico.placeholder = 'Correo electronico';
   correoElectronico.id = 'c-electronico';
