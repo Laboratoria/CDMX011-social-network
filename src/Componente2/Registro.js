@@ -1,6 +1,8 @@
+/* eslint-disable import/named */
 // eslint-disable-next-line import/no-cycle
 import { onNavigate } from '../main.js';
-import { obtenerDatos } from '../utils/form.js';
+import { crateAccountWithEmail, crateAccountWithGoogle } from '../lib/firebaseAuth.js';
+// import { onSingIn } from '../lib/authGoogle.js';
 
 export const registro = () => {
   const registroDiv = document.createElement('div');
@@ -8,8 +10,8 @@ export const registro = () => {
   const titulo = document.createElement('h1');
   titulo.id = 'titulo';
   titulo.textContent = '¡Registrate!';
-  const registroForm = document.createElement('form');
-  registroForm.id = 'formRegistro';
+  const formRegistro = document.createElement('form');
+  formRegistro.id = 'formRegistro';
   const nombre = document.createElement('input');
   nombre.placeholder = 'Nombre';
   nombre.id = 'nombreRegistro';
@@ -25,19 +27,27 @@ export const registro = () => {
   const botonCrearCuenta = document.createElement('button');
   botonCrearCuenta.textContent = 'Crear cuenta';
   botonCrearCuenta.id = 'boton-crear-cuenta';
-  botonCrearCuenta.addEventListener('click', () => obtenerDatos());
+  botonCrearCuenta.addEventListener('click', () => {
+    crateAccountWithEmail();
+  });
+  const googleBoton = document.createElement('button');
+  googleBoton.id = 'googleBoton';
+  googleBoton.textContent = 'Entrar con Google';
+  googleBoton.addEventListener('click', () => {
+    crateAccountWithGoogle();
+  });
   const homeImagen = document.createElement('img');
   homeImagen.textContent = 'Crear cuenta';
   homeImagen.id = 'homeImagen';
   homeImagen.src = '/Assets/home.jpg';
   homeImagen.addEventListener('click', () => onNavigate('/'));
-  registroForm.append(nombre);
-  registroForm.append(correoElectronico);
-  registroForm.append(contraseña);
-  registroForm.append(botonCrearCuenta);
+  formRegistro.append(correoElectronico);
+  formRegistro.append(contraseña);
+  formRegistro.append(botonCrearCuenta);
+  formRegistro.append(googleBoton);
   registroDiv.append(titulo);
-  registroDiv.append(registroForm);
-  registroDiv.append(botonCrearCuenta);
+  registroDiv.append(nombre);
+  registroDiv.append(formRegistro);
   registroDiv.append(homeImagen);
   return registroDiv;
 };
