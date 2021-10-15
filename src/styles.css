@@ -5,7 +5,7 @@
 display:flex;
 flex-wrap: wrap;
 justify-content: center;
-
+align-items: center;
 background: #FBEBDB;
 }
 #divInicioDeSesion{
@@ -35,6 +35,8 @@ img{
   width: 204px; 
   }
 .marca{
+  position:center;
+  justify-content: center;
   color: #787878;
 
 }
@@ -239,8 +241,17 @@ top: 20px;
   color: rgb(255, 255, 255);
   border-radius: 3px;
   border-color: bisque;
+  margin: 8px;
 }
-
+.git{
+  width: 100px;
+  margin: 8px;
+}
+.google{
+  width: 100px;
+  height: 40px;
+  margin: 8px;
+}
 #homeImagen{
   width: 50px;
   height: 30px;

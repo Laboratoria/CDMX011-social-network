@@ -1,7 +1,8 @@
 /* eslint-disable import/named */
 // eslint-disable-next-line import/no-cycle
 import { onNavigate } from '../main.js';
-import { crateAccountWithEmail, crateAccountWithGoogle } from '../lib/firebaseAuth.js';
+// eslint-disable-next-line import/no-cycle
+import { crateAccountWithEmail } from '../lib/firebaseAuth.js';
 // import { onSingIn } from '../lib/authGoogle.js';
 
 export const registro = () => {
@@ -30,12 +31,6 @@ export const registro = () => {
   botonCrearCuenta.addEventListener('click', () => {
     crateAccountWithEmail();
   });
-  const googleBoton = document.createElement('button');
-  googleBoton.id = 'googleBoton';
-  googleBoton.textContent = 'Entrar con Google';
-  googleBoton.addEventListener('click', () => {
-    crateAccountWithGoogle();
-  });
   const homeImagen = document.createElement('img');
   homeImagen.textContent = 'Crear cuenta';
   homeImagen.id = 'homeImagen';
@@ -44,7 +39,6 @@ export const registro = () => {
   formRegistro.append(correoElectronico);
   formRegistro.append(contraseña);
   formRegistro.append(botonCrearCuenta);
-  formRegistro.append(googleBoton);
   registroDiv.append(titulo);
   registroDiv.append(nombre);
   registroDiv.append(formRegistro);

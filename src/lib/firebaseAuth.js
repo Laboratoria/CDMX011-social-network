@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 /* eslint-disable no-alert */
 import firebase from './secret.js';
 // eslint-disable-next-line import/no-cycle
@@ -22,21 +23,36 @@ export function crateAccountWithEmail() {
       });
   })
     .catch((error) => {
-      alert('error');
+      const errorCode = error.code;
+      const errorMessage = error.message;
+      alert(errorCode);
+      alert(errorMessage);
       // document.getElementById("demo").innerHTML = err.message;
       // ..
     });
 }
 
-const loginGoogle = () => {
+export function crateAccountWithGoogle() {
+  const provider = new firebase.auth.GoogleAuthProvider();
+  firebase.auth()
+    .signInWithPopup(provider)
+    .then((result) => {
+      onNavigate('/muro');
+    }).catch((error) => {
+      const errorCode = error.code;
+      const errorMessage = error.message;
+      alert(errorCode);
+      alert(errorMessage);
+    });
+}
+// google authentification
+/* const loginGoogle = () => {
   const provider = new firebase.auth.GoogleAuthProvider();
   return firebase.auth.signInWithPopup(provider);
 };
-// google authentification
-
 export function crateAccountWithGoogle() {
   const googleBoton = document.querySelector('#googleBoton');
-  googleBoton.addEventListener('submit', (e) => {
+  googleBoton.addEventListener('click', (e) => {
     e.preventDefault();
     loginGoogle();
     // eslint-disable-next-line no-undef
@@ -44,7 +60,10 @@ export function crateAccountWithGoogle() {
       onNavigate('/muro');
     })
       .catch((error) => {
-        console.log(error);
+        const errorCode = error.code;
+        const errorMessage = error.message;
+        alert(errorCode);
+        alert(errorMessage);
       });
   });
-}
+} */

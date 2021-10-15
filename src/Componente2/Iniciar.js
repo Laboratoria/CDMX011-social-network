@@ -1,6 +1,8 @@
 // eslint-disable-next-line import/no-unresolved
 // eslint-disable-next-line import/no-cycle
 import { onNavigate } from '../main.js';
+// eslint-disable-next-line import/no-cycle
+import { crateAccountWithGoogle } from '../lib/firebaseAuth.js';
 
 export const inicio = () => {
   const inicioDiv = document.createElement('div');
@@ -33,6 +35,18 @@ export const inicio = () => {
   botonIngresar.textContent = 'Ingresar';
   botonIngresar.id = 'boton-ingresar';
   botonIngresar.addEventListener('click', () => onNavigate('/muro'));
+  const googleBoton = document.createElement('img');
+  googleBoton.className = 'google';
+  googleBoton.src = '/Assets/google.png';
+  googleBoton.addEventListener('click', () => {
+    crateAccountWithGoogle();
+  });
+  const githubBoton = document.createElement('img');
+  githubBoton.className = 'git';
+  githubBoton.src = '/Assets/github.png';
+  githubBoton.addEventListener('click', () => {
+    // crateAccountWithGoogle();
+  });
   const opcion = document.createElement('p');
   opcion.textContent = 'o';
   opcion.className = 'letra-o';
@@ -43,13 +57,17 @@ export const inicio = () => {
   registro.textContent = 'Aqui';
   registro.className = 'registro';
   registro.addEventListener('click', () => onNavigate('/registro'));
+
   divInicioDeSesion.appendChild(inicioSesion);
   divInicioDeSesion.appendChild(correoElectronico);
   divInicioDeSesion.appendChild(contraseña);
   divInicioDeSesion.appendChild(botonIngresar);
+  divInicioDeSesion.appendChild(googleBoton);
+  divInicioDeSesion.appendChild(githubBoton);
   divInicioDeSesion.appendChild(opcion);
   divInicioDeSesion.appendChild(textoSinCuenta);
   divInicioDeSesion.appendChild(registro);
+
   inicioDiv.append(divInicioDeSesion);
 
   return inicioDiv;
