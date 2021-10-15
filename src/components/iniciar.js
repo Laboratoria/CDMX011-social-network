@@ -1,6 +1,8 @@
-/* eslint-disable import/named */
-// eslint-disable-next-line import/no-cycle
+/* eslint-disable import/no-cycle */
+// eslint-disable-next-line import/named
 import { onNavigate } from '../main.js';
+// eslint-disable-next-line import/no-cycle
+import { googleBotonFun } from '../lib/firebaseAuth.js';
 
 export const inicio = () => {
   const inicioDiv = document.createElement('div');
@@ -38,6 +40,12 @@ export const inicio = () => {
   botonIngresar.textContent = 'Ingresar';
   botonIngresar.id = 'boton-ingresar';
   botonIngresar.addEventListener('click', () => onNavigate('/muro'));
+  const googleBoton = document.createElement('img');
+  googleBoton.id = 'imagenInicioDeSesion';
+  googleBoton.src = '/Assets/mounstruo.png';
+  googleBoton.addEventListener('click', () => {
+    googleBotonFun();
+  });
   const opcion = document.createElement('p');
   opcion.textContent = 'o';
   opcion.className = 'letra-o';
@@ -55,6 +63,7 @@ export const inicio = () => {
   divInicioDeSesion.appendChild(opcion);
   divInicioDeSesion.appendChild(textoSinCuenta);
   divInicioDeSesion.appendChild(registro);
+  divInicioDeSesion.appendChild(googleBoton);
   inicioDiv.append(divInicioDeSesion);
 
   return inicioDiv;

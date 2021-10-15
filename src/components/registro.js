@@ -1,4 +1,5 @@
-// eslint-disable-next-line import/named
+/* eslint-disable import/no-cycle */
+// eslint-disable-next-line import/no-cycle
 import { onNavigate } from '../main.js';
 import { crateAccountWithEmail } from '../lib/firebaseAuth.js';
 
@@ -24,12 +25,13 @@ export const registro = () => {
   const botonCrearCuenta = document.createElement('button');
   botonCrearCuenta.textContent = 'Crear cuenta';
   botonCrearCuenta.id = 'boton-crear-cuenta';
-  const homeImagen = document.createElement('img');
   botonCrearCuenta.addEventListener('click', () => {
-  const cElectronico = document.getElementById('c-electronico').value;
-  const contra = document.getElementById('contraseña').value;
-  crateAccountWithEmail(cElectronico, contra);
+    const cElectronico = document.getElementById('c-electronico').value;
+    const contra = document.getElementById('contraseña').value;
+    crateAccountWithEmail(cElectronico, contra);
   });
+
+  const homeImagen = document.createElement('img');
   homeImagen.textContent = 'Crear cuenta';
   homeImagen.id = 'homeImagen';
   homeImagen.src = '/Assets/home6.png';
@@ -43,6 +45,6 @@ export const registro = () => {
   registroDiv.append(contraseña);
   registroDiv.append(botonCrearCuenta);
   registroDiv.append(homeImagen);
-  
+
   return registroDiv;
 };
