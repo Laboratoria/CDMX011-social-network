@@ -347,6 +347,9 @@ una de tus Historias de Usuario debe tener:
 Debes definir cuál será el flujo que seguirá el usuario dentro de tu aplicación
 y, con eso, diseña la Interfaz de Usuario (UI por sus siglas en inglés) que
 siga este flujo.
+![image](https://user-images.githubusercontent.com/68892787/135550258-c1f85206-7dd6-4181-a47c-4f2209a9c9a0.png)
+
+
 
 ### 5.5 Responsive
 

@@ -1,3 +1,9 @@
+// eslint-disable-next-line import/no-unresolved
+// eslint-disable-next-line import/no-cycle
+import { onNavigate } from '../main.js';
+// eslint-disable-next-line import/no-cycle
+import { crateAccountWithGoogle } from '../lib/firebaseAuth.js';
+
 export const inicio = () => {
   const inicioDiv = document.createElement('div');
   inicioDiv.id = 'inicioDiv';
@@ -9,40 +15,59 @@ export const inicio = () => {
   slogan.id = 'slogan';
   const imagenInicioDeSesion = document.createElement('img');
   imagenInicioDeSesion.id = 'imagenInicioDeSesion';
-  imagenInicioDeSesion.src = '/lib/componentes/Assets/mounstruo.png';
+  imagenInicioDeSesion.src = '/Assets/mounstruo.png';
   inicioDiv.append(marca);
   inicioDiv.append(slogan);
   inicioDiv.append(imagenInicioDeSesion);
-  const divInicioDeSesion = document.createElement('div');
+  const divInicioDeSesion = document.createElement('form');
   divInicioDeSesion.id = 'divInicioDeSesion';
   const inicioSesion = document.createElement('h2');
   inicioSesion.textContent = 'Iniciar Sesion';
   inicioSesion.id = 'inicio-sesion';
   const correoElectronico = document.createElement('input');
-  correoElectronico.textContent = 'Ingrese aqui su correo';
   correoElectronico.id = 'correo-electronico';
+  correoElectronico.placeholder = 'Correo Electronico';
   const contraseña = document.createElement('input');
-  contraseña.textContent = 'Ingrese aqui su contraseña';
   contraseña.id = 'contraseña';
+  contraseña.placeholder = 'Contraseña';
+  contraseña.type = 'password';
   const botonIngresar = document.createElement('button');
   botonIngresar.textContent = 'Ingresar';
   botonIngresar.id = 'boton-ingresar';
-  const opcion = document.createElement('h5');
+  botonIngresar.addEventListener('click', () => onNavigate('/muro'));
+  const googleBoton = document.createElement('img');
+  googleBoton.className = 'google';
+  googleBoton.src = '/Assets/google.png';
+  googleBoton.addEventListener('click', () => {
+    crateAccountWithGoogle();
+  });
+  const githubBoton = document.createElement('img');
+  githubBoton.className = 'git';
+  githubBoton.src = '/Assets/github.png';
+  githubBoton.addEventListener('click', () => {
+    // crateAccountWithGoogle();
+  });
+  const opcion = document.createElement('p');
   opcion.textContent = 'o';
   opcion.className = 'letra-o';
-  const textoSinCuenta = document.createElement('h5');
-  textoSinCuenta.textContent = 'No te haz registrado aun. Registrate aqui';
+  const textoSinCuenta = document.createElement('p');
+  textoSinCuenta.textContent = 'No tienes cuenta. Registrate ';
   textoSinCuenta.className = 'texto-no-cuenta';
-  const registro = document.createElement('h5');
+  const registro = document.createElement('a');
   registro.textContent = 'Aqui';
   registro.className = 'registro';
+  registro.addEventListener('click', () => onNavigate('/registro'));
+
   divInicioDeSesion.appendChild(inicioSesion);
   divInicioDeSesion.appendChild(correoElectronico);
   divInicioDeSesion.appendChild(contraseña);
   divInicioDeSesion.appendChild(botonIngresar);
+  divInicioDeSesion.appendChild(googleBoton);
+  divInicioDeSesion.appendChild(githubBoton);
   divInicioDeSesion.appendChild(opcion);
   divInicioDeSesion.appendChild(textoSinCuenta);
   divInicioDeSesion.appendChild(registro);
+
   inicioDiv.append(divInicioDeSesion);
 
   return inicioDiv;
