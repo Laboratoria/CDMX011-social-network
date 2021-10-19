@@ -7,9 +7,7 @@ export function crateAccountWithEmail() {
   formRegistro.addEventListener('submit', (e) => {
     e.preventDefault();
     const correo = document.querySelector('#c-electronico').value;
-    console.log(correo);
     const contraseña = document.querySelector('.contraseña').value;
-    console.log(contraseña);
     firebase.auth()
       .createUserWithEmailAndPassword(correo, contraseña)
       .then((userCredential) => {
@@ -21,22 +19,35 @@ export function crateAccountWithEmail() {
       });
   })
     .catch((error) => {
-      console.log(error);
-    // ..
+      const errorCode = error.code;
+      const errorMessage = error.message;
+      alert('hpoa');
+      alert('no hay contraseña');
     });
 }
-export function googleBotonFun() {
-  const providerGoogle = new firebase.auth.GoogleAuthProvider();
-  firebase.auth()
-    .signInWithPopup(providerGoogle)
-    .then((result) => {
-    /** @type {firebase.auth.OAuthCredential} */
-      const credential = result.credential;
 
-      // This gives you a Google Access Token. You can use it to access the Google API.
-      console.log(credential);
-    // ...
+export function crateAccountWithGoogle() {
+  const provider = new firebase.auth.GoogleAuthProvider();
+  firebase.auth()
+    .signInWithPopup(provider)
+    .then((result) => {
+      onNavigate('/muro');
     }).catch((error) => {
-      console.log(error);
+      const errorCode = error.code;
+      const errorMessage = error.message;
+      alert(errorCode);
+      alert(errorMessage);
+    });
+}
+export function createAccountWithGithub() {
+  const provider = new firebase.auth.GithubAuthProvider();
+  firebase
+    .auth()
+    .signInWithPopup(provider)
+    .then((result) => {
+      onNavigate('/muro');
+    }).catch((error) => {
+      alert(errorCode);
+      alert(errorMessage);
     });
 }

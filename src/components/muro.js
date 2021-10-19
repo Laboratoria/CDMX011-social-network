@@ -1,3 +1,5 @@
+/* eslint-disable no-unused-vars */
+// eslint-disable-next-line import/no-cycle
 import { onNavigate } from '../main.js';
 
 export const muro = () => {
@@ -12,10 +14,13 @@ export const muro = () => {
   const botonPublicar = document.createElement('button');
   botonPublicar.textContent = 'Publicar';
   botonPublicar.id = 'boton-publicar';
-  botonPublicar.addEventListener('click', () => onNavigate('/muro'));
+  const botonSalir = document.createElement('button');
+  botonSalir.textContent = 'Cerrar sesión';
+  botonSalir.id = 'boton-salir';
   homeDiv.appendChild(tituloHome);
   homeDiv.appendChild(publicar);
   homeDiv.appendChild(botonPublicar);
+  homeDiv.appendChild(botonSalir);
 
   return homeDiv;
 };

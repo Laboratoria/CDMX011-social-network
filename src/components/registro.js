@@ -34,16 +34,14 @@ export const registro = () => {
   const homeImagen = document.createElement('img');
   homeImagen.textContent = 'Crear cuenta';
   homeImagen.id = 'homeImagen';
-  homeImagen.src = '/Assets/home6.png';
+  homeImagen.src = '/Assets/home.png';
   homeImagen.addEventListener('click', () => onNavigate('/'));
   formRegistro.append(correoElectronico);
   formRegistro.append(contraseña);
   formRegistro.append(botonCrearCuenta);
   registroDiv.append(titulo);
   registroDiv.append(nombre);
-  registroDiv.append(correoElectronico);
-  registroDiv.append(contraseña);
-  registroDiv.append(botonCrearCuenta);
+  registroDiv.append(formRegistro);
   registroDiv.append(homeImagen);
 
   return registroDiv;

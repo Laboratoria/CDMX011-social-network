@@ -1,148 +1,68 @@
 
 :root{
-    background: #FBEBDB;
-  }
-  #inicioDiv{
-  display:flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  
   background: #FBEBDB;
+}
+#inicioDiv{
+display:flex;
+flex-wrap: wrap;
+justify-content: center;
+align-items: center;
+background: #FBEBDB;
+}
+#divInicioDeSesion{
+  top: -30px;
+  position: relative;
+  width: 250px;
+  height: 320px;
+  display:flex;
+  flex-direction: column;
+  justify-content: center;
+  background: #eadaf3;
+  border-radius: 9px;
+  margin: 20px;
+  padding: 11px 8px;
+  border-radius: 10px;
+  align-items: center;
+}
+
+#imagenInicioSesion{
+  width: 100px;
+  height: 320px;  
+  border-radius: 9px;
+}
+img{
+  display: block;
+  margin: auto;
+  width: 204px; 
   }
-  #divInicioDeSesion{
-    top: -30px;
-    position: relative;
-    width: 250px;
-    height: 320px;
-    display:flex;
-    flex-direction: column;
-    justify-content: center;
-    background:#eadaf3;
-    border-radius: 9px;
-    margin: 20px;
-    padding: 11px 8px;
-    border-radius: 10px;
-    align-items: center;
+.marca{
+  position:center;
+  justify-content: center;
+  color: #787878;
+
+}
+#slogan{
+  color: #787878;
+}
+#correo-electronico{
+background-color:rgb(255, 255, 255);
+height: 200px;
+margin: 5px;
+border-radius: 5px;
+border-color: bisque;
+}
+
+#contraseña{
+ background-color:rgb(255, 255, 255);
+height: 200px;
+margin: 5px;
+border-radius: 5px;
+border-color: bisque;
   }
-  
-  #imagenInicioSesion{
-    width: 100px;
-    height: 320px;  
-    border-radius: 9px;
-  }
-  img{
-    display: block;
-    margin: auto;
-    width: 204px; 
-    }
-  .marca{
-    color: #787878;
-  
-  }
-  #slogan{
-    color: #787878;
-  }
-  #correo-electronico{
-  background-color:rgb(255, 255, 255);
-  height: 200px;
-  margin: 5px;
-  border-radius: 5px;
-  border-color: bisque;
-  }
-  
-  #contraseña{
-   background-color:rgb(255, 255, 255);
-  height: 200px;
-  margin: 5px;
-  border-radius: 5px;
-  border-color: bisque;
-    }
-  
-  #boton-ingresar{
-    position:relative;
-    align-content: center;
-    text-align: center;
-    font-size: 16px;
-    line-height: 16px;
-    margin: 10px;
-    cursor: pointer;
-    -webkit-transition-duration: 0.4s; /* Safari */
-    transition-duration: 0.4s;
-    width: 108px;
-    height: 22px;
-    border-color: bisque;
-    color: rgb(88, 88, 88);
-    position: center;
-    background-color: #e09dff;
-    border-radius: 3px;
-    border-color: bisque;
-    }
-  .registro{
-    color: rgb(88, 88, 88);
-   position: center;
-   border-radius: 3px;
-   border-color: bisque;
-  }
-  p{
-    font-family: 'Courier New', Courier, monospace;
-    color: black;
-    font-size: medium;
-    text-align:center;
-  }
-  #inicioSesion{
-    border-radius: 9px;
-    background-color: gray;
-  }
-  
-  #inicio-sesion{
-    font-family: Ruda;
-  font-style: normal;
-  font-weight: normal;
-  font-size: 24px;
-  line-height: 22px;
-  
-  color: #696666;
-  }
-  .texto-no-cuenta{
-    font-family: Ranga;
-  font-style: normal;
-  font-weight: normal;
-  font-size: 12px;
-  line-height: 18px;
-  color: #8D8A8A;
-  
-  }
-  .letra-o{
-    font-family: Ranga;
-    font-style: normal;
-    font-weight: normal;
-    font-size: 12px;
-    line-height: 18px;
-    color: #8D8A8A;
-  }
-  #homeDiv{
-    display:flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    background-color: #FBEBDB; 
-  }
-  
-  #marcaMuro{
-    color:#787878;
-    position: relative;
-    justify-content: center;
-    
-  }
-  .publicar{
-    position: relative;
-    background-color: #E5E0E8;
-    width: 100%;
-   height: 60px;
-   position: relative;
-   margin: 30px;
-  }
-  #boton-publicar{
-    position: relative;
+
+#boton-ingresar{
+  position:relative;
+  align-content: center;
   text-align: center;
   font-size: 16px;
   line-height: 16px;
@@ -158,78 +78,216 @@
   background-color: #e09dff;
   border-radius: 3px;
   border-color: bisque;
-  top: 20px;
-  
   }
+.registro{
+  color: rgb(88, 88, 88);
+ position: center;
+ border-radius: 3px;
+ border-color: bisque;
+}
+p{
+  font-family: 'Courier New', Courier, monospace;
+  color: black;
+  font-size: medium;
+  text-align:center;
+}
+#inicioSesion{
+  border-radius: 9px;
+  background-color: gray;
+}
+
+#inicio-sesion{
+  font-family: Ruda;
+font-style: normal;
+font-weight: normal;
+font-size: 24px;
+line-height: 22px;
+color: #696666;
+}
+.texto-no-cuenta{
+  font-family: Ranga;
+font-style: normal;
+font-weight: normal;
+font-size: 12px;
+line-height: 18px;
+color: #8D8A8A;
+
+}
+.letra-o{
+  font-family: Ranga;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 12px;
+  line-height: 18px;
+  color: #8D8A8A;
+}
+#homeDiv{
+  display:flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  background-color: #FBEBDB; 
+}
+
+#marcaMuro{
+  color:#787878;
+  position: relative;
+  justify-content: center;
   
-  #divRegistro{
+}
+.publicar{
+  position: relative;
+  background-color: #E5E0E8;
+  width: 100%;
+ height: 60px;
+ position: relative;
+ margin: 30px;
+}
+#boton-publicar{
+  position: relative;
+text-align: center;
+font-size: 16px;
+line-height: 16px;
+margin: 10px;
+cursor: pointer;
+-webkit-transition-duration: 0.4s; /* Safari */
+transition-duration: 0.4s;
+width: 108px;
+height: 22px;
+border-color: bisque;
+color: rgb(88, 88, 88);
+position: center;
+background-color: #e09dff;
+border-radius: 3px;
+border-color: bisque;
+top: 20px;
+
+}
+
+#divRegistro{
+display:flex;
+flex-direction: column;
+justify-content: center;
+align-items: center;
+background: #FBEBDB;
+}
+#titulo{
+  width: 192px;
+  height: 21px;
+  position: relative;
+  font-family: Forum;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 36px;
+  line-height: 40px;
+  
+  color: #787878;
+} 
+#formRegistro{
+  position: relative;
+  align-items: center;
   display:flex;
   flex-direction: column;
   justify-content: center;
-  align-items: center;
-  background: #FBEBDB;
-  }
-  #Titulo{
-    color: #787878;
-    width: 192px;
-    height: 21px;
-    position: relative;
-    font-family: Forum;
-    font-style: normal;
-    font-weight: normal;
-    font-size: 36px;
-    line-height: 40px;
-    }
-  #nombreRegistro{
+}
+
+#nombreRegistro{
+ 
+position: relative;
+  background-color:rgb(255, 255, 255);
+  height: 20px;
+  margin: 14px;
+  border-radius: 5px;
+  border-color: bisque;
+
+}
+#c-electronico{
+  position:relative;
+  background-color:rgb(255, 255, 255);
+  height: 20px;
+  margin: 14px;
+  border-radius: 5px;
+  border-color: bisque;
+}
+.contraseña{
   position: relative;
-    background-color:rgb(255, 255, 255);
-    height: 20px;
-    margin: 14px;
-    border-radius: 5px;
-    border-color: bisque;
-  
-  }
-  #c-electronico{
-    position:relative;
-    background-color:rgb(255, 255, 255);
-    height: 20px;
-    margin: 14px;
-    border-radius: 5px;
-    border-color: bisque;
-  }
-  .contraseña{
-    position: relative;
-    background-color:rgb(255, 255, 255);
-    height: 20px;
-    margin: 14px;
-    border-radius: 5px;
-    border-color: bisque;
-    position: -webkit-sticky;
-  position: sticky;
-  top: 20px;
-  
-  }
-  #boton-crear-cuenta{
-    position:relative;
-    align-content: center;
-    text-align: center;
-    font-size: 16px;
-    line-height: 16px;
-    margin: 10px;
-    cursor: pointer;
-    -webkit-transition-duration: 0.4s; /* Safari */
-    transition-duration: 0.4s;
-    width: 108px;
-    height: 50px;
-    border-color: bisque;
-    color: rgb(88, 88, 88);
-    position: center;
-    background-color: #e09dff;
-    border-radius: 3px;
-    border-color: bisque;
-  }
-  /*Se modifica el ícono casa verde*/
-  #homeImagen{
-    width: 50px;
-    height: 30px;
-  }
+  background-color:rgb(255, 255, 255);
+  height: 20px;
+  margin: 14px;
+  border-radius: 5px;
+  border-color: bisque;
+  position: -webkit-sticky;
+position: sticky;
+top: 20px;
+
+}
+#boton-crear-cuenta{
+  position:relative;
+  align-content: center;
+  text-align: center;
+  font-size: 16px;
+  line-height: 16px;
+  margin: 10px;
+  cursor: pointer;
+  -webkit-transition-duration: 0.4s; /* Safari */
+  transition-duration: 0.4s;
+  border-color: bisque;
+  color: rgb(88, 88, 88);
+  position: center;
+  background-color: #e09dff;
+  border-radius: 3px;
+  border-color: bisque;
+} 
+#googleBoton{
+  background-color: #7c8ef7; 
+  color: rgb(255, 255, 255);
+  border-radius: 3px;
+  border-color: bisque;
+  margin: 8px;
+}
+.git{
+  width: 100px;
+  margin: 8px;
+}
+.google{
+  width: 100px;
+  height: 40px;
+  margin: 8px;
+}
+#homeImagen{
+  width: 50px;
+  height: 30px;
+}
+#git{
+  position:relative;
+  align-content: center;
+  text-align: center;
+  font-size: 16px;
+  line-height: 16px;
+  margin: 10px;
+  cursor: pointer;
+  -webkit-transition-duration: 0.4s; /* Safari */
+  transition-duration: 0.4s;
+  border-color: bisque;
+  color: rgb(88, 88, 88);
+  position: center;
+  background-color: #E09DFF;
+  border-radius: 3px;
+  border-color: bisque;
+}
+#google{
+  position:relative;
+  align-content: center;
+  text-align: center;
+  font-size: 16px;
+  line-height: 16px;
+  margin: 10px;
+  cursor: pointer;
+  -webkit-transition-duration: 0.4s; /* Safari */
+  transition-duration: 0.4s;
+  border-color: bisque;
+  color: rgb(88, 88, 88);
+  position: center;
+  background-color: #E09DFF;
+  border-radius: 3px;
+  border-color: bisque;
+}

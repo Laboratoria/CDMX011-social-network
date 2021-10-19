@@ -1,6 +1,6 @@
-/* eslint-disable import/no-cycle */
 // eslint-disable-next-line import/no-cycle
 import { inicio } from './components/iniciar.js';
+// eslint-disable-next-line import/no-cycle
 import { muro } from './components/muro.js';
 import { registro } from './components/registro.js';
 
@@ -24,7 +24,6 @@ export const onNavigate = (pathname) => {
 
   rootDiv.appendChild(rutas[pathname]());
 };
-// eslint-disable-next-line no-unused-vars
 const component = rutas[window.location.pathname];
 
 window.onpopstate = () => {
@@ -33,3 +32,5 @@ window.onpopstate = () => {
   }
   rootDiv.appendChild(rutas[window.location.pathname]());
 };
+
+rootDiv.appendChild(component());
