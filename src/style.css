@@ -1,0 +1,16 @@
+body {
+    background-image: url(images/);    
+}
+.Home {
+    width: 414px;
+    height: 736;
+    border: 2px solid gray;
+    border-radius: 12px;
+    font-size: 40px;
+}
+#buttonRegister {
+    width: 319px;
+    height: 38px;
+    background: rgba(35, 157, 128, 0.49) ;
+    
+}
