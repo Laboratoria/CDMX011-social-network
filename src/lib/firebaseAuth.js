@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import firebase from './secret.js';
 
 // eslint-disable-next-line import/no-cycle
@@ -41,5 +42,15 @@ export function createAccountWithGithub() {
     // eslint-disable-next-line no-unused-vars
     }).catch(() => {
       alert('errorMessage');
+    });
+}
+
+export function signOut() {
+  firebase.auth()
+    .signOut()
+    .then(() => {
+      onNavigate('/');
+    }).catch((error) => {
+      // An error happened.
     });
 }
