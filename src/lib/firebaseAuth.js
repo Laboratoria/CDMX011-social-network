@@ -1,5 +1,6 @@
 import firebase from './secret.js';
 
+// eslint-disable-next-line import/no-cycle
 import { onNavigate } from '../main.js';
 
 export function crateAccountWithEmail() {
@@ -17,26 +18,16 @@ export function crateAccountWithEmail() {
         console.log(user);
         // ...
       });
-  })
-    .catch((error) => {
-      const errorCode = error.code;
-      const errorMessage = error.message;
-      alert('hpoa');
-      alert('no hay contraseña');
-    });
+  });
 }
-
 export function crateAccountWithGoogle() {
   const provider = new firebase.auth.GoogleAuthProvider();
   firebase.auth()
     .signInWithPopup(provider)
-    .then((result) => {
+    .then(() => {
       onNavigate('/muro');
-    }).catch((error) => {
-      const errorCode = error.code;
-      const errorMessage = error.message;
-      alert(errorCode);
-      alert(errorMessage);
+    }).catch(() => {
+      alert('errorMessage');
     });
 }
 export function createAccountWithGithub() {
@@ -44,10 +35,11 @@ export function createAccountWithGithub() {
   firebase
     .auth()
     .signInWithPopup(provider)
-    .then((result) => {
+    // eslint-disable-next-line no-unused-vars
+    .then(() => {
       onNavigate('/muro');
-    }).catch((error) => {
-      alert(errorCode);
-      alert(errorMessage);
+    // eslint-disable-next-line no-unused-vars
+    }).catch(() => {
+      alert('errorMessage');
     });
 }

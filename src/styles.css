@@ -36,15 +36,18 @@ img{
   width: 204px; 
   }
 .marca{
+  font-family: Forum;
   position:center;
   justify-content: center;
   color: #787878;
 
 }
 #slogan{
+  font-family: Forum;
   color: #787878;
 }
 #correo-electronico{
+font-family: Forum;
 background-color:rgb(255, 255, 255);
 height: 200px;
 margin: 5px;
@@ -53,7 +56,8 @@ border-color: bisque;
 }
 
 #contraseña{
- background-color:rgb(255, 255, 255);
+font-family: Forum;
+background-color:rgb(255, 255, 255);
 height: 200px;
 margin: 5px;
 border-radius: 5px;
@@ -61,6 +65,7 @@ border-color: bisque;
   }
 
 #boton-ingresar{
+  font-family: Forum;
   position:relative;
   align-content: center;
   text-align: center;
@@ -79,25 +84,28 @@ border-color: bisque;
   border-radius: 3px;
   border-color: bisque;
   }
-.registro{
-  color: rgb(88, 88, 88);
- position: center;
- border-radius: 3px;
- border-color: bisque;
-}
+  .registro{
+    text-decoration-line: underline;
+    color: #329B88;
+   position: center;
+   border-radius: 3px;
+   padding: 0px;
+   font-family: Forum;
+  }
 p{
-  font-family: 'Courier New', Courier, monospace;
+  font-family: Forum;
   color: black;
   font-size: medium;
   text-align:center;
 }
 #inicioSesion{
+  font-family: Forum;
   border-radius: 9px;
   background-color: gray;
 }
 
 #inicio-sesion{
-  font-family: Ruda;
+font-family: Forum;
 font-style: normal;
 font-weight: normal;
 font-size: 24px;
@@ -105,7 +113,7 @@ line-height: 22px;
 color: #696666;
 }
 .texto-no-cuenta{
-  font-family: Ranga;
+font-family: Forum;
 font-style: normal;
 font-weight: normal;
 font-size: 12px;
@@ -114,7 +122,7 @@ color: #8D8A8A;
 
 }
 .letra-o{
-  font-family: Ranga;
+  font-family: Forum;
   font-style: normal;
   font-weight: normal;
   font-size: 12px;
@@ -135,6 +143,7 @@ color: #8D8A8A;
   
 }
 .publicar{
+  font-family: Forum;
   position: relative;
   background-color: #E5E0E8;
   width: 100%;
@@ -143,6 +152,7 @@ color: #8D8A8A;
  margin: 30px;
 }
 #boton-publicar{
+  font-family: Forum;
   position: relative;
 text-align: center;
 font-size: 16px;
@@ -183,16 +193,27 @@ background: #FBEBDB;
   color: #787878;
 } 
 #formRegistro{
-  position: relative;
-  align-items: center;
-  display:flex;
-  flex-direction: column;
-  justify-content: center;
-}
+ 
+    top: -30px;
+    position: relative;
+    width: 250px;
+    height: 320px;
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    background: #eadaf3;
+    border-radius: 9px;
+    margin: 20px;
+    padding: 11px 8px;
+    border-radius: 10px;
+    align-items: center;
+    font-family: Forum;
+  }
+  
 
 #nombreRegistro{
- 
-position: relative;
+  font-family: Forum;
+  position: relative;
   background-color:rgb(255, 255, 255);
   height: 20px;
   margin: 14px;
@@ -201,6 +222,7 @@ position: relative;
 
 }
 #c-electronico{
+  font-family: Forum;
   position:relative;
   background-color:rgb(255, 255, 255);
   height: 20px;
@@ -209,6 +231,7 @@ position: relative;
   border-color: bisque;
 }
 .contraseña{
+  font-family: Forum;
   position: relative;
   background-color:rgb(255, 255, 255);
   height: 20px;
@@ -221,6 +244,7 @@ top: 20px;
 
 }
 #boton-crear-cuenta{
+  font-family: Forum;
   position:relative;
   align-content: center;
   text-align: center;
@@ -238,6 +262,7 @@ top: 20px;
   border-color: bisque;
 } 
 #googleBoton{
+  font-family: Forum;
   background-color: #7c8ef7; 
   color: rgb(255, 255, 255);
   border-radius: 3px;
@@ -245,37 +270,33 @@ top: 20px;
   margin: 8px;
 }
 .git{
+  font-family: Forum;
   width: 100px;
   margin: 8px;
 }
 .google{
+  font-family: Forum;
   width: 100px;
   height: 40px;
   margin: 8px;
 }
 #homeImagen{
   width: 50px;
-  height: 30px;
+  height: 50px;
 }
 #git{
-  position:relative;
-  align-content: center;
-  text-align: center;
-  font-size: 16px;
-  line-height: 16px;
   margin: 10px;
-  cursor: pointer;
-  -webkit-transition-duration: 0.4s; /* Safari */
-  transition-duration: 0.4s;
-  border-color: bisque;
-  color: rgb(88, 88, 88);
-  position: center;
-  background-color: #E09DFF;
-  border-radius: 3px;
-  border-color: bisque;
+  max-width:50%;
+  max-height:50%;
 }
 #google{
-  position:relative;
+  margin: 10px;
+  max-width:50%;
+  max-height:50%;
+}
+
+#boton-salir{
+  font-family: Forum;
   align-content: center;
   text-align: center;
   font-size: 16px;
@@ -286,8 +307,19 @@ top: 20px;
   transition-duration: 0.4s;
   border-color: bisque;
   color: rgb(88, 88, 88);
-  position: center;
-  background-color: #E09DFF;
+  position:absolute;
+  background-color: #e09dff;
   border-radius: 3px;
   border-color: bisque;
+  bottom: 3px;
+  
+}
+#registrate{
+  font-family: Ruda;
+font-style: normal;
+font-weight: normal;
+font-size: 24px;
+line-height: 22px;
+color: #696666;
+font-family: Forum;
 }

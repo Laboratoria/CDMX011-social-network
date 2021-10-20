@@ -2,6 +2,7 @@
 import { inicio } from './components/iniciar.js';
 // eslint-disable-next-line import/no-cycle
 import { muro } from './components/muro.js';
+// eslint-disable-next-line import/no-cycle
 import { registro } from './components/registro.js';
 
 const rootDiv = document.getElementById('root');

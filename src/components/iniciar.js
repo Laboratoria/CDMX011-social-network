@@ -1,4 +1,6 @@
+// eslint-disable-next-line import/no-cycle
 import { onNavigate } from '../main.js';
+// eslint-disable-next-line import/no-cycle
 import { crateAccountWithGoogle, createAccountWithGithub } from '../lib/firebaseAuth.js';
 
 export const inicio = () => {
@@ -31,21 +33,20 @@ export const inicio = () => {
   const botonIngresar = document.createElement('button');
   botonIngresar.textContent = 'Ingresar';
   botonIngresar.id = 'boton-ingresar';
-  botonIngresar.addEventListener('click', () => onNavigate('/muro'));
-  const googleBoton = document.createElement('button');
+  const googleBoton = document.createElement('img');
   googleBoton.id = 'google';
-  googleBoton.textContent = 'Ingresar con Google';
-  googleBoton.src = '/Assets/google.png';
+  googleBoton.src = '/Assets/imagenGoogle.png';
   googleBoton.addEventListener('click', () => {
+    // eslint-disable-next-line no-undef
     crateAccountWithGoogle();
   });
-  const githubBoton = document.createElement('button');
+  const githubBoton = document.createElement('img');
   githubBoton.id = 'git';
-  githubBoton.textContent = 'Ingresar con Github';
-  githubBoton.src = '/Assets/github.png';
+  githubBoton.src = '/Assets/git.png';
   githubBoton.addEventListener('click', () => {
     createAccountWithGithub();
   });
+
   const opcion = document.createElement('p');
   opcion.textContent = 'o';
   opcion.className = 'letra-o';
@@ -56,7 +57,6 @@ export const inicio = () => {
   registro.textContent = 'Aqui';
   registro.className = 'registro';
   registro.addEventListener('click', () => onNavigate('/registro'));
-
   divInicioDeSesion.appendChild(inicioSesion);
   divInicioDeSesion.appendChild(correoElectronico);
   divInicioDeSesion.appendChild(contraseña);
