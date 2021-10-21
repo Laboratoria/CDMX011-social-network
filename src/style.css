@@ -1,0 +1,25 @@
+body {
+    background-color: #fff;
+    color: #000;
+  }
+  
+  h1 {
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+  }
+  
+  .App {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+  }
+  
+  .Container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .appLogo {
+      background-color: aquamarine;
+      height: 60px;
+  }
