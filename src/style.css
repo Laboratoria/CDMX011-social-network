@@ -1,4 +1,127 @@
 body {
     background-color: #fff;
+    font-family: 'Roboto', sans-serif;
     color: #000;
+  }
+
+  .Home {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .Logo {
+    margin: auto;
+    width: 315px;
+    height: 130px;
+    object-fit: cover;
+    margin-top: 40px;
+  }
+
+  .Background {
+    margin: auto;
+    width: 280px;
+    height: 290px;
+    background-color: #B2FFFFC4;
+    border-radius: 17%;
+    margin-top: 10px;
+  }
+
+  .Slogan {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    font-weight: bold;
+    font-size: 17px;
+    margin-top: 40px;
+    margin-right: 55px;
+    margin-left: 55px;
+  }
+
+  .VignetteOne {
+    background-color: #5BC0BE;
+    height: 10px;
+    width: 10px;
+    border-radius: 50%;
+    margin-top: 5px;
+  }
+
+  .VignetteTwo {
+    background-color: #5BC0BE;
+    height: 10px;
+    width: 10px;
+    border-radius: 50%;
+    margin-top: 5px;
+  }
+
+  .Login {
+    margin: auto;
+    margin-top: 40px;
+    justify-content: center;
+    width: 250px;
+    height: 44px;
+    background-color: #5BC0BE;
+    border: none;
+    border-radius: 16px;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 510;
+    font-size: 20px;
+    color: #fff;
+  }
+
+  .Register{
+    margin-top: 30px;
+    margin-right: 45px;
+    margin-left: 45px;
+    font-size: 15px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+  }
+
+  .registerButton {
+    border: none;
+    background-color: transparent;
+    font-family: 'Roboto', sans-serif;
+    font-size: 15px;
+    font-weight: bold;
+  }
+
+  .Copyright {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    margin-top: 40px;
+    margin-right: 50px;
+    margin-left: 50px;
+  }
+
+  .CopyrightIcon {
+    justify-content: center;
+    margin-top: -3px;
+  }
+
+  .CopyrightCircle {
+    background-color: #fff;
+    border-style: solid;
+    border-width: thin;
+    border-color: #000;
+    height: 8px;
+    width: 8px;
+    border-radius: 50%;
+    position: relative;
+    margin-top: 5px;
+  }
+
+  .LetterC {
+    font-size: 8px;
+    font-weight: bold;
+    color: #000;
+    position: absolute;
+    margin-top: -9px;
+    margin-left: 2px;
+  }
+
+  .CopyrightText {
+    font-size: 12px;
   }
