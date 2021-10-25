@@ -3,11 +3,42 @@ body {
     font-family: 'Roboto', sans-serif;
     color: #000;
   }
-
   .Home {
     display: flex;
     flex-direction: column;
     text-align: center;
+  }
+
+  .topSection {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    width: fit-content;
+    margin-top: -9px;
+    margin-left: -8px;
+  }
+
+  .homeButton {
+    margin-top: 8px;
+    margin-left: 15px;
+    width: 23px;
+    height: 23px;
+    position: absolute;
+  }
+
+  .line {
+    border-bottom: 1px solid #000;
+    width: 390px;
+    margin-top: 40px;
+  }
+
+  .loginLogo {
+    display: flex;
+    margin: auto;
+    width: 280px;
+    height: 280px;
+    object-fit: cover;
+    margin-top: 30px;
   }
 
   .Logo {
@@ -87,18 +118,93 @@ body {
     font-weight: bold;
   }
 
+  .hiDiv {
+    display: flex;
+    font-weight: bold;
+    font-size: 24px;
+    justify-content: center;
+    margin-top: 25px;
+  }
+
+  .emailInput {
+    display: flex;
+    justify-content: center;
+    margin: auto;
+    margin-top: 30px;
+    width: 250px;
+    height: 28px;
+    border-radius: 16px;
+    border-width: thin;
+    text-indent: 16px;
+  }
+
+  .passwordInput {
+    display: flex;
+    justify-content: center;
+    margin: auto;
+    margin-top: 17px;
+    width: 250px;
+    height: 28px;
+    border-radius: 16px;
+    border-width: thin;
+    text-indent: 16px;
+  }
+
+  .listoButton {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+    margin-top: 17px;
+    width: 250px;
+    height: 28px;
+    border-radius: 16px;
+    border: none;
+    background-color: #5BC0BE;
+    font-weight: bold;
+    font-size: 18px;
+    color: #fff;
+  }
+
+  .loginText {
+    display: flex;
+    font-size: 15px;
+    justify-content: center;
+    margin-top: 30px;
+  }
+
+  .loginOptions {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    height: 47px;
+    margin-top: 25px;
+    margin-right: 55px;
+    margin-left: 55px;
+  }
+
+  .myFooter {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-end;
+    height: 15px;
+    width: 280px;
+    margin: auto;
+    margin-top: 30px;
+  }
+
   .Copyright {
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
-    margin-top: 40px;
-    margin-right: 50px;
-    margin-left: 50px;
+    height: 15px;
+    width: 280px;
   }
 
   .CopyrightIcon {
+    display: flex;
     justify-content: center;
-    margin-top: -3px;
   }
 
   .CopyrightCircle {
@@ -110,7 +216,7 @@ body {
     width: 8px;
     border-radius: 50%;
     position: relative;
-    margin-top: 5px;
+    margin-top: 3px;
   }
 
   .LetterC {
@@ -118,8 +224,8 @@ body {
     font-weight: bold;
     color: #000;
     position: absolute;
-    margin-top: -9px;
-    margin-left: 2px;
+    margin-left: 0px;
+    margin-top: 4px;
   }
 
   .CopyrightText {
