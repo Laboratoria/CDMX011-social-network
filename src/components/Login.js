@@ -16,6 +16,11 @@ export const Login = () => {
   const googleIcon = document.createElement('img');
   const facebookIcon = document.createElement('img');
   const gitHubIcon = document.createElement('img');
+  const copyrightLogin = document.createElement('div');
+  const copyrightIcon = document.createElement('div');
+  const copyrightCircle = document.createElement('div');
+  const copyrightLetterC = document.createElement('div');
+  const copyrightText = document.createElement('div');
 
   loginDiv.className = 'loginDiv';
   topSection.className = 'topSection';
@@ -31,6 +36,11 @@ export const Login = () => {
   googleIcon.className = 'googleIcon';
   facebookIcon.className = 'facebookIcon';
   gitHubIcon.className = 'gitHubIcon';
+  copyrightLogin.className = 'CopyrightLogin';
+  copyrightIcon.className = 'CopyrightIcon';
+  copyrightCircle.className = 'CopyrightCircle';
+  copyrightLetterC.className = 'LetterC';
+  copyrightText.className = 'CopyrightText';
 
   homeButton.src = './components/BackButtonIcon.png';
   loginLogo.src = './components/loginLogo.png';
@@ -44,6 +54,8 @@ export const Login = () => {
   googleIcon.src = './components/Google.png';
   facebookIcon.src = './components/Facebook.png';
   gitHubIcon.src = './components/gitHub.png';
+  copyrightLetterC.textContent = 'C';
+  copyrightText.textContent = '2021 DevSocial. Todos los derechos reservados';
 
   homeButton.addEventListener('click', () => onNavigate('/'));
 
@@ -60,6 +72,11 @@ export const Login = () => {
   loginOptions.appendChild(googleIcon);
   loginOptions.appendChild(facebookIcon);
   loginOptions.appendChild(gitHubIcon);
+  loginDiv.appendChild(copyrightLogin);
+  copyrightLogin.appendChild(copyrightIcon);
+  copyrightIcon.appendChild(copyrightCircle);
+  copyrightIcon.appendChild(copyrightLetterC);
+  copyrightLogin.appendChild(copyrightText);
 
   return loginDiv;
 };

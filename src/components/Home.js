@@ -15,6 +15,11 @@ export const Home = () => {
   const registerDiv = document.createElement('div');
   const registerText = document.createElement('div');
   const buttonRegister = document.createElement('button');
+  const copyright = document.createElement('div');
+  const copyrightIcon = document.createElement('div');
+  const copyrightCircle = document.createElement('div');
+  const copyrightLetterC = document.createElement('div');
+  const copyrightText = document.createElement('div');
 
   HomeDiv.className = 'Home';
   DevSocialLogo.className = 'Logo';
@@ -31,6 +36,11 @@ export const Home = () => {
   registerDiv.className = 'Register';
   registerText.className = 'registerText';
   buttonRegister.className = 'registerButton';
+  copyright.className = 'Copyright';
+  copyrightIcon.className = 'CopyrightIcon';
+  copyrightCircle.className = 'CopyrightCircle';
+  copyrightLetterC.className = 'LetterC';
+  copyrightText.className = 'CopyrightText';
 
   DevSocialLogo.src = './components/DevSocialLogo.png';
   Background.src = './components/Background.png';
@@ -40,6 +50,8 @@ export const Home = () => {
   crea.textContent = 'Crea';
   registerText.textContent = '¿Aún no tienes cuenta?';
   buttonRegister.textContent = 'Regístrate aquí.';
+  copyrightLetterC.textContent = 'C';
+  copyrightText.textContent = '2021 DevSocial. Todos los derechos reservados';
 
   buttonLogin.addEventListener('click', () => onNavigate('/login'));
   buttonRegister.addEventListener('click', () => onNavigate('/register'));
@@ -56,6 +68,11 @@ export const Home = () => {
   HomeDiv.appendChild(registerDiv);
   registerDiv.appendChild(registerText);
   registerDiv.appendChild(buttonRegister);
+  HomeDiv.appendChild(copyright);
+  copyright.appendChild(copyrightIcon);
+  copyrightIcon.appendChild(copyrightCircle);
+  copyrightIcon.appendChild(copyrightLetterC);
+  copyright.appendChild(copyrightText);
 
   return HomeDiv;
 };
