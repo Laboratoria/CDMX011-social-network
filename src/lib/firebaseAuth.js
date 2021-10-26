@@ -1,3 +1,4 @@
+/* eslint-disable no-alert */
 /* eslint-disable no-unused-vars */
 import firebase from './secret.js';
 
@@ -16,11 +17,18 @@ export function crateAccountWithEmail() {
         onNavigate('/muro');
         const user = userCredential.user;
         formRegistro.reset();
+        // eslint-disable-next-line no-console
         console.log(user);
         // ...
+      })
+      .catch((error) => {
+        /* const errorMessage = error.message; */
+        // eslint-disable-next-line no-alert
+        /* alert(errorMessage); */
       });
   });
 }
+
 export function crateAccountWithGoogle() {
   const provider = new firebase.auth.GoogleAuthProvider();
   firebase.auth()

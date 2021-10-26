@@ -1,6 +1,8 @@
+/* eslint-disable import/no-cycle */
 // eslint-disable-next-line import/no-cycle
 import { onNavigate } from '../main.js';
 // eslint-disable-next-line import/no-cycle
+// eslint-disable-next-line import/named
 import { crateAccountWithGoogle, createAccountWithGithub } from '../lib/firebaseAuth.js';
 
 export const inicio = () => {
