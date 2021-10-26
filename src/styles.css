@@ -1,0 +1,352 @@
+
+:root{
+  background: #FBEBDB;
+}
+#inicioDiv{
+display:flex;
+flex-wrap: wrap;
+justify-content: center;
+align-items: center;
+background: #FBEBDB;
+}
+#divInicioDeSesion{
+  top: -30px;
+  position: relative;
+  width: 250px;
+  height: 320px;
+  display:flex;
+  flex-direction: column;
+  justify-content: center;
+  background: #eadaf3;
+  border-radius: 9px;
+  margin: 20px;
+  padding: 11px 8px;
+  border-radius: 10px;
+  align-items: center;
+}
+
+#imagenInicioSesion{
+  width: 100px;
+  height: 320px;  
+  border-radius: 9px;
+}
+img{
+  display: block;
+  margin: auto;
+  width: 204px; 
+  }
+.marca{
+  font-family: Forum;
+  position:center;
+  justify-content: center;
+  color: #787878;
+
+}
+#slogan{
+  font-family: Forum;
+  color: #787878;
+}
+#correo-electronico{
+font-family: Forum;
+background-color:rgb(255, 255, 255);
+height: 200px;
+margin: 5px;
+border-radius: 5px;
+border-color: bisque;
+}
+
+#contraseña{
+font-family: Forum;
+background-color:rgb(255, 255, 255);
+height: 200px;
+margin: 5px;
+border-radius: 5px;
+border-color: bisque;
+  }
+
+#boton-ingresar{
+  font-family: Forum;
+  position:relative;
+  align-content: center;
+  text-align: center;
+  font-size: 16px;
+  line-height: 16px;
+  margin: 10px;
+  cursor: pointer;
+  -webkit-transition-duration: 0.4s; /* Safari */
+  transition-duration: 0.4s;
+  width: 108px;
+  height: 22px;
+  border-color: bisque;
+  color: rgb(88, 88, 88);
+  position: center;
+  background-color: #e09dff;
+  border-radius: 3px;
+  border-color: bisque;
+  }
+  .registro{
+    text-decoration-line: underline;
+    color: #329B88;
+   position: center;
+   border-radius: 3px;
+   padding: 0px;
+   font-family: Forum;
+  }
+p{
+  font-family: Forum;
+  color: black;
+  font-size: medium;
+  text-align:center;
+}
+#inicioSesion{
+  font-family: Forum;
+  border-radius: 9px;
+  background-color: gray;
+}
+
+#inicio-sesion{
+font-family: Forum;
+font-style: normal;
+font-weight: normal;
+font-size: 24px;
+line-height: 22px;
+color: #696666;
+}
+.texto-no-cuenta{
+font-family: Forum;
+font-style: normal;
+font-weight: normal;
+font-size: 12px;
+line-height: 18px;
+color: #8D8A8A;
+
+}
+.letra-o{
+  font-family: Forum;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 12px;
+  line-height: 18px;
+  color: #8D8A8A;
+}
+#homeDiv{
+  display:flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  background-color: #FBEBDB; 
+}
+
+#marcaMuro{
+  color:#787878;
+  position: relative;
+  justify-content: center;
+  
+}
+.publicar{
+  font-family: Forum;
+  /*position: relative;*/
+  background-color: #E5E0E8;
+  width: 50%;
+ height: 70px;
+ 
+ /*margin: 30px;*/
+}
+#boton-publicar{
+  font-family: Forum;
+  /*position: relative;*/
+text-align: center;
+font-size: 16px;
+line-height: 16px;
+margin: 2px;
+cursor: pointer;
+-webkit-transition-duration: 0.4s; /* Safari */
+transition-duration: 0.4s;
+width: 108px;
+height: 22px;
+border-color: bisque;
+color: rgb(88, 88, 88);
+position: center;
+background-color: #e09dff;
+border-radius: 3px;
+border-color: bisque;
+top: 20px;
+
+}
+
+#divRegistro{
+display:flex;
+flex-direction: column;
+justify-content: center;
+align-items: center;
+background: #FBEBDB;
+}
+#titulo{
+  width: 192px;
+  height: 21px;
+  position: relative;
+  font-family: Forum;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 36px;
+  line-height: 40px;
+  
+  color: #787878;
+} 
+#formRegistro{
+ 
+    top: -30px;
+    position: relative;
+    width: 250px;
+    height: 320px;
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    background: #eadaf3;
+    border-radius: 9px;
+    margin: 20px;
+    padding: 11px 8px;
+    border-radius: 10px;
+    align-items: center;
+    font-family: Forum;
+  }
+  
+
+#nombreRegistro{
+  font-family: Forum;
+  position: relative;
+  background-color:rgb(255, 255, 255);
+  height: 20px;
+  margin: 14px;
+  border-radius: 5px;
+  border-color: bisque;
+
+}
+#c-electronico{
+  font-family: Forum;
+  position:relative;
+  background-color:rgb(255, 255, 255);
+  height: 20px;
+  margin: 14px;
+  border-radius: 5px;
+  border-color: bisque;
+}
+.contraseña{
+  font-family: Forum;
+  position: relative;
+  background-color:rgb(255, 255, 255);
+  height: 20px;
+  margin: 14px;
+  border-radius: 5px;
+  border-color: bisque;
+  position: -webkit-sticky;
+position: sticky;
+top: 20px;
+
+}
+#boton-crear-cuenta{
+  font-family: Forum;
+  position:relative;
+  align-content: center;
+  text-align: center;
+  font-size: 16px;
+  line-height: 16px;
+  margin: 10px;
+  cursor: pointer;
+  -webkit-transition-duration: 0.4s; /* Safari */
+  transition-duration: 0.4s;
+  border-color: bisque;
+  color: rgb(88, 88, 88);
+  position: center;
+  background-color: #e09dff;
+  border-radius: 3px;
+  border-color: bisque;
+} 
+#googleBoton{
+  font-family: Forum;
+  background-color: #7c8ef7; 
+  color: rgb(255, 255, 255);
+  border-radius: 3px;
+  border-color: bisque;
+  margin: 8px;
+}
+.git{
+  font-family: Forum;
+  width: 100px;
+  margin: 8px;
+}
+.google{
+  font-family: Forum;
+  width: 100px;
+  height: 40px;
+  margin: 8px;
+}
+#homeImagen{
+  width: 50px;
+  height: 50px;
+}
+#git{
+  margin: 10px;
+  max-width:50%;
+  max-height:50%;
+}
+#google{
+  margin: 10px;
+  max-width:50%;
+  max-height:50%;
+}
+
+#boton-salir{
+  font-family: Forum;
+  align-content: center;
+  text-align: center;
+  font-size: 16px;
+  line-height: 16px;
+  margin: 10px;
+  cursor: pointer;
+  -webkit-transition-duration: 0.4s; /* Safari */
+  transition-duration: 0.4s;
+  border-color: bisque;
+  color: rgb(88, 88, 88);
+  position:absolute;
+  background-color: #e09dff;
+  border-radius: 3px;
+  border-color: bisque;
+  bottom: 3px;
+  
+}
+#registrate{
+font-family: Ruda;
+font-style: normal;
+font-weight: normal;
+font-size: 24px;
+line-height: 22px;
+color: #696666;
+font-family: Forum;
+}
+
+/*publicaciones div*/
+.publicarDiv{
+width: 100%;
+padding: 5px;
+}
+.tituloPublicacion{
+  font-family: Forum;
+  font-size: medium;
+  color: black;
+  padding: 5px;
+}
+.parrafoPublicaciones{
+  font-family: Forum;
+  font-size: medium;
+  color:black;
+  padding: 5px;
+}
+
+#divEntrada{
+padding: 0%;
+width: 100%;
+border-radius: 10px;
+}
+.tituloMiPublicacion{
+align-items: center;
+}

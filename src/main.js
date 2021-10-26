@@ -1,5 +1,37 @@
-// Este es el punto de entrada de tu aplicacion
+// eslint-disable-next-line import/no-cycle
+import { inicio } from './components/iniciar.js';
+// eslint-disable-next-line import/no-cycle
+import { muro } from './components/muro.js';
+// eslint-disable-next-line import/no-cycle
+import { registro } from './components/registro.js';
 
-import { myFunction } from './lib/index.js';
+const rootDiv = document.getElementById('root');
 
-myFunction();
+const rutas = {
+  '/': inicio,
+  '/muro': muro,
+  '/registro': registro,
+};
+export const onNavigate = (pathname) => {
+  window.history.pushState(
+    {},
+    pathname,
+    window.location.origin + pathname,
+  );
+
+  while (rootDiv.firstChild) {
+    rootDiv.removeChild(rootDiv.firstChild);
+  }
+
+  rootDiv.appendChild(rutas[pathname]());
+};
+const component = rutas[window.location.pathname];
+
+window.onpopstate = () => {
+  while (rootDiv.firstChild) {
+    rootDiv.removeChild(rootDiv.firstChild);
+  }
+  rootDiv.appendChild(rutas[window.location.pathname]());
+};
+
+rootDiv.appendChild(component());
