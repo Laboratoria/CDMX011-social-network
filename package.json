@@ -34,5 +34,18 @@
   },
   "engines": {
     "node": ">=10"
-  }
+  },
+  "directories": {
+    "test": "test"
+  },
+  "dependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/alejandraglezd/CDMX011-social-network.git"
+  },
+  "author": "",
+  "bugs": {
+    "url": "https://github.com/alejandraglezd/CDMX011-social-network/issues"
+  },
+  "homepage": "https://github.com/alejandraglezd/CDMX011-social-network#readme"
 }

@@ -1,16 +1,255 @@
-body {
-    background-image: url(images/);    
-}
+/* body {
+    font-size: 50px;
+    font-weight: bolder;
+
+} */
 .Home {
+    font-size: 60px;
+    font-weight: bolder;
+    color: white;
+    /* text-shadow: black 0.09em 0.1em; */
+    /* padding: 15px; */
+    background-image: url(images/2background.jpeg);
+    background-size: 600px 736px;
+    background-repeat: no-repeat;
+    background-blend-mode: lighten;
     width: 414px;
-    height: 736;
-    border: 2px solid gray;
-    border-radius: 12px;
-    font-size: 40px;
+    height: 736px;
 }
-#buttonRegister {
+.welcomeDiv {
+    width: 230px;
+    font-size: 25px;
+    font-weight: lighter;
+    color: white;
+    text-align: start;
+    position: absolute;
+    top: 130px;
+    left: 35px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+.logoDiv {
+    color:rgba(24, 124, 100, 1);
+    font-size: 17px;
+}
+.line {
+    height: 1.5px;
+    background: white;
+    position: absolute;
+    width: 340px;
+    left: 37px;
+    top: 125px;
+}
+.line2 {
+    height: 1.5px;
+    background: white;
+    position: absolute;
+    width: 130px;
+    left: 245px;
+    top: 242px;
+}
+.oDiv {
+    font-size: 29px;
+    color: white;
+    top: 445px;
+    left: 198px;
+    position: absolute;
+    font-style: italic;
+    text-shadow: black -0.15em 0.15em;
+}
+.line3 {
+    height: 3px;
+    background: rgba(24, 124, 100, 1);
+    position: absolute;
+    width: 110px;
+    left: 80px;
+    top: 457px;
+}
+.line4 {
+    height: 3px;
+    background: rgba(24, 124, 100, 1);
+    position: absolute;
+    width: 110px;
+    left: 220px;
+    top: 457px;
+}
+.buttonHomeLogin {
+    background-color: rgba(35, 157, 128, 0.49);
+    position: absolute;
+    width: 325px;
+    height: 38px;
+    left: 48px;
+    top: 390px;
+    border-radius: 12px;
+    border-color: rgba(35, 157, 128, 0.49);
+    color: rgba(237, 237, 237, 1);
+    font-size: 18px;
+}
+.buttonHomeRegister {
+    background-color: rgba(35, 157, 128, 0.49);
+    position: absolute;
+    width: 325px;
+    height: 38px;
+    left: 48px;
+    top: 485px;
+    border-radius: 12px;
+    border-color: rgba(35, 157, 128, 0.49);
+    color:rgba(237, 237, 237, 1);
+    font-size: 18px;
+}
+.loginDiv {
+    position: absolute;
+    font-size: 18px;
+    font-weight: bolder;
+    color: rgba(65, 65, 65, 1);
+    text-align: center;
+    padding: 20px;
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: rgba(235, 235, 235, 0.49);
+    width: 350px;
+    height: 378px;
+    top: 160px;
+    left: 12px;
+    border-radius: 12px;
+
+}
+.inputMail {
+    position: absolute;
+    width: 318px ;
+    height: 38px ;
+    left: 30px;
+    top: 80px;
+    background: rgba(160, 160, 160, 0.19);
+    border-radius: 12px;
+    font-size: 16px;
+    align-items: flex-end;
+    color: rgb(65, 65, 65, 0.35);
+    font-family: Arial, Helvetica, sans-serif;
+}
+.inputPass {
+    position: absolute;
     width: 319px;
     height: 38px;
-    background: rgba(35, 157, 128, 0.49) ;
-    
+    left: 30px;
+    top: 155px;
+    background: rgba(160, 160, 160, 0.19);
+    border-radius: 12px;
+    font-size: 16px;
+    align-items: flex-end;
+    color: rgb(65, 65, 65, 0.35);
+    font-family: Arial, Helvetica, sans-serif;
+}
+.btnSubmit {
+    position: absolute;
+    width: 226px;
+    height: 38px;
+    left: 82px;
+    top: 250px;
+    /* background: rgba(35, 157, 128, 0.6); */
+    background:rgba(35, 157, 128, 1);
+    border-radius: 12px;
+    font-size: 17px;
+    align-items: center;
+    color: white;
+    border-color: rgba(35, 157, 128, 0.49);
+}
+.buttonBackHome {
+    background-color: rgb(114, 116, 115);
+    position: absolute;
+    width: 226px;
+    height: 38px;
+    left: 82px;
+    top: 320px;
+    border-radius: 12px;
+    border-color: gray;
+    color: rgba(237, 237, 237, 1);
+    font-size: 17px;
+    align-items: center;
+}
+.registerDiv {
+    position: absolute;
+    font-size: 18px;
+    font-weight: bolder;
+    color:rgba(65, 65, 65, 1);
+    text-align: center;
+    padding: 10px;
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: rgba(235, 235, 235, 0.49);
+    width: 350px;
+    height: 378px;
+    top: 160px;
+    left: 21px;
+    border-radius: 12px;
+}
+.inputMail2 {
+    position: absolute;
+    width: 318px ;
+    height: 38px ;
+    left: 22px;
+    top: 80px;
+    background: rgba(160, 160, 160, 0.19);
+    border-radius: 12px;
+    font-size: 15px;
+    align-items: flex-end;
+    color: rgb(65, 65, 65, 0.35);
+    font-family: Arial, Helvetica, sans-serif;
+}
+.inputPass2 {
+    position: absolute;
+    width: 319px;
+    height: 38px;
+    left: 22px;
+    top: 155px;
+    background: rgba(160, 160, 160, 0.19);
+    border-radius: 12px;
+    font-size: 15px;
+    align-items: flex-end;
+    color: rgb(65, 65, 65, 0.35);
+    font-family: Arial, Helvetica, sans-serif;
+}
+.btnSubmit2 {
+    position: absolute;
+    width: 226px;
+    height: 38px;
+    left: 72px;
+    top: 250px;
+    background: rgba(35, 157, 128, 1);
+    border-radius: 12px;
+    font-size: 15px;
+    align-items: center;
+    color: white;
+    /* background-color: rgba(35, 157, 128, 0.49); */
+    border-color: rgba(35, 157, 128, 0.49);
+}
+.buttonBackHome2 {
+    background-color: rgb(114, 116, 115);
+    position: absolute;
+    width: 226px;
+    height: 38px;
+    left: 72px;
+    top: 320px;
+    border-radius: 12px;
+    border-color: rgba(114, 116, 115, 0.49);
+    color: rgba(237, 237, 237, 1);
+    font-size: 15px;
+}
+.wallDiv {
+    color: rgba(65, 65, 65, 1);
+    font-size: 15px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+footer {
+    position: absolute;
+    width: 315px;
+    height: 24px;
+    left: 75px;
+    top: 692px;
+    font-family:Arial, Helvetica, sans-serif;
+    font-style: normal;
+    font-weight: 300;
+    font-size: 12px;
+    color: rgba(24, 124, 100, 1);
+    line-height: 15px;
+    display: flex;
+    align-items: flex-end;
+    text-align: center;
 }
