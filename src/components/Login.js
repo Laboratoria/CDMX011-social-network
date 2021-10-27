@@ -58,6 +58,10 @@ export const Login = () => {
   copyrightText.textContent = '2021 DevSocial. Todos los derechos reservados';
 
   homeButton.addEventListener('click', () => onNavigate('/'));
+  buttonLogin.addEventListener('click', () => onNavigate('/feed'));
+  googleIcon.addEventListener('click', () => onNavigate('/feed'));
+  facebookIcon.addEventListener('click', () => onNavigate('/feed'));
+  gitHubIcon.addEventListener('click', () => onNavigate('/feed'));
 
   loginDiv.appendChild(topSection);
   topSection.appendChild(homeButton);
