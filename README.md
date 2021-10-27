@@ -2,20 +2,11 @@
 
 ## Índice
 
-* [1. Preámbulo](#1-preámbulo)
-* [2. Resumen del proyecto](#2-resumen-del-proyecto)
-* 2.1 El prototipo de baja fidelidad:
+1. El prototipo de baja fidelidad:
 * ![image](https://user-images.githubusercontent.com/68892787/139109770-9211532d-edae-468e-9f2e-e6963aba7ec8.png)
 * ![image](https://user-images.githubusercontent.com/68892787/139109915-25cd57c9-0865-4139-9846-f9dcd68be6c1.png)
-* ![image](https://user-images.githubusercontent.com/68892787/139109960-db76f491-b0ef-4a11-9ebe-27a3da43d493.png)
+* ![image](https://user-images.githubusercontent.com/68892787/139110232-377fcf52-5fd4-4d1e-8798-99e18dbe70bd.png)
 
-
-* 3. Objetivos de aprendizaje](#3-objetivos-de-aprendizaje) 
-* [4. Consideraciones generales](#4-consideraciones-generales)
-* [5. Criterios de aceptación mínimos del proyecto](#5-criterios-de-aceptación-mínimos-del-proyecto)
-* [6. Hacker edition](#6-hacker-edition)
-* [7. Entrega](#7-entrega)
-* [8. Pistas, tips y lecturas complementarias](#8-pistas-tips-y-lecturas-complementarias)
 
 ## 1. Preámbulo
 
