@@ -101,7 +101,7 @@ body {
   }
 
   .Register{
-    margin-top: 30px;
+    margin-top: 20px;
     margin-right: 45px;
     margin-left: 45px;
     font-size: 15px;
@@ -130,7 +130,7 @@ body {
     display: flex;
     justify-content: center;
     margin: auto;
-    margin-top: 30px;
+    margin-top: 20px;
     width: 250px;
     height: 28px;
     border-radius: 16px;
@@ -170,7 +170,7 @@ body {
     display: flex;
     font-size: 15px;
     justify-content: center;
-    margin-top: 30px;
+    margin-top: 20px;
   }
 
   .loginOptions {
@@ -178,7 +178,7 @@ body {
     flex-direction: row;
     justify-content: space-evenly;
     height: 47px;
-    margin-top: 25px;
+    margin-top: 20px;
     margin-right: 55px;
     margin-left: 55px;
   }
@@ -194,12 +194,63 @@ body {
     margin-top: 30px;
   }
 
+  .registerLogoDiv {
+    display: flex;
+    margin: auto;
+    width: 250px;
+    height: 250px;
+    object-fit: cover;
+    margin-top: 50px;
+  }  
+  
+  .registerLogoBackground {
+    background-color: #CCF2FE;
+    height: 250px;
+    width: 250px;
+    border-radius: 50%;
+    margin-top: 0px;
+    position: relative;
+  }
+
+  .registerLogoImage {
+    display: flex;
+    margin: auto;
+    width: 280px;
+    height: 280px;
+    border-radius: 45%;
+    object-fit: cover;
+    margin-top: -30px;
+    position: absolute;
+  }
+
+  .registerTextDiv {
+    display: flex;
+    font-weight: bold;
+    font-size: 24px;
+    justify-content: center;
+    margin-top: 45px;
+  }
+
+  .nameInput {
+    display: flex;
+    justify-content: center;
+    margin: auto;
+    margin-top: 30px;
+    width: 250px;
+    height: 28px;
+    border-radius: 16px;
+    border-width: thin;
+    text-indent: 16px;
+  }
+
   .Copyright {
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
     height: 15px;
     width: 280px;
+    margin: auto;
+    margin-top: 20px;
   }
 
   .CopyrightIcon {
@@ -216,7 +267,7 @@ body {
     width: 8px;
     border-radius: 50%;
     position: relative;
-    margin-top: 3px;
+    margin-top: 2px;
   }
 
   .LetterC {
@@ -225,9 +276,29 @@ body {
     color: #000;
     position: absolute;
     margin-left: 0px;
-    margin-top: 4px;
+    margin-top: 3px;
   }
 
   .CopyrightText {
     font-size: 12px;
+  }
+
+  .CopyrightLogin {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    height: 15px;
+    width: 280px;
+    margin: auto;
+    margin-top: 28px;
+  }
+
+  .CopyrightRegister {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    height: 15px;
+    width: 280px;
+    margin: auto;
+    margin-top: 61px;
   }
