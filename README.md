@@ -8,29 +8,30 @@
 * ![image](https://user-images.githubusercontent.com/68892787/139110232-377fcf52-5fd4-4d1e-8798-99e18dbe70bd.png)
 
 
-## 1. Preámbulo
-
-Instagram, Snapchat, Twitter, Facebook, Twitch, Linkedin, etc. Las redes
-sociales han invadido nuestras vidas. Las amamos u odiamos, y muchos no podemos
-vivir sin ellas.
-
-Hay redes sociales de todo tipo y para todo tipo de intereses. Por ejemplo,
-en una ronda de financiamiento con inversionistas, se presentó una red social
-para químicos en la que los usuarios podían publicar artículos sobre sus
-investigaciones, comentar en los artículos de sus colegas, y filtrar artículos
-de acuerdo a determinadas etiquetas o su popularidad, lo más reciente, o lo
-más comentado.
+**Préambulo**
+Las redes sociales son super importantes, en este proyecto nos basamos en esa importancia de las redes sociales, y podemos ver
+en esta red social de Tranmuta, que las usuarias pueden publciar frases de bienestar para que 
+**Nuestras historias de usuario**
+HU1. Yo como usuaria QUIERO entrar en la página principal "Transmuta" PARA ver las opciones de Login y Sing up.
+HU2. Yo como usuaria QUIERO registrarme con mi correo y contraseña, PARA poder tener una cuenta en la red social Transmuta.
+HU2.2 Yo como usuaria QUIERO registrarme con Google, PARA poder tener una cuenta en la red social Transmuta.
+HU3 YO como usuaria de Transmuta QUIERO cerrar sesión PARA proteger mi cuenta.
+HU4 Yo como usuaria de Transmuta quiero poder escribir y publicar frases, PARA que otras personas las lean.
+HU5 Yo como usuaria de Transmuta quiero editar mis publicaciones PARA actualizarlas o modificarlas.
+HU6 Yo como usuaria de Transmuta quiero saber que publicaciones hice para identificarlas.
+HU7 Yo como usuaria de Transmuta quiero poder eliminar las publicaciones anteriores que ya no quiero compartir con otros usuarios.
+HU8 Yo como usuaria de Transmuta QUIERO poder darle like a publicaciones de la red social Transmuta. PARA indicar que me gustaron.
 
 ## 2. Resumen del proyecto
+Construiremos una red social llamada Transmuta.
+El objetivo principal de nuestra red es publicar algunas frases que ayuden a las mujeres reforzar lo fuerte que son.
 
-En este proyecto construirás una Red Social sobre lo que decidan tú y tu equipo.
-Podría ser, por ejemplo, sobre alimentación saludable, feminismo, educación,
-salud, energías renovables, amantes de las [Empanadas](https://es.wikipedia.org/wiki/Empanada)
-o de los [Tacos de Canasta](https://es.wikipedia.org/wiki/Taco), de la
-[Feijoada](https://es.wikipedia.org/wiki/Feijoada), o de lo que sea.
+Nuestra red social permite registrarte, por primera vez por medio de un correo y contraseña.
+Se puede logear por medio de google y github.
+Nuestra red social Transmuta nos podrá permitir : crear, editar, borrar y _"likear"_ publicacciones.
 
 Tu Red Social tendrá que permitir a cualquier usuario crear una cuenta de
-acceso y loguearse con ella; crear, editar, borrar y _"likear"_ publicacciones.
+acceso y loguearse con ella;
 
 El objetivo principal de aprendizaje de este proyecto es construir una
 [Single-page Application (SPA)](https://es.wikipedia.org/wiki/Single-page_application)
