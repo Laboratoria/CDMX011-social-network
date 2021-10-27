@@ -4,7 +4,10 @@
 
 * [1. Preámbulo](#1-preámbulo)
 * [2. Resumen del proyecto](#2-resumen-del-proyecto)
-* [3. Objetivos de aprendizaje](#3-objetivos-de-aprendizaje)
+* 2.1 El prototipo de baja fidelidad:
+* ![image](https://user-images.githubusercontent.com/68892787/139109770-9211532d-edae-468e-9f2e-e6963aba7ec8.png)
+
+* 3. Objetivos de aprendizaje](#3-objetivos-de-aprendizaje) 
 * [4. Consideraciones generales](#4-consideraciones-generales)
 * [5. Criterios de aceptación mínimos del proyecto](#5-criterios-de-aceptación-mínimos-del-proyecto)
 * [6. Hacker edition](#6-hacker-edition)
