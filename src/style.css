@@ -243,6 +243,49 @@ body {
     text-indent: 16px;
   }
 
+  .greenTopSection {
+    height: 70px;
+    width: 390px;
+    margin-top: -8px;
+    margin-left: -8px;
+    background-color: #5BC0BE;
+    position: relative;
+  }
+
+  .logoTopSection {
+    position: absolute;
+    margin-left: 10px;
+    margin-top: -35px;
+    height: 160px;
+    width: 160px;
+  }
+
+  .reloadFeedButton {
+   display: flex;
+   margin: auto;
+   margin-top: 590px;
+   justify-content: center;
+  }
+
+  .backgroundButton {
+    display: flex;
+    justify-content: center;
+    background-color: #5BC0BE;
+    height: 45px;
+    width: 45px;
+    border-radius: 50%;
+    position: relative;
+    margin: auto;
+  }
+
+  .reloadFeedHomeImage {
+    position: absolute;
+    margin: auto;
+    margin-top: 7px;
+    width: 30px;
+    height: 30px;
+  }
+
   .Copyright {
     display: flex;
     flex-direction: row;

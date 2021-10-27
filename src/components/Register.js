@@ -52,6 +52,7 @@ export const Register = () => {
   copyrightText.textContent = '2021 DevSocial. Todos los derechos reservados';
 
   homeButton.addEventListener('click', () => onNavigate('/'));
+  buttonRegister.addEventListener('click', () => onNavigate('/feed'));
 
   registerDiv.appendChild(topSection);
   topSection.appendChild(homeButton);
