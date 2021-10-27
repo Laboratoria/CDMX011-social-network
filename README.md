@@ -6,6 +6,9 @@
 * [2. Resumen del proyecto](#2-resumen-del-proyecto)
 * 2.1 El prototipo de baja fidelidad:
 * ![image](https://user-images.githubusercontent.com/68892787/139109770-9211532d-edae-468e-9f2e-e6963aba7ec8.png)
+* ![image](https://user-images.githubusercontent.com/68892787/139109915-25cd57c9-0865-4139-9846-f9dcd68be6c1.png)
+* ![image](https://user-images.githubusercontent.com/68892787/139109960-db76f491-b0ef-4a11-9ebe-27a3da43d493.png)
+
 
 * 3. Objetivos de aprendizaje](#3-objetivos-de-aprendizaje) 
 * [4. Consideraciones generales](#4-consideraciones-generales)
