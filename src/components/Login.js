@@ -1,47 +1,60 @@
-import { onNavigate } from "../main.js";
+/* eslint-disable max-len */
+/* eslint-disable import/no-cycle */
+import { onNavigate } from '../main.js';
+import { loginEmailPass } from '../lib/auth.js';
 
-export const  Login = () => {
-    const loginDiv = document.createElement('div');
-    loginDiv.textContent = '¡Hola de nuevo!';
-    loginDiv.className = 'loginDiv';
+export const Login = () => {
+  const loginDiv = document.createElement('div');
+  // loginDiv.textContent = '¡Hola de nuevo!';
+  loginDiv.className = 'loginDiv';
 
-    const buttonHome = document.createElement('button');
-    buttonHome.className = 'buttonBackHome';
-    buttonHome.textContent = 'Regresar a Home';
+  const formContainerL = document.createElement('div');
+  formContainerL.className = 'formContainer';
 
-    buttonHome.addEventListener('click', () => onNavigate('/'));
+  const greetingDiv = document.createElement('div');
+  greetingDiv.textContent = '¡Hola de nuevo!';
+  greetingDiv.className = 'greetingDiv';
 
-    const inputMail = document.createElement('input');
-    inputMail.className = 'inputMail'
-    inputMail.setAttribute('placeholder', 'Correo electrónico');
+  const mainLogoL = document.createElement('div');
+  mainLogoL.className = 'mainLogoR';
+  mainLogoL.textContent = 'ciclovida';
 
-    const inputPass = document.createElement('input');
-    inputPass.setAttribute('placeholder', 'Contraseña');
-    inputPass.className = 'inputPass'
+  const logoDivL = document.createElement('div');
+  logoDivL.className = 'logoDivR';
+  logoDivL.textContent = 'ciclovida';
 
-    const btnSubmit = document.createElement('button');
-    btnSubmit.className = 'btnSubmit';
-    btnSubmit.textContent = 'Iniciar sesión'
+  const buttonHome = document.createElement('button');
+  buttonHome.className = 'buttonBackHome';
+  buttonHome.textContent = 'Regresar a Home';
 
-    loginDiv.append(buttonHome, inputMail, inputPass, btnSubmit)
+  buttonHome.addEventListener('click', () => onNavigate('/'));
 
-    return loginDiv;
+  const inputMail = document.createElement('input');
+  inputMail.className = 'inputMail';
+  inputMail.setAttribute('placeholder', 'Correo electrónico');
+
+  const inputPass = document.createElement('input');
+  inputPass.setAttribute('placeholder', 'Contraseña');
+  inputPass.className = 'inputPass';
+
+  const btnSubmit = document.createElement('button');
+  btnSubmit.className = 'btnSubmit';
+  btnSubmit.textContent = 'Iniciar sesión';
+
+  btnSubmit.addEventListener('click', () => loginEmailPass(inputMail.value, inputPass.value));
+  btnSubmit.addEventListener('click', () => onNavigate('/Wall'));
+
+  loginDiv.append(formContainerL, mainLogoL, logoDivL, greetingDiv, buttonHome, inputMail, inputPass, btnSubmit);
+
+  return loginDiv;
 };
-
-
-
-
 
 // btnSubmit.addEventListener('click', () => onNavigate('/Wall'));
 
-    //funcion firebase en doc lib
-    // disparar el evento en el boton enviar ahí disparara la funcion firebase
+// se llama por el id con queryselector haciendo referencia a su papá
+// const htmlForm = `<form id="formLogin">
+// <input id="email" placeholder="Correo electrónico">
+// <input id="password" placeholder="Contraseña"><button type=></button>
+// </form>`
 
-
-    // se llama por el id con queryselector haciendo referencia a su papá
-    // const htmlForm = `<form id="formLogin">
-    // <input id="email" placeholder="Correo electrónico">
-    // <input id="password" placeholder="Contraseña"><button type=></button>
-    // </form>`
-
-    // loginDiv.innerHTML = htmlForm;
+// loginDiv.innerHTML = htmlForm;
