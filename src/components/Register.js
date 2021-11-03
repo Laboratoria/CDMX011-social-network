@@ -5,8 +5,10 @@ import { onNavigate } from '../main.js';
 
 export const Register = () => {
   const registerDiv = document.createElement('div');
-  registerDiv.texContent = '¿Aún no tienes una cuenta? ¡Regístrate!';
   registerDiv.className = 'registerDiv';
+
+  const greetingDiv2 = document.createElement('div');
+  greetingDiv2.textContent = '¿Aún no tienes una cuenta? ¡Regístrate!';
 
   const formContainer = document.createElement('div');
   formContainer.className = 'formContainer';
@@ -39,7 +41,7 @@ export const Register = () => {
 
   btnSubmit.addEventListener('click', () => signUp(inputMail.value, inputPass.value));
 
-  registerDiv.append(formContainer, mainLogoR, logoDivR, buttonHome, inputMail, inputPass, btnSubmit);
+  registerDiv.append(formContainer, mainLogoR, logoDivR, greetingDiv2, buttonHome, inputMail, inputPass, btnSubmit);
 
   return registerDiv;
 };

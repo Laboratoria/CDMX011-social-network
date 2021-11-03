@@ -1,5 +1,6 @@
 /* eslint-disable no-console */
 /* eslint-disable no-alert */
+import { onNavigate } from '../main.js';
 import firebase from './firebase.js';
 // Registro, inicio de sesión, cierre de sesión
 
@@ -7,16 +8,17 @@ import firebase from './firebase.js';
 export const signUp = (email, password) => {
   firebase.auth().createUserWithEmailAndPassword(email, password)
     .then((userCredential) => {
-      console.log('Usuario registrado exitosamente');
       const user = userCredential.user;
+      console.log(user);
     })
     .catch((error) => {
       alert('Los datos ingresados pertenecen a una cuenta ya activa');
-      console.logg('Los datos ingresados son erroneos')
       // const errorCode = error.code;
       const errorMessage = error.message;
+      console.log(errorMessage);
     });
 };
+
 // funcion login con correo y contraseña
 export const loginEmailPass = (email, password) => {
   firebase.auth().signInWithEmailAndPassword(email, password)
@@ -24,11 +26,15 @@ export const loginEmailPass = (email, password) => {
       const user = userCredential.user;
       console.log(user);
     })
+    // .then((routes) => onNavigate {
+
+    // })
     .catch((error) => {
       alert('Usuario no registrado');
       const errorMessage = error.message;
       console.log(errorMessage);
     });
 };
+
 // funcion cierre de sesion
-//  export const logOut = () => 
+//  export const logOut = () =>
