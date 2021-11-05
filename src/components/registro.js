@@ -31,6 +31,7 @@ export const registro = () => {
   const contraseña = document.createElement('input');
   contraseña.placeholder = 'Contraseña';
   contraseña.type = 'password';
+  contraseña.required = 'required';
   contraseña.className = 'contraseña';
   const botonCrearCuenta = document.createElement('button');
   botonCrearCuenta.textContent = 'Crear cuenta';

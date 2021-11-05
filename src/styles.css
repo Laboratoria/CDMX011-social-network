@@ -137,9 +137,10 @@ color: #8D8A8A;
 }
 
 #marcaMuro{
+  display: inline-block;
   color:#787878;
   position: relative;
-  justify-content: center;
+  /*justify-content: center;*/
   
 }
 .publicar{
@@ -148,29 +149,28 @@ color: #8D8A8A;
   background-color: #E5E0E8;
   width: 50%;
  height: 70px;
+ margin-top: 15px;
  
  /*margin: 30px;*/
 }
 #boton-publicar{
   font-family: Forum;
-  /*position: relative;*/
-text-align: center;
-font-size: 16px;
-line-height: 16px;
-margin: 2px;
-cursor: pointer;
--webkit-transition-duration: 0.4s; /* Safari */
-transition-duration: 0.4s;
-width: 108px;
-height: 22px;
-border-color: bisque;
-color: rgb(88, 88, 88);
-position: center;
-background-color: #e09dff;
-border-radius: 3px;
-border-color: bisque;
-top: 20px;
-
+  box-align:inline;
+  font-size: 16px;
+  line-height: 16px;
+  margin: 2px;
+  margin-bottom: 10px;
+  cursor: pointer;
+  -webkit-transition-duration: 0.4s; /* Safari */
+  transition-duration: 0.4s;
+  width: 108px;
+  height: 22px;
+  border-color: bisque;
+  color: rgb(88, 88, 88);
+  background-color: #e09dff;
+  border-radius: 3px;
+  border-color: bisque;
+  
 }
 
 #divRegistro{
@@ -189,8 +189,7 @@ background: #FBEBDB;
   font-weight: normal;
   font-size: 36px;
   line-height: 40px;
-  
-  color: #787878;
+    color: #787878;
 } 
 #formRegistro{
  
@@ -281,8 +280,10 @@ top: 20px;
   margin: 8px;
 }
 #homeImagen{
-  width: 50px;
-  height: 50px;
+  width: 25px;
+  height: 25px;
+  flex-wrap: wrap;
+  
 }
 #git{
   margin: 10px;
@@ -332,13 +333,14 @@ padding: 5px;
 .tituloPublicacion{
   font-family: Forum;
   font-size: medium;
-  color: black;
+  color:red;
   padding: 5px;
 }
 .parrafoPublicaciones{
   font-family: Forum;
   font-size: medium;
-  color:black;
+  color: black;
+  height: 25px;
   padding: 5px;
 }
 
@@ -346,7 +348,39 @@ padding: 5px;
 padding: 0%;
 width: 100%;
 border-radius: 10px;
+vertical-align: middle;
+color: #7c8ef7;
 }
-.tituloMiPublicacion{
+#tituloHome{
+  color: #696666;
+  display: inline-block;
+  width: 250px;
+}
+/*.tituloMiPublicacion{
 align-items: center;
+}*/
+/*.divPost>.publicar{
+  padding: 0%;
+  width: 100%;
+  border-radius: 10px;
+  vertical-align: middle;
+  color: #329B88;
+  border-radius: 25px;
+}*/
+
+.homeDivBoton{
+  display:inline;
+}
+
+#imagenSalir{
+  width: 30px;
+  height: 30px;
+  display:inline;
+  justify-content: flex-end;
+  
+}
+#encabezadoDiv{
+  display: flex;
+  justify-content: space-around;
+  
 }

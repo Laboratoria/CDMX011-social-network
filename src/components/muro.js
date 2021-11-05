@@ -1,16 +1,22 @@
-/* eslint-disable import/named */
 /* eslint-disable import/no-cycle */
-/* eslint-disable no-unused-vars */
-// eslint-disable-next-line import/no-cycle
 import { signOut } from '../lib/firebaseAuth.js';
+// eslint-disable-next-line import/named
 import { getData, post } from '../lib/fireStore.js';
 
 export const muro = () => {
+  const encabezadoDiv = document.createElement('div');
+  encabezadoDiv.id = 'encabezadoDiv';
   const homeDiv = document.createElement('div');
   homeDiv.id = 'homeDiv';
   const tituloHome = document.createElement('h1');
   tituloHome.id = 'marcaMuro';
   tituloHome.textContent = 'TRANSMUTA';
+  const imagenSalir = document.createElement('img');
+  imagenSalir.id = 'imagenSalir';
+  imagenSalir.src = '/Assets/salir01.png';
+  imagenSalir.addEventListener('click', () => {
+    signOut();
+  });
   // const tituloMiPublicacion = document.createElement('textarea');
   // tituloMiPublicacion.textContent = 'tituloMiPublicacion';
   // tituloMiPublicacion.className = 'tituloMiPublicacion';
@@ -20,10 +26,21 @@ export const muro = () => {
   const botonPublicar = document.createElement('button');
   botonPublicar.textContent = 'Publicar';
   botonPublicar.id = 'boton-publicar';
-  botonPublicar.addEventListener('click', () => {
+  botonPublicar.addEventListener('click', (e) => {
+    e.preventDefault();
     post(publicar.value);
-    console.log(publicar.value);
+    /* imprimirPost(); */
+    /* console.log(publicar.value); */
   });
+  /*actualizar((querySnapshot) => {
+    querySnapshot.forEach((publicacion) => {
+      const html = ` 
+           <p class = "parrafoPublicaciones"> ${publicacion.texto}</p>`;
+      divPost.innerHTML = html;
+      publicarDiv.appendChild(divPost);
+    });
+  });
+*/
   const divEntrada = document.createElement('form');
   divEntrada.id = 'divEntrada';
   const publicarDiv = document.createElement('div');
@@ -34,13 +51,15 @@ export const muro = () => {
   botonSalir.addEventListener('click', () => {
     signOut();
   });
-  divEntrada.appendChild(tituloHome);
+  encabezadoDiv.appendChild(tituloHome);
+  encabezadoDiv.appendChild(imagenSalir);
+  homeDiv.appendChild(encabezadoDiv);
   // divEntrada.appendChild(tituloMiPublicacion);
   divEntrada.appendChild(publicar);
   divEntrada.appendChild(botonPublicar);
   homeDiv.appendChild(divEntrada);
   homeDiv.appendChild(publicarDiv);
-  homeDiv.appendChild(botonSalir);
+
   const templatePost = (publicacion) => {
     const divPost = document.createElement('div');
     const html = ` 
@@ -49,7 +68,7 @@ export const muro = () => {
     publicarDiv.appendChild(divPost);
   };
 
-  const printData = async () => {
+   const printData = async () => {
     await getData()
       .then((querySnapshot) => {
         querySnapshot.forEach((doc) => {
@@ -62,17 +81,6 @@ export const muro = () => {
         console.log('Error getting documents: ', error);
       });
   };
-  printData();
+  printData(); 
   return homeDiv;
 };
-
-/* const txt1 = document.querySelector("publicacioes";
-
-const database =firebase.database();
-botonPublicar.addEventListener('click', (e) =>{
-  e.preventDefault();
-  database.ref('/nuevapublicacion').set({
-    campo1: txt1.Value
-  })
-
-}) */

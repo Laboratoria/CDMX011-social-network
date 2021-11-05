@@ -1,3 +1,4 @@
+/* eslint-disable no-undef */
 /* eslint-disable no-alert */
 /* eslint-disable no-unused-vars */
 import firebase from './secret.js';

@@ -1,8 +1,6 @@
 /* eslint-disable import/no-cycle */
-// eslint-disable-next-line import/no-cycle
 import { onNavigate } from '../main.js';
-// eslint-disable-next-line import/no-cycle
-// eslint-disable-next-line import/named
+
 import { crateAccountWithGoogle, createAccountWithGithub } from '../lib/firebaseAuth.js';
 
 export const inicio = () => {
@@ -39,7 +37,6 @@ export const inicio = () => {
   googleBoton.id = 'google';
   googleBoton.src = '/Assets/imagenGoogle.png';
   googleBoton.addEventListener('click', () => {
-    // eslint-disable-next-line no-undef
     crateAccountWithGoogle();
   });
   const githubBoton = document.createElement('img');

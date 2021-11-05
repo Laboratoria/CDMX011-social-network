@@ -22,7 +22,7 @@ export const onNavigate = (pathname) => {
   while (rootDiv.firstChild) {
     rootDiv.removeChild(rootDiv.firstChild);
   }
-
+  // devuelve la ruta
   rootDiv.appendChild(rutas[pathname]());
 };
 const component = rutas[window.location.pathname];
