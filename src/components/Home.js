@@ -21,10 +21,10 @@ export const Home = () => {
   welcomeDiv.className = 'welcomeDiv';
   welcomeDiv.textContent = '¡Bienvenidx a la comunidad de ciclismo más grande en Latinoamérica!';
 
-  const lineDiv = document.createElement('div');
-  lineDiv.className = 'line';
-  const lineDiv2 = document.createElement('div');
-  lineDiv2.className = 'line2';
+  // const lineDiv = document.createElement('div');
+  // lineDiv.className = 'line';
+  // const lineDiv2 = document.createElement('div');
+  // lineDiv2.className = 'line2';
   const oDiv = document.createElement('div');
   oDiv.className = 'oDiv';
   oDiv.textContent = 'o';
@@ -44,7 +44,7 @@ export const Home = () => {
   buttonRegister.addEventListener('click', () => onNavigate('/Register'));
   buttonLogin.addEventListener('click', () => onNavigate('/Login'));
 
-  HomeDiv.append(buttonRegister, buttonLogin, welcomeDiv, lineDiv, lineDiv2, lineDiv3, lineDiv4, oDiv, logoDiv, mainLogo, background);
+  HomeDiv.append(buttonRegister, buttonLogin, welcomeDiv, /*lineDiv, lineDiv2,*/ lineDiv3, lineDiv4, oDiv, logoDiv, mainLogo, background);
 
   return HomeDiv;
 };

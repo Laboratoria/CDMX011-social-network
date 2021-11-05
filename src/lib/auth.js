@@ -1,7 +1,7 @@
 /* eslint-disable no-console */
 /* eslint-disable no-alert */
 import { onNavigate } from '../main.js';
-import firebase from './firebase.js';
+import firebase, { db } from './firebase.js';
 // Registro, inicio de sesión, cierre de sesión
 
 // funcion registro con correo y contraseña
@@ -24,6 +24,7 @@ export const loginEmailPass = (email, password) => {
   firebase.auth().signInWithEmailAndPassword(email, password)
     .then((userCredential) => {
       const user = userCredential.user;
+      onNavigate('/Wall');
       console.log(user);
     })
     // .then((routes) => onNavigate {
@@ -38,3 +39,10 @@ export const loginEmailPass = (email, password) => {
 
 // funcion cierre de sesion
 //  export const logOut = () =>
+
+// método “get” para recuperar toda la colección de datos cloud firestore
+// db.collection('users').get().then((querySnapshot) => {
+//   querySnapshot.forEach((doc) => {
+//     console.log(`${doc.id} => ${doc.data()}`);
+//   });
+// });

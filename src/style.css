@@ -6,14 +6,6 @@
     width: 414px;
     height: 736px; 
 } 
-/* .background {
-    background-image: url(images/2background.jpeg);
-    background-size: 600px 736px;
-    background-repeat: no-repeat;
-    background-blend-mode: lighten;
-    width: 414px;
-    height: 736px; 
-} */
 .mainLogo {
     color: white;
     text-shadow: black -0.18em 0.15em;
@@ -37,37 +29,39 @@
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
 .welcomeDiv {
-    width: 230px;
+    width: 250px;
     font-size: 25px;
     font-weight: lighter;
     color: white;
     text-align: start;
     position: absolute;
-    top: 140px;
-    left: 35px;
-    font-family: Arial, Helvetica, sans-serif;
+    top: 120px;
+    left: 48px;
+    font-weight: bold;
+    font-stretch: expanded;
+    font-family:-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif
 }
 .line {
     height: 1.5px;
     background: white;
     position: absolute;
-    width: 340px;
-    left: 37px;
+    width: 320px;
+    left: 55px;
     top: 135px;
 }
 .line2 {
     height: 1.5px;
     background: white;
     position: absolute;
-    width: 135px;
-    left: 240px;
+    width: 123px;
+    left: 253px;
     top: 252px;
 }
 .oDiv {
-    font-size: 26px;
+    font-size: 25px;
     color: white;
-    top: 413px;
-    left: 197px;
+    top: 424px;
+    left: 209px;
     position: absolute;
     font-style: italic;
     text-shadow: black -0.15em 0.15em;
@@ -75,31 +69,31 @@
     font-weight: bolder;
 }
 .line3 {
-    height: 3px;
+    height: 2px;
     background: rgba(24, 124, 100, 1);
     position: absolute;
-    width: 110px;
-    left: 80px;
-    top: 434px;
+    width: 132px;
+    left: 53px;
+    top: 442px;
 }
 .line4 {
-    height: 3px;
+    height: 2px;
     background: rgba(24, 124, 100, 1);
     position: absolute;
-    width: 110px;
-    left: 220px;
-    top: 434px;
+    width: 132px;
+    left: 250px;
+    top: 442px;
 }
 .buttonHomeLogin {
     background-color: rgba(35, 157, 128, 0.49);
     background-color: rgba(35, 157, 128, 1);
     position: absolute;
-    width: 325px;
+    width: 340px;
     height: 38px;
     left: 48px;
-    top: 367px;
-    border-radius: 12px;
-    border-color: rgba(35, 157, 128, 0.49);
+    top: 389px;
+    border-radius: 17px;
+    border-color: rgba(35, 157, 129, 0);
     color: rgba(237, 237, 237, 1);
     font-size: 18px;
     cursor:pointer
@@ -108,29 +102,30 @@
     background-color: rgba(35, 157, 128, 0.49);
     background-color: rgba(35, 157, 128, 1);
     position: absolute;
-    width: 325px;
+    width: 340px;
     height: 38px;
     left: 48px;
-    top: 462px;
-    border-radius: 12px;
-    border-color: rgba(35, 157, 128, 0.49);
+    top: 460px;
+    border-radius: 17px;
+    border-color: rgba(35, 157, 129, 0);
     color:rgba(237, 237, 237, 1);
     font-size: 18px;
     cursor: pointer;
 }
 .loginDiv {
-    background-color: white;
-    color: rgba(65, 65, 65, 1);
-    font-size: 18px;
+    background-color: #343333;
+    width: 414px;
+    height: 736px;
 }
-.greetingDiv {
-    font-size: 17px;
+.greetingDivL {
+    font-size: 18px;
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-    background-color: honeydew;
-    color:rgba(65, 65, 65, 1);
+    color:rgb(250, 250, 250);
     position: absolute;
-    top: 120px;
+    top: 143px;
     left: 150px;
+    font-weight: bold;
+    font-stretch: semi-condensed;
 }
 .formContainerL {
     position: absolute;
@@ -140,23 +135,23 @@
     text-align: center;
     padding: 10px;
     font-family: Arial, Helvetica, sans-serif;
-    background-color: rgba(235, 235, 235, 0.49);
+    background-color: rgba(255, 255, 255, 0.89);
     width: 350px;
-    height: 378px;
-    top: 180px;
-    left: 21px;
+    height: 325px;
+    top: 207px;
+    left: 27px;
     border-radius: 12px;
 }
 .mainLogoL {
-    color: black;
-    text-shadow: white -0.18em 0.15em;
+    color: white;
+    text-shadow: black -0.18em 0.15em;
     font-size: 53px;
     /* padding: 23px; */
     position: absolute;
-    top: 33px;
+    top: 30px;
     left: 37px;
     font-weight: bolder;
-    font-family:-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif
+    font-family:-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
 .logoDivL {
     color:rgba(24, 124, 100, 1);
@@ -169,67 +164,67 @@
     text-shadow: white 0.1em 0.6em;
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
-.inputMail {
+.inputMailL {
     position: absolute;
     width: 318px ;
     height: 38px ;
     left: 45px;
-    top: 200px;
+    top: 250px;
     background: rgba(160, 160, 160, 0.19);
     border-radius: 12px;
     font-size: 16px;
     align-items: flex-end;
     color: rgb(65, 65, 65, 0.35);
     font-family: Arial, Helvetica, sans-serif;
+    border-color: rgba(160, 160, 160, 0);
 }
-.inputPass {
+.inputPassL {
     position: absolute;
     width: 319px;
     height: 38px;
     left: 45px;
-    top: 270px;
+    top: 313px;
     background: rgba(160, 160, 160, 0.19);
     border-radius: 12px;
     font-size: 16px;
     align-items: flex-end;
     color: rgb(65, 65, 65, 0.35);
     font-family: Arial, Helvetica, sans-serif;
+    border-color: rgba(160, 160, 160, 0);
 }
-.btnSubmit {
+.btnSubmitL {
     position: absolute;
-    width: 226px;
+    width: 200px;
     height: 38px;
-    left: 92px;
-    top: 360px;
+    left: 110px;
+    top: 390px;
     /* background: rgba(35, 157, 128, 0.6); */
     background:rgba(35, 157, 128, 1);
-    border-radius: 12px;
+    border-radius: 17px;
     font-size: 17px;
     align-items: center;
     color: white;
-    border-color: rgba(35, 157, 128, 0.49);
+    border-color: rgba(35, 157, 129, 0);
     cursor:pointer;
 }
 .buttonBackHome {
     background-color: rgb(114, 116, 115);
     position: absolute;
-    width: 226px;
+    width: 200px;
     height: 38px;
-    left: 92px;
-    top: 430px;
-    border-radius: 12px;
-    border-color: gray;
+    left: 110px;
+    top: 440px;
+    border-radius: 17px;
+    border-color: rgba(128, 128, 128, 0);
     color: rgba(237, 237, 237, 1);
     font-size: 17px;
     align-items: center;
     cursor:pointer;
 }
 .registerDiv {
-    background-color: honeydew;
-    color: rgba(65, 65, 65, 1);
-    font-size: 18px;
+    background-color: rgb(255, 255, 255);
 }
-.formContainer {
+.formContainerR {
     position: absolute;
     font-size: 30px;
     font-weight: bolder;
@@ -239,8 +234,8 @@
     font-family: Arial, Helvetica, sans-serif;
     background-color: rgba(235, 235, 235, 0.49);
     width: 350px;
-    height: 378px;
-    top: 160px;
+    height: 325px;
+    top: 207px;
     left: 21px;
     border-radius: 12px;
 }
@@ -266,73 +261,78 @@
     text-shadow: white 0.1em 0.6em;
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
-.greetingDiv2 {
-    font-size: 17px;
+.greetingDivR {
+    font-size: 18px;
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-    background-color: honeydew;
     color:rgba(65, 65, 65, 1);
     position: absolute;
-    top: 200px;
-    left: 150px;
+    top: 143px;
+    left: 43px;
+    font-weight: bold;
+    font-stretch: semi-condensed;
 }
-.inputMail2 {
+.inputMailR {
     position: absolute;
     width: 318px ;
     height: 38px ;
     left: 45px;
-    top: 230px;
+    top: 250px;
     background: rgba(160, 160, 160, 0.19);
     border-radius: 12px;
-    font-size: 15px;
+    font-size: 16px;
     align-items: flex-end;
     color: rgb(65, 65, 65, 0.35);
     font-family: Arial, Helvetica, sans-serif;
+    border-color: rgba(160, 160, 160, 0);
 }
-.inputPass2 {
+.inputPassR {
     position: absolute;
     width: 319px;
     height: 38px;
     left: 45px;
-    top: 300px;
+    top: 313px;
     background: rgba(160, 160, 160, 0.19);
     border-radius: 12px;
-    font-size: 15px;
+    font-size: 16px;
     align-items: flex-end;
     color: rgb(65, 65, 65, 0.35);
     font-family: Arial, Helvetica, sans-serif;
+    border-color: rgba(160, 160, 160, 0);
 }
-.btnSubmit2 {
+.btnSubmitR {
     position: absolute;
-    width: 226px;
+    width: 200px;
     height: 38px;
-    left: 92px;
+    left: 110px;
     top: 390px;
-    background: rgba(35, 157, 128, 1);
-    border-radius: 12px;
-    font-size: 15px;
+    /* background: rgba(35, 157, 128, 0.6); */
+    background:rgba(35, 157, 128, 1);
+    border-radius: 17px;
+    font-size: 17px;
     align-items: center;
     color: white;
-    /* background-color: rgba(35, 157, 128, 0.49); */
-    border-color: rgba(35, 157, 128, 0.49);
-    cursor:pointer
+    border-color: rgba(35, 157, 129, 0);
+    cursor:pointer;
 }
-.buttonBackHome2 {
+.buttonBackHomeR {
     background-color: rgb(114, 116, 115);
     position: absolute;
-    width: 226px;
+    width: 200px;
     height: 38px;
-    left: 92px;
-    top: 460px;
-    border-radius: 12px;
-    border-color: rgba(114, 116, 115, 0.49);
+    left: 110px;
+    top: 440px;
+    border-radius: 17px;
+    border-color: rgba(128, 128, 128, 0);
     color: rgba(237, 237, 237, 1);
-    font-size: 15px;
-    cursor:pointer
+    font-size: 17px;
+    align-items: center;
+    cursor:pointer;
 }
 .wallDiv {
-    color: rgba(65, 65, 65, 1);
-    font-size: 15px;
-    font-family: Arial, Helvetica, sans-serif;
+    background-color: rgb(36, 35, 35);
+    width: 414px;
+    height: 736px;
+    color:rgb(255, 255, 255);
 }
 .mainLogoW {
     color: white;
@@ -357,11 +357,61 @@
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
 .wallWelcome {
+    font-size: 18px;
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    color:rgb(219, 219, 219);
+    position: absolute;
+    top: 143px;
+    left: 43px;
+    font-weight: bold;
+    font-stretch: semi-condensed;
+    
+}
+.postSection {
+    border-radius: 12px;
+    border-color: rgba(235, 235, 235, 0.49);
+    width: 350px;
+    height: 325px;
+}
+.postInput {
+    border-radius: 12px;
+    color: rgb(189, 188, 188);;
+    font-size: 15px;
+    width: 318px;
+    height: 80px;
+    position: absolute;
+    left: 43px;
+    top: 207px;
+    background-color: rgba(150, 150, 150, 0.699);
+    border-color: rgba(160, 160, 160, 0);
+}
+.publishBtn {
+    background-color: rgba(150, 150, 150, 0.699);
+    position: absolute;
+    width: 325px;
+    height: 38px;
+    left: 43px;
+    top: 300px;
+    border-radius: 10px;
+    border-color: rgba(35, 157, 129, 0);
+    color: rgb(172, 170, 170);
     font-size: 17px;
-    position:absolute;
-    top: 40px;
-    left: 20px;
+    cursor:pointer
+    
+}
+.logoutBtn {
+    position: absolute;
+    width: 150px;
+    height: 38px;
+    left: 110px;
+    top: 550px;
+    background:rgba(35, 157, 128, 1);
+    border-radius: 17px;
+    font-size: 17px;
+    align-items: center;
+    color: white;
+    border-color: rgba(35, 157, 128, 0.49);
+    cursor:pointer;
 }
 footer {
     position: absolute;
@@ -378,4 +428,5 @@ footer {
     display: flex;
     align-items: flex-end;
     text-align: center;
+    font-stretch: expanded;
 }
