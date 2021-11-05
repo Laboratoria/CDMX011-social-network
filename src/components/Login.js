@@ -1,5 +1,7 @@
 // eslint-disable-next-line import/no-cycle
 import { onNavigate } from '../main.js';
+// eslint-disable-next-line import/no-cycle
+import { myAuth } from '../google-signin.js';
 
 export const Login = () => {
   const loginDiv = document.createElement('div');
@@ -59,7 +61,7 @@ export const Login = () => {
 
   homeButton.addEventListener('click', () => onNavigate('/'));
   buttonLogin.addEventListener('click', () => onNavigate('/feed'));
-  googleIcon.addEventListener('click', () => onNavigate('/feed'));
+  googleIcon.addEventListener('click', () => myAuth());
   facebookIcon.addEventListener('click', () => onNavigate('/feed'));
   gitHubIcon.addEventListener('click', () => onNavigate('/feed'));
 
