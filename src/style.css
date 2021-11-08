@@ -243,12 +243,16 @@ body {
     text-indent: 16px;
   }
 
+  .feedDiv{
+    background-color:rgba(58, 80, 107, 0.76);
+  }
+
   .greenTopSection {
     height: 70px;
-    width: 390px;
+    width: 410px;
     margin-top: -8px;
     margin-left: -8px;
-    background-color: #5BC0BE;
+    background-color: #fff;
     position: relative;
   }
 
@@ -258,6 +262,32 @@ body {
     margin-top: -35px;
     height: 160px;
     width: 160px;
+  }
+
+  .postDiv{
+    background-color: #fff;
+    position: static;
+    height:  150px;
+    width: 400px;
+    margin-top: 15px;
+    display: flex;
+    align-items: center
+  }
+
+  .avatarPost{
+    width: 80px;
+    height: 80px;
+  }
+
+  .inputPost{
+    position: absolute;
+    margin-left: 100px;
+    width: 200px;
+  }
+
+  .refreshText{
+    color: rgba(91, 192, 190, 1);
+    margin-left: 250px;
   }
 
   .reloadFeedButton {
