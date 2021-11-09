@@ -1,0 +1,377 @@
+body {
+    background-color: #fff;
+    font-family: 'Roboto', sans-serif;
+    color: #000;
+  }
+  .Home {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .topSection {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    width: fit-content;
+    margin-top: -9px;
+    margin-left: -8px;
+  }
+
+  .homeButton {
+    margin-top: 8px;
+    margin-left: 15px;
+    width: 23px;
+    height: 23px;
+    position: absolute;
+  }
+
+  .line {
+    border-bottom: 1px solid #000;
+    width: 390px;
+    margin-top: 40px;
+  }
+
+  .loginLogo {
+    display: flex;
+    margin: auto;
+    width: 280px;
+    height: 280px;
+    object-fit: cover;
+    margin-top: 30px;
+  }
+
+  .Logo {
+    margin: auto;
+    width: 315px;
+    height: 130px;
+    object-fit: cover;
+    margin-top: 40px;
+  }
+
+  .Background {
+    margin: auto;
+    width: 280px;
+    height: 290px;
+    background-color: #B2FFFFC4;
+    border-radius: 17%;
+    margin-top: 10px;
+  }
+
+  .Slogan {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    font-weight: bold;
+    font-size: 17px;
+    margin-top: 40px;
+    margin-right: 55px;
+    margin-left: 55px;
+  }
+
+  .VignetteOne {
+    background-color: #5BC0BE;
+    height: 10px;
+    width: 10px;
+    border-radius: 50%;
+    margin-top: 5px;
+  }
+
+  .VignetteTwo {
+    background-color: #5BC0BE;
+    height: 10px;
+    width: 10px;
+    border-radius: 50%;
+    margin-top: 5px;
+  }
+
+  .Login {
+    margin: auto;
+    margin-top: 40px;
+    justify-content: center;
+    width: 250px;
+    height: 44px;
+    background-color: #5BC0BE;
+    border: none;
+    border-radius: 16px;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 510;
+    font-size: 20px;
+    color: #fff;
+  }
+
+  .Register{
+    margin-top: 20px;
+    margin-right: 45px;
+    margin-left: 45px;
+    font-size: 15px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+  }
+
+  .registerButton {
+    border: none;
+    background-color: transparent;
+    font-family: 'Roboto', sans-serif;
+    font-size: 15px;
+    font-weight: bold;
+  }
+
+  .hiDiv {
+    display: flex;
+    font-weight: bold;
+    font-size: 24px;
+    justify-content: center;
+    margin-top: 25px;
+  }
+
+  .emailInput {
+    display: flex;
+    justify-content: center;
+    margin: auto;
+    margin-top: 20px;
+    width: 250px;
+    height: 28px;
+    border-radius: 16px;
+    border-width: thin;
+    text-indent: 16px;
+  }
+
+  .passwordInput {
+    display: flex;
+    justify-content: center;
+    margin: auto;
+    margin-top: 17px;
+    width: 250px;
+    height: 28px;
+    border-radius: 16px;
+    border-width: thin;
+    text-indent: 16px;
+  }
+
+  .listoButton {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+    margin-top: 17px;
+    width: 250px;
+    height: 28px;
+    border-radius: 16px;
+    border: none;
+    background-color: #5BC0BE;
+    font-weight: bold;
+    font-size: 18px;
+    color: #fff;
+  }
+
+  .loginText {
+    display: flex;
+    font-size: 15px;
+    justify-content: center;
+    margin-top: 20px;
+  }
+
+  .loginOptions {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    height: 47px;
+    margin-top: 20px;
+    margin-right: 55px;
+    margin-left: 55px;
+  }
+
+  .myFooter {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-end;
+    height: 15px;
+    width: 280px;
+    margin: auto;
+    margin-top: 30px;
+  }
+
+  .registerLogoDiv {
+    display: flex;
+    margin: auto;
+    width: 250px;
+    height: 250px;
+    object-fit: cover;
+    margin-top: 50px;
+  }  
+  
+  .registerLogoBackground {
+    background-color: #CCF2FE;
+    height: 250px;
+    width: 250px;
+    border-radius: 50%;
+    margin-top: 0px;
+    position: relative;
+  }
+
+  .registerLogoImage {
+    display: flex;
+    margin: auto;
+    width: 280px;
+    height: 280px;
+    border-radius: 45%;
+    object-fit: cover;
+    margin-top: -30px;
+    position: absolute;
+  }
+
+  .registerTextDiv {
+    display: flex;
+    font-weight: bold;
+    font-size: 24px;
+    justify-content: center;
+    margin-top: 45px;
+  }
+
+  .nameInput {
+    display: flex;
+    justify-content: center;
+    margin: auto;
+    margin-top: 30px;
+    width: 250px;
+    height: 28px;
+    border-radius: 16px;
+    border-width: thin;
+    text-indent: 16px;
+  }
+
+  .feedDiv{
+    background-color:rgba(58, 80, 107, 0.76);
+  }
+
+  .greenTopSection {
+    height: 70px;
+    width: 410px;
+    margin-top: -8px;
+    margin-left: -8px;
+    background-color: #fff;
+    position: relative;
+  }
+
+  .logoTopSection {
+    position: absolute;
+    margin-left: 10px;
+    margin-top: -35px;
+    height: 160px;
+    width: 160px;
+  }
+
+  .postDiv{
+    background-color: #fff;
+    position: static;
+    height:  150px;
+    width: 400px;
+    margin-top: 15px;
+    display: flex;
+    align-items: center
+  }
+
+  .avatarPost{
+    width: 80px;
+    height: 80px;
+  }
+
+  .inputPost{
+    position: absolute;
+    margin-left: 100px;
+    width: 200px;
+  }
+
+  .refreshText{
+    color: rgba(91, 192, 190, 1);
+    margin-left: 250px;
+  }
+
+  .reloadFeedButton {
+   display: flex;
+   margin: auto;
+   margin-top: 590px;
+   justify-content: center;
+  }
+
+  .backgroundButton {
+    display: flex;
+    justify-content: center;
+    background-color: #5BC0BE;
+    height: 45px;
+    width: 45px;
+    border-radius: 50%;
+    position: relative;
+    margin: auto;
+  }
+
+  .reloadFeedHomeImage {
+    position: absolute;
+    margin: auto;
+    margin-top: 7px;
+    width: 30px;
+    height: 30px;
+  }
+
+  .Copyright {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    height: 15px;
+    width: 280px;
+    margin: auto;
+    margin-top: 20px;
+  }
+
+  .CopyrightIcon {
+    display: flex;
+    justify-content: center;
+  }
+
+  .CopyrightCircle {
+    background-color: #fff;
+    border-style: solid;
+    border-width: thin;
+    border-color: #000;
+    height: 8px;
+    width: 8px;
+    border-radius: 50%;
+    position: relative;
+    margin-top: 2px;
+  }
+
+  .LetterC {
+    font-size: 8px;
+    font-weight: bold;
+    color: #000;
+    position: absolute;
+    margin-left: 0px;
+    margin-top: 3px;
+  }
+
+  .CopyrightText {
+    font-size: 12px;
+  }
+
+  .CopyrightLogin {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    height: 15px;
+    width: 280px;
+    margin: auto;
+    margin-top: 28px;
+  }
+
+  .CopyrightRegister {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    height: 15px;
+    width: 280px;
+    margin: auto;
+    margin-top: 61px;
+  }
