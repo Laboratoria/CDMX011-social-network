@@ -1,7 +1,8 @@
+/* eslint-disable no-console */
 /* eslint-disable import/no-cycle */
 import { signOut } from '../lib/firebaseAuth.js';
 // eslint-disable-next-line import/named
-import { getData, post } from '../lib/fireStore.js';
+import { getData, post, borrar } from '../lib/fireStore.js';
 
 export const muro = () => {
   const encabezadoDiv = document.createElement('div');
@@ -20,8 +21,12 @@ export const muro = () => {
   // const tituloMiPublicacion = document.createElement('textarea');
   // tituloMiPublicacion.textContent = 'tituloMiPublicacion';
   // tituloMiPublicacion.className = 'tituloMiPublicacion';
+  const divMuro = document.createElement('div');
+  divMuro.id = 'divMuro';
+  const divPanelMorado = document.createElement('div');
+  divPanelMorado.id = 'divPanelMorado';
   const publicar = document.createElement('textarea');
-  publicar.textContent = 'publicar';
+  publicar.setAttribute('placeholder', 'publicar');
   publicar.className = 'publicar';
   const botonPublicar = document.createElement('button');
   botonPublicar.textContent = 'Publicar';
@@ -29,18 +34,8 @@ export const muro = () => {
   botonPublicar.addEventListener('click', (e) => {
     e.preventDefault();
     post(publicar.value);
-    /* imprimirPost(); */
-    /* console.log(publicar.value); */
   });
-  /*actualizar((querySnapshot) => {
-    querySnapshot.forEach((publicacion) => {
-      const html = ` 
-           <p class = "parrafoPublicaciones"> ${publicacion.texto}</p>`;
-      divPost.innerHTML = html;
-      publicarDiv.appendChild(divPost);
-    });
-  });
-*/
+
   const divEntrada = document.createElement('form');
   divEntrada.id = 'divEntrada';
   const publicarDiv = document.createElement('div');
@@ -54,33 +49,47 @@ export const muro = () => {
   encabezadoDiv.appendChild(tituloHome);
   encabezadoDiv.appendChild(imagenSalir);
   homeDiv.appendChild(encabezadoDiv);
-  // divEntrada.appendChild(tituloMiPublicacion);
-  divEntrada.appendChild(publicar);
-  divEntrada.appendChild(botonPublicar);
+  divMuro.appendChild(publicar);
+  divMuro.appendChild(botonPublicar);
+  divPanelMorado.appendChild(divMuro);
+  divPanelMorado.appendChild(publicarDiv);
+  homeDiv.appendChild(divPanelMorado);
   homeDiv.appendChild(divEntrada);
-  homeDiv.appendChild(publicarDiv);
 
-  const templatePost = (publicacion) => {
+  // eslint-disable-next-line no-unused-vars
+  const templatePost = (publicacion, id) => {
     const divPost = document.createElement('div');
+    divPost.className = 'publicaciones';
+    const hr = document.createElement('hr');
     const html = ` 
            <p class = "parrafoPublicaciones"> ${publicacion.texto}</p>`;
     divPost.innerHTML = html;
+    const botonEliminar = document.createElement('img');
+    botonEliminar.id = 'botonEliminar';
+    botonEliminar.src = '/Assets/botonBasura.png';
+    botonEliminar.addEventListener('click', () => {
+      /* alert(id); */
+      if (window.confirm('Estás seguro de que quieres eliminar esta publicacion?')) {
+        borrar(id);
+      }
+    });
+    divPost.appendChild(botonEliminar);
+    publicarDiv.appendChild(hr);
     publicarDiv.appendChild(divPost);
   };
 
-   const printData = async () => {
+  const printData = async () => {
     await getData()
       .then((querySnapshot) => {
         querySnapshot.forEach((doc) => {
-          // doc.data() is never undefined for query doc snapshots
           console.log(doc.id, doc.data());
-          templatePost(doc.data());
+          templatePost(doc.data(), doc.id);
         });
       })
       .catch((error) => {
         console.log('Error getting documents: ', error);
       });
   };
-  printData(); 
+  printData();
   return homeDiv;
 };

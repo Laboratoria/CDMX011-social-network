@@ -1,6 +1,3 @@
-/* eslint-disable no-undef */
-/* eslint-disable no-alert */
-/* eslint-disable no-unused-vars */
 import firebase from './secret.js';
 
 // eslint-disable-next-line import/no-cycle
@@ -24,8 +21,6 @@ export function crateAccountWithEmail() {
       })
       .catch((error) => {
         /* const errorMessage = error.message; */
-        // eslint-disable-next-line no-alert
-        /* alert(errorMessage); */
       });
   });
 }

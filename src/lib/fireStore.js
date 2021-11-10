@@ -1,4 +1,6 @@
 /* eslint-disable no-undef */
+// eslint-disable-next-line no-unused-vars
+import { onNavigate } from '../main.js';
 import firebase from './secret.js';
 
 const db = firebase.firestore();
@@ -11,17 +13,18 @@ export const post = (texto) => {
     texto,
   })
     .then(() => {
-      // eslint-disable-next-line no-alert
-      // eslint-disable-next-line no-console
       console.log('Se ha publicado');
     })
     .catch((error) => {
-      /* const errorCode = error.code; */
       const errorMessage = error.message;
-      // eslint-disable-next-line no-alert
       alert(errorMessage);
     });
 };
-export const actualizar = (callback) => {
-  db.collection('post').onSnapshot(callback);
+
+// eliminar
+// aplicar delete de firebase
+export const borrar = (id) => {
+  db.collection('post')
+    .doc(id)
+    .delete();
 };

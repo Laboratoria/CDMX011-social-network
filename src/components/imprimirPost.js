@@ -11,6 +11,7 @@ export const imprimirPost() {
         // doc.data() is never undefined for query doc snapshots
         // console.log(doc.id, doc.data());
         templatePost(doc.data());
+        
       });
     })
     .catch((error) => {

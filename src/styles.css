@@ -342,8 +342,12 @@ padding: 5px;
   color: black;
   height: 25px;
   padding: 5px;
+  margin-top: 10px;
 }
-
+.publicaciones{
+  border:  #e09dff solid 2px;
+  
+}
 #divEntrada{
 padding: 0%;
 width: 100%;
@@ -373,8 +377,8 @@ align-items: center;
 }
 
 #imagenSalir{
-  width: 30px;
-  height: 30px;
+  width: 50px;
+  height: 50px;
   display:inline;
   justify-content: flex-end;
   
@@ -384,3 +388,26 @@ align-items: center;
   justify-content: space-around;
   
 }
+#botonEliminar{
+  width: 50px;
+  height: 50px;
+  display:inline;
+  justify-content: flex-end;
+  
+}
+#divPanelMorado{
+    position: relative;
+    width: 250px;
+    height: auto;
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    background: #eadaf3;
+    border-radius: 9px;
+    margin: 20px;
+    padding: 11px 8px 20px ;
+    border-radius: 10px;
+    font-family: Forum;
+
+  }
+

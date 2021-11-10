@@ -7,6 +7,8 @@ import { crateAccountWithEmail } from '../lib/firebaseAuth.js';
 // import { onSingIn } from '../lib/authGoogle.js';
 
 export const registro = () => {
+  const encabezadoDiv = document.createElement('div');
+  encabezadoDiv.id = 'encabezadoDiv';
   const registroDiv = document.createElement('div');
   registroDiv.id = 'divRegistro';
   const titulo = document.createElement('h1');
@@ -32,6 +34,7 @@ export const registro = () => {
   contraseña.placeholder = 'Contraseña';
   contraseña.type = 'password';
   contraseña.required = 'required';
+  contraseña.placeholder = 'placeholder';
   contraseña.className = 'contraseña';
   const botonCrearCuenta = document.createElement('button');
   botonCrearCuenta.textContent = 'Crear cuenta';
@@ -42,8 +45,12 @@ export const registro = () => {
   const homeImagen = document.createElement('img');
   homeImagen.textContent = 'Crear cuenta';
   homeImagen.id = 'homeImagen';
-  homeImagen.src = '/Assets/home.png';
+  homeImagen.className = 'botones';
+  homeImagen.src = '/Assets/salir01.png';
   homeImagen.addEventListener('click', () => onNavigate('/'));
+  encabezadoDiv.append(titulo);
+  encabezadoDiv.append(homeImagen);
+  registroDiv.append(encabezadoDiv);
   formRegistro.append(registrate);
   formRegistro.append(nombre);
   formRegistro.append(correoElectronico);
@@ -52,6 +59,5 @@ export const registro = () => {
   registroDiv.append(titulo);
   registroDiv.append(imagenInicioDeSesion);
   registroDiv.append(formRegistro);
-  registroDiv.append(homeImagen);
-  return registroDiv;
+    return registroDiv;
 };
