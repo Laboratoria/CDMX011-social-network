@@ -11,7 +11,7 @@ export const Register = () => {
   greetingDivR.classList = 'greetingDivR';
   greetingDivR.textContent = '¿Aún no tienes una cuenta? ¡Regístrate!';
 
-  const formContainerR = document.createElement('div');
+  const formContainerR = document.createElement('section');
   formContainerR.className = 'formContainerR';
 
   const mainLogoR = document.createElement('div');

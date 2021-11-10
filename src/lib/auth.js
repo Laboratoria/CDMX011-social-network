@@ -27,9 +27,6 @@ export const loginEmailPass = (email, password) => {
       onNavigate('/Wall');
       console.log(user);
     })
-    // .then((routes) => onNavigate {
-
-    // })
     .catch((error) => {
       alert('Usuario no registrado');
       const errorMessage = error.message;

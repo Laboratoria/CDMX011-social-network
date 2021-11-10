@@ -96,7 +96,8 @@
     border-color: rgba(35, 157, 129, 0);
     color: rgba(237, 237, 237, 1);
     font-size: 18px;
-    cursor:pointer
+    cursor:pointer;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
 .buttonHomeRegister {
     background-color: rgba(35, 157, 128, 0.49);
@@ -111,6 +112,7 @@
     color:rgba(237, 237, 237, 1);
     font-size: 18px;
     cursor: pointer;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
 .loginDiv {
     background-color: #343333;
@@ -329,7 +331,7 @@
     cursor:pointer;
 }
 .wallDiv {
-    background-color: rgb(36, 35, 35);
+    background-color: rgba(36, 35, 35, 0.911);
     width: 414px;
     height: 736px;
     color:rgb(255, 255, 255);
@@ -403,14 +405,15 @@
     position: absolute;
     width: 150px;
     height: 38px;
-    left: 110px;
-    top: 550px;
+    left: 135px;
+    top: 560px;
     background:rgba(35, 157, 128, 1);
+    background:rgba(36, 35, 35, 0);
     border-radius: 17px;
     font-size: 17px;
     align-items: center;
-    color: white;
-    border-color: rgba(35, 157, 128, 0.49);
+    color: rgba(90, 88, 88, 0.664);
+    border-color: rgba(68, 67, 67, 0.911);
     cursor:pointer;
 }
 footer {

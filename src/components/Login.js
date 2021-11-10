@@ -7,7 +7,7 @@ export const Login = () => {
   const loginDiv = document.createElement('div');
   loginDiv.className = 'loginDiv';
 
-  const formContainerL = document.createElement('div');
+  const formContainerL = document.createElement('section');
   formContainerL.className = 'formContainerL';
 
   const greetingDivL = document.createElement('div');

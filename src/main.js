@@ -11,7 +11,6 @@ const routes = {
   '/Register': Register,
   '/Login': Login,
   '/Wall': Wall,
-
 };
 
 export const onNavigate = (pathname) => {

@@ -1,3 +1,7 @@
+/* eslint-disable import/no-cycle */
+import { sharePost } from "../lib/post.js";
+import { onNavigate } from "../main.js";
+
 export const Wall = () => {
   const wallDiv = document.createElement('div');
   wallDiv.className = 'wallDiv';
@@ -12,12 +16,12 @@ export const Wall = () => {
 
   const wallWelcome = document.createElement('div');
   wallWelcome.className = 'wallWelcome';
-  wallWelcome.textContent = 'Comparte tu experiencia más reciente';
+  wallWelcome.textContent = '🌳🌳🌳    🚴   🌳🌳🌳';
 
-  const postSection = document.createElement('div');
+  const postSection = document.createElement('form');
   postSection.className = 'postSection';
 
-  const postInput = document.createElement('input');
+  const postInput = document.createElement('textarea');
   postInput.className = 'postInput';
   postInput.setAttribute('placeholder', 'Comparte tu experiencia más reciente');
 
@@ -25,9 +29,15 @@ export const Wall = () => {
   publishBtn.className = 'publishBtn';
   publishBtn.textContent = 'Publicar';
 
+  publishBtn.addEventListener('click', () => {
+    sharePost(postInput.value);
+  });
+
   const logoutBtn = document.createElement('button');
   logoutBtn.classList = 'logoutBtn';
   logoutBtn.textContent = 'Cerrar sesión';
+
+  logoutBtn.addEventListener('click', () => onNavigate('/'));
 
   wallDiv.append(wallWelcome, mainLogoW, logoDivW, postSection, postInput, publishBtn, logoutBtn);
 
