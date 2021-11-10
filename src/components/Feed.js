@@ -5,7 +5,7 @@ export const Feed = () => {
   const postDiv = document.createElement('div');
   const avatarPost = document.createElement('img');
   const inputPost = document.createElement('textArea');
-  const refreshText = document.createElement('h6');
+  const postButton = document.createElement('button');
   const reloadFeedButton = document.createElement('div');
   const backgroundButton = document.createElement('div');
   const reloadFeedHomeImage = document.createElement('img');
@@ -16,12 +16,12 @@ export const Feed = () => {
   postDiv.className = 'postDiv';
   avatarPost.className = 'avatarPost';
   inputPost.className = 'inputPost';
-  refreshText.className = 'refreshText';
+  postButton.className = 'postButton';
   reloadFeedButton.className = 'reloadFeedButton';
   backgroundButton.className = 'backgroundButton';
-  reloadFeedHomeImage.className = 'reloadFeedHomeImage'; 
+  reloadFeedHomeImage.className = 'reloadFeedHomeImage';
 
-  refreshText.textContent = 'Actualizar';
+  postButton.textContent = 'Publicar';
   inputPost.placeholder = 'Publicar algo...';
 
   logoTopSection.src = './components/DevSocialLogo.png';
@@ -34,10 +34,14 @@ export const Feed = () => {
   feedDiv.appendChild(postDiv);
   postDiv.appendChild(avatarPost);
   postDiv.appendChild(inputPost);
-  postDiv.appendChild(refreshText);
+  postDiv.appendChild(postButton);
   feedDiv.appendChild(reloadFeedButton);
   reloadFeedButton.appendChild(backgroundButton);
   reloadFeedButton.appendChild(reloadFeedHomeImage);
+
+  postButton.addEventListener('click', () => {
+    console.log(inputPost.value);
+  });
 
   return feedDiv;
 };

@@ -9,13 +9,28 @@ export const myAuth = () => {
     .signInWithPopup(provider)
     .then((result) => {
       console.log(result);
-      const credential = result.credential;
+      /* const credential = result.credential;
       const token = credential.accessToken;
       const user = result.user;
-      console.log(credential, token, user);
+      console.log(credential, token, user); */
       onNavigate('/feed');
     })
     .catch((error) => {
       console.log(error.message);
     });
 };
+
+export const users = {
+  avatarPlaceholder: './components/avatar.png',
+  name: 'Yenny Maldonado',
+  posts: [{
+    date: new Date(),
+    messagePost: '',
+    likes: './components/thumbs-up.png',
+  }],
+};
+
+firebase.firestore().collection('usersApp')
+  .add(users);
+
+console.log(users);
