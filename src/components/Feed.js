@@ -1,5 +1,11 @@
+/* eslint-disable import/no-unresolved */
+import { userData, getData } from '../Firestoredb.js';
+
+firebase.firestore();
+
 export const Feed = () => {
   const feedDiv = document.createElement('div');
+  // const userPostDiv = document.createElement('div');
   const greenTopSection = document.createElement('div');
   const logoTopSection = document.createElement('img');
   const postDiv = document.createElement('div');
@@ -11,6 +17,7 @@ export const Feed = () => {
   const reloadFeedHomeImage = document.createElement('img');
 
   feedDiv.className = 'feedDiv';
+  // userPostDiv.className = 'userPostDiv';
   greenTopSection.className = 'greenTopSection';
   logoTopSection.className = 'logoTopSection';
   postDiv.className = 'postDiv';
@@ -30,6 +37,7 @@ export const Feed = () => {
   avatarPost.src = './components/avatar.png';
 
   feedDiv.appendChild(greenTopSection);
+  // feedDiv.appendChild(userPostDiv);
   greenTopSection.appendChild(logoTopSection);
   feedDiv.appendChild(postDiv);
   postDiv.appendChild(avatarPost);
@@ -39,8 +47,10 @@ export const Feed = () => {
   reloadFeedButton.appendChild(backgroundButton);
   reloadFeedButton.appendChild(reloadFeedHomeImage);
 
-  postButton.addEventListener('click', () => {
-    console.log(inputPost.value);
+  postButton.addEventListener('click', async (e) => {
+    e.preventDefault();
+    await userData(inputPost.value);
+    await getData();
   });
 
   return feedDiv;

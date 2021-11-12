@@ -290,6 +290,16 @@ body {
     margin-left: 250px;
   }
 
+  .newPostDiv{
+    background-color: #fff;
+    position: static;
+    height:  150px;
+    width: 400px;
+    margin-top: 15px;
+    display: flex;
+    align-items: center
+  }
+
   .reloadFeedButton {
    display: flex;
    margin: auto;

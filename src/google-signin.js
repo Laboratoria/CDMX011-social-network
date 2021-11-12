@@ -8,7 +8,7 @@ export const myAuth = () => {
   auth
     .signInWithPopup(provider)
     .then((result) => {
-      console.log(result);
+      // console.log(result);
       /* const credential = result.credential;
       const token = credential.accessToken;
       const user = result.user;
@@ -20,17 +20,22 @@ export const myAuth = () => {
     });
 };
 
-export const users = {
-  avatarPlaceholder: './components/avatar.png',
-  name: 'Yenny Maldonado',
-  posts: [{
+/* export const data = (message) => {
+  const users = {
+    avatarPlaceholder: './components/avatar.png',
+    name: 'Yenny Maldonado',
+    messagePost: message,
     date: new Date(),
-    messagePost: '',
     likes: './components/thumbs-up.png',
-  }],
-};
+    likesCounter: 0,
+  };
 
-firebase.firestore().collection('usersApp')
-  .add(users);
-
-console.log(users);
+  db.collection('usersApp')
+    .add(users)
+    .then((docRef) => {
+      console.log(users, docRef, 'línea 37');
+    })
+    .catch((error) => {
+      console.error('Error adding document: ', error);
+    });
+}; */
