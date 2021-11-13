@@ -25,13 +25,12 @@ export const userData = (message) => {
       console.error('Error adding document: ', error);
     });
 };
-// const listPost = document.querySelector('.userPostDiv');
+
 export const getData = () => db.collection('usersApp').get();
 window.addEventListener('DOMContentLoaded', async (e) => {
   console.log('evento recargar');
   const querySnapshot = await getData();
   querySnapshot.forEach((doc) => {
     console.log(CardPost(doc.data()));
-    // listPost.appendChild(CardPost(doc.data()));
   });
 });

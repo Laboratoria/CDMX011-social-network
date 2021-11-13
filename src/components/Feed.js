@@ -1,11 +1,11 @@
 /* eslint-disable import/no-unresolved */
 import { userData, getData } from '../Firestoredb.js';
+import { CardPost } from './CardPost.js';
 
 firebase.firestore();
 
 export const Feed = () => {
   const feedDiv = document.createElement('div');
-  // const userPostDiv = document.createElement('div');
   const greenTopSection = document.createElement('div');
   const logoTopSection = document.createElement('img');
   const postDiv = document.createElement('div');
@@ -17,7 +17,6 @@ export const Feed = () => {
   const reloadFeedHomeImage = document.createElement('img');
 
   feedDiv.className = 'feedDiv';
-  // userPostDiv.className = 'userPostDiv';
   greenTopSection.className = 'greenTopSection';
   logoTopSection.className = 'logoTopSection';
   postDiv.className = 'postDiv';
@@ -37,7 +36,6 @@ export const Feed = () => {
   avatarPost.src = './components/avatar.png';
 
   feedDiv.appendChild(greenTopSection);
-  // feedDiv.appendChild(userPostDiv);
   greenTopSection.appendChild(logoTopSection);
   feedDiv.appendChild(postDiv);
   postDiv.appendChild(avatarPost);
@@ -53,5 +51,17 @@ export const Feed = () => {
     await getData();
   });
 
+  getData()
+    .then((querySnapshot) => {
+      querySnapshot.forEach((doc) => {
+        // doc.data() is never undefined for query doc snapshots
+        console.log(doc.id, ' => ', doc.data());
+        const post = CardPost(doc.data());
+        feedDiv.appendChild(post);
+      });
+    })
+    .catch((error) => {
+      console.log('Error getting documents: ', error);
+    });
   return feedDiv;
 };
