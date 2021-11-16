@@ -300,6 +300,12 @@ body {
     align-items: center
   }
 
+  .imgLikes{
+    width: 30px;
+    height: 30px;
+    color:rgba(58, 80, 107, 0.76);
+  }
+
   .reloadFeedButton {
    display: flex;
    margin: auto;
