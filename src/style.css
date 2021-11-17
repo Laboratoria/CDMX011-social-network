@@ -244,7 +244,7 @@ body {
   }
 
   .feedDiv{
-    background-color:rgba(58, 80, 107, 0.76);
+    background-color: rgba(28, 37, 65, 1);
   }
 
   .greenTopSection {
@@ -252,7 +252,7 @@ body {
     width: 410px;
     margin-top: -8px;
     margin-left: -8px;
-    background-color: #fff;
+    background-color: rgba(28, 37, 65, 1);
     position: relative;
   }
 
@@ -264,72 +264,107 @@ body {
     width: 160px;
   }
 
+  .textFeedDiv{
+    background-color: #fff;
+    height: 100px;
+    width: 410px;
+  }
+
   .postDiv{
     background-color: #fff;
     position: static;
-    height:  150px;
-    width: 400px;
-    margin-top: 15px;
+    height: 130px;
+    width: 410px;
     display: flex;
     align-items: center
   }
 
   .avatarPost{
-    width: 80px;
-    height: 80px;
+    margin-left: 5px;
+    width: 90px;
+    height: 70px;
   }
 
   .inputPost{
     position: absolute;
     margin-left: 100px;
-    width: 200px;
+    margin-bottom: 20px;
+    width: 230px;
   }
 
   .postButton{
     color: rgba(91, 192, 190, 1);
-    margin-left: 250px;
+    margin-top: 70px;
+    margin-left: 175px;
   }
 
   .newPostDiv{
     background-color: #fff;
     position: static;
-    height:  150px;
-    width: 400px;
+    height: 300px;
+    width: 390px;
+    border-color: rgba(28, 37, 65, 1);
     margin-top: 15px;
-    display: flex;
+    display: block;
     align-items: center
+  }
+
+  .avatarNameContent{
+    margin-left: 10px;
+    margin-top: 15px;
+    display: inline-block;
+  }
+
+  .editText{
+    margin-top: 10px;
+    margin-left: 210px;
+    color: rgba(58, 80, 107, 0.7);
+    display: block;
+  }
+
+  .imgAvatar{
+    margin-left: 5px;
+    margin-top: 5px;
+    width: 40px;
+    height: 40px;
+    display: inline-block;  
+  }
+
+  .datePost{
+    display: inline-block;
+    margin-left: 20px;
+    font-family: helvetica;
+    font-size: small;
+    color: rgba(58, 80, 107, 1);
+    padding: 3px;
+  }
+
+  .textPost{
+    display: block;
+    margin-left: 15px;
+    margin-top: 10px;
+    font-size: x-large;
+  }
+
+  .likesDiv{
+    display: block;
+    margin-top: 70px;
+    height: 40px;
+    align-items: flex-end;
   }
 
   .imgLikes{
     width: 30px;
     height: 30px;
-    color:rgba(58, 80, 107, 0.76);
+    margin-left: 10px;
+    margin-bottom: 5px;
+    display: inline-block; 
   }
 
-  .reloadFeedButton {
-   display: flex;
-   margin: auto;
-   margin-top: 590px;
-   justify-content: center;
-  }
-
-  .backgroundButton {
-    display: flex;
-    justify-content: center;
-    background-color: #5BC0BE;
-    height: 45px;
-    width: 45px;
-    border-radius: 50%;
-    position: relative;
-    margin: auto;
-  }
-
-  .reloadFeedHomeImage {
-    position: absolute;
-    margin: auto;
-    margin-top: 7px;
-    width: 30px;
-    height: 30px;
+  .comment{
+    margin-left: 225px;
+    margin-bottom: 15px;
+    display: inline-block;
   }
 
   .Copyright {

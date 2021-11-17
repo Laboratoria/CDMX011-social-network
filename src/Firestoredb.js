@@ -4,12 +4,14 @@ const db = firebase.firestore();
 
 export const userData = (message) => {
   const users = {
-    // avatarPlaceholder: './components/avatar.png',
+    // deletePost: 'deleteText',
+    avatarPlaceholder: './components/default-person.png',
     // name: 'Yenny Maldonado',
     messagePost: message,
     date: new Date(),
     likes: './components/thumbs-up.png',
     likesCounter: 0,
+    // comentar: ' ',
   };
 
   db.collection('usersApp')
