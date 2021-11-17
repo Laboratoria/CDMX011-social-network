@@ -41,14 +41,11 @@ export const Login = () => {
   btnSubmit.textContent = 'Iniciar sesión';
 
   btnSubmit.addEventListener('click', () => loginEmailPass(inputMail.value, inputPass.value));
-  // btnSubmit.addEventListener('click', () => onNavigate('/Wall'));
 
   loginDiv.append(formContainerL, mainLogoL, logoDivL, greetingDivL, buttonHome, inputMail, inputPass, btnSubmit);
 
   return loginDiv;
 };
-
-// btnSubmit.addEventListener('click', () => onNavigate('/Wall'));
 
 // se llama por el id con queryselector haciendo referencia a su papá
 // const htmlForm = `<form id="formLogin">

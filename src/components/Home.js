@@ -28,10 +28,10 @@ export const Home = () => {
   const oDiv = document.createElement('div');
   oDiv.className = 'oDiv';
   oDiv.textContent = 'o';
-  const lineDiv3 = document.createElement('div');
-  lineDiv3.className = 'line3';
-  const lineDiv4 = document.createElement('div');
-  lineDiv4.className = 'line4';
+  // const lineDiv3 = document.createElement('div');
+  // lineDiv3.className = 'line3';
+  // const lineDiv4 = document.createElement('div');
+  // lineDiv4.className = 'line4';
 
   const buttonRegister = document.createElement('button');
   buttonRegister.className = 'buttonHomeRegister';
@@ -44,7 +44,7 @@ export const Home = () => {
   buttonRegister.addEventListener('click', () => onNavigate('/Register'));
   buttonLogin.addEventListener('click', () => onNavigate('/Login'));
 
-  HomeDiv.append(buttonRegister, buttonLogin, welcomeDiv, /*lineDiv, lineDiv2,*/ lineDiv3, lineDiv4, oDiv, logoDiv, mainLogo, background);
+  HomeDiv.append(buttonRegister, buttonLogin, welcomeDiv, /*lineDiv, lineDiv2, lineDiv3, lineDiv4,*/ oDiv, logoDiv, mainLogo, background);
 
   return HomeDiv;
 };
