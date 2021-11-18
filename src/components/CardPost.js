@@ -1,7 +1,7 @@
-export const CardPost = (postData) => {
+export const CardPost = (postData, documentId) => {
   const newPostDiv = document.createElement('div');
   const avatarNameContent = document.createElement('div');
-  const editText = document.createElement('button');
+  const deleteText = document.createElement('button');
   // const deleteText = document.createElement('h5');
   const imgAvatar = document.createElement('img');
   const datePost = document.createElement('div');
@@ -10,13 +10,11 @@ export const CardPost = (postData) => {
   const imgLikes = document.createElement('img');
   const comment = document.createElement('h4');
   const formatDate = new Date(postData.date.toDate());
-  /* const users = doc.data();
-  users.id = doc.id; */
 
   newPostDiv.className = 'newPostDiv';
+  newPostDiv.id = documentId;
   avatarNameContent.className = 'avatarNameContent';
-  editText.className = 'editText';
-  editText.id = 'post.id';
+  deleteText.className = 'editText';
   imgAvatar.className = 'imgAvatar';
   textPost.className = 'textPost';
   datePost.className = 'datePost';
@@ -28,7 +26,7 @@ export const CardPost = (postData) => {
   imgAvatar.src = './components/default-person.png';
 
   newPostDiv.appendChild(avatarNameContent);
-  avatarNameContent.appendChild(editText);
+  avatarNameContent.appendChild(deleteText);
   avatarNameContent.appendChild(imgAvatar);
   avatarNameContent.appendChild(datePost);
   newPostDiv.appendChild(textPost);
@@ -36,15 +34,17 @@ export const CardPost = (postData) => {
   likesDiv.appendChild(imgLikes);
   likesDiv.appendChild(comment);
 
-  editText.textContent = 'Eliminar';
+  deleteText.textContent = 'Eliminar';
   textPost.textContent = postData.messagePost;
   datePost.textContent = formatDate.toLocaleString('en-GB');
   comment.textContent = 'Comentar';
 
-  /* const deletePost = document.querySelectorAll('.editText');
-  deletePost.forEach(btn => {
+  /* const deletePost = document.querySelectorAll('.deleteText');
+  deletePost('id');
+  deletePost.forEach((btn) => {
     btn.addEventListener('click', (e) => {
       console.log(e.target.dataset);
+      deletePost('id');
     });
   }); */
 

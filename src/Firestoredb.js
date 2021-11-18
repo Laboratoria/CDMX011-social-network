@@ -1,5 +1,3 @@
-import { CardPost } from './components/CardPost.js';
-
 const db = firebase.firestore();
 
 export const userData = (message) => {
@@ -26,10 +24,29 @@ export const userData = (message) => {
 };
 
 export const getData = () => db.collection('usersApp').get();
-window.addEventListener('DOMContentLoaded', async (e) => {
+// const onGetData = (callback) => db.collection('usersApp').onSnapshot(callback);
+
+/* window.addEventListener('DOMContentLoaded', async (e) => {
   console.log('evento recargar');
-  const querySnapshot = await getData();
-  querySnapshot.forEach((doc) => {
-    console.log(CardPost(doc.data()));
+  onGetData((querySnapshot) => {
+    // CardPost.innerHTML = '';
+    querySnapshot.forEach((doc) => {
+      CardPost(doc.data());
+    });
   });
 });
+*/
+
+/* const userPost = doc.data();
+userPost.id = doc.id;
+deletePost.forEach((btn) => {
+  btn.addEventListener('click', (e) => {
+    console.log(e.target.dataset);
+  });
+}); */
+
+/* db.collection("usersApp").doc("id").delete().then(() => {
+  console.log("Document successfully deleted!");
+}).catch((error) => {
+  console.error("Error removing document: ", error);
+}); */

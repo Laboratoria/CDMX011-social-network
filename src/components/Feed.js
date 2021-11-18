@@ -2,7 +2,7 @@
 import { userData, getData } from '../Firestoredb.js';
 import { CardPost } from './CardPost.js';
 
-firebase.firestore();
+const db = firebase.firestore();
 
 export const Feed = () => {
   const feedDiv = document.createElement('div');
@@ -46,9 +46,31 @@ export const Feed = () => {
     e.preventDefault();
     await userData(inputPost.value);
     await getData();
+    inputPost.value = '';
   });
 
-  getData()
+  const onGetData = (callback) => db.collection('usersApp').onSnapshot(callback);
+
+  window.addEventListener('DOMContentLoaded', async (e) => {
+    onGetData((querySnapshot) => {
+      querySnapshot.forEach((doc) => {
+        console.log(doc.id, ' => ', doc.data());
+        const post = CardPost(doc.data(), doc.id);
+        feedDiv.appendChild(post);
+      });
+
+      /* const deletePost = document.querySelectorAll('.deleteText');
+      deletePost('id');
+      deletePost.forEach((btn) => {
+        btn.addEventListener('click', (e) => {
+          console.log(e.target.dataset);
+          deletePost('id');
+        });
+      }); */
+    });
+  });
+
+  /* getData()
     .then((querySnapshot) => {
       querySnapshot.forEach((doc) => {
         // doc.data() is never undefined for query doc snapshots
@@ -60,5 +82,6 @@ export const Feed = () => {
     .catch((error) => {
       console.log('Error getting documents: ', error);
     });
+    */
   return feedDiv;
 };
