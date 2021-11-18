@@ -15,7 +15,7 @@
     "stylelint": "stylelint --aei src/**/*.css",
     "pretest": "npm run htmlhint && npm run eslint && npm run stylelint",
     "test": "jest --coverage",
-    "start": "serve src/"
+    "start": "serve src/ -s"
   },
   "devDependencies": {
     "@babel/core": "^7.11.4",
@@ -34,5 +34,18 @@
   },
   "engines": {
     "node": ">=10"
-  }
+  },
+  "directories": {
+    "test": "test"
+  },
+  "dependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/alejandraglezd/CDMX011-social-network.git"
+  },
+  "author": "",
+  "bugs": {
+    "url": "https://github.com/alejandraglezd/CDMX011-social-network/issues"
+  },
+  "homepage": "https://github.com/alejandraglezd/CDMX011-social-network#readme"
 }

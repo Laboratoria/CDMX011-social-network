@@ -1,0 +1,525 @@
+.root {
+    display: flex;
+}
+.Home {
+    display:flex;
+    background-image: url(images/2background.jpeg);
+    background-size: 600px 736px;
+    background-repeat: no-repeat;
+    background-blend-mode: lighten;
+    width: 414px;
+    height: 736px;
+} 
+.mainLogo {
+    color: white;
+    text-shadow: black -0.18em 0.15em;
+    font-size: 53px;
+    /* padding: 23px; */
+    position: absolute;
+    top: 33px;
+    left: 37px;
+    font-weight: bolder;
+    font-family:-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif
+}
+.logoDiv {
+    color:rgba(24, 124, 100, 1);
+    color: rgb(9, 117, 72);
+    font-size: 17px;
+    padding: 10px;
+    position: absolute;
+    left: 305px;
+    top:20px;
+    font-weight: bold;
+    text-shadow: white 0.1em 0.6em;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+.welcomeDiv {
+    width: 250px;
+    font-size: 25px;
+    font-weight: lighter;
+    color: white;
+    text-align: start;
+    position: absolute;
+    top: 120px;
+    left: 48px;
+    font-weight: bold;
+    font-stretch: expanded;
+    font-family:-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif
+}
+.line {
+    height: 1.5px;
+    background: white;
+    position: absolute;
+    width: 320px;
+    left: 55px;
+    top: 135px;
+}
+.line2 {
+    height: 1.5px;
+    background: white;
+    position: absolute;
+    width: 123px;
+    left: 253px;
+    top: 252px;
+}
+.oDiv {
+    font-size: 24px;
+    color: white;
+    top: 426px;
+    left: 209px;
+    position: absolute;
+    font-style: italic;
+    text-shadow: black -0.15em 0.15em;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-weight: bolder;
+}
+.line3 {
+    height: 2px;
+    background: rgba(24, 124, 100, 1);
+    background-color: rgb(9, 117, 72);
+    position: absolute;
+    width: 132px;
+    left: 53px;
+    top: 442px;
+}
+.line4 {
+    height: 2px;
+    background: rgba(24, 124, 100, 1);
+    background-color: rgb(9, 117, 72);
+    position: absolute;
+    width: 132px;
+    left: 250px;
+    top: 442px;
+}
+.buttonHomeLogin {
+    background-color: rgba(35, 157, 128, 1);
+    background-color: rgb(9, 117, 72);
+    position: absolute;
+    width: 340px;
+    height: 38px;
+    left: 48px;
+    top: 387px;
+    border-radius: 17px;
+    border-color: rgba(35, 157, 129, 0);
+    color: rgba(237, 237, 237, 1);
+    font-size: 18px;
+    cursor:pointer;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+.buttonHomeRegister {
+    background-color: rgba(35, 157, 128, 1);
+    background-color: rgb(9, 117, 72);
+    position: absolute;
+    width: 340px;
+    height: 38px;
+    left: 48px;
+    top: 460px;
+    border-radius: 17px;
+    border-color: rgba(35, 157, 129, 0);
+    color:rgba(237, 237, 237, 1);
+    font-size: 18px;
+    cursor: pointer;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+.loginDiv {
+    background-color: #343333;
+    width: 414px;
+    height: 736px;
+}
+.greetingDivL {
+    font-size: 18px;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    color:rgb(250, 250, 250);
+    position: absolute;
+    top: 143px;
+    left: 150px;
+    font-weight: bolder;
+}
+.formContainerL {
+    position: absolute;
+    font-size: 30px;
+    font-weight: bolder;
+    color:rgba(65, 65, 65, 1);
+    text-align: center;
+    padding: 10px;
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: rgba(255, 255, 255, 0.89);
+    width: 350px;
+    height: 325px;
+    top: 207px;
+    left: 27px;
+    border-radius: 12px;
+}
+.mainLogoL {
+    color: white;
+    text-shadow: black -0.18em 0.15em;
+    font-size: 53px;
+    /* padding: 23px; */
+    position: absolute;
+    top: 30px;
+    left: 37px;
+    font-weight: bolder;
+    font-family:-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+.logoDivL {
+    color:rgba(24, 124, 100, 1);
+    font-size: 17px;
+    padding: 10px;
+    position: absolute;
+    left: 305px;
+    top:20px;
+    font-weight: bold;
+    text-shadow: white 0.1em 0.6em;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+.inputMailL {
+    position: absolute;
+    width: 318px ;
+    height: 38px ;
+    left: 45px;
+    top: 250px;
+    background: rgba(160, 160, 160, 0.19);
+    border-radius: 12px;
+    font-size: 16px;
+    align-items: flex-end;
+    color: rgb(65, 65, 65, 0.35);
+    font-family: Arial, Helvetica, sans-serif;
+    border-color: rgba(160, 160, 160, 0);
+}
+.inputPassL {
+    position: absolute;
+    width: 319px;
+    height: 38px;
+    left: 45px;
+    top: 313px;
+    background: rgba(160, 160, 160, 0.19);
+    border-radius: 12px;
+    font-size: 16px;
+    align-items: flex-end;
+    color: rgb(65, 65, 65, 0.35);
+    font-family: Arial, Helvetica, sans-serif;
+    border-color: rgba(160, 160, 160, 0);
+}
+.btnSubmitL {
+    position: absolute;
+    width: 170px;
+    height: 36px;
+    left: 110px;
+    top: 386px;
+    /* background: rgba(35, 157, 128, 0.6); */
+    background:rgba(35, 157, 128, 1);
+    background-color: rgba(9, 117, 72, 0.801);
+    border-radius: 17px;
+    font-size: 15px;
+    align-items: center;
+    color: white;
+    border-color: rgba(35, 157, 129, 0);
+    cursor:pointer;
+}
+.btnGoogle {
+    position: absolute;
+    width: 170px;
+    height: 36px;
+    top: 439px;
+    left: 110px;
+    border-radius: 17px;
+    font-size: 15px;
+    border-color: rgba(177, 53, 53, 0.144);
+    background-color: rgb(177, 53, 53);
+    color:white;
+    cursor: pointer;
+} 
+.buttonBackHome {
+    background-color: rgb(114, 116, 115);
+    position: absolute;
+    width: 170px;
+    height: 36px;
+    left: 110px;
+    top: 490px;
+    border-radius: 17px;
+    border-color: rgba(128, 128, 128, 0);
+    color: rgba(237, 237, 237, 1);
+    font-size: 15px;
+    align-items: center;
+    cursor:pointer;
+}
+.registerDiv {
+    background-color:rgba(36, 35, 35, 0.911);
+    width: 414px;
+    height: 736px;
+
+}
+.formContainerR {
+    position: absolute;
+    font-size: 30px;
+    font-weight: bolder;
+    color:rgba(65, 65, 65, 1);
+    text-align: center;
+    padding: 10px;
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: rgba(255, 255, 255, 0.89);
+    width: 350px;
+    height: 325px;
+    top: 207px;
+    left: 21px;
+    border-radius: 12px;
+}
+.mainLogoR {
+    color: white;
+    text-shadow: black -0.18em 0.15em;
+    font-size: 53px;
+    /* padding: 23px; */
+    position: absolute;
+    top: 33px;
+    left: 37px;
+    font-weight: bolder;
+    font-family:-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif
+}
+.logoDivR {
+    color:rgba(24, 124, 100, 1);
+    font-size: 17px;
+    padding: 10px;
+    position: absolute;
+    left: 305px;
+    top:20px;
+    font-weight: bold;
+    text-shadow: white 0.1em 0.6em;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+.greetingDivR {
+    font-size: 18px;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    color:rgb(250, 250, 250);
+    position: absolute;
+    top: 143px;
+    left: 43px;
+    font-weight: bold;
+    font-stretch: semi-condensed;
+}
+.inputMailR {
+    position: absolute;
+    width: 318px ;
+    height: 38px ;
+    left: 43px;
+    top: 250px;
+    background: rgba(160, 160, 160, 0.19);
+    border-radius: 12px;
+    font-size: 16px;
+    align-items: flex-end;
+    color: rgb(65, 65, 65, 0.35);
+    font-family: Arial, Helvetica, sans-serif;
+    border-color: rgba(160, 160, 160, 0);
+}
+.inputPassR {
+    position: absolute;
+    width: 319px;
+    height: 38px;
+    left: 43px;
+    top: 313px;
+    background: rgba(160, 160, 160, 0.19);
+    border-radius: 12px;
+    font-size: 16px;
+    align-items: flex-end;
+    color: rgb(65, 65, 65, 0.35);
+    font-family: Arial, Helvetica, sans-serif;
+    border-color: rgba(160, 160, 160, 0);
+}
+.btnSubmitR {
+    position: absolute;
+    width: 200px;
+    height: 38px;
+    left: 105px;
+    top: 390px;
+    /* background: rgba(35, 157, 128, 0.6); */
+    background:rgba(35, 157, 128, 1);
+    background-color: rgba(9, 117, 72, 0.801);
+    border-radius: 17px;
+    font-size: 17px;
+    align-items: center;
+    color: white;
+    border-color: rgba(35, 157, 129, 0);
+    cursor:pointer;
+}
+.btnGoogleR  {
+    position: absolute;
+    top: 450px;
+    left: 105px;
+}
+.buttonBackHomeR {
+    background-color: rgb(114, 116, 115);
+    position: absolute;
+    width: 200px;
+    height: 38px;
+    left: 105px;
+    top: 485px;
+    border-radius: 17px;
+    border-color: rgba(128, 128, 128, 0);
+    color: rgba(237, 237, 237, 1);
+    font-size: 17px;
+    align-items: center;
+    cursor:pointer;
+}
+.wallDiv {
+    background-color: rgba(36, 35, 35, 0.911);
+    width: 414px;
+    height: 736px;
+    color:rgb(255, 255, 255);
+}
+.mainLogoW {
+    color: white;
+    text-shadow: black -0.18em 0.15em;
+    font-size: 53px;
+    /* padding: 23px; */
+    position: absolute;
+    top: 33px;
+    left: 37px;
+    font-weight: bolder;
+    font-family:-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif
+}
+.logoDivW {
+    color:rgb(9, 117, 41);
+    font-size: 17px;
+    padding: 10px;
+    position: absolute;
+    left: 305px;
+    top:20px;
+    font-weight: bold;
+    text-shadow: white 0.1em 0.6em;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+.wallWelcome {
+    font-size: 18px;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    color:rgb(219, 219, 219);
+    position: absolute;
+    top: 132px;
+    left: 55px;
+    font-weight: bold;
+    font-stretch: semi-condensed;
+    background-color: rgb(240, 240, 240);
+    background-color: rgba(36, 35, 35, 0.144);
+    border-radius: 9px;
+    border-bottom-left-radius: 0px;
+    border-bottom-right-radius: 0px;
+    height: 21px;
+    width: 298px;
+    padding: 10px;
+}
+.postSection {
+    border-radius: 10px;
+    border-top-left-radius: 0px;
+    border-top-right-radius: 0px;
+    border-color: rgba(235, 235, 235, 0.49);
+    background-color: rgb(240, 240, 240);
+    background-color: rgba(36, 35, 35, 0.144);
+    width: 318px;
+    height: 154px;
+    position:absolute;
+    left: 55px;
+    top: 168px;
+}
+.postInput {
+    border-radius: 11px;
+    color: white;
+    font-size: 14px;
+    width: 290px;
+    height: 70px;
+    position: absolute;
+    left: 64.5px;
+    top: 194px;
+    background-color: rgb(240, 240, 240);
+    background-color: rgba(36, 35, 35, 0.144);
+    border-color: rgba(160, 160, 160, 0);
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+.publishBtn {
+    background-color: rgb(240, 240, 240);
+    background-color: rgba(36, 35, 35, 0.144);
+    position: absolute;
+    width: 297px;
+    height: 38px;
+    left: 64.5px;
+    top: 278px;
+    border-radius: 10px;
+    border-color: rgba(189, 188, 188, 0.301);
+    color: rgba(172, 170, 170, 0.89);
+    font-size: 15px;
+    cursor:pointer
+}
+.divPost {
+    width: 322px;
+    color: rgba(68, 67, 67, 0.911);
+    color: white;
+    background-color: rgb(240, 240, 240);
+    background-color: rgba(36, 35, 35, 0.034);
+    border-radius: 5px;
+    font-size: 14px;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+.sharedPost {
+    width: 318px;
+    height: 200px;
+    position: absolute;
+    left: 55px;
+    top: 340px;
+    border-radius: 5px;
+}
+.updateBtn {
+    width: 40px;
+    background:rgba(216, 216, 216, 0.89);
+    border-radius: 9px;
+    align-items: center;
+    color: rgb(61, 61, 61);
+    border-color: rgba(68, 67, 67, 0);
+    cursor:pointer;
+    font-size: 9px;
+}
+.deleteBtn {
+    width: 45px;
+    background:rgba(216, 216, 216, 0.89);
+    border-radius: 9px;
+    align-items: center;
+    color: rgb(61, 61, 61);
+    border-color: rgba(68, 67, 67, 0);
+    cursor:pointer;
+    font-size: 9px;
+}
+.linePost {
+    height: 1px;
+    background-color: rgba(189, 188, 188, 0.301);
+    top: 400px;
+    position: absolute;
+}
+.logoutBtn {
+    position: absolute;
+    width: 108px;
+    height: 30px;
+    left: 270px;
+    top: 655px;
+    background:rgba(35, 157, 128, 1);
+    background:rgba(36, 35, 35, 0);
+    border-radius: 17px;
+    font-size: 12px;
+    align-items: center;
+    color: rgba(172, 170, 170, 0.89);
+    border-color: rgba(189, 188, 188, 0.171);
+    cursor:pointer;
+}
+footer {
+    position: absolute;
+    width: 315px;
+    height: 24px;
+    left: 95px;
+    top: 700px;
+    font-family:Arial, Helvetica, sans-serif;
+    font-style: normal;
+    font-weight: 300;
+    font-size: 12px;
+    color: rgb(9, 117, 41);
+    line-height: 15px;
+    display: flex;
+    align-items: flex-end;
+    text-align: center;
+    font-stretch: expanded;
+}
