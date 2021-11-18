@@ -44,7 +44,7 @@ export const Home = () => {
   buttonRegister.addEventListener('click', () => onNavigate('/Register'));
   buttonLogin.addEventListener('click', () => onNavigate('/Login'));
 
-  HomeDiv.append(buttonRegister, buttonLogin, welcomeDiv, /*lineDiv, lineDiv2, lineDiv3, lineDiv4,*/ oDiv, logoDiv, mainLogo, background);
+  HomeDiv.append(buttonRegister, buttonLogin, welcomeDiv, oDiv, logoDiv, mainLogo, background);
 
   return HomeDiv;
 };

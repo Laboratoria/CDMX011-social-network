@@ -34,6 +34,7 @@ export const Register = () => {
 
   const inputPass = document.createElement('input');
   inputPass.setAttribute('placeholder', 'Contraseña');
+  inputPass.type = 'password';
   inputPass.className = 'inputPassR';
 
   const btnSubmit = document.createElement('button');

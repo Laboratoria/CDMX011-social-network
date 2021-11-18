@@ -4,7 +4,7 @@ import { db } from './firebase.js';
 export const sharePost = (texto) => {
   console.log(texto);
 
-  const text = document.getElementsByClassName('postInput').value;
+  // const text = document.getElementsByClassName('postInput').value;
   db.collection('posts').add({
     texto,
     date: firebase.firestore.FieldValue.serverTimestamp(),
@@ -18,13 +18,25 @@ export const sharePost = (texto) => {
     });
 };
 
-export const obtainPosts = () => db.collection('posts').get();
+export const obtainPosts = () => db.collection('posts').orderBy('date', 'desc');
 
-// export const deletePost = () => {
-//   db.collection('posts').doc('docRef').delete().then(() => {
-//     console.log('Document successfully deleted!');
-//   })
-//     .catch((error) => {
-//       console.error('Error removing document: ', error);
-//     });
+export const deletePost = (id) => {
+  db.collection('posts').doc(id).delete().then(() => {
+    console.log('Document successfully deleted!');
+  })
+    .catch((error) => {
+      console.error('Error removing document: ', error);
+    });
+};
+
+
+
+// const updatePost = (id) => {
+//   const post = doc.data().texto;
+//   const texto = doc.id;
+//   const updates = {
+//     texto,
+//   };
+//   db.ref(`posts/${post}`).updatePost(updates);
+//   console.log(updatePost);
 // };

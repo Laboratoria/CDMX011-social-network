@@ -2,7 +2,7 @@
 /* eslint-disable import/no-cycle */
 import { sharePost } from '../lib/post.js';
 import { onNavigate } from '../main.js';
-import { obtainPosts } from '../lib/post.js';
+import { obtainPosts, deletePost } from '../lib/post.js';
 import { db } from '../lib/firebase.js';
 
 export const Wall = () => {
@@ -56,7 +56,8 @@ export const Wall = () => {
   wallDiv.append(wallWelcome, mainLogoW, logoDivW, postSection, postInput, publishBtn, sharedPost, linePost, logoutBtn);
 
   const visualizePosts = () => {
-    obtainPosts().then((querySnapshot) => {
+    obtainPosts().onSnapshot((querySnapshot) => {
+      sharedPost.innerHTML = '';
       querySnapshot.forEach((doc) => {
         const divPost = document.createElement('div');
         divPost.className = 'divPost';
@@ -66,8 +67,10 @@ export const Wall = () => {
         const deleteBtn = document.createElement('button');
         deleteBtn.className = 'deleteBtn';
         deleteBtn.textContent = 'Eliminar';
+        console.log(doc);
         deleteBtn.addEventListener('click', () => {
-          deletePost(postInput.value);
+          deletePost(doc.id);
+          console.log(doc.id);
         });
         const post = `<p>${doc.data().texto}</p>`;
         divPost.innerHTML = post;
@@ -76,19 +79,6 @@ export const Wall = () => {
     });
   };
   visualizePosts();
-
-  // const updatePost = () => {
-  //   const post = post.value;
-  //   const texto = postInput.value;
-  //   const updates = {
-  //     texto,
-  //   };
-  //   db.ref(`posts/${post}`).updatePost(updates);
-  //   console.log(updatePost);
-  // };
-
-  // const deletePost = {
-  // }
 
   return wallDiv;
 };

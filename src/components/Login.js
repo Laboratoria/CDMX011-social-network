@@ -1,7 +1,7 @@
 /* eslint-disable max-len */
 /* eslint-disable import/no-cycle */
 import { onNavigate } from '../main.js';
-import { loginEmailPass } from '../lib/auth.js';
+import { googleAuth, loginEmailPass } from '../lib/auth.js';
 
 export const Login = () => {
   const loginDiv = document.createElement('div');
@@ -35,6 +35,7 @@ export const Login = () => {
   const inputPass = document.createElement('input');
   inputPass.setAttribute('placeholder', 'Contraseña');
   inputPass.className = 'inputPassL';
+  inputPass.type = 'password';
 
   const btnSubmit = document.createElement('button');
   btnSubmit.className = 'btnSubmitL';
@@ -42,15 +43,14 @@ export const Login = () => {
 
   btnSubmit.addEventListener('click', () => loginEmailPass(inputMail.value, inputPass.value));
 
-  loginDiv.append(formContainerL, mainLogoL, logoDivL, greetingDivL, buttonHome, inputMail, inputPass, btnSubmit);
+  const btnGoogle = document.createElement('button');
+  btnGoogle.className = 'btnGoogle';
+  // btnGoogleR.src = './imagenes/google.png';
+  btnGoogle.textContent = 'Ingresar con Google';
+
+  btnGoogle.addEventListener('click', () => googleAuth());
+
+  loginDiv.append(formContainerL, mainLogoL, logoDivL, greetingDivL, buttonHome, inputMail, inputPass, btnGoogle, btnSubmit);
 
   return loginDiv;
 };
-
-// se llama por el id con queryselector haciendo referencia a su papá
-// const htmlForm = `<form id="formLogin">
-// <input id="email" placeholder="Correo electrónico">
-// <input id="password" placeholder="Contraseña"><button type=></button>
-// </form>`
-
-// loginDiv.innerHTML = htmlForm;
